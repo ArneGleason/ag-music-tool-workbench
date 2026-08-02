@@ -22,9 +22,30 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 # weights. Renaming it would mean a full re-setup and re-download for no
 # functional gain, so the legacy name stays. AMTW_RUNTIME overrides it;
 # VSR_RUNTIME still works for anyone who set it before the rename.
-_RUNTIME_OVERRIDE = os.environ.get("AMTW_RUNTIME") or os.environ.get("VSR_RUNTIME")
-RUNTIME_ROOT = Path(_RUNTIME_OVERRIDE) if _RUNTIME_OVERRIDE \
-    else Path(os.environ["LOCALAPPDATA"]) / "VocalStemRegen"
+#
+# Every candidate is stripped. An environment variable with trailing
+# whitespace prints identically to a clean one and fails every path test built
+# from it -- "C:\...\Local \VocalStemRegen" looks right in an error message and
+# exists nowhere. USERPROFILE is a fallback for the same reason: if
+# LOCALAPPDATA is unusable, the standard location under the profile still is.
+def _env(name: str) -> str:
+    return (os.environ.get(name) or "").strip()
+
+
+_RUNTIME_OVERRIDE = _env("AMTW_RUNTIME") or _env("VSR_RUNTIME")
+if _RUNTIME_OVERRIDE:
+    RUNTIME_ROOT = Path(_RUNTIME_OVERRIDE)
+else:
+    _local = _env("LOCALAPPDATA")
+    if not _local and _env("USERPROFILE"):
+        _local = str(Path(_env("USERPROFILE")) / "AppData" / "Local")
+    _candidate = Path(_local) / "VocalStemRegen" if _local else None
+    if _candidate is None or not _candidate.exists():
+        _alt = (Path(_env("USERPROFILE")) / "AppData" / "Local" / "VocalStemRegen"
+                if _env("USERPROFILE") else None)
+        if _alt is not None and _alt.exists():
+            _candidate = _alt
+    RUNTIME_ROOT = _candidate or Path(_local or ".") / "VocalStemRegen"
 
 VENVS = RUNTIME_ROOT / "venvs"
 THIRD_PARTY = RUNTIME_ROOT / "third_party"
