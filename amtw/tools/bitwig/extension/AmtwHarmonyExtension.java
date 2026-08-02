@@ -153,6 +153,10 @@ public class AmtwHarmonyExtension extends ControllerExtension
       in.registerMethod("/amtw/newClip", ",sis", "put a result in a new clip",
          (source, message) -> newClip(message.getString(0), message.getInt(1),
                                       message.getString(2)));
+      in.registerMethod("/amtw/insertFile", ",s", "drop a MIDI file below this track",
+         (source, message) -> insertBelow(message.getString(0)));
+      in.registerMethod("/amtw/inPlace", ",s", "replace the selected clip's notes",
+         (source, message) -> replaceInPlace(message.getString(0)));
 
       // Never let a busy port kill init. Losing the inbound channel is a
       // degradation; failing to start is the whole control surface gone.
@@ -353,6 +357,62 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private ClipLauncherSlot slot(final int i)
    {
       return (ClipLauncherSlot) mSlots.getItemAt(i);
+   }
+
+   /**
+    * Drop a MIDI file in as a new track directly below the selected one.
+    *
+    * This is the mode that actually fits the user's workflow, and it is also
+    * by far the simplest thing in this file. An InsertionPoint inserts "as if
+    * the user had dragged and dropped", so Bitwig does the whole job: a new
+    * track, in the arranger, with the notes, and crucially WITHOUT copying the
+    * source track's device chain -- duplicating a track to carry seven notes
+    * would clone whatever plugins it hosts.
+    *
+    * Nothing here waits on a cursor to move or a selection to settle, which is
+    * what the clip-launcher path kept failing on.
+    */
+   private void insertBelow(final String midiPath)
+   {
+      try
+      {
+         mTrack.afterTrackInsertionPoint().insertFile(midiPath);
+         mHost.println("amtw: inserted " + midiPath + " below the current track");
+         mHost.showPopupNotification("AMTW: line added on a new track below");
+      }
+      catch (final Exception e)
+      {
+         mHost.errorln("amtw insertFile: " + e);
+         mHost.showPopupNotification("AMTW: could not insert the file - " + e);
+      }
+   }
+
+   /**
+    * Replace the SELECTED clip's notes. Destructive on purpose: the user asked
+    * for a generate-in-place mode, and Bitwig's own undo is the safety net.
+    */
+   private void replaceInPlace(final String notesJson)
+   {
+      try
+      {
+         mClip.clearSteps();
+         int written = 0;
+         final Matcher m = NOTE_RE.matcher(notesJson);
+         while (m.find())
+         {
+            mClip.setStep(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2)),
+                          Math.max(1, Math.min(127, Integer.parseInt(m.group(3)))),
+                          Double.parseDouble(m.group(4)));
+            written++;
+         }
+         mHost.println("amtw: replaced the selected clip with " + written + " notes");
+         mHost.showPopupNotification("AMTW: " + written
+                                     + " notes replaced this clip (Ctrl+Z to undo)");
+      }
+      catch (final Exception e)
+      {
+         mHost.errorln("amtw inPlace: " + e);
+      }
    }
 
    private void send(final String address, final String arg)

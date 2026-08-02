@@ -36,6 +36,7 @@ commands (type and press Enter):
   a          analyse - name the chords in the selected clip
   p          pull the selected clip from Bitwig now
   m <mode>   set the line: smooth | top | bottom
+  o <where>  where results go: newtrack | inplace | launcher
   s          status
   q          quit
 """
@@ -50,6 +51,7 @@ class Bridge:
         self.mode = "smooth"
         self.packets = 0                    # anything at all from the extension
         self.reply_port: int | None = None  # learned from the clip payload
+        self.output = "newtrack"           # newtrack | inplace | launcher
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._out = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._cmds: queue.Queue[str] = queue.Queue()
@@ -132,12 +134,54 @@ class Bridge:
 
         self.log(f"  reduce[{mode}]: {len(self.notes)} -> {len(picks)} notes, "
                  f"mean leap {stats['mean_leap']}")
-        self.send("/amtw/newClip", f"{mode} line",
-                  max(1, int(round(length_beats))), json.dumps(out))
+
+        if self.output == "newtrack":
+            path = self._write_midi(picks, f"{mode} line")
+            self.log(f"  wrote {path}")
+            self.send("/amtw/insertFile", str(path))
+        elif self.output == "inplace":
+            self.send("/amtw/inPlace", json.dumps(out))
+        else:
+            self.send("/amtw/newClip", f"{mode} line",
+                      max(1, int(round(length_beats))), json.dumps(out))
+
         pct = (100 * stats["steps_or_less"] / stats["total_moves"]
                if stats["total_moves"] else 100)
         self.notify(f"{mode} line: {len(picks)} notes, mean leap "
                     f"{stats['mean_leap']} semitones, {pct:.0f}% stepwise")
+
+    def _write_midi(self, picks, name: str):
+        """A one-track MIDI file for Bitwig to import as a new track.
+
+        Positions are kept exactly as they came out of the clip, so dropping
+        the file in lines the notes up with the bars they were reduced from --
+        assuming Bitwig places an inserted file at the start of the timeline.
+        That is the one part of this route I cannot verify from here.
+        """
+        import mido
+
+        from ...core.paths import OUTPUT_DIR
+
+        out_dir = OUTPUT_DIR / "bitwig"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        path = out_dir / f"{name.replace(' ', '_')}.mid"
+
+        mf = mido.MidiFile(type=1, ticks_per_beat=PPQ)
+        tr = mido.MidiTrack()
+        tr.append(mido.MetaMessage("track_name", name=name, time=0))
+        events = []
+        for p in picks:
+            events.append((int(p.start), 1, p.pitch, p.velocity))
+            events.append((int(p.end), 0, p.pitch, 0))
+        events.sort(key=lambda e: (e[0], e[1]))     # offs before ons at a tick
+        prev = 0
+        for at, on, pitch, vel in events:
+            tr.append(mido.Message("note_on" if on else "note_off", note=pitch,
+                                   velocity=vel, time=max(0, at - prev)))
+            prev = at
+        mf.tracks.append(tr)
+        mf.save(str(path))
+        return path
 
     def on_analyse(self, _arg: str = "") -> None:
         """Name the chords in the clip, in order.
@@ -253,6 +297,13 @@ class Bridge:
             return False
         if head in ("?", "h", "help"):
             self.log(HELP)
+        elif head in ("o", "out", "output"):
+            want = rest.strip().lower()
+            if want in ("newtrack", "inplace", "launcher"):
+                self.output = want
+                self.log(f"  output = {self.output}")
+            else:
+                self.log("  output must be newtrack, inplace or launcher")
         elif head in ("m", "mode"):
             want = rest.strip().lower()
             if want in ("smooth", "top", "bottom"):
@@ -273,7 +324,7 @@ class Bridge:
                 self.on_analyse()
         elif head in ("s", "status"):
             self.log(f"  mode={self.mode}  notes held={len(self.notes)}"
-                     f"  clip seen={self.clip_seen}"
+                     f"  out={self.output}  clip seen={self.clip_seen}"
                      f"  packets from extension={self.packets}")
         else:
             self.log(f"  unknown command {cmd!r} - type ? for help")
