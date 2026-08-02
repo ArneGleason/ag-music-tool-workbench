@@ -71,6 +71,10 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private static final int GRID_STEPS = 128;
    private static final int GRID_KEYS = 128;
 
+   /** Clip launcher slots the cursor track exposes. Must be > 0 or there is no
+    *  slot bank at all. */
+   private static final int SCENES = 8;
+
    /** The bridge's note payload. A JSON library would be a dependency for one
     *  fixed shape that this repo produces itself; a scanner over a known
     *  format is smaller than the argument for adding one. */
@@ -111,6 +115,23 @@ public class AmtwHarmonyExtension extends ControllerExtension
 
    @Override
    public void init()
+   {
+      // Backstop. Bitwig kills the whole control surface if init() throws, and
+      // the user then gets "AMTW Harmony Bridge crashed" with no working tool
+      // and no obvious next step. Whatever fails in here, the extension should
+      // load and say what it lost.
+      try
+      {
+         setup();
+      }
+      catch (final Exception e)
+      {
+         mHost.errorln("amtw: init failed: " + e);
+         mHost.showPopupNotification("AMTW: startup problem - see the controller console");
+      }
+   }
+
+   private void setup()
    {
       final OscModule osc = mHost.getOscModule();
 
@@ -189,14 +210,33 @@ public class AmtwHarmonyExtension extends ControllerExtension
       mClip.getPlayStart().markInterested();
       mClip.getLoopLength().markInterested();
 
-      mTrack = mHost.createCursorTrack(0, 0);
-      mSlots = mTrack.clipLauncherSlotBank();
-      // Casts because ecj sees Bank.getItemAt() erased to ObjectProxy: it is
-      // reading the API classes from a directory (Bitwig's JRE has no
-      // jdk.zipfs, so a jar classpath is unreadable) and loses the generic
-      // bound. The runtime type is correct; only the compiler needs telling.
-      for (int i = 0; i < mSlots.getSizeOfBank(); i++)
-         slot(i).hasContent().markInterested();
+      // createCursorTrack(numSends, numScenes). numScenes was 0, which gives a
+      // track with NO clip launcher slots -- clipLauncherSlotBank() then
+      // returned null and init() died on the first getItemAt with
+      // "Cannot invoke ClipLauncherSlot... because this.mSlots is null",
+      // taking the whole control surface down before it ever sent a clip.
+      // 8 scenes is enough to find an empty slot to write a result into.
+      // Anything optional is guarded. Writing results back is a feature;
+      // reading the clip is the point. If the slot bank cannot be set up, the
+      // extension should lose the ability to write and keep everything else,
+      // not refuse to start.
+      try
+      {
+         mTrack = mHost.createCursorTrack(0, SCENES);
+         mSlots = mTrack.clipLauncherSlotBank();
+         // Casts because ecj sees Bank.getItemAt() erased to ObjectProxy: it
+         // is reading the API classes from a directory (Bitwig's JRE has no
+         // jdk.zipfs, so a jar classpath is unreadable) and loses the generic
+         // bound. The runtime type is correct; only the compiler needs telling.
+         for (int i = 0; i < mSlots.getSizeOfBank(); i++)
+            slot(i).hasContent().markInterested();
+      }
+      catch (final Exception e)
+      {
+         mSlots = null;
+         mHost.errorln("amtw: no clip launcher slots (" + e
+                       + ") - analysis works, writing results does not");
+      }
 
       // The buttons live in the document state, so they appear in the panel
       // beside the project rather than buried in application preferences —
@@ -326,6 +366,12 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private void newClip(final String name, final int lengthBeats,
                         final String notesJson)
    {
+      if (mSlots == null)
+      {
+         mHost.showPopupNotification(
+            "AMTW: no clip launcher slots on this track - cannot write a result");
+         return;
+      }
       try
       {
          int idx = -1;
