@@ -29,6 +29,17 @@ session finds out what moved.
   a roman-numeral row that rewrites itself from readings you pin. The lens
   selector (most complete / rooted on the bass / root must be sounding /
   functional in the tonic) **reorders** readings and never removes one.
+- **Soundfont rendering, and the bar-slicing bug it exposed.** `write_slice`
+  kept every meta message regardless of position, so with 637 tempo events in
+  the file an 8-bar span rendered as **170 seconds of mostly silence** instead
+  of 30. Tempo, time signature and key are now handled as *state* — whatever
+  is in force at the start is emitted once at tick 0, changes inside the window
+  are kept, everything after the end is dropped. Notes are paired with their
+  releases first, so a note lying wholly outside the window is dropped rather
+  than leaving a note-on the synth hangs on, and note-offs sort before note-ons
+  at the same tick so a repeated pitch retriggers. `--stack` now renders
+  through FluidSynth too; it previously fell back to the built-in synth exactly
+  when you were comparing.
 - **`harm-render`** — renders a bar range to wav, one file per voice-set, so
   the analysis becomes something you can hear and hand to `ab`. Uses FluidSynth
   and a soundfont from the runtime root when present; otherwise a built-in

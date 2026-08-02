@@ -198,23 +198,91 @@ def render_fluidsynth(midi: Path, out: Path, soundfont: Path,
     return True
 
 
-def write_slice(src: Path, out_midi: Path, t0_tick: int, t1_tick: int) -> None:
-    """A new MIDI file holding only the chosen bar span, tempo map intact."""
+STATE_META = ("set_tempo", "time_signature", "key_signature")
+
+
+def write_slice(src: Path, out_midi: Path, t0_tick: int, t1_tick: int,
+                tracks: list[int] | None = None) -> None:
+    """A new MIDI file holding only the chosen bar span.
+
+    The naive version of this — "keep every meta message, keep notes inside the
+    window" — silently produced a 170-second render of a 29-second span. With
+    637 tempo events spread across the file, keeping all of them re-inserted
+    the whole timeline's worth of tempo changes into an 8-bar slice.
+
+    So state-carrying meta (tempo, time signature, key) is handled as *state*:
+    whatever was in force at t0 is emitted once at tick 0, changes inside the
+    window are kept in place, and everything after t1 is dropped. Notes already
+    sounding at t0 start at 0; notes still held at t1 are closed there.
+    """
     mf = mido.MidiFile(str(src))
     new = mido.MidiFile(type=1, ticks_per_beat=mf.ticks_per_beat)
-    for tr in mf.tracks:
-        keep = mido.MidiTrack()
-        t, last = 0, 0
+    keep_tracks = set(tracks) if tracks is not None else None
+
+    for idx, tr in enumerate(mf.tracks):
+        out = mido.MidiTrack()
+        events: list[tuple[int, mido.Message | mido.MetaMessage]] = []
+        in_force: dict[str, object] = {}
+        muted = keep_tracks is not None and idx not in keep_tracks
+
+        # pass 1: absolute times, and pair note-ons with their note-offs, so a
+        # note can be judged by its whole span rather than by its start alone.
+        # (A note that both starts AND ends before the window must be dropped
+        # entirely; clipping only its start leaves a note-on that never closes
+        # and the synth hangs on it.)
+        t = 0
+        timed: list[tuple[int, object]] = []
+        pending: dict[tuple[int, int], tuple[int, object]] = {}
+        pairs: list[tuple[int, int, object]] = []
         for m in tr:
             t += m.time
-            if m.is_meta or t <= t1_tick:
-                # meta (tempo, time sig) is kept from the top so the slice
-                # inherits the map it was written against
-                if m.is_meta or t >= t0_tick:
-                    msg = m.copy(time=max(0, t - max(last, t0_tick)))
-                    keep.append(msg)
-                    last = max(t, t0_tick)
-        new.tracks.append(keep)
+            if m.is_meta:
+                timed.append((t, m))
+            elif m.type == "note_on" and m.velocity > 0:
+                pending[(m.channel, m.note)] = (t, m)
+            elif m.type == "note_off" or (m.type == "note_on" and m.velocity == 0):
+                got = pending.pop((m.channel, m.note), None)
+                if got:
+                    pairs.append((got[0], t, got[1]))
+            else:
+                timed.append((t, m))
+        for (ch, note), (start, msg) in pending.items():   # never released
+            pairs.append((start, t, msg))
+
+        # pass 2: keep what belongs to the window
+        for at, m in timed:
+            if m.is_meta:
+                if m.type in STATE_META:
+                    if at <= t0_tick:
+                        in_force[m.type] = m               # latest in force wins
+                    elif at <= t1_tick:
+                        events.append((at, m))
+                elif t0_tick <= at <= t1_tick and m.type != "end_of_track":
+                    events.append((at, m))
+            elif not muted and t0_tick <= at <= t1_tick:
+                events.append((at, m))
+
+        if not muted:
+            for start, end, msg in pairs:
+                if end <= t0_tick or start >= t1_tick:     # wholly outside
+                    continue
+                events.append((max(start, t0_tick), msg))
+                events.append((min(end, t1_tick),
+                               mido.Message("note_off", channel=msg.channel,
+                                            note=msg.note, velocity=0)))
+
+        for m in in_force.values():
+            out.append(m.copy(time=0))
+        # note-offs before note-ons at the same tick, so a repeated pitch is
+        # retriggered rather than cut short by its predecessor's release
+        events.sort(key=lambda e: (e[0], 0 if getattr(e[1], "type", "") == "note_off" else 1))
+        prev = t0_tick
+        for at, m in events:
+            at = max(at, t0_tick)
+            out.append(m.copy(time=max(0, at - prev)))
+            prev = at
+        new.tracks.append(out)
+
     new.save(str(out_midi))
 
 
@@ -233,9 +301,9 @@ def render(src: Path, out_wav: Path, bar_lo: int, bar_hi: int,
 
     sf = find_soundfont(soundfont)
     exe = find_fluidsynth()
-    if sf and exe and tracks is None:
+    if sf and exe:
         tmp = out_wav.with_suffix(".slice.mid")
-        write_slice(src, tmp, lo * bar_ticks, hi * bar_ticks)
+        write_slice(src, tmp, lo * bar_ticks, hi * bar_ticks, tracks)
         if render_fluidsynth(tmp, out_wav, sf):
             tmp.unlink(missing_ok=True)
             log(f"  rendered with fluidsynth + {sf.name}")

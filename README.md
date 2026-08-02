@@ -52,6 +52,12 @@ Everything is runnable by hand too; the UI just builds these command lines:
 | | `harm-map` | interactive page of every reading and every key, with a lens switch |
 | | `harm-render` | render a bar range to audio, one file per voice-set, for A/B |
 
+`harm-render` sounds better with a real instrument. Drop any `.sf2` into
+`%LOCALAPPDATA%\VocalStemRegen\soundfonts\` and a FluidSynth build into
+`…\fluidsynth\`, and it will find them; `amtw doctor` reports both. Without
+them it uses a built-in synth, which is fine for checking a reading and not
+for judging a mix.
+
 ## Vocal stem restoration
 
 A separated AI-generated vocal is degraded twice: by the generation and by
