@@ -40,6 +40,13 @@
   .rd.chosen { background:rgba(229,178,60,.14); border-color:var(--pick);
                color:var(--pick); }
   .rd .sub { color:var(--faint); font-size:10px; }
+  .rd { display:flex; align-items:center; gap:5px; }
+  .rd .txt { flex:1; overflow:hidden; text-overflow:ellipsis; }
+  .play { border:0; background:transparent; color:var(--faint); cursor:pointer;
+          font-size:11px; padding:0 2px; line-height:1; border-radius:3px; }
+  .play:hover { color:var(--pick); background:rgba(229,178,60,.12); }
+  .play.on { color:var(--pick); }
+  .barhead .play { font-size:12px; }
   .pcs { font-size:11px; color:var(--dim); text-align:center;
          border-top:1px solid var(--line); padding-top:5px; }
   .rn { text-align:center; font-size:12px; color:var(--pick); padding:3px 0; }
@@ -90,6 +97,7 @@
     <span><i class="sw" style="background:var(--pick)"></i>the reading in play</span>
     <span><span class="fork">⑂</span> more than one root explains the bar equally well</span>
     <span><i class="sw" style="border-left:3px solid var(--dim);background:transparent"></i>rooted on the bass</span>
+    <span>▶ on a bar = as played · ▶ on a reading = that chord voiced</span>
   </div>
 
   <div class="detail" id="detail"></div>
@@ -114,6 +122,25 @@ const ROMAN = ["I","bII","II","bIII","III","IV","#IV","V","bVI","VI","bVII","VII
 
 const picks = {};                       // bar -> reading name
 let tonic = DATA.tonic || "C";
+
+/* one player, so clicking a second thing stops the first — auditioning two
+   readings against each other only works if they don't pile up */
+let audio = null, playingBtn = null;
+function play(uri, btn){
+  if (audio){ audio.pause(); }
+  if (playingBtn){ playingBtn.classList.remove("on"); playingBtn.textContent = "▶"; }
+  if (playingBtn === btn){ audio = null; playingBtn = null; return; }  // toggle off
+  audio = new Audio(uri);
+  playingBtn = btn;
+  btn.classList.add("on"); btn.textContent = "■";
+  audio.onended = () => {
+    btn.classList.remove("on"); btn.textContent = "▶";
+    if (playingBtn === btn){ audio = null; playingBtn = null; }
+  };
+  audio.play().catch(() => {
+    btn.classList.remove("on"); btn.textContent = "▶";
+  });
+}
 
 function pc(n){ const a={"A#":"Bb","D#":"Eb","G#":"Ab","Db":"C#","Gb":"F#"};
   return PCS.indexOf(a[n]||n); }
@@ -173,11 +200,21 @@ function render(){
     return d;
   };
 
-  /* bar numbers */
+  /* bar numbers, each with a play button for the bar as actually played */
   add("", "rowlab");
-  DATA.bars.forEach(b => add(
-    `<span class="n">bar ${b.bar}</span>${b.forked?' <span class="fork">⑂</span>':""}`,
-    "barhead"));
+  DATA.bars.forEach(b => {
+    const head = add(
+      `<span class="n">bar ${b.bar}</span>${b.forked?' <span class="fork">⑂</span>':""}`,
+      "barhead");
+    if (b.audio){
+      const p = document.createElement("button");
+      p.className = "play"; p.textContent = "▶";
+      p.title = "hear this bar as played";
+      p.onclick = e => { e.stopPropagation(); play(b.audio, p); };
+      head.appendChild(document.createTextNode(" "));
+      head.appendChild(p);
+    }
+  });
 
   /* readings */
   add("readings", "rowlab");
@@ -191,16 +228,29 @@ function render(){
       const bits = [];
       if (rd.leftover.length) bits.push("+"+rd.leftover.join(""));
       if (!rd.root_sounding) bits.push("rootless");
-      el.innerHTML = rd.label.split(" ")[0] +
+      const txt = document.createElement("span");
+      txt.className = "txt";
+      txt.innerHTML = rd.label.split(" ")[0] +
         (bits.length ? ` <span class="sub">${bits.join(" ")}</span>` : "");
+      el.appendChild(txt);
       el.title = `${rd.label} — explains ${rd.explains} of ${b.pitches.length}`
         + (rd.bass_root ? ", rooted on the bass" : "")
         + (rd.missing.length ? `, no ${rd.missing.join(" ")}` : "");
-      el.onclick = () => {
+      /* the chip body pins; the ▶ auditions. Hearing two readings of the same
+         bar back to back is the whole argument, so it must not require
+         committing to either. */
+      txt.onclick = () => {
         picks[b.bar] = (picks[b.bar] === rd.name) ? undefined : rd.name;
         if (!picks[b.bar]) delete picks[b.bar];
         showDetail(b, rd); render();
       };
+      if (rd.audio){
+        const p = document.createElement("button");
+        p.className = "play"; p.textContent = "▶";
+        p.title = `hear ${rd.name} voiced as a chord`;
+        p.onclick = e => { e.stopPropagation(); play(rd.audio, p); };
+        el.appendChild(p);
+      }
       cell.appendChild(el);
     });
   });

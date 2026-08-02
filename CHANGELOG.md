@@ -29,6 +29,18 @@ session finds out what moved.
   a roman-numeral row that rewrites itself from readings you pin. The lens
   selector (most complete / rooted on the bass / root must be sounding /
   functional in the tonic) **reorders** readings and never removes one.
+- **The map can be heard.** `harm-map` now embeds two kinds of clip as base64
+  data URIs, so the page stays one portable file: a **bar clip** (the actual
+  notes, sliced with the tempo map intact — the passage as played) and a
+  **reading clip** per interpretation (that chord voiced plainly). Clicking ▶
+  on `Gm7/C` and then on `C11` plays two different chords built from the same
+  sounding notes, which is the argument the whole tool exists to have. The chip
+  body still pins; only ▶ auditions, so comparing two readings never requires
+  committing to either. One player at a time — a second click stops the first.
+  Clips are loudness-matched (`loudnorm -18 LUFS`) because a fixed-velocity
+  block chord lands ~20 dB under a played bar, and A/B-ing across a level
+  difference measures the level. Needs fluidsynth, a soundfont and ffmpeg;
+  without them the page builds silently as before. `--no-audio` skips it.
 - **Soundfont rendering, and the bar-slicing bug it exposed.** `write_slice`
   kept every meta message regardless of position, so with 637 tempo events in
   the file an 8-bar span rendered as **170 seconds of mostly silence** instead

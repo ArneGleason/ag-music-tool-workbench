@@ -245,6 +245,18 @@ def run_map(args: argparse.Namespace) -> int:
         print("nothing to map in that range", file=sys.stderr)
         return 2
 
+    audio_note = ""
+    if not args.no_audio:
+        from . import clips
+
+        made, size = clips.build(src, out_rows, bar_ticks, args.voices or None,
+                                 args.soundfont)
+        if made:
+            audio_note = f" · {made} clips embedded ({size // 1024} KB)"
+        else:
+            print("no audio embedded — needs fluidsynth, a soundfont and ffmpeg; "
+                  "see `amtw doctor`")
+
     span = f"bars {out_rows[0]['bar']}-{out_rows[-1]['bar']}"
     bpm = ""
     if meta["tempo_events"]:
@@ -254,7 +266,7 @@ def run_map(args: argparse.Namespace) -> int:
         "title": src.stem,
         "subtitle": (f"{span} · {len(voices)} voice(s): "
                      + ", ".join(v.label for v in voices)
-                     + f" · {meta['time_signature']}{bpm}"),
+                     + f" · {meta['time_signature']}{bpm}{audio_note}"),
         "tonic": args.tonic or "C",
         "bars": out_rows,
     }
@@ -356,6 +368,11 @@ MAP = Tool(
          "four readings stay on the page. Click a reading to pin it and the "
          "roman-numeral row rewrites from your picks.",
     fields=_SHARED + [
+        Field("soundfont", "Soundfont", "file", flag="--soundfont",
+              accept=["sf2", "sf3"], advanced=True,
+              help="blank = the first one found in the runtime root"),
+        Field("no_audio", "Skip the audio clips", "bool", flag="--no-audio",
+              advanced=True, help="faster, and a much smaller page"),
         Field("out", "Output HTML", "text", flag="--out", advanced=True),
         Field("no_open", "Don't open a browser", "bool", flag="--no-open",
               advanced=True),
