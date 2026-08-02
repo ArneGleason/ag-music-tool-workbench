@@ -44,7 +44,19 @@ public class AmtwHarmonyExtension extends ControllerExtension
 {
    private static final String HOST = "127.0.0.1";
    private static final int SEND_PORT = 8732;      // workbench listens here
-   private static final int RECV_PORT = 8733;      // we listen here
+
+   /** First port we try to listen on, and how many to try after it.
+    *
+    * OscServer exposes start(int) and nothing else -- there is no close. So a
+    * server bound by one instance of this extension stays bound for the life
+    * of the Bitwig process, and REMOVING AND RE-ADDING THE CONTROLLER made
+    * every later instance die in init() with BindException, taking the whole
+    * control surface with it. Restarting Bitwig was the only cure.
+    *
+    * So take the next free port instead, and tell the workbench which one it
+    * was. The bridge sweeps the same range, so it finds us wherever we land. */
+   private static final int RECV_PORT_BASE = 8733;
+   private static final int RECV_PORT_TRIES = 10;
    private static final int SETTLE_MS = 250;
    private static final int TICK_MS = 100;
 
@@ -82,6 +94,7 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private long mLastChange = 0;
    private boolean mConnected = false;
    private boolean mLoggedStates = false;
+   private int mInPort = -1;                   // the port we actually got
 
    /** (x<<16|y) -> {x, y, velocity, duration}, kept up to date by the note
     *  step observer so a send never has to read the clip back. */
@@ -118,7 +131,28 @@ public class AmtwHarmonyExtension extends ControllerExtension
       in.registerMethod("/amtw/newClip", ",sis", "put a result in a new clip",
          (source, message) -> newClip(message.getString(0), message.getInt(1),
                                       message.getString(2)));
-      osc.createUdpServer(RECV_PORT, in);
+
+      // Never let a busy port kill init. Losing the inbound channel is a
+      // degradation; failing to start is the whole control surface gone.
+      for (int i = 0; i < RECV_PORT_TRIES; i++)
+      {
+         final int port = RECV_PORT_BASE + i;
+         try
+         {
+            osc.createUdpServer(port, in);
+            mInPort = port;
+            break;
+         }
+         catch (final Exception e)
+         {
+            // in use, almost always by a previous instance of this extension
+            // in this same Bitwig process; try the next one
+         }
+      }
+      if (mInPort < 0)
+         mHost.errorln("amtw: no free port in " + RECV_PORT_BASE + "-"
+                       + (RECV_PORT_BASE + RECV_PORT_TRIES - 1)
+                       + "; the workbench cannot send results back");
 
       // outbound
       final OscAddressSpace out = osc.createAddressSpace();
@@ -195,7 +229,8 @@ public class AmtwHarmonyExtension extends ControllerExtension
 
       mHost.scheduleTask(this::tick, TICK_MS);
       mHost.println("amtw harmony bridge ready (out " + SEND_PORT
-                    + ", in " + RECV_PORT + ")");
+                    + ", in " + (mInPort < 0 ? "NONE" : String.valueOf(mInPort))
+                    + ")");
    }
 
    /** Poll for settled edits. Cheap, and keeps all clip reads on Bitwig's
@@ -237,7 +272,10 @@ public class AmtwHarmonyExtension extends ControllerExtension
       }
 
       final StringBuilder sb = new StringBuilder(64 + notes.size() * 40);
-      sb.append("{\"stepSize\":0.25,\"steps\":").append(GRID_STEPS)
+      // inPort travels with every clip so the workbench always knows where to
+      // reply, even if we landed on a fallback port
+      sb.append("{\"inPort\":").append(mInPort)
+        .append(",\"stepSize\":0.25,\"steps\":").append(GRID_STEPS)
         .append(",\"notes\":[");
       for (int i = 0; i < notes.size(); i++)
       {

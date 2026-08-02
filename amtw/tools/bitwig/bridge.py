@@ -22,7 +22,8 @@ import time
 from . import osc
 
 RECV_PORT = 8732        # the extension sends here
-SEND_PORT = 8733        # the extension listens here
+SEND_PORT = 8733        # where the extension listens, if it got its first choice
+SEND_PORT_TRIES = 10    # ...and the range it falls back through
 HOST = "127.0.0.1"
 
 PPQ = 480               # analysis tick resolution
@@ -47,6 +48,7 @@ class Bridge:
         self.clip_seen = False
         self.mode = "smooth"
         self.packets = 0                    # anything at all from the extension
+        self.reply_port: int | None = None  # learned from the clip payload
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._out = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._cmds: queue.Queue[str] = queue.Queue()
@@ -54,8 +56,22 @@ class Bridge:
     # -- talking back -------------------------------------------------------
 
     def send(self, address: str, *args) -> None:
+        """Send to the extension, sweeping the port range until it identifies itself.
+
+        Bitwig's OscServer cannot be closed, so an extension instance holds its
+        port for the life of the Bitwig process. Removing and re-adding the
+        controller therefore lands the new instance on 8734, 8735 and so on.
+        Until a clip arrives telling us which, every candidate gets the message
+        — ten localhost datagrams, and it means the bridge works without the
+        user having to know any of that happened.
+        """
         try:
-            self._out.sendto(osc.encode(address, *args), (HOST, SEND_PORT))
+            data = osc.encode(address, *args)
+            if self.reply_port:
+                self._out.sendto(data, (HOST, self.reply_port))
+            else:
+                for i in range(SEND_PORT_TRIES):
+                    self._out.sendto(data, (HOST, SEND_PORT + i))
         except OSError as e:
             self.log(f"  send failed: {e}")
 
@@ -74,6 +90,12 @@ class Bridge:
 
     def on_clip(self, payload: str) -> None:
         data = json.loads(payload)
+        port = data.get("inPort")
+        if isinstance(port, int) and port > 0 and port != self.reply_port:
+            self.reply_port = port
+            if port != SEND_PORT:
+                self.log(f"  extension is listening on {port} "
+                         f"(not {SEND_PORT}) - replies will go there")
         self.step_size = float(data.get("stepSize", 0.25))
         ticks_per_step = self.step_size * PPQ
         self.notes = [
