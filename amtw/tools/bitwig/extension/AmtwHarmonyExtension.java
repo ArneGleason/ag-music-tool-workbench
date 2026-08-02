@@ -82,7 +82,8 @@ public class AmtwHarmonyExtension extends ControllerExtension
       "\\{\"x\":(-?\\d+),\"y\":(-?\\d+),\"vel\":(-?\\d+),\"dur\":(-?[\\d.]+)\\}");
 
    private ControllerHost mHost;
-   private Clip mClip;
+   private Clip mClip;              // arranger: what you SELECTED, read only
+   private Clip mLauncherClip;      // launcher: what we CREATE, written to
    private OscConnection mOut;
    private CursorTrack mTrack;
    private ClipLauncherSlotBank mSlots;
@@ -209,6 +210,16 @@ public class AmtwHarmonyExtension extends ControllerExtension
       });
       mClip.getPlayStart().markInterested();
       mClip.getLoopLength().markInterested();
+
+      // A SECOND cursor clip, following the launcher.
+      //
+      // Results were being written through mClip, which follows the ARRANGER
+      // selection -- i.e. the chord clip being read. Selecting a launcher slot
+      // does not move it, so the new clip came out empty and the notes went
+      // into the source instead. Reading and writing are different cursors and
+      // have to be different objects.
+      mLauncherClip = mHost.createLauncherCursorClip(GRID_STEPS, GRID_KEYS);
+      mLauncherClip.setStepSize(0.25);
 
       // createCursorTrack(numSends, numScenes). numScenes was 0, which gives a
       // track with NO clip launcher slots -- clipLauncherSlotBank() then
@@ -427,12 +438,13 @@ public class AmtwHarmonyExtension extends ControllerExtension
       mHost.showPopupNotification("AMTW: " + written + " notes in a new clip");
    }
 
+   /** Always the launcher clip: writes must never land in what was read. */
    private void setStep(final int x, final int y, final int velocity,
                         final double duration)
    {
       try
       {
-         mClip.setStep(x, y, Math.max(1, Math.min(127, velocity)), duration);
+         mLauncherClip.setStep(x, y, Math.max(1, Math.min(127, velocity)), duration);
       }
       catch (final Exception e)
       {
@@ -444,7 +456,7 @@ public class AmtwHarmonyExtension extends ControllerExtension
    {
       try
       {
-         mClip.clearStep(x, y);
+         mLauncherClip.clearStep(x, y);
       }
       catch (final Exception e)
       {
