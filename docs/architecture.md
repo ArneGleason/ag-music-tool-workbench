@@ -2,16 +2,19 @@
 
 ## The two-folder split
 
-**The project folder** (this repo) holds code, `input/`, and `output/` job dirs.
-It is OneDrive-synced on the author's machine.
+**The project folder** (this repo) holds code, plus `input/` and `output/` job
+dirs — both gitignored, because `output/` reaches several GB.
 
 **The runtime root** — `%LOCALAPPDATA%\VocalStemRegen` — holds everything heavy
 and regenerable: virtualenvs, model checkpoints, third-party clones, the
 HuggingFace cache. Override with `AMTW_RUNTIME`.
 
-This split is load-bearing, not tidiness. Model weights are gigabytes, and a
-sync client trying to upload them mid-install locks files and corrupts venvs.
-**Never write weights or working audio into the project folder.**
+This split is load-bearing, not tidiness. Model weights are gigabytes: they must
+not be committed, and they must not sit anywhere a sync client will try to
+upload them mid-install, which locks files and corrupts venvs. (This repo lived
+in OneDrive until 2026-08-02 for exactly that reason — the split predates the
+move and still applies.) **Never write weights or working audio into the
+project folder.**
 
 The runtime folder kept its old `VocalStemRegen` name through the rename to
 `amtw`, because four venvs have their absolute paths baked into their own

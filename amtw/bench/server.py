@@ -344,12 +344,49 @@ def _make_handler():
     return Handler
 
 
+class _Server(ThreadingHTTPServer):
+    # Default is on, which on Windows lets a SECOND workbench bind the same
+    # port instead of failing. Two servers then answer unpredictably and the
+    # page goes stale -- indistinguishable, from the outside, from "it broke".
+    # Off means the second start fails loudly and we can handle it below.
+    allow_reuse_address = False
+
+
+def _already_serving(port: int) -> bool:
+    """Is a workbench (not something else) already on this port?"""
+    import urllib.error
+    import urllib.request
+
+    try:
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/catalog", timeout=2) as r:
+            return b'"tools"' in r.read(4096)
+    except (urllib.error.URLError, OSError):
+        return False
+
+
 def serve(port: int = 8730, open_browser: bool = True) -> int:
     for name in ("input", "output"):
         ROOTS[name].mkdir(parents=True, exist_ok=True)
 
-    httpd = ThreadingHTTPServer(("127.0.0.1", port), _make_handler())
     url = f"http://127.0.0.1:{port}/"
+    try:
+        httpd = _Server(("127.0.0.1", port), _make_handler())
+    except OSError as e:
+        # The common case by far: the bench is already open, usually in a
+        # console window minimised out of sight. Closing the browser tab does
+        # not stop the server, so double-clicking Workbench.cmd again lands
+        # here. Reuse it rather than dying with a traceback nobody sees.
+        if _already_serving(port):
+            print(f"workbench already running at {url} — opening that one.")
+            print("(its console window is the server; close that window to stop it)")
+            if open_browser:
+                webbrowser.open(url)
+            return 0
+        print(f"cannot bind port {port}: {e}", file=sys.stderr)
+        print(f"something else is using it — try:  amtw workbench --port {port + 1}",
+              file=sys.stderr)
+        return 1
+
     print(f"AG Music Tool Workbench: {url}")
     print(f"  {len(registry.catalog())} tools · project {PROJECT_ROOT}")
     print("Ctrl+C to stop.")

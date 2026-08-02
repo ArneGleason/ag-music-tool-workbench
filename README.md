@@ -23,7 +23,7 @@ under it.
 .\Workbench.cmd
 ```
 
-`Workbench.cmd` opens a minimised console window — that window *is* the server,
+`Workbench.cmd` opens a console window — that window *is* the server,
 so close it to stop — and the page at <http://127.0.0.1:8730>.
 
 Everything is runnable by hand too; the UI just builds these command lines:

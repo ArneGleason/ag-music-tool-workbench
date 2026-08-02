@@ -28,7 +28,22 @@ session finds out what moved.
   `defizz.py`, so `harmonic`, `detect` and `remod` were importing private
   helpers out of a sibling tool. They are shared vocabulary, not de-fizz's.
 
+### Added
+- **`tests/test_roundtrip.py`** — drives every registered tool through
+  form-values → argv → argparse, checks required fields raise `ValueError`
+  rather than an argparse trace, and checks tool names are unique. Doubles as
+  its own runner, so pytest is not a dependency.
+
 ### Fixed
+- **Starting the workbench twice no longer breaks it.** `allow_reuse_address`
+  is on by default, so on Windows a second instance silently bound the same
+  port and the two answered unpredictably. It is now off, and a failed bind is
+  handled: if a workbench is already there, the browser opens onto it and the
+  second instance exits 0; if something else holds the port, you get the reason
+  and a suggested `--port`.
+- **`Workbench.cmd` no longer starts minimised.** Any startup failure scrolled
+  past inside a hidden window, so a double-click that failed looked identical to
+  one that did nothing.
 - **`detect --marks` now reaches the workbench.** It existed only in the CLI, so
   the bench never offered it — the exact drift the single declaration prevents.
 - **`PROJECT_ROOT` no longer depends on a parent count that a file move can
