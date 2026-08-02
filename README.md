@@ -51,6 +51,9 @@ Everything is runnable by hand too; the UI just builds these command lines:
 | Harmony | `harm-read` | bar-by-bar readings, how many keys still fit, and which voice narrows them |
 | | `harm-map` | interactive page of every reading and every key, with a lens switch |
 | | `harm-render` | render a bar range to audio, one file per voice-set, for A/B |
+| | `harm-reduce` | collapse a chord clip into a single line (top / smooth / bottom) |
+| Bitwig | `bitwig-install` | build and install the control-surface bridge extension |
+| | `bitwig-bridge` | run the workbench end; drives Reduce/Analyse from inside Bitwig |
 
 `harm-render` sounds better with a real instrument. Drop any `.sf2` into
 `%LOCALAPPDATA%\VocalStemRegen\soundfonts\` and a FluidSynth build into

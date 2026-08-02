@@ -66,13 +66,29 @@ def build(out: Path, log=print) -> Path:
         shutil.rmtree(classes)
     classes.mkdir(parents=True)
 
+    # The API classes have to be unpacked to a DIRECTORY, not handed over as a
+    # jar. Bitwig's bundled JRE is jlink-trimmed to 21 modules with no
+    # jdk.zipfs, so ecj cannot mount a jar as a filesystem and dies with
+    # "No provider for uri jar:file:...". Unpacking costs a second and removes
+    # the whole problem.
+    apidir = out.parent / "_api"
+    if not (apidir / "com" / "bitwig" / "extension").exists():
+        if apidir.exists():
+            shutil.rmtree(apidir)
+        apidir.mkdir(parents=True)
+        with zipfile.ZipFile(api) as z:
+            members = [n for n in z.namelist()
+                       if n.startswith("com/bitwig/extension/") and n.endswith(".class")]
+            z.extractall(apidir, members)
+        log(f"  unpacked {len(members)} API classes from {api.name}")
+
     sources = sorted(str(p) for p in SRC.glob("*.java"))
-    log(f"  compiling {len(sources)} source file(s) against {api.name}")
-    # --release 17 rather than the JRE's 25: Bitwig's own API classes are Java 8
-    # bytecode, so targeting the newest runtime buys nothing and only narrows
-    # which Bitwig versions can load the result.
-    cmd = [str(java), "-jar", str(ECJ), "-nowarn", "--release", "17",
-           "-cp", str(api), "-d", str(classes), *sources]
+    log(f"  compiling {len(sources)} source file(s)")
+    # -source/-target 17 rather than --release: --release needs the JDK's
+    # ct.sym, which a JRE does not ship. Bitwig's own API classes are Java 8
+    # bytecode, so 17 is conservative and loads fine on its Java 25 runtime.
+    cmd = [str(java), "-jar", str(ECJ), "-nowarn", "-source", "17", "-target", "17",
+           "-cp", str(apidir), "-d", str(classes), *sources]
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:
         print(r.stdout)

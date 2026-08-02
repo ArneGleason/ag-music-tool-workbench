@@ -10,6 +10,37 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added
+- **Bitwig bridge — the workbench, reachable from inside the DAW.**
+  `bitwig-install` builds and installs a control-surface extension;
+  `bitwig-bridge` runs the workbench end. Select a chord clip in Bitwig, press
+  **Reduce** in the project panel, and the line lands in a NEW clip on the same
+  track and opens in the editor. **Analyse** names the progression in a popup.
+
+  The extension is a transport with no music theory in it — it reads the
+  selected clip, writes notes, shows popups. Everything that knows what a chord
+  is stays in Python, so there is one implementation rather than a Java twin
+  that drifts. The cost is honest: the bridge must be running, and the
+  extension degrades quietly when it is not (one console line, no nagging).
+
+  **No JDK and no Maven fetch.** It compiles with the Eclipse batch compiler
+  running on Bitwig's own bundled `java.exe`, against the 395 API classes
+  already inside `bitwig.jar`. Three constraints found the hard way, all
+  documented at their call sites: Bitwig's JRE is jlink-trimmed to 21 modules
+  with no `jdk.zipfs`, so ecj cannot read a jar classpath and the API is
+  unpacked to a directory first; from a directory ecj loses the `NoteStep$State`
+  nested class and erases `Bank` generics to `ObjectProxy`, so the note-start
+  test compares the enum's name and slot access is cast; and `--release` needs
+  a JDK's `ct.sym`, so it targets `-source/-target 17`.
+
+  Writes always go to a new clip, never in place — rejecting a result should be
+  deleting a clip, not unwinding a batch of `setStep` calls through undo.
+- **`amtw/tools/bitwig/osc.py`** — just enough OSC (address, type tag, s/i/f/d/b)
+  to talk to Bitwig, rather than adding a dependency for one fixed message shape.
+- **`harm-reduce --retrigger`** — re-strike on every chord change instead of
+  holding a common tone across it. On the reference material `smooth` picks the
+  same pitch three bars running, which merges four chords into two notes; held
+  is right for a sustained line, retriggered for articulating harmonic rhythm.
+
 - **`harm-read` — harmonic readout for music written as independent lines.**
   New `Harmony` group. Reads a MIDI file whose tracks are voices and reports,
   per bar, the chord those lines make, *every* major key that still contains

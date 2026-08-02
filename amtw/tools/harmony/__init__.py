@@ -315,7 +315,8 @@ def run_reduce(args: argparse.Namespace) -> int:
         return 2
 
     picks = RED.reduce_line(notes, mode=args.mode, index=args.index,
-                            min_len=args.min_len * meta["ppq"])
+                            min_len=args.min_len * meta["ppq"],
+                            retrigger=args.retrigger)
     stats = RED.describe(picks)
     print(f"{len(notes)} notes in bars {lo}-{hi} -> {stats['notes']} in one line")
     print(f"  range {A.PCS[stats['range'][0] % 12]}{stats['range'][0] // 12 - 1}"
@@ -552,6 +553,9 @@ REDUCE = Tool(
         Field("index", "Nth from the top", "int", flag="--index", default=1,
               min=1, max=8, step=1, advanced=True,
               help="only used when Which line = nth"),
+        Field("retrigger", "One note per chord", "bool", flag="--retrigger",
+              help="re-strike on every chord change instead of holding a "
+                   "common tone across it"),
         Field("min_len", "Drop notes shorter than (beats)", "float",
               flag="--min-len", default=0.0, min=0.0, max=4.0, step=0.05,
               advanced=True),

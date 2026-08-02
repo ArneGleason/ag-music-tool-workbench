@@ -51,7 +51,8 @@ def segments(notes: list[tuple[float, float, int, int]]) -> list[tuple[float, fl
 
 
 def reduce_line(notes: list[tuple[float, float, int, int]], mode: str = "top",
-                index: int = 1, min_len: float = 0.0) -> list[Pick]:
+                index: int = 1, min_len: float = 0.0,
+                retrigger: bool = False) -> list[Pick]:
     """notes = [(start, end, pitch, velocity)] -> one pick per segment."""
     segs = segments(notes)
     picks: list[Pick] = []
@@ -73,15 +74,24 @@ def reduce_line(notes: list[tuple[float, float, int, int]], mode: str = "top",
         picks.append(Pick(a, b, chosen, vel, len(live)))
         prev = chosen
 
-    # merge neighbouring segments that chose the same pitch, so a note held
-    # under a changing chord stays one note instead of being re-struck
-    merged: list[Pick] = []
-    for p in picks:
-        if merged and merged[-1].pitch == p.pitch and merged[-1].end >= p.start:
-            merged[-1].end = p.end
-            merged[-1].n_sounding = max(merged[-1].n_sounding, p.n_sounding)
-        else:
-            merged.append(p)
+    # Merge neighbouring segments that chose the same pitch, so a note held
+    # under changing harmony stays one note instead of being re-struck.
+    #
+    # Whether that is what you want is a musical choice, not a correctness one:
+    # on the reference material `smooth` picks the same pitch for three bars
+    # running, which merges four chords into two notes. Held is right for a
+    # sustained line; `retrigger` is right when you want the line to articulate
+    # the harmonic rhythm.
+    if retrigger:
+        merged = picks
+    else:
+        merged = []
+        for p in picks:
+            if merged and merged[-1].pitch == p.pitch and merged[-1].end >= p.start:
+                merged[-1].end = p.end
+                merged[-1].n_sounding = max(merged[-1].n_sounding, p.n_sounding)
+            else:
+                merged.append(p)
 
     if min_len > 0:
         merged = [p for p in merged if p.end - p.start >= min_len]

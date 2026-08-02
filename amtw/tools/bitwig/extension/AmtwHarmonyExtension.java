@@ -2,6 +2,8 @@ package amtw;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.bitwig.extension.api.opensoundcontrol.OscAddressSpace;
 import com.bitwig.extension.api.opensoundcontrol.OscConnection;
@@ -9,8 +11,14 @@ import com.bitwig.extension.api.opensoundcontrol.OscModule;
 import com.bitwig.extension.controller.ControllerExtension;
 import com.bitwig.extension.controller.ControllerExtensionDefinition;
 import com.bitwig.extension.controller.api.Clip;
+import com.bitwig.extension.controller.api.ClipLauncherSlot;
+import com.bitwig.extension.controller.api.ClipLauncherSlotBank;
 import com.bitwig.extension.controller.api.ControllerHost;
+import com.bitwig.extension.controller.api.CursorTrack;
+import com.bitwig.extension.controller.api.DocumentState;
 import com.bitwig.extension.controller.api.NoteStep;
+import com.bitwig.extension.controller.api.SettableEnumValue;
+import com.bitwig.extension.controller.api.Signal;
 
 /**
  * Sends the selected clip's notes to the workbench, and takes edits back.
@@ -45,9 +53,24 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private static final int GRID_STEPS = 512;
    private static final int GRID_KEYS = 128;
 
+   /** The bridge's note payload. A JSON library would be a dependency for one
+    *  fixed shape that this repo produces itself; a scanner over a known
+    *  format is smaller than the argument for adding one. */
+   private static final Pattern NOTE_RE = Pattern.compile(
+      "\\{\"x\":(-?\\d+),\"y\":(-?\\d+),\"vel\":(-?\\d+),\"dur\":(-?[\\d.]+)\\}");
+
    private ControllerHost mHost;
    private Clip mClip;
    private OscConnection mOut;
+   private CursorTrack mTrack;
+   private ClipLauncherSlotBank mSlots;
+   private SettableEnumValue mMode;
+
+   /** Notes waiting for a freshly-created clip to become the cursor clip.
+    *  Bitwig's API is asynchronous: selecting a slot does not repoint the
+    *  cursor clip in the same call, so writes are deferred a beat. */
+   private String mPendingNotes = null;
+   private int mPendingTries = 0;
 
    private boolean mDirty = false;
    private long mLastChange = 0;
@@ -82,6 +105,9 @@ public class AmtwHarmonyExtension extends ControllerExtension
          (source, message) -> clearStep(message.getInt(0), message.getInt(1)));
       in.registerMethod("/amtw/resend", ",", "send the clip again",
          (source, message) -> { mDirty = true; mLastChange = 0; });
+      in.registerMethod("/amtw/newClip", ",sis", "put a result in a new clip",
+         (source, message) -> newClip(message.getString(0), message.getInt(1),
+                                      message.getString(2)));
       osc.createUdpServer(RECV_PORT, in);
 
       // outbound
@@ -110,6 +136,44 @@ public class AmtwHarmonyExtension extends ControllerExtension
       mClip.getPlayStart().markInterested();
       mClip.getLoopLength().markInterested();
 
+      mTrack = mHost.createCursorTrack(0, 0);
+      mSlots = mTrack.clipLauncherSlotBank();
+      // Casts because ecj sees Bank.getItemAt() erased to ObjectProxy: it is
+      // reading the API classes from a directory (Bitwig's JRE has no
+      // jdk.zipfs, so a jar classpath is unreadable) and loses the generic
+      // bound. The runtime type is correct; only the compiler needs telling.
+      for (int i = 0; i < mSlots.getSizeOfBank(); i++)
+         slot(i).hasContent().markInterested();
+
+      // The buttons live in the document state, so they appear in the panel
+      // beside the project rather than buried in application preferences —
+      // this is a per-clip action, not a setting you configure once.
+      final DocumentState doc = mHost.getDocumentState();
+      mMode = doc.getEnumSetting("Line", "AMTW Harmony",
+                                 new String[] {"smooth", "top", "bottom"},
+                                 "smooth");
+      mMode.markInterested();
+
+      final Signal reduce =
+         doc.getSignalSetting("Reduce chords to one line", "AMTW Harmony",
+                              "Reduce");
+      reduce.addSignalObserver(() -> {
+         if (!mConnected)
+         {
+            mHost.showPopupNotification(
+               "AMTW: workbench not running — start `amtw bitwig-bridge`");
+            return;
+         }
+         send("/amtw/reduce", mMode.get());
+      });
+
+      final Signal analyse =
+         doc.getSignalSetting("What is this chord?", "AMTW Harmony", "Analyse");
+      analyse.addSignalObserver(() -> {
+         if (mConnected) send("/amtw/analyse", "");
+         else mHost.showPopupNotification("AMTW: workbench not running");
+      });
+
       mHost.scheduleTask(this::tick, TICK_MS);
       mHost.println("amtw harmony bridge ready (out " + SEND_PORT
                     + ", in " + RECV_PORT + ")");
@@ -121,8 +185,10 @@ public class AmtwHarmonyExtension extends ControllerExtension
    {
       try
       {
-         if (mDirty && mConnected
-             && System.currentTimeMillis() - mLastChange >= SETTLE_MS)
+         if (mPendingNotes != null && --mPendingTries <= 0)
+            writePending();
+         else if (mDirty && mConnected && mPendingNotes == null
+                  && System.currentTimeMillis() - mLastChange >= SETTLE_MS)
          {
             mDirty = false;
             sendClip();
@@ -200,6 +266,88 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private static String fmt(final double v)
    {
       return String.valueOf(Math.round(v * 1000.0) / 1000.0);
+   }
+
+   private ClipLauncherSlot slot(final int i)
+   {
+      return (ClipLauncherSlot) mSlots.getItemAt(i);
+   }
+
+   private void send(final String address, final String arg)
+   {
+      try
+      {
+         mOut.sendMessage(address, arg);
+      }
+      catch (final Exception e)
+      {
+         mHost.errorln("amtw send: " + e);
+      }
+   }
+
+   /**
+    * Put a result into a NEW clip on the current track, never into yours.
+    *
+    * Rejecting a result should be deleting a clip, not unwinding an edit — a
+    * batch of setStep calls can land as many separate undo steps, so "undo what
+    * the tool just did" would mean holding Ctrl+Z and hoping.
+    */
+   private void newClip(final String name, final int lengthBeats,
+                        final String notesJson)
+   {
+      try
+      {
+         int idx = -1;
+         for (int i = 0; i < mSlots.getSizeOfBank(); i++)
+         {
+            if (!slot(i).hasContent().get())
+            {
+               idx = i;
+               break;
+            }
+         }
+         if (idx < 0)
+         {
+            mHost.showPopupNotification(
+               "AMTW: no empty clip slot on this track — free one and retry");
+            return;
+         }
+
+         final ClipLauncherSlot target = slot(idx);
+         target.createEmptyClip(Math.max(1, lengthBeats));
+         target.select();
+         target.showInEditor();
+
+         // The cursor clip does not repoint within this call — Bitwig applies
+         // the selection asynchronously. Hold the notes and write them a few
+         // ticks later, once the cursor has actually landed on the new clip.
+         mPendingNotes = notesJson;
+         mPendingTries = 6;                      // ~600ms at TICK_MS
+         mHost.println("amtw: created \"" + name + "\" in slot " + (idx + 1));
+      }
+      catch (final Exception e)
+      {
+         mHost.errorln("amtw newClip: " + e);
+      }
+   }
+
+   private void writePending()
+   {
+      final String json = mPendingNotes;
+      mPendingNotes = null;
+      int written = 0;
+      final Matcher m = NOTE_RE.matcher(json);
+      while (m.find())
+      {
+         final int x = Integer.parseInt(m.group(1));
+         final int y = Integer.parseInt(m.group(2));
+         final int vel = Integer.parseInt(m.group(3));
+         final double dur = Double.parseDouble(m.group(4));
+         setStep(x, y, vel, dur);
+         written++;
+      }
+      mHost.println("amtw: wrote " + written + " notes");
+      mHost.showPopupNotification("AMTW: " + written + " notes in a new clip");
    }
 
    private void setStep(final int x, final int y, final int velocity,
