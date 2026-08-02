@@ -19,9 +19,10 @@ workbench is vocal-specific.
 
 **1. A tool is not done until it is on the bench.**
 A command that only exists in the CLI is invisible to the person using this.
-Every tool ships with an entry in `amtw/tools.py`. See
-[docs/adding-a-tool.md](docs/adding-a-tool.md) — it is a 10-minute recipe, not a
-refactor.
+A tool is one folder under `amtw/tools/` exporting `TOOL`; the bench and the
+CLI are both generated from that single declaration, so it cannot land in one
+and miss the other. See [docs/adding-a-tool.md](docs/adding-a-tool.md) — it is
+a 10-minute recipe, not a refactor.
 
 **2. Read [docs/findings.md](docs/findings.md) before proposing an experiment.**
 It records what has been measured and settled, including several dead ends that
@@ -52,19 +53,23 @@ is suspect.
 ## Layout
 
 ```
-amtw/               the package
-  workbench.py      local server: catalog, file browser, subprocess runner
-  workbench.html    the UI (one file, no build step, no dependencies)
-  tools.py          THE TOOL CATALOG -- declarative, drives the whole UI
-  cli.py            argparse entry point; source of truth for behaviour
-  midi.py           MIDI merge/inspect
-  abtool.py         A/B listening server; ab.html is its UI
-  harmonic.py       fry-scrape repair (the one mechanism the user approved)
-  defizz.py         spectral smear  -- unproven, see findings
-  hfmod.py          HF re-modulation -- unproven, see findings
-  frydetect.py      fry detector (AUC 0.755; good enough to grade, not to gate)
-  stages/           the vocal restoration pipeline stages
-  report.py         per-job HTML report
+amtw/
+  spec.py           Field/Tool vocabulary; ONE declaration -> both the form and argparse
+  registry.py       walks tools/, collects TOOL -- nothing lists tools by hand
+  cli.py            builds subparsers from the registry; only `workbench` is hand-written
+  core/             shared: paths, audio_utils, job, config, report, dsp
+    dsp.py          STFT/periodicity primitives every fry tool must agree on
+    paths.py        PROJECT_ROOT and the runtime root -- count parents carefully
+  bench/            server.py + workbench.html (one file, no build step)
+  tools/            ONE FOLDER PER TOOL, each exporting TOOL (or TOOLS)
+    run/            the restore pipeline; stages/ are its internals
+    harmonic/       fry-scrape repair (the one mechanism the user approved)
+    detect/         fry detector (AUC 0.755; good enough to grade, not to gate)
+    defizz/         spectral smear   -- unproven, see findings
+    remod/          HF re-modulation -- unproven, see findings
+    ab/             A/B listening server; ab.html is its UI
+    midi/           merge + inspect, sharing one reader
+    report/ doctor/
 docs/               architecture, findings, how to add a tool
 data/labels/        ground-truth listening labels -- the only way to check a detector
 scripts/            runtime setup (venvs, model downloads)
@@ -79,8 +84,9 @@ scripts/            runtime setup (venvs, model downloads)
   exist because engine dependencies conflict; adding to that is expensive.
 - **Tools communicate over files and subprocesses**, not shared imports, so a
   tool needing an incompatible dependency set can live in its own venv.
-- **Never write model weights or audio into the project folder.** It is
-  OneDrive-synced. Heavy, regenerable things go to the runtime root.
+- **Never write model weights or audio into the project folder.** Heavy,
+  regenerable things go to the runtime root, so the repo stays clonable and
+  nothing large is ever committed. `input/` and `output/` are gitignored.
 - **Update [CHANGELOG.md](CHANGELOG.md)** under `[Unreleased]` in the same
   change. This is how the next agent learns what just moved.
 
@@ -88,7 +94,7 @@ scripts/            runtime setup (venvs, model downloads)
 
 - [ ] `.\amtw.ps1 doctor` still passes
 - [ ] the tool runs from the workbench UI, not just the CLI
-- [ ] `amtw/tools.py` has an entry, with the `note` field carrying anything
+- [ ] the tool's folder exports `TOOL`, with the `note` field carrying anything
       hard-won that a user should see at the moment they use it
 - [ ] CHANGELOG updated
 - [ ] anything you *measured* went into `docs/findings.md`, including negative

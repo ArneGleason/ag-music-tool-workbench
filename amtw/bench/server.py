@@ -1,7 +1,7 @@
 """The workbench: a local page that runs the tools so you don't have to type them.
 
 Same shape as the A/B tool — stdlib http.server on localhost, one HTML page, no
-dependencies. It reads the catalog in `tools.py`, renders a form per tool, and
+dependencies. It reads the discovered tool catalog, renders a form per tool, and
 runs the real CLI in a subprocess, streaming its output back to the page.
 
     amtw workbench
@@ -22,8 +22,9 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
-from . import tools
-from .paths import INPUT_DIR, OUTPUT_DIR, PROJECT_ROOT, subprocess_env
+from .. import registry
+from ..core.paths import INPUT_DIR, OUTPUT_DIR, PROJECT_ROOT, subprocess_env
+from ..spec import build_argv
 
 HERE = Path(__file__).resolve().parent
 
@@ -86,7 +87,7 @@ class Runner:
         self._lock = threading.Lock()
 
     def start(self, tool: str, values: dict) -> Run:
-        argv = tools.build_argv(tool, values)
+        argv = build_argv(registry.by_name(tool), values)
         with self._lock:
             run = Run(id=self._next, tool=tool, argv=argv, started=time.time())
             self._next += 1
@@ -248,7 +249,7 @@ def _make_handler():
 
             if path == "/api/catalog":
                 return self._json({
-                    "tools": tools.catalog_json(),
+                    "tools": registry.catalog_json(),
                     "roots": {k: str(v) for k, v in ROOTS.items()},
                     "project": str(PROJECT_ROOT),
                 })
@@ -302,7 +303,7 @@ def _make_handler():
             if path == "/api/run":
                 body = self._body()
                 tool = body.get("tool")
-                if tool not in tools.BY_NAME:
+                if tool not in {t.name for t in registry.catalog()}:
                     return self._json({"error": "unknown tool"}, 400)
                 try:
                     run = RUNNER.start(tool, body.get("values") or {})
@@ -325,7 +326,7 @@ def _make_handler():
 
             if path == "/api/midi-tracks":
                 # the merge form needs to know what's in a file before you pick tracks
-                from . import midi
+                from ..tools.midi import midi
 
                 out = []
                 for raw in self._body().get("paths", []):
@@ -350,7 +351,7 @@ def serve(port: int = 8730, open_browser: bool = True) -> int:
     httpd = ThreadingHTTPServer(("127.0.0.1", port), _make_handler())
     url = f"http://127.0.0.1:{port}/"
     print(f"AG Music Tool Workbench: {url}")
-    print(f"  {len(tools.CATALOG)} tools · project {PROJECT_ROOT}")
+    print(f"  {len(registry.catalog())} tools · project {PROJECT_ROOT}")
     print("Ctrl+C to stop.")
 
     if open_browser:

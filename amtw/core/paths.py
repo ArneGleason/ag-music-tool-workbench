@@ -1,14 +1,21 @@
 """Path layout.
 
-Code lives in the (OneDrive-synced) project folder. Everything heavy and
-regenerable — venvs, model checkpoints, third-party clones, HF cache — lives
-in a local, unsynced runtime root so OneDrive never tries to sync gigabytes
-of weights or lock files mid-install.
+Code lives in the repo. Everything heavy and regenerable — venvs, model
+checkpoints, third-party clones, HF cache — lives in a local runtime root, so
+the repo stays small enough to clone and nothing large is ever version
+controlled or synced.
 """
 import os
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+# amtw/core/paths.py -> amtw/core -> amtw -> the repo root.
+#
+# Count carefully before moving this file. It broke exactly once, when paths.py
+# moved from amtw/ into amtw/core/ and the old `parent.parent` quietly started
+# resolving to amtw/ instead of the repo root — every tool the workbench
+# launched then died with "No module named amtw", because it set the
+# subprocess cwd from here.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # The runtime folder is still named VocalStemRegen: it holds four venvs whose
 # absolute paths are baked into their own scripts, plus several GB of model

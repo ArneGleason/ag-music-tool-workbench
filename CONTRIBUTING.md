@@ -19,11 +19,12 @@ GPU. Working on those doesn't require the full setup.
 
 ## Adding a tool
 
-The whole recipe is in [docs/adding-a-tool.md](docs/adding-a-tool.md): a module,
-a CLI subcommand, one entry in `amtw/tools.py`.
+The whole recipe is in [docs/adding-a-tool.md](docs/adding-a-tool.md): one
+folder under `amtw/tools/` holding the work and a `TOOL` declaration.
 
-The catalog entry is not optional. A tool that only exists in the CLI is
-invisible to the person this is built for, who does not want to type commands.
+That declaration generates both the bench form and the CLI subcommand, so a
+tool cannot exist in one and not the other — which matters, because the person
+this is built for does not want to type commands.
 
 ## Before opening a PR
 

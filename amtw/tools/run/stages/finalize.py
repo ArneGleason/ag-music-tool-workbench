@@ -6,9 +6,9 @@ import shutil
 import time
 from pathlib import Path
 
-from .. import audio_utils
-from ..config import PipelineCfg
-from ..job import Job
+from ....core import audio_utils
+from ....core.config import PipelineCfg
+from ....core.job import Job
 
 
 def run(cfg: PipelineCfg, job: Job, in_wav: Path, original_wav: Path) -> Path:

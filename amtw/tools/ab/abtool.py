@@ -19,7 +19,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
-from .paths import OUTPUT_DIR
+from ...core.paths import OUTPUT_DIR
 
 HERE = Path(__file__).resolve().parent
 

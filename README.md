@@ -135,9 +135,9 @@ Details in [docs/architecture.md](docs/architecture.md).
 
 ## Contributing
 
-Adding a tool is a recipe, not a refactor: a module, a CLI subcommand, and one
-entry in `amtw/tools.py` that puts it on the bench. See
-[docs/adding-a-tool.md](docs/adding-a-tool.md).
+Adding a tool is a recipe, not a refactor: drop one folder into `amtw/tools/`
+and it appears on the bench and in `--help`, because both are generated from
+the same declaration. See [docs/adding-a-tool.md](docs/adding-a-tool.md).
 
 Much of this repo is written by AI agents working one session at a time with no
 memory of the last. [AGENTS.md](AGENTS.md) is the contract that keeps that

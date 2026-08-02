@@ -150,9 +150,9 @@ through bar 60, then 8–20 per bar to the end.
 Two parser-level gotchas:
 
 - These files contain **illegal key signatures** ("14 sharps", "16 sharps") that
-  make `mido` hard-fail. `amtw/midi.py` patches `MetaSpec_key_signature` to
-  tolerate them. Any new MIDI code must import through that module or repeat the
-  patch.
+  make `mido` hard-fail. `amtw/tools/midi/midi.py` patches
+  `MetaSpec_key_signature` to tolerate them. Any new MIDI code must import
+  through that module or repeat the patch.
 - Merging two *separate* files whose tempo maps differ can't be done in ticks —
   the same tick is a different moment in each file. `--align auto` detects this
   and re-times in seconds at a fixed BPM.

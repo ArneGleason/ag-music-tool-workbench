@@ -5,7 +5,7 @@ import subprocess
 import time
 from pathlib import Path
 
-from ..paths import subprocess_env
+from ....core.paths import subprocess_env
 
 
 class StageError(RuntimeError):

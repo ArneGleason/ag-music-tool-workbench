@@ -29,7 +29,7 @@ import numpy as np
 from scipy.ndimage import uniform_filter1d
 from scipy.signal import hilbert
 
-from .defizz import HOP, N_FFT, _stft, periodicity
+from ...core.dsp import HOP, N_FFT, _stft, periodicity
 
 HF_LO, HF_HI = 5000.0, 12000.0
 FEATURES = ("imp", "flat", "hfr", "aper", "rough", "cpp", "flux", "hnr")

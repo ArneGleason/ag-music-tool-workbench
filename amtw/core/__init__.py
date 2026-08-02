@@ -1,0 +1,1 @@
+"""Shared infrastructure: paths, audio IO, job dirs, config, DSP primitives."""

@@ -21,7 +21,7 @@ from __future__ import annotations
 import numpy as np
 from scipy.ndimage import median_filter
 
-from .defizz import HOP, N_FFT, _istft, _smoothstep, _stft, periodicity
+from ...core.dsp import HOP, N_FFT, _istft, _smoothstep, _stft, periodicity
 
 
 def process_channel(x: np.ndarray, sr: int, *, f_lo: float, strength: float,

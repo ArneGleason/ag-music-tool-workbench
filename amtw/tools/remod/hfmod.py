@@ -29,7 +29,7 @@ import numpy as np
 from scipy.ndimage import uniform_filter1d
 from scipy.signal import hilbert
 
-from .defizz import HOP, N_FFT, _istft, _smoothstep, _stft, periodicity
+from ...core.dsp import HOP, N_FFT, _istft, _smoothstep, _stft, periodicity
 
 FINE_MS = 0.8      # envelope detail: fast enough to see glottal pulses
 SLOW_MS = 35.0     # "local average" the modulation rides on

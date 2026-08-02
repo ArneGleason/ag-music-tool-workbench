@@ -9,9 +9,9 @@ from __future__ import annotations
 import time
 from pathlib import Path
 
-from ..config import PipelineCfg
-from ..job import Job
-from ..paths import UVR_MODEL_DIR
+from ....core.config import PipelineCfg
+from ....core.job import Job
+from ....core.paths import UVR_MODEL_DIR
 from .common import StageError
 
 # Output naming across UVR/roformer models: the removed component in parens

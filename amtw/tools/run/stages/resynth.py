@@ -18,10 +18,10 @@ import shutil
 import time
 from pathlib import Path
 
-from ..config import PipelineCfg
-from ..job import Job
-from ..paths import SEEDVC_DIR, YM_CKPT, YMSVC_DIR, venv_python
-from ..reference import pick_reference
+from ....core.config import PipelineCfg
+from ....core.job import Job
+from ....core.paths import SEEDVC_DIR, YM_CKPT, YMSVC_DIR, venv_python
+from ....core.reference import pick_reference
 from .common import StageError, newest_wav, run_logged
 
 

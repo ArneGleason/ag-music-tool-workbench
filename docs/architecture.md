@@ -49,9 +49,9 @@ Two install gotchas encoded in that script:
 ## The workbench
 
 ```
-browser ──HTTP──> workbench.py ──subprocess──> python -m amtw <tool> ...
+browser ──HTTP──> bench/server.py ──subprocess──> python -m amtw <tool> ...
                        │
-                       ├── /api/catalog     tools.py, serialised
+                       ├── /api/catalog     registry.catalog(), serialised
                        ├── /api/browse      file picker, root-restricted
                        ├── /api/run         spawn, then poll for output
                        └── /file            serve a result
@@ -66,8 +66,14 @@ two years without a toolchain having rotted.
 can do is reproducible by hand, the console shows the exact command, and the CLI
 stays the single source of truth for behaviour.
 
-`tools.py` is the only place a tool is described. Field declarations become
-widgets and then argv; there is no per-tool UI code. See
+**A tool is described exactly once.** Each folder under `amtw/tools/` exports a
+`TOOL`; `registry.py` discovers them and `spec.py` turns one field list into
+*both* the form widgets and the argparse subparser. There is no per-tool UI code
+and no central catalog to update.
+
+That symmetry is the point. Before it, a tool was declared twice and the two
+drifted — `detect --marks` worked on the command line but never appeared on the
+bench, because nothing forced them to agree. See
 [adding-a-tool.md](adding-a-tool.md).
 
 **Path safety:** the file browser and `/file` are restricted to a fixed set of

@@ -9,6 +9,33 @@ session finds out what moved.
 
 ## [Unreleased]
 
+### Changed
+- **A tool is now one folder, discovered automatically.** Each package under
+  `amtw/tools/` exports `TOOL` (or `TOOLS`); `amtw/registry.py` walks the
+  directory and collects them. Adding a tool no longer means editing a central
+  catalog or `cli.py` — drop the folder in and it appears on the bench and in
+  `--help`.
+- **One declaration drives both the form and the CLI.** `amtw/spec.py` turns a
+  tool's `fields` into argparse subparsers as well as workbench widgets, so the
+  two can no longer disagree. `cli.py` shrank from 488 lines of hand-written
+  argparse to 32; only `workbench` is still declared by hand, because it is the
+  bench rather than a tool on it.
+- **Package split into `core/`, `bench/` and `tools/`.** `core/` holds the
+  shared infrastructure (paths, audio IO, job dirs, config, report), `bench/`
+  the server and its page, `tools/` one folder per tool. The restore pipeline's
+  `stages/` moved under `tools/run/`, where they are used.
+- **Extracted `core/dsp.py`.** The STFT/periodicity primitives were living in
+  `defizz.py`, so `harmonic`, `detect` and `remod` were importing private
+  helpers out of a sibling tool. They are shared vocabulary, not de-fizz's.
+
+### Fixed
+- **`detect --marks` now reaches the workbench.** It existed only in the CLI, so
+  the bench never offered it — the exact drift the single declaration prevents.
+- **`PROJECT_ROOT` no longer depends on a parent count that a file move can
+  break.** Moving `paths.py` into `core/` silently repointed it at `amtw/`, and
+  every tool the bench launched died with "No module named amtw". Now anchored
+  with `parents[2]` and commented.
+
 ## [0.3.0] — 2026-07-26
 
 Renamed the project and set it up to be worked on by more than one person.

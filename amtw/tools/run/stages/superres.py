@@ -8,9 +8,9 @@ import shutil
 import time
 from pathlib import Path
 
-from ..config import PipelineCfg
-from ..job import Job
-from ..paths import APOLLO_CKPT, APOLLO_CONFIG, MSST_DIR, venv_python
+from ....core.config import PipelineCfg
+from ....core.job import Job
+from ....core.paths import APOLLO_CKPT, APOLLO_CONFIG, MSST_DIR, venv_python
 from .common import StageError, newest_wav, run_logged
 
 
