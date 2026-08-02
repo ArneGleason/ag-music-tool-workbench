@@ -98,12 +98,32 @@ def test_tool_names_are_unique() -> None:
     assert not dupes, f"duplicate tool names: {dupes}"
 
 
+def test_launchers_are_ascii() -> None:
+    """Shell launchers must be pure ASCII.
+
+    Windows PowerShell 5.1 reads a .ps1 with no BOM as ANSI. A single em-dash
+    in an error string became mojibake, swallowed the closing quote, and the
+    script died with "The string is missing the terminator" before running a
+    line. PowerShell 7 decodes it as UTF-8 and never sees the problem — so this
+    only breaks for someone on the older shell, which is most people, and it
+    survived unnoticed here for exactly that reason.
+    """
+    root = Path(__file__).resolve().parents[1]
+    for p in sorted(root.rglob("*.ps1")) + sorted(root.rglob("*.cmd")):
+        if ".git" in p.parts or "output" in p.parts:
+            continue
+        text = p.read_text(encoding="utf-8")
+        bad = {c for c in text if ord(c) > 127}
+        assert not bad, f"{p.name} has non-ASCII {bad!r} — breaks PowerShell 5.1"
+
+
 if __name__ == "__main__":
     # standalone runner so this works without pytest installed
     failures = 0
     for fn in (test_every_tool_round_trips,
                test_required_fields_are_reported_not_crashed,
-               test_tool_names_are_unique):
+               test_tool_names_are_unique,
+               test_launchers_are_ascii):
         try:
             fn()
             print(f"  ok   {fn.__name__}")
