@@ -9,6 +9,25 @@ session finds out what moved.
 
 ## [Unreleased]
 
+### Added
+- **`harm-read` — harmonic readout for music written as independent lines.**
+  New `Harmony` group. Reads a MIDI file whose tracks are voices and reports,
+  per bar, the chord those lines make, *every* major key that still contains
+  it, and — the part no chord symbol shows — which single voice is narrowing
+  that set. It never suggests a next chord; it says what the lines already made
+  and what it is still free to become.
+
+  Query flags, which is where the value actually is: `--together F B` (is the
+  key-defining tritone ever *held*, or only crossed in passing — duration is
+  reported, because a 0.01-beat overlap is a note-boundary artifact),
+  `--where B` (where the leading tone actually lives), `--pivots-from N`
+  (which single semitone move relocates a bar into another key), `--tonic C`
+  (read the fitting collections back as modes), `--bars` / `--voices` to scope
+  it, and `--json` for a visualiser to consume.
+- **`texts` field type** — a space-separated list of strings, so a tool can
+  take `--together F B`. The vocabulary had `ints` and `floats` but no string
+  equivalent.
+
 ### Changed
 - **A tool is now one folder, discovered automatically.** Each package under
   `amtw/tools/` exports `TOOL` (or `TOOLS`); `amtw/registry.py` walks the

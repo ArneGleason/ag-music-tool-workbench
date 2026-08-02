@@ -24,14 +24,18 @@ from typing import Any, Callable
 
 # field types the UI knows how to render
 #   file / files / dir   path pickers (files = multi-select)
-#   text                 free text
+#   text / texts         free text; texts is a space-separated list
 #   int / float          number box, or a slider when min+max are given
 #   ints / floats        space-separated list of numbers
 #   bool                 checkbox (emits the flag when true)
 #   choice               dropdown
 #   multichoice          checkbox group (emits several values after one flag)
 
-MULTI = ("files", "ints", "floats", "multichoice")
+MULTI = ("files", "texts", "ints", "floats", "multichoice")
+
+# types that arrive from a text box as one string and are split on whitespace.
+# `files` is deliberately absent: paths contain spaces.
+SPLIT_ON_SPACE = ("texts", "ints", "floats")
 
 
 @dataclass
@@ -146,7 +150,7 @@ def build_argv(tool: Tool, values: dict) -> list[str]:
             text = str(raw).strip()
             # number lists arrive as one string from a text input; paths never
             # get split, because they contain spaces
-            items = text.split() if f.type in ("floats", "ints") else ([text] if text else [])
+            items = text.split() if f.type in SPLIT_ON_SPACE else ([text] if text else [])
 
         if not items:
             if f.required:

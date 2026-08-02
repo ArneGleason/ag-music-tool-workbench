@@ -69,6 +69,7 @@ amtw/
     remod/          HF re-modulation -- unproven, see findings
     ab/             A/B listening server; ab.html is its UI
     midi/           merge + inspect, sharing one reader
+    harmony/        harmonic readout: chords, key ambiguity, per-voice analysis
     report/ doctor/
 docs/               architecture, findings, how to add a tool
 data/labels/        ground-truth listening labels -- the only way to check a detector

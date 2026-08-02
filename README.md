@@ -48,6 +48,7 @@ Everything is runnable by hand too; the UI just builds these command lines:
 | Listening | `ab` | play aligned files in lockstep, switch instantly, mark regions |
 | MIDI | `midi-merge` | fold duplicate stem-to-MIDI tracks into one clean track |
 | | `midi-inspect` | list a MIDI file's tracks |
+| Harmony | `harm-read` | bar-by-bar chords, how many keys still fit, and which voice narrows them |
 
 ## Vocal stem restoration
 

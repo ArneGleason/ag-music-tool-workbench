@@ -34,7 +34,8 @@ from amtw.spec import add_to_parser, build_argv  # noqa: E402
 # one plausible value per field type, as the browser would submit it
 SAMPLE = {
     "file": "x.wav", "files": "a.wav", "dir": "outdir", "text": "t",
-    "int": "3", "float": "0.5", "ints": "1 2", "floats": "0.5 0.8",
+    "texts": "F B", "int": "3", "float": "0.5",
+    "ints": "1 2", "floats": "0.5 0.8",
 }
 
 

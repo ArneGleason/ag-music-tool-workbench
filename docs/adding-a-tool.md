@@ -88,6 +88,7 @@ after the established ones.
 | `file` / `dir` | path box + Browse | one value | one path |
 | `files` | path box + multi-select Browse | `nargs="+"` | several paths |
 | `text` | text box | one value | one value |
+| `texts` | text box, split on spaces | `nargs="+"` | several strings |
 | `int` / `float` | number box, or a **slider** when `min` and `max` are set | `type=int/float` | one value |
 | `ints` / `floats` | text box, split on spaces | `type=…, nargs="+"` | several values |
 | `bool` | checkbox | `store_true` | the flag alone, when true |
