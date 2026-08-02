@@ -20,7 +20,19 @@ def run(_args: argparse.Namespace) -> int:
         print(f"  [{mark}] {label}{(' — ' + extra) if extra else ''}")
         ok = ok and cond
 
+    from ... import registry
+
     print(f"runtime root: {RUNTIME_ROOT}")
+    if not RUNTIME_ROOT.exists():
+        print(f"  [FAIL] runtime root does not exist — run scripts\\setup_runtime.ps1")
+        ok = False
+
+    # Tools whose imports failed are listed, not hidden. A workbench that
+    # quietly shows fourteen tools instead of sixteen is worse than one that
+    # says which two are missing and why.
+    for name, why in registry.unavailable():
+        print(f"  [--] tool '{name}' unavailable — {why}")
+
     for env in ("main", "msst", "seedvc"):
         py = venv_python(env)
         if not py.exists():
@@ -50,14 +62,19 @@ def run(_args: argparse.Namespace) -> int:
 
     # Optional. harm-render falls back to its built-in synth without these, so
     # a missing soundfont is a downgrade, not a failure — it must not turn
-    # doctor red.
-    from ..harmony import render as _r
+    # doctor red. The import is guarded for the same reason: render.py pulls in
+    # numpy, and doctor is the command you run precisely when the environment
+    # is broken, so it must not be the thing that cannot start.
+    try:
+        from ..harmony import render as _r
 
-    sf, exe = _r.find_soundfont(), _r.find_fluidsynth()
-    print(f"  [{'ok ' if sf else '--'}] soundfont"
-          f" — {sf.name if sf else f'none in {_r.SOUNDFONT_DIR} (harm-render uses its built-in synth)'}")
-    print(f"  [{'ok ' if exe else '--'}] fluidsynth"
-          f" — {exe if exe else 'not installed (optional)'}")
+        sf, exe = _r.find_soundfont(), _r.find_fluidsynth()
+        print(f"  [{'ok ' if sf else '--'}] soundfont"
+              f" — {sf.name if sf else f'none in {_r.SOUNDFONT_DIR} (harm-render uses its built-in synth)'}")
+        print(f"  [{'ok ' if exe else '--'}] fluidsynth"
+              f" — {exe if exe else 'not installed (optional)'}")
+    except ImportError as e:
+        print(f"  [--] soundfont check skipped — {e}")
 
     print("all good" if ok else "problems found — see FAIL lines")
     return 0 if ok else 1

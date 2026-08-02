@@ -9,9 +9,16 @@ central catalog to forget to update, which is what used to happen — the
 catalog entry was the step most likely to be skipped, and a tool that isn't on
 the bench doesn't exist to the person using this.
 
-Import errors are deliberately not swallowed. A tool that fails to import is a
-broken tool, and finding out at startup beats finding out when the bench
-renders a form whose command does not exist.
+A tool whose dependencies are missing is recorded as UNAVAILABLE rather than
+crashing the whole registry. That is a reversal: this file used to let
+ImportError propagate, on the reasoning that a tool which cannot import is
+broken and should say so loudly. It does say so — but it took the other
+fourteen tools down with it, so a machine without the audio stack could not run
+`harm-reduce`, which needs nothing but `mido`, or even `--help`.
+
+Unavailable tools are still reported, by `unavailable()` and by `doctor`. They
+are not hidden; they are just not fatal. Anything that is not an ImportError
+still propagates, because that is a real bug rather than a missing package.
 """
 from __future__ import annotations
 
@@ -26,14 +33,23 @@ from .spec import Tool
 GROUP_ORDER = ["Pipeline", "Fry repair", "Listening", "MIDI", "Harmony"]
 
 
+_MISSING: list[tuple[str, str]] = []
+
+
 def _discover() -> list[Tool]:
     from . import tools as tools_pkg
 
     found: list[Tool] = []
+    _MISSING.clear()
     for mod in sorted(pkgutil.iter_modules(tools_pkg.__path__), key=lambda m: m.name):
         if not mod.ispkg:
             continue
-        m = importlib.import_module(f"{tools_pkg.__name__}.{mod.name}")
+        try:
+            m = importlib.import_module(f"{tools_pkg.__name__}.{mod.name}")
+        except ImportError as e:
+            # a package this tool needs is not installed; the others still work
+            _MISSING.append((mod.name, str(e)))
+            continue
         if hasattr(m, "TOOLS"):
             found.extend(m.TOOLS)
         elif hasattr(m, "TOOL"):
@@ -56,6 +72,12 @@ def catalog() -> list[Tool]:
     if _CACHE is None:
         _CACHE = _discover()
     return _CACHE
+
+
+def unavailable() -> list[tuple[str, str]]:
+    """[(package name, why)] for tools that could not be imported."""
+    catalog()
+    return list(_MISSING)
 
 
 def by_name(name: str) -> Tool:
