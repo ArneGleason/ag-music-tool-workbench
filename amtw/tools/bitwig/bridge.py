@@ -18,6 +18,7 @@ import socket
 import sys
 import threading
 import time
+import traceback
 
 from . import osc
 
@@ -211,13 +212,17 @@ class Bridge:
             self.packets += 1
             try:
                 address, args = osc.decode(data)
-            except Exception:  # noqa: BLE001
+                if address == "/amtw/clip":
+                    self.on_clip(*args)
+                    if self.notes is not before:
+                        self._sock.settimeout(0.3)
+                        return True
+            except Exception as e:  # noqa: BLE001
+                # This used to escape pull() and kill the process. A bad packet
+                # is a thing to report, never a reason for the bridge to vanish
+                # while the user is mid-session.
+                self.log(f"  bad packet during pull ({len(data)} bytes): {e}")
                 continue
-            if address == "/amtw/clip":
-                self.on_clip(*args)
-                if self.notes is not before:
-                    self._sock.settimeout(0.3)
-                    return True
         self._sock.settimeout(0.3)
         return bool(self.notes)
 
@@ -299,31 +304,34 @@ class Bridge:
             "/amtw/reduce": self.on_reduce,
             "/amtw/analyse": self.on_analyse,
         }
+        # Nothing below is allowed to end the process except q or Ctrl+C. A
+        # bridge that disappears mid-session looks like a crash in Bitwig and
+        # tells the user nothing; a bridge that prints a traceback and keeps
+        # listening tells them everything.
         try:
             while True:
-                while not self._cmds.empty():
-                    if not self._do_command(self._cmds.get()):
-                        self.log("stopped.")
-                        return 0
                 try:
-                    data, _ = self._sock.recvfrom(262144)
-                except socket.timeout:
-                    continue
-                self.packets += 1
-                try:
+                    while not self._cmds.empty():
+                        if not self._do_command(self._cmds.get()):
+                            self.log("stopped.")
+                            return 0
+                    try:
+                        data, _ = self._sock.recvfrom(262144)
+                    except socket.timeout:
+                        continue
+                    self.packets += 1
                     address, args = osc.decode(data)
-                except Exception as e:  # noqa: BLE001
-                    self.log(f"  bad packet: {e}")
-                    continue
-                fn = handlers.get(address)
-                if not fn:
-                    self.log(f"  unhandled {address}")
-                    continue
-                try:
+                    fn = handlers.get(address)
+                    if not fn:
+                        self.log(f"  unhandled {address}")
+                        continue
                     fn(*args) if args else fn()
-                except Exception as e:  # noqa: BLE001
-                    self.log(f"  {address} failed: {e}")
-                    self.notify(f"AMTW error: {e}")
+                except KeyboardInterrupt:
+                    raise
+                except Exception:  # noqa: BLE001
+                    self.log("  --- error, bridge still running ---")
+                    for line in traceback.format_exc().rstrip().splitlines():
+                        self.log("  " + line)
         except KeyboardInterrupt:
             self.log("\nstopped.")
         finally:

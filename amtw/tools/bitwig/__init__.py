@@ -56,11 +56,30 @@ def run_install(args: argparse.Namespace) -> int:
 
 
 def run_bridge(args: argparse.Namespace) -> int:
+    import traceback
+
     from . import bridge as B
 
     if args.port:
         B.RECV_PORT = args.port
-    return B.Bridge().serve()
+    try:
+        return B.Bridge().serve()
+    except KeyboardInterrupt:
+        return 0
+    except Exception:  # noqa: BLE001
+        # Last resort. If the bridge dies, the window must not close on top of
+        # the reason -- "it crashed" with nothing to read is the worst possible
+        # report, and it is what the user got.
+        print("\n" + "=" * 60)
+        print("the bridge stopped with an error:")
+        print(traceback.format_exc())
+        print("=" * 60)
+        print("Copy the lines above - they say exactly what happened.")
+        try:
+            input("press Enter to close ...")
+        except EOFError:
+            pass
+        return 1
 
 
 INSTALL = Tool(
