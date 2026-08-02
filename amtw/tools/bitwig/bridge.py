@@ -13,8 +13,10 @@ the way out; nothing downstream needs to know Bitwig was involved.
 from __future__ import annotations
 
 import json
+import queue
 import socket
-import time
+import sys
+import threading
 
 from . import osc
 
@@ -25,14 +27,26 @@ HOST = "127.0.0.1"
 PPQ = 480               # analysis tick resolution
 
 
+HELP = """
+commands (type and press Enter):
+  r          reduce the selected clip to a line, into a new clip
+  a          analyse - name the chords in the selected clip
+  m <mode>   set the line: smooth | top | bottom
+  s          status
+  q          quit
+"""
+
+
 class Bridge:
     def __init__(self, log=print):
         self.log = log
         self.notes: list[tuple[float, float, int, int]] = []
         self.step_size = 0.25
         self.clip_seen = False
+        self.mode = "smooth"
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._out = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self._cmds: queue.Queue[str] = queue.Queue()
 
     # -- talking back -------------------------------------------------------
 
@@ -43,7 +57,14 @@ class Bridge:
             self.log(f"  send failed: {e}")
 
     def notify(self, text: str) -> None:
-        """A popup inside Bitwig. Kept short — it is a heads-up, not a report."""
+        """A popup inside Bitwig, mirrored to this console.
+
+        Mirroring matters more than it looks: if the extension is not loaded,
+        or the popup is missed, the terminal is the only place the answer
+        appears. Silence here reads as "nothing happened" when the truth is
+        "it answered, somewhere you were not looking".
+        """
+        self.log(f"  > {text}")
         self.send("/amtw/notify", text[:200])
 
     # -- receiving ----------------------------------------------------------
@@ -120,19 +141,76 @@ class Bridge:
         whole = {p % 12 for _, _, p, _ in self.notes}
         fits = A.key_fits(whole)
         keys = " ".join(fits) if fits else "no single major key"
-        self.notify(f"{' → '.join(seq[:6])}"
-                    + (" …" if len(seq) > 6 else "")
-                    + f"  ·  fits: {keys}")
+        # ASCII only. This string is printed to a Windows console as well as
+        # sent to Bitwig, and cp1252 turns an arrow into "a-with-circumflex,
+        # dagger, right-arrow" -- the same class of bug that stopped amtw.ps1
+        # parsing. Bitwig would render it fine; the terminal is the constraint.
+        self.notify(" -> ".join(seq[:6])
+                    + (" ..." if len(seq) > 6 else "")
+                    + f"  |  fits: {keys}")
         self.log(f"  analyse: {len(seq)} chords {seq}, fits {fits}")
+
+    # -- typed commands -----------------------------------------------------
+
+    def _read_stdin(self) -> None:
+        """Commands typed here rather than pressed in Bitwig.
+
+        The extension streams the selected clip continuously, so the bridge
+        already knows what you are looking at — a trigger is all that is
+        missing, and it does not have to come from inside the DAW. This avoids
+        hunting for a controller panel, and changing it needs no recompile.
+        """
+        for line in sys.stdin:
+            self._cmds.put(line.strip())
+
+    def _do_command(self, cmd: str) -> bool:
+        """-> False to stop."""
+        if not cmd:
+            return True
+        head, _, rest = cmd.partition(" ")
+        head = head.lower()
+        if head in ("q", "quit", "exit"):
+            return False
+        if head in ("?", "h", "help"):
+            self.log(HELP)
+        elif head in ("m", "mode"):
+            want = rest.strip().lower()
+            if want in ("smooth", "top", "bottom"):
+                self.mode = want
+                self.log(f"  mode = {self.mode}")
+            else:
+                self.log("  mode must be smooth, top or bottom")
+        elif head in ("r", "reduce"):
+            self.on_reduce(self.mode)
+        elif head in ("a", "analyse", "analyze"):
+            self.on_analyse()
+        elif head in ("s", "status"):
+            self.log(f"  mode={self.mode}  notes held={len(self.notes)}"
+                     f"  clip seen={self.clip_seen}")
+        else:
+            self.log(f"  unknown command {cmd!r} - type ? for help")
+        return True
 
     # -- loop ---------------------------------------------------------------
 
     def serve(self) -> int:
-        self._sock.bind((HOST, RECV_PORT))
-        self._sock.settimeout(0.5)
+        try:
+            self._sock.bind((HOST, RECV_PORT))
+        except OSError as e:
+            # Almost always a bridge already running, often minimised and
+            # forgotten. A traceback here reads as "the tool is broken" when
+            # the truth is "it is already working, in the other window".
+            self.log(f"cannot listen on {HOST}:{RECV_PORT}: {e}")
+            self.log("A bridge is probably already running - use that window,")
+            self.log(f"or stop it and retry, or: amtw bitwig-bridge --port {RECV_PORT + 10}")
+            return 1
+        self._sock.settimeout(0.3)
         self.log(f"bridge listening on {HOST}:{RECV_PORT}, "
                  f"replying to {SEND_PORT}")
-        self.log("waiting for Bitwig — select a clip and edit a note to wake it")
+        self.log("select a clip in Bitwig - the extension streams it here")
+        self.log(HELP)
+        threading.Thread(target=self._read_stdin, daemon=True).start()
+
         handlers = {
             "/amtw/clip": self.on_clip,
             "/amtw/reduce": self.on_reduce,
@@ -140,6 +218,10 @@ class Bridge:
         }
         try:
             while True:
+                while not self._cmds.empty():
+                    if not self._do_command(self._cmds.get()):
+                        self.log("stopped.")
+                        return 0
                 try:
                     data, _ = self._sock.recvfrom(262144)
                 except socket.timeout:
