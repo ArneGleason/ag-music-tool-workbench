@@ -1,0 +1,602 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>AG Music Tool Workbench</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; margin: 0; background: #111; color: #eee;
+         height: 100vh; display: grid; grid-template-columns: 232px 1fr;
+         grid-template-rows: 100vh; overflow: hidden; }
+
+  /* ---- sidebar ---- */
+  aside { background: #0d0d0d; border-right: 1px solid #222; overflow-y: auto;
+          padding: .9rem .75rem 2rem; }
+  .brand { font-size: .84rem; font-weight: 600; margin: 0 0 .15rem; }
+  .brand span { color: #666; font-weight: 400; }
+  .tagline { color: #666; font-size: .7rem; margin: 0 0 1.1rem; }
+  .grp { color: #666; font-size: .68rem; text-transform: uppercase; letter-spacing: .07em;
+         margin: 1.1rem 0 .35rem; font-weight: 600; }
+  .grp:first-of-type { margin-top: 0; }
+  .tool { display: block; width: 100%; text-align: left; background: none; border: 0;
+          color: #bbb; font: inherit; font-size: .81rem; padding: .38rem .5rem;
+          border-radius: 6px; cursor: pointer; border-left: 2px solid transparent; }
+  .tool:hover { background: #171717; color: #eee; }
+  .tool.on { background: #16233a; color: #fff; border-left-color: #60a5fa; }
+  .runs { margin-top: 1.4rem; }
+  .runrow { display: flex; align-items: center; gap: .4rem; font-size: .73rem; color: #888;
+            padding: .28rem .5rem; border-radius: 5px; cursor: pointer; }
+  .runrow:hover { background: #171717; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; flex: 0 0 auto; background: #555; }
+  .dot.running { background: #fbbf24; animation: pulse 1.1s infinite; }
+  .dot.done { background: #22c55e; }
+  .dot.failed { background: #f87171; }
+  .dot.stopped { background: #888; }
+  @keyframes pulse { 50% { opacity: .3 } }
+
+  /* ---- main ---- */
+  main { display: flex; flex-direction: column; overflow: hidden; }
+  .head { padding: 1.1rem 1.4rem .8rem; border-bottom: 1px solid #1e1e1e; }
+  h1 { font-size: 1.02rem; margin: 0 0 .3rem; font-weight: 600; }
+  .blurb { color: #999; font-size: .82rem; margin: 0; line-height: 1.5; max-width: 68ch; }
+  .note { margin: .7rem 0 0; padding: .5rem .7rem; border-left: 2px solid #f59e0b;
+          background: #1c1710; color: #cbb896; font-size: .78rem; line-height: 1.55;
+          border-radius: 0 5px 5px 0; max-width: 78ch; }
+
+  .body { flex: 1; overflow-y: auto; padding: 1rem 1.4rem 2rem; }
+  .field { margin-bottom: .85rem; max-width: 720px; }
+  .field > label { display: block; font-size: .76rem; color: #aaa; margin-bottom: .28rem; }
+  .field .hint { color: #666; font-size: .72rem; margin-top: .25rem; line-height: 1.45; }
+  input[type=text], input[type=number], select, textarea {
+      background: #1a1a1a; border: 1px solid #2e2e2e; color: #ddd; border-radius: 6px;
+      padding: .42rem .55rem; font: inherit; font-size: .82rem; width: 100%; }
+  input:focus, select:focus { outline: none; border-color: #3b82f6; }
+  .pathrow { display: flex; gap: .4rem; }
+  .pathrow input { flex: 1; font-family: ui-monospace, Consolas, monospace; font-size: .76rem; }
+  button { font: inherit; font-size: .8rem; background: #222; color: #ddd;
+           border: 1px solid #3a3a3a; border-radius: 6px; padding: .42rem .75rem;
+           cursor: pointer; white-space: nowrap; }
+  button:hover { border-color: #666; }
+  button.pri { background: #1d4ed8; border-color: #2563eb; color: #fff; }
+  button.pri:disabled { background: #1e293b; border-color: #334155; color: #64748b;
+                        cursor: not-allowed; }
+  button.warn { background: #7c2d12; border-color: #9a3412; }
+  .row { display: flex; align-items: center; gap: .55rem; }
+  .slider { display: flex; align-items: center; gap: .6rem; }
+  .slider input[type=range] { flex: 1; accent-color: #3b82f6; }
+  .slider .val { font-variant-numeric: tabular-nums; color: #ddd; font-size: .8rem;
+                 min-width: 4ch; text-align: right; }
+  label.chk { display: flex; align-items: center; gap: .4rem; font-size: .8rem; color: #ccc;
+              cursor: pointer; }
+  .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .chip { padding: .3rem .6rem; border: 1px solid #2e2e2e; border-radius: 999px;
+          background: #1a1a1a; color: #aaa; font-size: .76rem; cursor: pointer; }
+  .chip.on { background: #14532d; border-color: #22c55e; color: #fff; }
+  .adv { margin: 1rem 0 .4rem; }
+  .adv summary { color: #888; font-size: .76rem; cursor: pointer; list-style: none;
+                 padding: .3rem 0; }
+  .adv summary::before { content: "▸ "; }
+  .adv[open] summary::before { content: "▾ "; }
+  .actions { display: flex; align-items: center; gap: .6rem; margin: 1.2rem 0 .4rem;
+             padding-top: .9rem; border-top: 1px solid #1e1e1e; max-width: 720px; }
+  .err { color: #f87171; font-size: .78rem; }
+
+  /* ---- console ---- */
+  .console { border-top: 1px solid #222; background: #0b0b0b; display: flex;
+             flex-direction: column; height: 40%; min-height: 150px; }
+  .console.hidden { display: none; }
+  .chead { display: flex; align-items: center; gap: .55rem; padding: .5rem .9rem;
+           border-bottom: 1px solid #1a1a1a; font-size: .76rem; color: #999; }
+  .chead .cmd { font-family: ui-monospace, Consolas, monospace; color: #7dd3fc;
+                font-size: .73rem; overflow: hidden; text-overflow: ellipsis;
+                white-space: nowrap; flex: 1; }
+  pre.out { flex: 1; margin: 0; overflow-y: auto; padding: .6rem .9rem 1rem;
+            font-family: ui-monospace, Consolas, monospace; font-size: .75rem;
+            line-height: 1.55; color: #c9c9c9; white-space: pre-wrap; word-break: break-word; }
+  .results { display: flex; flex-wrap: wrap; gap: .4rem; padding: .5rem .9rem .7rem;
+             border-top: 1px solid #1a1a1a; }
+  .results:empty { display: none; }
+  .res { display: inline-flex; align-items: center; gap: .35rem; padding: .28rem .6rem;
+         background: #16233a; border: 1px solid #24405f; border-radius: 5px;
+         color: #93c5fd; font-size: .74rem; cursor: pointer; }
+  .res:hover { border-color: #3b82f6; }
+
+  /* ---- picker ---- */
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.72); display: none;
+           align-items: center; justify-content: center; padding: 2rem; z-index: 60; }
+  .modal.on { display: flex; }
+  .sheet { background: #161616; border: 1px solid #333; border-radius: 10px;
+           width: min(860px, 100%); max-height: 84vh; display: flex; flex-direction: column;
+           box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  .sheet header { display: flex; align-items: center; gap: .5rem; padding: .7rem .9rem;
+                  border-bottom: 1px solid #2a2a2a; }
+  .sheet header h3 { margin: 0; font-size: .85rem; font-weight: 600; flex: 1; }
+  .roots { display: flex; gap: .35rem; padding: .55rem .9rem; border-bottom: 1px solid #1e1e1e;
+           flex-wrap: wrap; }
+  .crumb { padding: .45rem .9rem; font-family: ui-monospace, Consolas, monospace;
+           font-size: .73rem; color: #777; border-bottom: 1px solid #1e1e1e;
+           overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .list { flex: 1; overflow-y: auto; padding: .3rem 0; }
+  .item { display: flex; align-items: center; gap: .55rem; padding: .35rem .9rem;
+          font-size: .8rem; cursor: pointer; color: #ccc; }
+  .item:hover { background: #1c1c1c; }
+  .item.sel { background: #16233a; color: #fff; }
+  .item .ico { color: #666; width: 1.1em; text-align: center; flex: 0 0 auto; }
+  .item .nm { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .item .meta { color: #666; font-size: .72rem; font-variant-numeric: tabular-nums;
+                flex: 0 0 auto; }
+  .sheet footer { display: flex; align-items: center; gap: .5rem; padding: .6rem .9rem;
+                  border-top: 1px solid #2a2a2a; }
+  .sheet footer .count { color: #777; font-size: .76rem; flex: 1; }
+
+  /* ---- midi track picker ---- */
+  .tracks { border: 1px solid #2a2a2a; border-radius: 7px; overflow: hidden; }
+  .tk { display: flex; align-items: center; gap: .6rem; padding: .45rem .65rem;
+        font-size: .78rem; border-bottom: 1px solid #1c1c1c; cursor: pointer; }
+  .tk:last-child { border-bottom: 0; }
+  .tk:hover { background: #171717; }
+  .tk .idx { color: #666; font-variant-numeric: tabular-nums; min-width: 2.5ch; }
+  .tk .desc { flex: 1; color: #bbb; }
+  .tk .cnt { color: #777; font-size: .74rem; font-variant-numeric: tabular-nums; }
+  .tk.empty .desc { color: #555; }
+</style>
+
+<aside>
+  <p class="brand">AG Music <span>Tool Workbench</span></p>
+  <p class="tagline" id="tagline">loading…</p>
+  <nav id="nav"></nav>
+  <div class="runs">
+    <div class="grp">Recent runs</div>
+    <div id="runlist"></div>
+  </div>
+</aside>
+
+<main>
+  <div class="head">
+    <h1 id="title">—</h1>
+    <p class="blurb" id="blurb"></p>
+    <p class="note" id="note" style="display:none"></p>
+  </div>
+  <div class="body" id="form"></div>
+  <div class="console hidden" id="console">
+    <div class="chead">
+      <span class="dot" id="cdot"></span>
+      <span class="cmd" id="ccmd"></span>
+      <span id="cstat"></span>
+      <button id="cstop" class="warn" style="display:none">Stop</button>
+      <button id="cclose">Hide</button>
+    </div>
+    <pre class="out" id="cout"></pre>
+    <div class="results" id="cres"></div>
+  </div>
+</main>
+
+<div class="modal" id="picker">
+  <div class="sheet">
+    <header>
+      <h3 id="pkTitle">Choose a file</h3>
+      <button id="pkClose">Close</button>
+    </header>
+    <div class="roots" id="pkRoots"></div>
+    <div class="crumb" id="pkCrumb"></div>
+    <div class="list" id="pkList"></div>
+    <footer>
+      <span class="count" id="pkCount"></span>
+      <button id="pkUse" class="pri">Use</button>
+    </footer>
+  </div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+let CATALOG = [], ROOTS = {}, TOOL = null, POLL = null, ACTIVE = null;
+
+const fmtSize = n => n > 1e6 ? (n/1e6).toFixed(1)+' MB' : n > 1e3 ? Math.round(n/1e3)+' KB' : n+' B';
+const fmtAge = t => {
+  const s = (Date.now()/1000) - t;
+  if (s < 60) return Math.round(s)+'s ago';
+  if (s < 3600) return Math.round(s/60)+'m ago';
+  if (s < 86400) return Math.round(s/3600)+'h ago';
+  return Math.round(s/86400)+'d ago';
+};
+
+// ---------- boot ----------
+(async function init() {
+  const r = await (await fetch('/api/catalog')).json();
+  CATALOG = r.tools; ROOTS = r.roots;
+  $('#tagline').textContent = CATALOG.length + ' tools';
+  renderNav();
+  select(localStorage.getItem('wb.tool') || CATALOG[0].name);
+  refreshRuns();
+  setInterval(refreshRuns, 4000);
+})();
+
+function renderNav() {
+  const nav = $('#nav'); nav.innerHTML = '';
+  const groups = [...new Set(CATALOG.map(t => t.group))];
+  for (const g of groups) {
+    const h = document.createElement('div'); h.className = 'grp'; h.textContent = g;
+    nav.appendChild(h);
+    for (const t of CATALOG.filter(t => t.group === g)) {
+      const b = document.createElement('button');
+      b.className = 'tool'; b.textContent = t.title; b.dataset.name = t.name;
+      b.onclick = () => select(t.name);
+      nav.appendChild(b);
+    }
+  }
+}
+
+// ---------- form ----------
+function select(name) {
+  TOOL = CATALOG.find(t => t.name === name) || CATALOG[0];
+  localStorage.setItem('wb.tool', TOOL.name);
+  document.querySelectorAll('.tool').forEach(b =>
+    b.classList.toggle('on', b.dataset.name === TOOL.name));
+  $('#title').textContent = TOOL.title;
+  $('#blurb').textContent = TOOL.blurb;
+  $('#note').style.display = TOOL.note ? 'block' : 'none';
+  $('#note').textContent = TOOL.note;
+  renderForm();
+}
+
+function saved(tool) {
+  try { return JSON.parse(localStorage.getItem('wb.v.' + tool) || '{}'); }
+  catch { return {}; }
+}
+
+function renderForm() {
+  const box = $('#form'); box.innerHTML = '';
+  const prev = saved(TOOL.name);
+  const basic = TOOL.fields.filter(f => !f.advanced);
+  const adv = TOOL.fields.filter(f => f.advanced);
+
+  for (const f of basic) box.appendChild(fieldEl(f, prev[f.name]));
+
+  if (adv.length) {
+    const d = document.createElement('details'); d.className = 'adv';
+    const s = document.createElement('summary');
+    s.textContent = 'More options (' + adv.length + ')';
+    d.appendChild(s);
+    for (const f of adv) d.appendChild(fieldEl(f, prev[f.name]));
+    box.appendChild(d);
+  }
+
+  if (TOOL.name === 'midi-merge') box.appendChild(midiTrackBox());
+
+  const act = document.createElement('div'); act.className = 'actions';
+  const run = document.createElement('button');
+  run.className = 'pri'; run.textContent = TOOL.background ? '▶ Launch' : '▶ Run';
+  run.onclick = doRun;
+  const err = document.createElement('span'); err.className = 'err'; err.id = 'formErr';
+  act.append(run, err);
+  box.appendChild(act);
+}
+
+function fieldEl(f, savedVal) {
+  const wrap = document.createElement('div');
+  wrap.className = 'field'; wrap.dataset.name = f.name; wrap.dataset.type = f.type;
+
+  const lab = document.createElement('label');
+  lab.textContent = f.label + (f.required ? ' *' : '');
+
+  const val = savedVal !== undefined && savedVal !== null ? savedVal : f.default;
+
+  let ctl;
+  if (f.type === 'bool') {
+    const l = document.createElement('label'); l.className = 'chk';
+    const i = document.createElement('input'); i.type = 'checkbox'; i.checked = !!val;
+    l.append(i, document.createTextNode(f.label + (f.required ? ' *' : '')));
+    wrap.appendChild(l);
+    if (f.help) wrap.appendChild(hint(f.help));
+    return wrap;
+  }
+
+  if (f.type === 'choice') {
+    ctl = document.createElement('select');
+    for (const c of f.choices) {
+      const o = document.createElement('option'); o.value = o.textContent = c;
+      if (c === String(val)) o.selected = true;
+      ctl.appendChild(o);
+    }
+  } else if (f.type === 'multichoice') {
+    ctl = document.createElement('div'); ctl.className = 'chips';
+    const on = new Set(Array.isArray(val) ? val : f.choices);
+    for (const c of f.choices) {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip' + (on.has(c) ? ' on' : '');
+      b.textContent = c; b.dataset.v = c;
+      b.onclick = () => b.classList.toggle('on');
+      ctl.appendChild(b);
+    }
+  } else if (f.type === 'file' || f.type === 'files' || f.type === 'dir') {
+    ctl = document.createElement('div'); ctl.className = 'pathrow';
+    const i = document.createElement('input');
+    i.type = 'text';
+    i.value = Array.isArray(val) ? val.join(' | ') : (val || '');
+    i.placeholder = f.type === 'dir' ? 'folder path' : 'path to file';
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = 'Browse…';
+    b.onclick = () => openPicker(f, i);
+    ctl.append(i, b);
+  } else if ((f.type === 'int' || f.type === 'float') && f.min !== undefined && f.max !== undefined) {
+    ctl = document.createElement('div'); ctl.className = 'slider';
+    const r = document.createElement('input');
+    r.type = 'range'; r.min = f.min; r.max = f.max;
+    r.step = f.step || (f.type === 'int' ? 1 : 0.01);
+    r.value = val ?? f.min;
+    const v = document.createElement('span'); v.className = 'val'; v.textContent = r.value;
+    r.oninput = () => v.textContent = r.value;
+    ctl.append(r, v);
+  } else if (f.type === 'int' || f.type === 'float') {
+    ctl = document.createElement('input');
+    ctl.type = 'number'; ctl.step = f.type === 'int' ? 1 : 'any';
+    if (val !== undefined && val !== null) ctl.value = val;
+  } else {
+    ctl = document.createElement('input');
+    ctl.type = 'text';
+    ctl.value = Array.isArray(val) ? val.join(' ') : (val ?? '');
+  }
+
+  wrap.append(lab, ctl);
+  if (f.help) wrap.appendChild(hint(f.help));
+  return wrap;
+}
+
+const hint = t => { const p = document.createElement('p'); p.className = 'hint'; p.textContent = t; return p; };
+
+function collect() {
+  const out = {};
+  for (const f of TOOL.fields) {
+    const w = document.querySelector(`.field[data-name="${f.name}"]`);
+    if (!w) continue;
+    if (f.type === 'bool') out[f.name] = w.querySelector('input').checked;
+    else if (f.type === 'multichoice')
+      out[f.name] = [...w.querySelectorAll('.chip.on')].map(c => c.dataset.v);
+    else if (f.type === 'files')
+      out[f.name] = (w.querySelector('input').value || '').split('|').map(s => s.trim()).filter(Boolean);
+    else if (f.type === 'int' || f.type === 'float')
+      out[f.name] = w.querySelector('input').value;
+    else out[f.name] = w.querySelector('input, select').value;
+  }
+  if (TOOL.name === 'midi-merge') {
+    const picked = [...document.querySelectorAll('.tk input:checked')].map(i => i.dataset.idx);
+    if (picked.length) out.tracks = picked.join(' ');
+  }
+  return out;
+}
+
+// ---------- midi track picker ----------
+function midiTrackBox() {
+  const wrap = document.createElement('div');
+  wrap.className = 'field'; wrap.id = 'midiBox';
+  const lab = document.createElement('label');
+  lab.textContent = 'Tracks in the file';
+  const box = document.createElement('div'); box.className = 'tracks'; box.id = 'midiTracks';
+  box.innerHTML = '<div class="tk empty"><span class="desc">pick a MIDI file to see its tracks</span></div>';
+  wrap.append(lab, box);
+  return wrap;
+}
+
+async function loadMidiTracks() {
+  const w = document.querySelector('.field[data-name="inputs"]');
+  const box = $('#midiTracks');
+  if (!w || !box) return;
+  const paths = (w.querySelector('input').value || '').split('|').map(s => s.trim()).filter(Boolean);
+  if (!paths.length) return;
+  box.innerHTML = '<div class="tk empty"><span class="desc">reading…</span></div>';
+  const info = await (await fetch('/api/midi-tracks', {
+    method: 'POST', body: JSON.stringify({ paths })
+  })).json();
+
+  box.innerHTML = '';
+  const single = info.length === 1;
+  for (const file of info) {
+    if (file.error) {
+      box.insertAdjacentHTML('beforeend',
+        `<div class="tk empty"><span class="desc">${file.path}: ${file.error}</span></div>`);
+      continue;
+    }
+    if (!single) {
+      box.insertAdjacentHTML('beforeend',
+        `<div class="tk empty"><span class="desc">${file.path.split(/[\\/]/).pop()} — ppq ${file.ppq}</span></div>`);
+    }
+    for (const t of file.tracks) {
+      const row = document.createElement('label');
+      row.className = 'tk' + (t.notes ? '' : ' empty');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.dataset.idx = t.index;
+      cb.checked = single && t.notes > 0;
+      cb.disabled = !single;
+      const desc = t.notes
+        ? `${t.name || '(unnamed)'} · pitch ${t.low}–${t.high}`
+        : `${t.name || '(unnamed)'} · no notes${t.tempo_events ? ', ' + t.tempo_events + ' tempo events' : ''}`;
+      row.innerHTML = `<span class="idx">${t.index}</span>`;
+      row.appendChild(cb);
+      row.insertAdjacentHTML('beforeend',
+        `<span class="desc">${desc}</span><span class="cnt">${t.notes} notes</span>`);
+      box.appendChild(row);
+    }
+  }
+  if (!single) box.insertAdjacentHTML('beforeend',
+    '<div class="tk empty"><span class="desc">two files: every track with notes is merged</span></div>');
+}
+
+// ---------- file picker ----------
+let PK = { field: null, input: null, dir: null, sel: new Set() };
+
+async function openPicker(f, input) {
+  PK = { field: f, input, dir: null, sel: new Set() };
+  $('#pkTitle').textContent = f.type === 'dir' ? 'Choose a folder' : 'Choose ' +
+    (f.type === 'files' ? 'file(s)' : 'a file') + ' — ' + f.label;
+  const rootsEl = $('#pkRoots'); rootsEl.innerHTML = '';
+  for (const [k, v] of Object.entries(ROOTS)) {
+    const b = document.createElement('button');
+    b.className = 'chip'; b.textContent = k; b.title = v;
+    b.onclick = () => browse(v);
+    rootsEl.appendChild(b);
+  }
+  $('#picker').classList.add('on');
+  const cur = (input.value || '').split('|')[0].trim();
+  await browse(cur ? cur.replace(/[\\/][^\\/]*$/, '') : (ROOTS[f.root] || ROOTS.input));
+}
+
+async function browse(dir) {
+  const f = PK.field;
+  const q = new URLSearchParams({ path: dir });
+  if (f.accept) q.set('accept', f.accept.join(','));
+  if (f.type === 'dir') q.set('dirs', '1');
+  const r = await (await fetch('/api/browse?' + q)).json();
+  if (r.error) { $('#pkCrumb').textContent = r.error; return; }
+  PK.dir = r.path;
+  $('#pkCrumb').textContent = r.path;
+
+  const list = $('#pkList'); list.innerHTML = '';
+  if (r.parent) list.appendChild(item('↑', '..', () => browse(r.parent), ''));
+
+  // matching files first, newest first -- a folder like Downloads has hundreds
+  // of directories and you are here to pick a file, not to go spelunking
+  for (const fl of r.files) {
+    const el = item('·', fl.name, null, fmtSize(fl.size) + ' · ' + fmtAge(fl.mtime));
+    el.onclick = () => {
+      if (f.type === 'files') {
+        PK.sel.has(fl.path) ? PK.sel.delete(fl.path) : PK.sel.add(fl.path);
+        el.classList.toggle('sel');
+      } else {
+        PK.sel = new Set([fl.path]);
+        [...list.children].forEach(c => c.classList.remove('sel'));
+        el.classList.add('sel');
+      }
+      updateCount();
+    };
+    if (PK.sel.has(fl.path)) el.classList.add('sel');
+    list.appendChild(el);
+  }
+
+  if (r.dirs.length) {
+    if (r.files.length) {
+      const sep = document.createElement('div');
+      sep.className = 'item'; sep.style.color = '#555'; sep.style.fontSize = '.72rem';
+      sep.style.cursor = 'default'; sep.style.paddingTop = '.6rem';
+      sep.innerHTML = `<span class="ico"></span><span class="nm">${r.dirs.length} folders</span>`;
+      list.appendChild(sep);
+    }
+    for (const d of r.dirs) list.appendChild(item('▸', d.name, () => browse(d.path), ''));
+  }
+  updateCount();
+}
+
+function item(ico, name, onclick, meta) {
+  const el = document.createElement('div');
+  el.className = 'item';
+  el.innerHTML = `<span class="ico">${ico}</span><span class="nm"></span><span class="meta">${meta}</span>`;
+  el.querySelector('.nm').textContent = name;
+  if (onclick) el.onclick = onclick;
+  return el;
+}
+
+function updateCount() {
+  const f = PK.field;
+  $('#pkCount').textContent = f.type === 'dir'
+    ? 'will use the folder shown above'
+    : PK.sel.size + ' selected';
+}
+
+$('#pkUse').onclick = () => {
+  const f = PK.field;
+  if (f.type === 'dir') PK.input.value = PK.dir;
+  else PK.input.value = [...PK.sel].join(' | ');
+  $('#picker').classList.remove('on');
+  if (TOOL.name === 'midi-merge' && f.name === 'inputs') loadMidiTracks();
+};
+$('#pkClose').onclick = () => $('#picker').classList.remove('on');
+$('#picker').onclick = e => { if (e.target.id === 'picker') $('#picker').classList.remove('on'); };
+
+// ---------- running ----------
+async function doRun() {
+  const values = collect();
+  localStorage.setItem('wb.v.' + TOOL.name, JSON.stringify(values));
+  $('#formErr').textContent = '';
+
+  const r = await (await fetch('/api/run', {
+    method: 'POST', body: JSON.stringify({ tool: TOOL.name, values })
+  })).json();
+  if (r.error) { $('#formErr').textContent = r.error; return; }
+  attach(r.id);
+  refreshRuns();
+}
+
+function attach(id) {
+  ACTIVE = { id, offset: 0 };
+  $('#console').classList.remove('hidden');
+  $('#cout').textContent = '';
+  $('#cres').innerHTML = '';
+  clearInterval(POLL);
+  poll();
+  POLL = setInterval(poll, 400);
+}
+
+async function poll() {
+  if (!ACTIVE) return;
+  const r = await (await fetch(`/api/runs/${ACTIVE.id}?offset=${ACTIVE.offset}`)).json();
+  if (r.error) { clearInterval(POLL); return; }
+  ACTIVE.offset = r.offset;
+
+  if (r.lines.length) {
+    const out = $('#cout');
+    const stick = out.scrollTop + out.clientHeight >= out.scrollHeight - 30;
+    out.textContent += r.lines.join('\n') + '\n';
+    if (stick) out.scrollTop = out.scrollHeight;
+  }
+  $('#ccmd').textContent = r.cmd;
+  $('#cdot').className = 'dot ' + r.status;
+  const secs = ((r.ended || Date.now()/1000) - r.started);
+  $('#cstat').textContent = r.status === 'running'
+    ? `running · ${secs.toFixed(0)}s`
+    : `${r.status}${r.rc ? ' (exit ' + r.rc + ')' : ''} · ${secs.toFixed(0)}s`;
+  $('#cstop').style.display = r.status === 'running' ? '' : 'none';
+
+  if (r.status !== 'running') {
+    clearInterval(POLL);
+    const res = $('#cres'); res.innerHTML = '';
+    for (const f of r.results) {
+      const b = document.createElement('span');
+      b.className = 'res';
+      b.textContent = (f.kind === 'html' ? '◱ ' : f.kind === 'png' ? '▤ ' :
+                       f.kind === 'mid' ? '♪ ' : '▶ ') + f.name;
+      b.title = f.path;
+      b.onclick = () => window.open('/file?path=' + encodeURIComponent(f.path), '_blank');
+      res.appendChild(b);
+    }
+    if (r.results.length) {
+      const rev = document.createElement('span');
+      rev.className = 'res'; rev.textContent = '⌂ Show in Explorer';
+      rev.onclick = () => fetch('/api/reveal', {
+        method: 'POST', body: JSON.stringify({ path: r.results[0].path }) });
+      res.appendChild(rev);
+    }
+    refreshRuns();
+  }
+}
+
+$('#cstop').onclick = () => ACTIVE &&
+  fetch('/api/stop', { method: 'POST', body: JSON.stringify({ id: ACTIVE.id }) });
+$('#cclose').onclick = () => $('#console').classList.add('hidden');
+
+async function refreshRuns() {
+  const runs = await (await fetch('/api/runs')).json();
+  const el = $('#runlist'); el.innerHTML = '';
+  for (const r of runs.slice(0, 12)) {
+    const row = document.createElement('div');
+    row.className = 'runrow';
+    row.innerHTML = `<span class="dot ${r.status}"></span>`;
+    const t = document.createElement('span');
+    t.textContent = (CATALOG.find(c => c.name === r.tool)?.title || r.tool);
+    const age = document.createElement('span');
+    age.style.marginLeft = 'auto'; age.style.color = '#555';
+    age.textContent = fmtAge(r.started);
+    row.append(t, age);
+    row.title = r.cmd;
+    row.onclick = () => attach(r.id);
+    el.appendChild(row);
+  }
+}
+</script>

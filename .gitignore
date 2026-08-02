@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+
+# Working audio. input/ is your source stems; output/ is job dirs and gets
+# large (7 GB on the author's machine). Neither belongs in git.
+input/
+output/
+
+# Local machine settings: absolute paths and allowlists, nothing portable.
+.claude/settings.local.json
+
+# The runtime root -- venvs, model weights, third-party clones -- lives outside
+# the project entirely, at %LOCALAPPDATA%\VocalStemRegen. See docs/architecture.md.

@@ -1,0 +1,541 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>AG Music Tool Workbench — A/B</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 1.2rem 1.4rem 3rem;
+         background: #111; color: #eee; }
+  h1 { font-size: 1.05rem; margin: 0 0 .2rem; font-weight: 600; }
+  .sub { color: #888; font-size: .8rem; margin: 0 0 1rem; }
+  .tracks { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .9rem; }
+  .track { flex: 1 1 160px; min-width: 140px; text-align: left; padding: .6rem .7rem;
+           border: 1px solid #333; border-radius: 7px; background: #1a1a1a; color: #ccc;
+           cursor: pointer; font: inherit; font-size: .82rem; line-height: 1.3; }
+  .track:hover { border-color: #555; }
+  .track.on { background: #14532d; border-color: #22c55e; color: #fff; }
+  .track .k { display: inline-block; min-width: 1.1em; padding: 0 .28em; margin-right: .45em;
+              border-radius: 3px; background: #333; color: #aaa; font-size: .74rem; }
+  .track.on .k { background: #22c55e; color: #052e16; }
+  .track .nm { word-break: break-all; }
+  canvas { width: 100%; height: 132px; display: block; background: #171717;
+           border: 1px solid #2a2a2a; border-radius: 7px; cursor: crosshair; }
+  .bar { display: flex; align-items: center; gap: .55rem; margin: .7rem 0 1rem; flex-wrap: wrap; }
+  button, select { font: inherit; font-size: .82rem; background: #222; color: #ddd;
+                   border: 1px solid #3a3a3a; border-radius: 6px; padding: .4rem .7rem;
+                   cursor: pointer; }
+  button:hover { border-color: #666; }
+  button.pri { background: #1d4ed8; border-color: #2563eb; color: #fff; }
+  button.warn { background: #7c2d12; border-color: #9a3412; }
+  .time { font-variant-numeric: tabular-nums; color: #999; font-size: .82rem; min-width: 11ch; }
+  label.chk { font-size: .8rem; color: #aaa; display: flex; align-items: center; gap: .3rem;
+              cursor: pointer; }
+  .keys { color: #666; font-size: .74rem; margin-bottom: 1.2rem; line-height: 1.7; }
+  .keys kbd { background: #262626; border: 1px solid #3a3a3a; border-radius: 3px;
+              padding: .05em .4em; font-size: .95em; }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  th { text-align: left; color: #777; font-weight: 500; padding: .3rem .4rem;
+       border-bottom: 1px solid #2a2a2a; font-size: .76rem; }
+  td { padding: .25rem .4rem; border-bottom: 1px solid #1e1e1e; vertical-align: middle; }
+  td input { width: 100%; background: #1a1a1a; border: 1px solid #2e2e2e; color: #ddd;
+             border-radius: 4px; padding: .32rem .45rem; font: inherit; font-size: .82rem; }
+  .tlink { color: #60a5fa; cursor: pointer; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: .1em .5em; border-radius: 999px; font-size: .72rem;
+         background: #262626; color: #aaa; }
+  .status { color: #666; font-size: .76rem; margin-left: auto; }
+  h2 { font-size: .85rem; color: #999; font-weight: 600; margin: 1.4rem 0 .4rem; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.75); display: none;
+           align-items: center; justify-content: center; padding: 2rem; z-index: 50; }
+  .modal.on { display: flex; }
+  .sheet { background: #161616; border: 1px solid #333; border-radius: 10px;
+           width: min(920px, 100%); max-height: 86vh; display: flex; flex-direction: column;
+           box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  .sheet header { display: flex; align-items: center; gap: .6rem; padding: .75rem .9rem;
+                  border-bottom: 1px solid #2a2a2a; }
+  .sheet header h3 { margin: 0; font-size: .88rem; flex: 1; font-weight: 600; }
+  .sheet textarea { flex: 1; min-height: 46vh; background: #0e0e0e; color: #ddd; border: 0;
+                    padding: .9rem 1rem; font-family: ui-monospace, Consolas, monospace;
+                    font-size: .78rem; line-height: 1.6; resize: none; outline: none;
+                    border-radius: 0 0 10px 10px; }
+</style>
+
+<h1>A/B listening</h1>
+<p class="sub" id="sub">loading…</p>
+
+<div class="tracks" id="tracks"></div>
+
+<canvas id="wave"></canvas>
+
+<div class="bar">
+  <button id="play" class="pri">▶ Play</button>
+  <span class="time" id="time">0:00.0 / 0:00.0</span>
+  <button id="mark">+ Point</button>
+  <button id="markSeg">+ Segment</button>
+  <button id="loopClear">Clear loop</button>
+  <button id="export">⧉ Export notes</button>
+  <label class="chk"><input type="checkbox" id="match" checked> match loudness</label>
+  <label class="chk"><input type="checkbox" id="blind"> blind</label>
+  <button id="reveal" style="display:none">Reveal</button>
+  <span class="status" id="status"></span>
+</div>
+
+<p class="keys">
+  <kbd>1</kbd>–<kbd>9</kbd> switch track &nbsp;·&nbsp;
+  <kbd>Space</kbd> play/pause &nbsp;·&nbsp;
+  <kbd>←</kbd><kbd>→</kbd> seek 5s &nbsp;·&nbsp;
+  <kbd>M</kbd> point marker &nbsp;·&nbsp;
+  <kbd>S</kbd> segment from loop &nbsp;·&nbsp;
+  <kbd>[</kbd> <kbd>]</kbd> loop in/out &nbsp;·&nbsp;
+  <kbd>\</kbd> clear loop &nbsp;·&nbsp;
+  <kbd>E</kbd> export notes &nbsp;·&nbsp;
+  drag on waveform to set a loop region
+</p>
+
+<h2>Overall verdict per track</h2>
+<table id="verdicts"><tbody></tbody></table>
+
+<h2>Markers</h2>
+<table id="markers">
+  <thead><tr><th style="width:10rem">time / range</th><th style="width:9rem">track</th><th>note</th><th style="width:2rem"></th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <header>
+      <h3>Listening notes — markdown</h3>
+      <button id="copyAll" class="pri">Copy all</button>
+      <button id="closeModal">Close</button>
+    </header>
+    <textarea id="md" spellcheck="false" readonly></textarea>
+  </div>
+</div>
+
+<script>
+const ctx = new (window.AudioContext || window.webkitAudioContext)();
+let files = [], buffers = [], peaks = [], comp = [];
+let nodes = [], playing = false, ctxStart = 0, offStart = 0;
+let active = 0, order = [], blindOn = false;
+let loopA = null, loopB = null;
+let markers = [], verdicts = {};
+let dragging = false, dragStart = null;
+
+let disp = [];   // display names, disambiguated when basenames collide
+const $ = id => document.getElementById(id);
+
+// Two files can share a basename (e.g. several runs each writing
+// adaptive.wav). Keying anything by basename silently merges them — which
+// is how one verdict overwrote another. Disambiguate by parent folder.
+function buildDisplayNames() {
+  const counts = {};
+  files.forEach(f => { counts[f.name] = (counts[f.name] || 0) + 1; });
+  disp = files.map(f => {
+    if (counts[f.name] < 2) return f.name;
+    const parts = f.path.split(/[\\/]/);
+    const parent = parts[parts.length - 2] || '';
+    return `${parent}/${f.name}`;
+  });
+}
+const fmt = t => {
+  if (!isFinite(t)) t = 0;
+  const m = Math.floor(t / 60), s = t - m * 60;
+  return `${m}:${s.toFixed(1).padStart(4, '0')}`;
+};
+const dur = () => buffers.length ? Math.max(...buffers.map(b => b.duration)) : 0;
+const label = i => blindOn ? String.fromCharCode(65 + order.indexOf(i)) : (disp[i] || files[i].name);
+// verdicts are keyed by full path, which is unique; basenames are not
+const vkey = i => files[i].path;
+
+function now() {
+  if (!playing) return offStart;
+  let t = offStart + (ctx.currentTime - ctxStart);
+  if (loopA !== null && loopB !== null && t >= loopB) {
+    // sources loop natively; mirror the wrap for the display clock
+    const span = loopB - loopA;
+    t = loopA + ((t - loopA) % span);
+  }
+  return Math.min(t, dur());
+}
+
+async function load() {
+  files = await (await fetch('/api/files')).json();
+  buildDisplayNames();
+  order = files.map((_, i) => i);
+  $('sub').textContent = `${files.length} files · decoding…`;
+
+  buffers = await Promise.all(files.map(async f => {
+    const ab = await (await fetch(`/audio/${f.index}`)).arrayBuffer();
+    return await ctx.decodeAudioData(ab);
+  }));
+
+  // loudness compensation so the louder file doesn't just "win"
+  const rms = buffers.map(b => {
+    const d = b.getChannelData(0);
+    let s = 0;
+    const step = Math.max(1, Math.floor(d.length / 200000));
+    let n = 0;
+    for (let i = 0; i < d.length; i += step) { s += d[i] * d[i]; n++; }
+    return Math.sqrt(s / Math.max(1, n)) + 1e-9;
+  });
+  const ref = rms.reduce((a, b) => a + b, 0) / rms.length;
+  comp = rms.map(r => ref / r);
+
+  peaks = buffers.map(computePeaks);
+
+  const saved = await (await fetch('/api/notes')).json();
+  if (saved && saved.markers) { markers = saved.markers; verdicts = saved.verdicts || {}; }
+
+  const lens = buffers.map(b => b.duration);
+  const spread = Math.max(...lens) - Math.min(...lens);
+  $('sub').textContent = `${files.length} files · ${fmt(dur())}` +
+    (spread > 0.05 ? ` · ⚠ lengths differ by ${spread.toFixed(2)}s — alignment may drift` : ' · lengths match');
+
+  renderTracks(); renderVerdicts(); renderMarkers(); resize();
+  requestAnimationFrame(tick);
+}
+
+function computePeaks(buf) {
+  const N = 2400, d = buf.getChannelData(0), block = Math.floor(d.length / N);
+  const out = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    let mx = 0;
+    const s = i * block, e = Math.min(d.length, s + block);
+    for (let j = s; j < e; j++) { const v = Math.abs(d[j]); if (v > mx) mx = v; }
+    out[i] = mx;
+  }
+  return out;
+}
+
+function renderTracks() {
+  const el = $('tracks'); el.innerHTML = '';
+  order.forEach((idx, pos) => {
+    const b = document.createElement('button');
+    b.className = 'track' + (idx === active ? ' on' : '');
+    b.innerHTML = `<span class="k">${pos + 1}</span><span class="nm">${label(idx)}</span>`;
+    b.onclick = () => setActive(idx);
+    el.appendChild(b);
+  });
+}
+
+function renderVerdicts() {
+  const tb = $('verdicts').querySelector('tbody'); tb.innerHTML = '';
+  order.forEach(idx => {
+    const tr = document.createElement('tr');
+    const td1 = document.createElement('td');
+    td1.style.width = '13rem';
+    td1.innerHTML = `<span class="tag">${label(idx)}</span>`;
+    const td2 = document.createElement('td');
+    const inp = document.createElement('input');
+    inp.placeholder = 'overall impression…';
+    // fall back to the old basename key so notes saved before the fix load
+    inp.value = verdicts[vkey(idx)] ?? verdicts[files[idx].name] ?? '';
+    inp.oninput = () => { verdicts[vkey(idx)] = inp.value; save(); };
+    td2.appendChild(inp);
+    tr.append(td1, td2); tb.appendChild(tr);
+  });
+}
+
+function renderMarkers() {
+  const tb = $('markers').querySelector('tbody'); tb.innerHTML = '';
+  markers.slice().sort((a, b) => a.t - b.t).forEach(mk => {
+    const tr = document.createElement('tr');
+    const td0 = document.createElement('td');
+    const isSeg = typeof mk.t_end === 'number' && mk.t_end > mk.t;
+    td0.innerHTML = isSeg
+      ? `<span class="tlink">${fmt(mk.t)}–${fmt(mk.t_end)}</span>` +
+        `<span class="tag" style="margin-left:.4rem">${(mk.t_end - mk.t).toFixed(2)}s</span>`
+      : `<span class="tlink">${fmt(mk.t)}</span>`;
+    // clicking a segment loops it, so it is easy to re-audition
+    td0.querySelector('.tlink').onclick = () => {
+      if (isSeg) { loopA = mk.t; loopB = mk.t_end; seek(mk.t); if (!playing) toggle(); }
+      else seek(mk.t);
+    };
+    const td1 = document.createElement('td');
+    td1.innerHTML = `<span class="tag">${blindOn ? String.fromCharCode(65 + order.indexOf(mk.track)) : mk.trackName}</span>`;
+    const td2 = document.createElement('td');
+    const inp = document.createElement('input');
+    inp.value = mk.text || ''; inp.placeholder = 'what did you hear?';
+    inp.oninput = () => { mk.text = inp.value; save(); };
+    td2.appendChild(inp);
+    const td3 = document.createElement('td');
+    const del = document.createElement('button');
+    del.textContent = '×'; del.style.padding = '.15rem .45rem';
+    del.onclick = () => { markers = markers.filter(x => x !== mk); renderMarkers(); save(); };
+    td3.appendChild(del);
+    tr.append(td0, td1, td2, td3); tb.appendChild(tr);
+  });
+}
+
+function stopNodes() {
+  nodes.forEach(n => { try { n.src.stop(); } catch (e) {} });
+  nodes = [];
+}
+
+function play(at) {
+  stopNodes();
+  const t0 = ctx.currentTime + 0.06;
+  nodes = buffers.map((b, i) => {
+    const src = ctx.createBufferSource(); src.buffer = b;
+    const g = ctx.createGain();
+    g.gain.value = (i === active ? 1 : 0) * ($('match').checked ? comp[i] : 1);
+    if (loopA !== null && loopB !== null && loopB > loopA) {
+      src.loop = true; src.loopStart = loopA; src.loopEnd = loopB;
+    }
+    src.connect(g).connect(ctx.destination);
+    src.start(t0, Math.min(at, b.duration - 0.01));
+    return { src, g };
+  });
+  ctxStart = t0; offStart = at; playing = true;
+  $('play').textContent = '❚❚ Pause';
+}
+
+function pause() {
+  const t = now(); stopNodes(); playing = false; offStart = t;
+  $('play').textContent = '▶ Play';
+}
+
+function toggle() { if (ctx.state === 'suspended') ctx.resume(); playing ? pause() : play(now()); }
+function seek(t) { const was = playing; pause(); offStart = Math.max(0, Math.min(t, dur())); if (was) play(offStart); }
+
+function setActive(i) {
+  active = i;
+  nodes.forEach((n, k) => {
+    const target = (k === i ? 1 : 0) * ($('match').checked ? comp[k] : 1);
+    n.g.gain.setTargetAtTime(target, ctx.currentTime, 0.006);
+  });
+  renderTracks();
+}
+
+function addMarker() {
+  markers.push({ t: now(), track: active, trackName: disp[active], text: '' });
+  renderMarkers(); save();
+}
+
+function addSegment() {
+  if (loopA === null || loopB === null || loopB <= loopA) {
+    $('status').textContent = 'drag a region on the waveform first (or use [ and ])';
+    return;
+  }
+  markers.push({ t: loopA, t_end: loopB, track: active,
+                 trackName: disp[active], text: '' });
+  renderMarkers(); save();
+}
+
+let saveTimer = null;
+function save() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async () => {
+    const payload = {
+      session: new Date().toISOString(),
+      files: files.map(f => ({ name: f.name, path: f.path })),
+      markers, verdicts,
+    };
+    try {
+      await fetch('/api/notes', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify(payload, null, 2) });
+      $('status').textContent = 'saved ' + new Date().toLocaleTimeString();
+    } catch (e) { $('status').textContent = 'save failed'; }
+  }, 400);
+}
+
+// ---- markdown export ----
+// Builds a paste-ready summary: what was compared, how the files differed
+// objectively (length, level), and every verdict/marker typed in. The
+// objective bits matter because a note like "3 sounds fuller" reads
+// differently once you know track 3 was 4 dB hotter at source.
+function buildMarkdown() {
+  const L = [];
+  const stamp = new Date().toLocaleString();
+  L.push(`## A/B listening notes — ${stamp}`);
+  L.push('');
+
+  L.push('**Compared**');
+  order.forEach((idx, pos) => {
+    const b = buffers[idx];
+    const relDb = 20 * Math.log10(1 / comp[idx]);
+    const sign = relDb >= 0 ? '+' : '';
+    L.push(`${pos + 1}. \`${disp[idx]}\` — ${b.duration.toFixed(2)}s, ` +
+           `${b.sampleRate ? '' : ''}source level ${sign}${relDb.toFixed(1)} dB vs set average`);
+  });
+  L.push('');
+
+  const lens = buffers.map(b => b.duration);
+  const spread = Math.max(...lens) - Math.min(...lens);
+  const ctxBits = [];
+  ctxBits.push(`loudness matching **${$('match').checked ? 'on' : 'off'}** during listening`);
+  if (blindOn) ctxBits.push('**blind mode on**');
+  ctxBits.push(spread > 0.05
+    ? `⚠ lengths differ by ${spread.toFixed(2)}s`
+    : 'lengths match');
+  L.push(`_Listening conditions: ${ctxBits.join(' · ')}._`);
+  L.push('');
+
+  const vtext = i => (verdicts[vkey(i)] ?? verdicts[files[i].name] ?? '').trim();
+  const withVerdict = order.filter(i => vtext(i));
+  if (withVerdict.length) {
+    L.push('**Overall verdicts**');
+    withVerdict.forEach(i => L.push(`- **${disp[i]}** — ${vtext(i)}`));
+    L.push('');
+  }
+
+  const mks = markers.slice().sort((a, b) => a.t - b.t).filter(m => (m.text || '').trim());
+  if (mks.length) {
+    L.push('**Markers**');
+    mks.forEach(m => {
+      const isSeg = typeof m.t_end === 'number' && m.t_end > m.t;
+      const when = isSeg
+        ? `${fmt(m.t)}–${fmt(m.t_end)} (${(m.t_end - m.t).toFixed(2)}s)  [${m.t.toFixed(3)}–${m.t_end.toFixed(3)}]`
+        : `${fmt(m.t)}  [${m.t.toFixed(3)}]`;
+      L.push(`- \`${when}\` · ${m.trackName} — ${m.text.trim()}`);
+    });
+    L.push('');
+  }
+
+  if (!withVerdict.length && !mks.length) {
+    L.push('_No notes entered yet._');
+    L.push('');
+  }
+
+  L.push('<details><summary>full paths</summary>');
+  L.push('');
+  order.forEach(i => L.push(`- ${files[i].path}`));
+  L.push('');
+  L.push('</details>');
+  return L.join('\n');
+}
+
+function openExport() {
+  $('md').value = buildMarkdown();
+  $('modal').classList.add('on');
+  $('md').scrollTop = 0;
+}
+function closeExport() { $('modal').classList.remove('on'); }
+
+$('export').onclick = openExport;
+$('closeModal').onclick = closeExport;
+$('modal').addEventListener('mousedown', e => { if (e.target === $('modal')) closeExport(); });
+$('copyAll').onclick = async () => {
+  const text = $('md').value;
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (e) {
+    $('md').removeAttribute('readonly');
+    $('md').select(); document.execCommand('copy');
+    $('md').setAttribute('readonly', '');
+  }
+  const b = $('copyAll'); const old = b.textContent;
+  b.textContent = '✓ Copied'; setTimeout(() => { b.textContent = old; }, 1400);
+};
+
+// ---- waveform ----
+const cv = $('wave'), g2 = cv.getContext('2d');
+function resize() {
+  const r = window.devicePixelRatio || 1;
+  cv.width = cv.clientWidth * r; cv.height = cv.clientHeight * r;
+  g2.setTransform(r, 0, 0, r, 0, 0);
+}
+window.addEventListener('resize', resize);
+// ResizeObserver so the canvas still sizes correctly if the page lays out
+// late (background tab, pane with no width yet) — a plain resize listener
+// never fires in that case and the waveform stays blank.
+if (window.ResizeObserver) new ResizeObserver(resize).observe(cv);
+
+function draw() {
+  const W = cv.clientWidth, H = cv.clientHeight, mid = H / 2;
+  g2.clearRect(0, 0, W, H);
+  const D = dur() || 1;
+
+  if (loopA !== null && loopB !== null) {
+    g2.fillStyle = 'rgba(37,99,235,.18)';
+    g2.fillRect(loopA / D * W, 0, (loopB - loopA) / D * W, H);
+  }
+
+  const p = peaks[active];
+  if (p) {
+    g2.fillStyle = '#3f8f5b';
+    for (let x = 0; x < W; x++) {
+      const v = p[Math.floor(x / W * p.length)] || 0;
+      const h = v * (H * 0.46);
+      g2.fillRect(x, mid - h, 1, h * 2);
+    }
+  }
+
+  g2.strokeStyle = '#2a2a2a'; g2.beginPath();
+  g2.moveTo(0, mid); g2.lineTo(W, mid); g2.stroke();
+
+  markers.forEach(mk => {
+    const x = mk.t / D * W;
+    if (typeof mk.t_end === 'number' && mk.t_end > mk.t) {
+      const w = (mk.t_end - mk.t) / D * W;
+      g2.fillStyle = 'rgba(234,179,8,.22)';
+      g2.fillRect(x, 0, Math.max(1, w), H);
+      g2.strokeStyle = '#eab308';
+      g2.strokeRect(x, 0.5, Math.max(1, w), H - 1);
+    } else {
+      g2.strokeStyle = '#eab308'; g2.beginPath();
+      g2.moveTo(x, 0); g2.lineTo(x, H); g2.stroke();
+    }
+  });
+
+  const x = now() / D * W;
+  g2.strokeStyle = '#fff'; g2.lineWidth = 1.5; g2.beginPath();
+  g2.moveTo(x, 0); g2.lineTo(x, H); g2.stroke(); g2.lineWidth = 1;
+}
+
+function tick() { draw(); $('time').textContent = `${fmt(now())} / ${fmt(dur())}`; requestAnimationFrame(tick); }
+
+cv.addEventListener('mousedown', e => {
+  const r = cv.getBoundingClientRect();
+  dragStart = (e.clientX - r.left) / r.width * dur();
+  dragging = true;
+});
+cv.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  const r = cv.getBoundingClientRect();
+  const t = (e.clientX - r.left) / r.width * dur();
+  if (Math.abs(t - dragStart) > 0.15) { loopA = Math.min(dragStart, t); loopB = Math.max(dragStart, t); }
+});
+window.addEventListener('mouseup', e => {
+  if (!dragging) return;
+  dragging = false;
+  const r = cv.getBoundingClientRect();
+  const t = (e.clientX - r.left) / r.width * dur();
+  if (Math.abs(t - dragStart) <= 0.15) { loopA = loopB = null; seek(t); }
+  else if (playing) play(loopA);
+});
+
+$('play').onclick = toggle;
+$('mark').onclick = addMarker;
+$('markSeg').onclick = addSegment;
+$('loopClear').onclick = () => { loopA = loopB = null; if (playing) play(now()); };
+$('match').onchange = () => setActive(active);
+$('blind').onchange = e => {
+  blindOn = e.target.checked;
+  if (blindOn) { order = files.map((_, i) => i).sort(() => Math.random() - 0.5); }
+  else { order = files.map((_, i) => i); }
+  $('reveal').style.display = blindOn ? '' : 'none';
+  renderTracks(); renderVerdicts(); renderMarkers();
+};
+$('reveal').onclick = () => {
+  alert(order.map((idx, pos) => `${String.fromCharCode(65 + pos)}  =  ${files[idx].name}`).join('\n'));
+};
+
+window.addEventListener('keydown', e => {
+  if ($('modal').classList.contains('on')) {
+    if (e.key === 'Escape') closeExport();
+    return;                       // don't drive transport from inside the sheet
+  }
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key.toLowerCase() === 'e') { openExport(); return; }
+  if (e.key === ' ') { e.preventDefault(); toggle(); }
+  else if (e.key >= '1' && e.key <= '9') { const p = +e.key - 1; if (p < order.length) setActive(order[p]); }
+  else if (e.key === 'ArrowLeft') seek(now() - 5);
+  else if (e.key === 'ArrowRight') seek(now() + 5);
+  else if (e.key.toLowerCase() === 'm') addMarker();
+  else if (e.key.toLowerCase() === 's') addSegment();
+  else if (e.key === '[') { loopA = now(); if (loopB !== null && loopB <= loopA) loopB = null; if (playing && loopB) play(loopA); }
+  else if (e.key === ']') { loopB = now(); if (loopA !== null && playing) play(loopA); }
+  else if (e.key === '\\') { loopA = loopB = null; if (playing) play(now()); }
+});
+
+load();
+</script>
