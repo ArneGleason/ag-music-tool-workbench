@@ -17,6 +17,7 @@ import queue
 import socket
 import sys
 import threading
+import time
 
 from . import osc
 
@@ -31,6 +32,7 @@ HELP = """
 commands (type and press Enter):
   r          reduce the selected clip to a line, into a new clip
   a          analyse - name the chords in the selected clip
+  p          pull the selected clip from Bitwig now
   m <mode>   set the line: smooth | top | bottom
   s          status
   q          quit
@@ -44,6 +46,7 @@ class Bridge:
         self.step_size = 0.25
         self.clip_seen = False
         self.mode = "smooth"
+        self.packets = 0                    # anything at all from the extension
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._out = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._cmds: queue.Queue[str] = queue.Queue()
@@ -163,6 +166,56 @@ class Bridge:
         for line in sys.stdin:
             self._cmds.put(line.strip())
 
+    def pull(self, timeout: float = 2.0) -> bool:
+        """Ask Bitwig to send the selected clip, and wait for it.
+
+        The extension only sends when its note-step observer fires, which is on
+        note CHANGES -- selecting a different clip does not necessarily count.
+        So "select a clip, press r" found nothing while the clip was plainly
+        there. /amtw/resend exists for this and the extension already handles
+        it, so the pull happens automatically rather than needing a rebuild.
+        """
+        self.send("/amtw/resend")
+        deadline = time.monotonic() + timeout
+        before = self.notes
+        while time.monotonic() < deadline:
+            try:
+                self._sock.settimeout(max(0.05, deadline - time.monotonic()))
+                data, _ = self._sock.recvfrom(262144)
+            except socket.timeout:
+                break
+            except OSError:
+                break
+            self.packets += 1
+            try:
+                address, args = osc.decode(data)
+            except Exception:  # noqa: BLE001
+                continue
+            if address == "/amtw/clip":
+                self.on_clip(*args)
+                if self.notes is not before:
+                    self._sock.settimeout(0.3)
+                    return True
+        self._sock.settimeout(0.3)
+        return bool(self.notes)
+
+    def _need_notes(self) -> bool:
+        """True when we have notes, pulling first if we do not."""
+        if self.notes:
+            return True
+        self.log("  no clip held - asking Bitwig for the selection ...")
+        if self.pull():
+            return True
+        if self.packets == 0:
+            self.log("  nothing has EVER arrived from the extension.")
+            self.log("  check: is 'AMTW Harmony Bridge' enabled in")
+            self.log("         Settings > Controllers, and does Bitwig's")
+            self.log("         controller console show 'amtw harmony bridge ready'?")
+        else:
+            self.log("  the extension is talking, but the selected clip is empty")
+            self.log("  (a clip must be SELECTED, not just the track)")
+        return False
+
     def _do_command(self, cmd: str) -> bool:
         """-> False to stop."""
         if not cmd:
@@ -180,13 +233,21 @@ class Bridge:
                 self.log(f"  mode = {self.mode}")
             else:
                 self.log("  mode must be smooth, top or bottom")
+        elif head in ("p", "pull"):
+            if self.pull():
+                self.log(f"  pulled {len(self.notes)} notes")
+            else:
+                self._need_notes()
         elif head in ("r", "reduce"):
-            self.on_reduce(self.mode)
+            if self._need_notes():
+                self.on_reduce(self.mode)
         elif head in ("a", "analyse", "analyze"):
-            self.on_analyse()
+            if self._need_notes():
+                self.on_analyse()
         elif head in ("s", "status"):
             self.log(f"  mode={self.mode}  notes held={len(self.notes)}"
-                     f"  clip seen={self.clip_seen}")
+                     f"  clip seen={self.clip_seen}"
+                     f"  packets from extension={self.packets}")
         else:
             self.log(f"  unknown command {cmd!r} - type ? for help")
         return True
@@ -226,6 +287,7 @@ class Bridge:
                     data, _ = self._sock.recvfrom(262144)
                 except socket.timeout:
                     continue
+                self.packets += 1
                 try:
                     address, args = osc.decode(data)
                 except Exception as e:  # noqa: BLE001

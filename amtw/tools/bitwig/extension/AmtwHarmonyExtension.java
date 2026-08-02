@@ -48,9 +48,15 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private static final int SETTLE_MS = 250;
    private static final int TICK_MS = 100;
 
-   /** Steps and keys the cursor clip exposes. 128 keys is the whole MIDI
-    *  range; 512 steps at 1/16 is 32 bars, which comfortably covers a section. */
-   private static final int GRID_STEPS = 512;
+   /** Steps and keys the cursor clip exposes: 128 steps at 1/16 is 8 bars.
+    *
+    * This was 512 x 128, and sendClip() walked every cell with getStep().
+    * That is 65,536 API calls in one pass on Bitwig's controller thread, which
+    * stalled it hard enough to take Bitwig down and meant no clip was ever
+    * sent. Notes are now tracked incrementally from the observer and the grid
+    * is never scanned, so this bound only limits how much clip is visible --
+    * but it stays modest, because the observer fires per cell too. */
+   private static final int GRID_STEPS = 128;
    private static final int GRID_KEYS = 128;
 
    /** The bridge's note payload. A JSON library would be a dependency for one
@@ -76,6 +82,10 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private long mLastChange = 0;
    private boolean mConnected = false;
    private boolean mLoggedStates = false;
+
+   /** (x<<16|y) -> {x, y, velocity, duration}, kept up to date by the note
+    *  step observer so a send never has to read the clip back. */
+   private final java.util.TreeMap<Long, double[]> mSteps = new java.util.TreeMap<>();
 
    protected AmtwHarmonyExtension(final ControllerExtensionDefinition definition,
                                   final ControllerHost host)
@@ -129,7 +139,16 @@ public class AmtwHarmonyExtension extends ControllerExtension
 
       mClip = mHost.createArrangerCursorClip(GRID_STEPS, GRID_KEYS);
       mClip.setStepSize(0.25);                    // 1/16 note grid
+      // Record each step as Bitwig reports it, instead of scanning for them
+      // later. Bitwig re-reports the whole grid when the cursor moves to a new
+      // clip, so the map corrects itself on selection without a rescan.
       mClip.addNoteStepObserver(step -> {
+         final long key = ((long) step.x() << 16) | step.y();
+         if ("NoteOn".equals(String.valueOf(step.state())))
+            mSteps.put(key, new double[] {step.x(), step.y(),
+                                          step.velocity(), step.duration()});
+         else
+            mSteps.remove(key);
          mDirty = true;
          mLastChange = System.currentTimeMillis();
       });
@@ -201,46 +220,20 @@ public class AmtwHarmonyExtension extends ControllerExtension
       mHost.scheduleTask(this::tick, TICK_MS);
    }
 
-   /**
-    * True when a step is the START of a note rather than empty or a sustain.
-    *
-    * This compares the enum's name instead of writing {@code NoteStep.State.NoteOn},
-    * which is a build constraint rather than a preference: the extension is
-    * compiled by ecj against Bitwig's API classes unpacked to a directory
-    * (Bitwig's bundled JRE has no jdk.zipfs, so a jar classpath cannot be read),
-    * and ecj will not resolve the {@code NoteStep$State} nested class from a
-    * directory. The trade is that an overridden toString() upstream would
-    * silently match nothing — so {@link #sendClip} logs the state names it
-    * actually saw, and the bridge warns if none were NoteOn.
-    */
-   private static boolean isNoteStart(final NoteStep s)
-   {
-      return s != null && "NoteOn".equals(String.valueOf(s.state()));
-   }
-
    private void sendClip()
    {
+      // Serialise what the observer has already told us. No getStep() calls:
+      // walking the grid was 65,536 of them per send and it took Bitwig down.
       final List<String> notes = new ArrayList<>();
-      final java.util.Set<String> statesSeen = new java.util.HashSet<>();
-      for (int x = 0; x < GRID_STEPS; x++)
+      for (final double[] s : mSteps.values())
       {
-         for (int y = 0; y < GRID_KEYS; y++)
-         {
-            final NoteStep s = mClip.getStep(0, x, y);
-            if (s != null)
-               statesSeen.add(String.valueOf(s.state()));
-            if (!isNoteStart(s))
-               continue;
-            notes.add("{\"x\":" + x + ",\"y\":" + y
-                      + ",\"vel\":" + fmt(s.velocity())
-                      + ",\"dur\":" + fmt(s.duration()) + "}");
-         }
+         notes.add("{\"x\":" + (int) s[0] + ",\"y\":" + (int) s[1]
+                   + ",\"vel\":" + fmt(s[2]) + ",\"dur\":" + fmt(s[3]) + "}");
       }
       if (!mLoggedStates)
       {
          mLoggedStates = true;
-         mHost.println("amtw: step states seen = " + statesSeen
-                       + " (expecting NoteOn among them)");
+         mHost.println("amtw: first send, " + notes.size() + " notes tracked");
       }
 
       final StringBuilder sb = new StringBuilder(64 + notes.size() * 40);
