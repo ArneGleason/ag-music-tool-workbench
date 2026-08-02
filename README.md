@@ -50,6 +50,7 @@ Everything is runnable by hand too; the UI just builds these command lines:
 | | `midi-inspect` | list a MIDI file's tracks |
 | Harmony | `harm-read` | bar-by-bar readings, how many keys still fit, and which voice narrows them |
 | | `harm-map` | interactive page of every reading and every key, with a lens switch |
+| | `harm-render` | render a bar range to audio, one file per voice-set, for A/B |
 
 ## Vocal stem restoration
 

@@ -29,6 +29,13 @@ session finds out what moved.
   a roman-numeral row that rewrites itself from readings you pin. The lens
   selector (most complete / rooted on the bass / root must be sounding /
   functional in the tonic) **reorders** readings and never removes one.
+- **`harm-render`** — renders a bar range to wav, one file per voice-set, so
+  the analysis becomes something you can hear and hand to `ab`. Uses FluidSynth
+  and a soundfont from the runtime root when present; otherwise a built-in
+  detuned-partial synth, so the tool still makes a sound on a machine with
+  nothing installed. Walks the tempo map rather than assuming a constant —
+  rendering a rubato passage flat would misrepresent the thing being
+  auditioned. `doctor` reports the soundfont as optional and never fails on it.
 - **`readings()` replaces single-answer chord naming.** A bar now yields every
   defensible interpretation, each declaring which notes it claims as chord
   tones and which it leaves over — because the leftovers are where colour,

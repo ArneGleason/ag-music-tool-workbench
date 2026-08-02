@@ -278,6 +278,55 @@ def run_map(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_render(args: argparse.Namespace) -> int:
+    """Render a bar range to audio, per voice-set, ready for the A/B tool."""
+    from ...core.paths import OUTPUT_DIR
+    from . import render as R
+
+    src = Path(args.input).resolve()
+    if not src.exists():
+        print(f"input not found: {src}", file=sys.stderr)
+        return 2
+
+    lo, hi = 1, 9999
+    if args.bars:
+        text = args.bars.replace(" ", "")
+        a, _, b = text.partition("-")
+        lo, hi = int(a), int(b) if b else int(a)
+
+    outdir = Path(args.outdir).resolve() if args.outdir else (
+        OUTPUT_DIR / f"harmrender_{src.stem}")
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    # Each --stack is one voice-set rendered as its own file, so the A/B tool
+    # can switch between them in lockstep. "0" is the chord line alone;
+    # "0 2 3" is the chords plus melody. Hearing those against each other is
+    # the point -- it is how you check whether the arrangement is spending a
+    # leading tone the backbone was rationing.
+    stacks: list[tuple[str, list[int] | None]] = []
+    for spec in (args.stack or []):
+        idx = [int(x) for x in spec.replace(",", " ").split()]
+        stacks.append((f"voices_{'-'.join(str(i) for i in idx)}", idx))
+    if not stacks:
+        stacks = [("all", None)]
+
+    made = []
+    for name, idx in stacks:
+        out = outdir / f"{name}_bars{lo}-{hi}.wav"
+        print(f"{name}:")
+        path, backend = R.render(src, out, lo, hi, soundfont=args.soundfont,
+                                 tracks=idx)
+        made.append(path)
+
+    print(f"\n{len(made)} file(s) in {outdir}")
+    if len(made) > 1:
+        print("compare:\n  .\\amtw.ps1 ab " + " ".join(f'"{p}"' for p in made))
+    if "built-in" in backend:
+        print("\nFor a real instrument, put a .sf2 in "
+              f"{R.SOUNDFONT_DIR} and fluidsynth in {R.FLUIDSYNTH_DIR}.")
+    return 0
+
+
 _SHARED = [
     Field("input", "MIDI file", "file", accept=MIDI, root="downloads",
           required=True, help="tracks are treated as voices"),
@@ -344,4 +393,31 @@ TOOL = Tool(
     ],
 )
 
-TOOLS = [TOOL, MAP]
+RENDER = Tool(
+    name="harm-render", title="Render to audio", group="Harmony",
+    run=run_render, order=30,
+    help="render a bar range to audio, one file per voice-set, for A/B",
+    blurb="Renders a span of bars to wav so you can hear what the analysis is "
+          "talking about. Give it several voice-sets and it writes one file "
+          "each, ready to switch between in the A/B tool.",
+    note="Uses FluidSynth and a soundfont when one is installed in the runtime "
+         "root, and a built-in synth otherwise so the tool still makes a sound "
+         "on a fresh machine. The built-in one is for checking a reading, not "
+         "for judging an arrangement — install a soundfont before you trust "
+         "your ears on a mix decision.",
+    fields=[
+        Field("input", "MIDI file", "file", accept=MIDI, root="downloads",
+              required=True),
+        Field("bars", "Bars", "text", flag="--bars",
+              help="e.g. '9-16'. Blank = the whole file"),
+        Field("stack", "Voice sets to render", "texts", flag="--stack",
+              help="one file per set, e.g. '0' '0 2 3' — then A/B them"),
+        Field("soundfont", "Soundfont", "file", flag="--soundfont",
+              accept=["sf2", "sf3"], advanced=True,
+              help="blank = the first one found in the runtime root"),
+        Field("outdir", "Output folder", "dir", flag="--outdir", root="output",
+              advanced=True),
+    ],
+)
+
+TOOLS = [TOOL, MAP, RENDER]

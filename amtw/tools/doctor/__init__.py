@@ -47,6 +47,18 @@ def run(_args: argparse.Namespace) -> int:
     except ImportError:
         check("audio-separator importable (main env)", False,
               "run amtw from the main venv python")
+
+    # Optional. harm-render falls back to its built-in synth without these, so
+    # a missing soundfont is a downgrade, not a failure — it must not turn
+    # doctor red.
+    from ..harmony import render as _r
+
+    sf, exe = _r.find_soundfont(), _r.find_fluidsynth()
+    print(f"  [{'ok ' if sf else '--'}] soundfont"
+          f" — {sf.name if sf else f'none in {_r.SOUNDFONT_DIR} (harm-render uses its built-in synth)'}")
+    print(f"  [{'ok ' if exe else '--'}] fluidsynth"
+          f" — {exe if exe else 'not installed (optional)'}")
+
     print("all good" if ok else "problems found — see FAIL lines")
     return 0 if ok else 1
 
