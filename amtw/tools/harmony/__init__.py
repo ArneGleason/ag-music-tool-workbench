@@ -290,6 +290,94 @@ def run_map(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_reduce(args: argparse.Namespace) -> int:
+    """Collapse a chord clip to one monophonic line and write it as MIDI."""
+    import mido
+
+    from ...core.paths import OUTPUT_DIR
+    from . import analysis as A
+    from . import reduce as RED
+
+    loaded = _load(args)
+    if loaded is None:
+        return 2
+    src, voices, bar_ticks, meta, bars_ = loaded
+
+    lo = min((b.number for b in bars_), default=1)
+    hi = max((b.number for b in bars_), default=1)
+    t0, t1 = (lo - 1) * bar_ticks, hi * bar_ticks
+
+    notes = [(n.start, n.end, n.pitch, 100)
+             for v in voices for n in v.notes
+             if n.start < t1 and n.end > t0]
+    if not notes:
+        print("no notes in that range", file=sys.stderr)
+        return 2
+
+    picks = RED.reduce_line(notes, mode=args.mode, index=args.index,
+                            min_len=args.min_len * meta["ppq"])
+    stats = RED.describe(picks)
+    print(f"{len(notes)} notes in bars {lo}-{hi} -> {stats['notes']} in one line")
+    print(f"  range {A.PCS[stats['range'][0] % 12]}{stats['range'][0] // 12 - 1}"
+          f"–{A.PCS[stats['range'][1] % 12]}{stats['range'][1] // 12 - 1}"
+          f"   biggest leap {stats['biggest_leap']} semitones"
+          f"   mean {stats['mean_leap']}")
+    if stats["total_moves"]:
+        pct = 100 * stats["steps_or_less"] / stats["total_moves"]
+        print(f"  {pct:.0f}% of moves are a step or less")
+
+    out = Path(args.out).resolve() if args.out else (
+        OUTPUT_DIR / f"{src.stem}_{args.mode}line.mid")
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    mf = mido.MidiFile(type=1, ticks_per_beat=meta["ppq"])
+
+    # Carry the source's tempo map across. Without it the line renders at a
+    # default 120 bpm — this material swings 35-70, so an 8-bar span came out
+    # 16s instead of 30 and the rubato the line was extracted from was gone.
+    # Bitwig would ignore it (project tempo wins), but anywhere else would not.
+    tempo = mido.MidiTrack()
+    tempo.append(mido.MetaMessage("track_name", name="tempo", time=0))
+    src_mf = mido.MidiFile(str(src))
+    in_force, inside = None, []
+    for trk in src_mf.tracks:
+        t = 0
+        for m in trk:
+            t += m.time
+            if m.type in ("set_tempo", "time_signature"):
+                if t <= t0:
+                    in_force = m if m.type == "set_tempo" or in_force is None else in_force
+                    if m.type == "time_signature":
+                        inside = [x for x in inside if x[1].type != "time_signature"]
+                elif t <= t1:
+                    inside.append((t, m))
+    if in_force is not None:
+        tempo.append(in_force.copy(time=0))
+    inside.sort(key=lambda e: e[0])
+    prev_t = t0
+    for at, m in inside:
+        tempo.append(m.copy(time=int(at - prev_t)))
+        prev_t = at
+    mf.tracks.append(tempo)
+
+    tr = mido.MidiTrack()
+    tr.append(mido.MetaMessage("track_name", name=f"{args.mode} line", time=0))
+    events = []
+    for p in picks:
+        events.append((int(p.start - t0), 1, p.pitch, p.velocity))
+        events.append((int(p.end - t0), 0, p.pitch, 0))
+    events.sort(key=lambda e: (e[0], e[1]))       # offs before ons at a tick
+    prev = 0
+    for at, on, pitch, vel in events:
+        tr.append(mido.Message("note_on" if on else "note_off", note=pitch,
+                               velocity=vel, time=max(0, at - prev)))
+        prev = at
+    mf.tracks.append(tr)
+    mf.save(str(out))
+    print(f"  -> {out}")
+    return 0
+
+
 def run_render(args: argparse.Namespace) -> int:
     """Render a bar range to audio, per voice-set, ready for the A/B tool."""
     from ...core.paths import OUTPUT_DIR
@@ -324,7 +412,10 @@ def run_render(args: argparse.Namespace) -> int:
 
     made = []
     for name, idx in stacks:
-        out = outdir / f"{name}_bars{lo}-{hi}.wav"
+        # the source stem is part of the name because rendering two different
+        # files into one folder otherwise collides on "all_bars1-8.wav" and the
+        # second silently overwrites the first — which is exactly the A/B case
+        out = outdir / f"{src.stem}_{name}_bars{lo}-{hi}.wav"
         print(f"{name}:")
         path, backend = R.render(src, out, lo, hi, soundfont=args.soundfont,
                                  tracks=idx)
@@ -437,4 +528,35 @@ RENDER = Tool(
     ],
 )
 
-TOOLS = [TOOL, MAP, RENDER]
+REDUCE = Tool(
+    name="harm-reduce", title="Chords to one line", group="Harmony",
+    run=run_reduce, order=40,
+    help="collapse a chord clip into a single monophonic line",
+    blurb="Takes a block of chords and pulls one line out of it — top, bottom, "
+          "nth voice, or the smoothest path — and writes it as a one-track MIDI "
+          "file.",
+    note="'Smooth' picks, at each chord, the note nearest the one before it. "
+         "That crosses between voices whenever crossing is the shorter move, "
+         "which is usually what an ear wants and what a voice-leading rule "
+         "forbids — so it often beats 'top', which lands on a jumpy line "
+         "nobody would have played. The printed leap stats tell you which won.",
+    fields=[
+        Field("input", "MIDI file", "file", accept=MIDI, root="downloads",
+              required=True),
+        Field("bars", "Bars", "text", flag="--bars",
+              help="e.g. '9-16'. Blank = everything"),
+        Field("voices", "Voices to include", "ints", flag="--voices",
+              help="track indices. Blank = all with notes"),
+        Field("mode", "Which line", "choice", flag="--mode",
+              choices=["top", "smooth", "bottom", "nth"], default="top"),
+        Field("index", "Nth from the top", "int", flag="--index", default=1,
+              min=1, max=8, step=1, advanced=True,
+              help="only used when Which line = nth"),
+        Field("min_len", "Drop notes shorter than (beats)", "float",
+              flag="--min-len", default=0.0, min=0.0, max=4.0, step=0.05,
+              advanced=True),
+        Field("out", "Output MIDI", "text", flag="--out", advanced=True),
+    ],
+)
+
+TOOLS = [TOOL, MAP, RENDER, REDUCE]
