@@ -24,6 +24,21 @@ session finds out what moved.
   (which single semitone move relocates a bar into another key), `--tonic C`
   (read the fitting collections back as modes), `--bars` / `--voices` to scope
   it, and `--json` for a visualiser to consume.
+- **`harm-map`** — the foundation view. Writes a self-contained HTML page: one
+  timeline with every defensible reading of each bar, the key-fit ribbon, and
+  a roman-numeral row that rewrites itself from readings you pin. The lens
+  selector (most complete / rooted on the bass / root must be sounding /
+  functional in the tonic) **reorders** readings and never removes one.
+- **`readings()` replaces single-answer chord naming.** A bar now yields every
+  defensible interpretation, each declaring which notes it claims as chord
+  tones and which it leaves over — because the leftovers are where colour,
+  pedals, anticipation and passing motion live. C-D-F-G-B♭ is C11 *and* Gm7
+  with C underneath *and* B♭6 with C as an added 9th; the tool lists all three
+  rather than letting a bass tie-break decide. `readings_without_voice()` adds
+  the lens the bass usually needs: how the bar reads if that line is *not* a
+  chord tone. `interpretive_spread()` counts distinct roots among the
+  best-explaining readings — a fork worth looking at, and orthogonal to key
+  ambiguity.
 - **`texts` field type** — a space-separated list of strings, so a tool can
   take `--together F B`. The vocabulary had `ints` and `floats` but no string
   equivalent.

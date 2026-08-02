@@ -34,25 +34,30 @@ def _fmt_voices(voices, meta) -> None:
     print()
 
 
-def run(args: argparse.Namespace) -> int:
+def _load(args):
+    """Shared front half: read, scope to voices and bars. -> (voices, ticks, meta, bars)
+
+    Both the text readout and the map need exactly this, and they must agree —
+    a map that disagreed with the readout would be worse than no map.
+    """
     from . import analysis as A
 
     src = Path(args.input).resolve()
     if not src.exists():
         print(f"input not found: {src}", file=sys.stderr)
-        return 2
+        return None
 
     voices, bar_ticks, meta = A.read(src)
     if not voices:
         print("no notes in this file", file=sys.stderr)
-        return 2
+        return None
 
     if args.voices:
         keep = set(args.voices)
         voices = [v for v in voices if v.index in keep]
         if not voices:
             print(f"no voices matched {sorted(keep)}", file=sys.stderr)
-            return 2
+            return None
 
     lo = hi = None
     if args.bars:
@@ -60,31 +65,58 @@ def run(args: argparse.Namespace) -> int:
         lo, _, rest = text.partition("-")
         lo, hi = int(lo), int(rest) if rest else int(lo)
 
-    candidates = args.keys or None
-    rows = A.bars(voices, bar_ticks, lo, hi)
+    return src, voices, bar_ticks, meta, A.bars(voices, bar_ticks, lo, hi)
 
-    if not args.json:
-        _fmt_voices(voices, meta)
 
-    # ---- the readout -----------------------------------------------------
+def _rows(voices, bars_, candidates, max_readings):
+    from . import analysis as A
+
+    name_of = {v.index: v.label for v in voices}
     out_rows = []
-    for bar in rows:
+    for bar in bars_:
         if not bar.notes:
             continue
         fits = A.key_fits(bar.pcs, candidates)
-        chord = A.name_chord(bar.pcs, bar.bass)
+        rs = A.readings(bar.pcs, bar.bass)
+        spread = A.interpretive_spread(rs)
         narrow = A.narrowing_voices(bar, voices, candidates)
+        alt = A.readings_without_voice(bar, voices)
         out_rows.append({
             "bar": bar.number,
-            "chord": chord,
+            "chord": A.name_chord(bar.pcs, bar.bass),   # convenience label only
             "pitches": [A.PCS[p] for p in sorted(bar.pcs)],
+            "bass": A.PCS[bar.bass] if bar.bass is not None else None,
             "fits": fits,
             "ambiguity": len(fits),
-            "narrowed_by": {
-                next(v.label for v in voices if v.index == i): keys
-                for i, keys in narrow.items()
+            # every defensible reading, not a winner. `spread` counts distinct
+            # roots among the best-explaining ones: >1 means the lens matters.
+            "readings": [{
+                "name": r.name, "label": r.label(bar.bass), "root": A.PCS[r.root],
+                "quality": r.quality, "explains": r.explains,
+                "leftover": [A.PCS[p] for p in sorted(r.leftover)],
+                "missing": [A.PCS[p] for p in sorted(r.missing)],
+                "root_sounding": r.root_sounding, "bass_root": r.is_bass_root,
+            } for r in rs[:max_readings]],
+            "spread": [A.PCS[p] for p in spread],
+            "forked": len(spread) > 1,
+            "narrowed_by": {name_of[i]: keys for i, keys in narrow.items()},
+            "without_voice": {
+                name_of[i]: [x.label(None) for x in alts[:3]]
+                for i, alts in alt.items()
             },
         })
+    return out_rows
+
+
+def run(args: argparse.Namespace) -> int:
+    from . import analysis as A
+
+    loaded = _load(args)
+    if loaded is None:
+        return 2
+    src, voices, bar_ticks, meta, bars_ = loaded
+    candidates = args.keys or None
+    out_rows = _rows(voices, bars_, candidates, args.max_readings)
 
     if args.json:
         payload = {"file": str(src), "meta": meta, "bar_ticks": bar_ticks,
@@ -93,10 +125,38 @@ def run(args: argparse.Namespace) -> int:
         print(json.dumps(payload, indent=2))
         return 0
 
-    print(f"{'bar':>5}  {'chord':<12} {'pitches':<22} {'fits':<3} keys")
+    _fmt_voices(voices, meta)
+    print(f"{'bar':>5}  {'reading':<14} {'pitches':<22} {'fits':<4} keys")
     for r in out_rows:
-        print(f"{r['bar']:>5}  {r['chord']:<12} {' '.join(r['pitches']):<22} "
+        fork = " ⑂" if r["forked"] else "  "
+        print(f"{r['bar']:>5}{fork}{r['chord']:<14} {' '.join(r['pitches']):<22} "
               f"{r['ambiguity']:>3}  {' '.join(r['fits'])}")
+    if any(r["forked"] for r in out_rows):
+        print("  ⑂ = more than one root explains the bar equally well; "
+              "run --readings to see them")
+
+    if args.readings:
+        print("\nevery defensible reading (the bass is a hypothesis, not a verdict):")
+        for r in out_rows:
+            head = f"  bar {r['bar']:>3}  {' '.join(r['pitches'])}"
+            if r["bass"]:
+                head += f"   (lowest: {r['bass']})"
+            print(head)
+            for rd in r["readings"]:
+                tags = []
+                if rd["bass_root"]:
+                    tags.append("rooted on the bass")
+                if not rd["root_sounding"]:
+                    tags.append("rootless")
+                if rd["leftover"]:
+                    tags.append("leaves " + " ".join(rd["leftover"]))
+                if rd["missing"]:
+                    tags.append("no " + " ".join(rd["missing"]))
+                print(f"       {rd['label']:<20} explains {rd['explains']}"
+                      f"{'   — ' + ', '.join(tags) if tags else ''}")
+            for who, alts in r["without_voice"].items():
+                print(f"       if '{who[:30]}' is colour, not a chord tone: "
+                      f"{' | '.join(alts)}")
 
     if out_rows:
         widest = max(out_rows, key=lambda r: r["ambiguity"])
@@ -170,6 +230,89 @@ def run(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_map(args: argparse.Namespace) -> int:
+    """Write the foundation page: every reading, every key, one timeline."""
+    import webbrowser
+
+    from ...core.paths import OUTPUT_DIR
+
+    loaded = _load(args)
+    if loaded is None:
+        return 2
+    src, voices, bar_ticks, meta, bars_ = loaded
+    out_rows = _rows(voices, bars_, args.keys or None, args.max_readings)
+    if not out_rows:
+        print("nothing to map in that range", file=sys.stderr)
+        return 2
+
+    span = f"bars {out_rows[0]['bar']}-{out_rows[-1]['bar']}"
+    bpm = ""
+    if meta["tempo_events"]:
+        lo, hi = meta["bpm_min"], meta["bpm_max"]
+        bpm = f" · {lo} bpm" if lo == hi else f" · {lo}-{hi} bpm"
+    payload = {
+        "title": src.stem,
+        "subtitle": (f"{span} · {len(voices)} voice(s): "
+                     + ", ".join(v.label for v in voices)
+                     + f" · {meta['time_signature']}{bpm}"),
+        "tonic": args.tonic or "C",
+        "bars": out_rows,
+    }
+
+    template = (Path(__file__).resolve().parent / "map.html").read_text(encoding="utf-8")
+    # json.dumps output is inert inside a <script>, but "</script>" appearing in
+    # a track name would close the tag early -- so neutralise the sequence.
+    blob = json.dumps(payload).replace("</", "<\\/")
+    html = template.replace("__DATA__", blob)
+
+    out = Path(args.out).resolve() if args.out else (
+        OUTPUT_DIR / f"harmmap_{src.stem}.html")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(html, encoding="utf-8")
+    print(f"map -> {out}")
+    print(f"  {len(out_rows)} bars · "
+          f"{sum(1 for r in out_rows if r['forked'])} forked "
+          f"(more than one root explains them equally well)")
+    if not args.no_open:
+        webbrowser.open(out.as_uri())
+    return 0
+
+
+_SHARED = [
+    Field("input", "MIDI file", "file", accept=MIDI, root="downloads",
+          required=True, help="tracks are treated as voices"),
+    Field("bars", "Bars", "text", flag="--bars",
+          help="e.g. '9-16'. Blank = everything. Scope it to the section "
+               "you are actually working on"),
+    Field("voices", "Voices to include", "ints", flag="--voices",
+          help="track indices, e.g. '0 2 3'. Blank = all with notes"),
+    Field("tonic", "Tonic", "text", flag="--tonic",
+          help="e.g. 'C' — for roman numerals and modal names"),
+    Field("keys", "Candidate keys", "texts", flag="--keys", advanced=True,
+          help="restrict the search, e.g. 'C F Bb Ab'. Blank = all twelve"),
+    Field("max_readings", "Readings per bar", "int", flag="--max-readings",
+          default=6, min=1, max=20, step=1, advanced=True),
+]
+
+MAP = Tool(
+    name="harm-map", title="Harmonic map", group="Harmony", run=run_map, order=20,
+    opens_browser=True,
+    help="write an interactive page of every reading and every key that fits",
+    blurb="The foundation view: one timeline showing every defensible reading of "
+          "each bar, which keys still fit, and what the lines are doing — with a "
+          "lens switch instead of a single verdict.",
+    note="Nothing here is the answer. Switching lens reorders the readings, it "
+         "never deletes one, because a bass note is a hypothesis about function "
+         "— root, pedal, colour, or an anticipation of the next chord — and all "
+         "four readings stay on the page. Click a reading to pin it and the "
+         "roman-numeral row rewrites from your picks.",
+    fields=_SHARED + [
+        Field("out", "Output HTML", "text", flag="--out", advanced=True),
+        Field("no_open", "Don't open a browser", "bool", flag="--no-open",
+              advanced=True),
+    ],
+)
+
 TOOL = Tool(
     name="harm-read", title="Harmonic readout", group="Harmony", run=run, order=10,
     help="bar-by-bar chords, key ambiguity and voice analysis of a MIDI file",
@@ -180,16 +323,12 @@ TOOL = Tool(
          "and what it is still free to become — the number to watch is how many "
          "keys fit. A wide bar is a hinge you can modulate through; a bar where "
          "one voice rules out four keys is the line holding the tonality in place.",
-    fields=[
-        Field("input", "MIDI file", "file", accept=MIDI, root="downloads",
-              required=True, help="tracks are treated as voices"),
-        Field("bars", "Bars", "text", flag="--bars",
-              help="e.g. '9-16'. Blank = everything. Scope it to the section "
-                   "you are actually working on"),
-        Field("voices", "Voices to include", "ints", flag="--voices",
-              help="track indices, e.g. '0 2 3'. Blank = all with notes"),
+    fields=_SHARED + [
         Field("narrowing", "Show which voice narrows the key set", "bool",
               flag="--narrowing", default=True),
+        Field("readings", "List every defensible reading per bar", "bool",
+              flag="--readings", default=True,
+              help="the bass is one hypothesis about function, not the answer"),
         Field("together", "Do these two notes ever sound together?", "texts",
               flag="--together",
               help="two pitch names, e.g. 'F B' — the tritone that pins a key"),
@@ -197,14 +336,12 @@ TOOL = Tool(
               help="e.g. 'B' — where the leading tone actually lives"),
         Field("pivots_from", "One-note escapes from bar", "int", flag="--pivots-from",
               help="bar number: which single semitone move relocates it"),
-        Field("tonic", "Read collections as modes of", "text", flag="--tonic",
-              help="e.g. 'C' — shows 'F major = C Mixolydian'"),
-        Field("keys", "Candidate keys", "texts", flag="--keys", advanced=True,
-              help="restrict the search, e.g. 'C F Bb Ab'. Blank = all twelve"),
         Field("min_beats", "Minimum overlap (beats)", "float", flag="--min-beats",
               default=0.25, min=0.0, max=4.0, step=0.05, advanced=True,
               help="below this, an overlap is a note-boundary artifact"),
         Field("json", "JSON output", "bool", flag="--json", advanced=True,
-              help="for feeding a visualiser"),
+              help="the same data the map is built from"),
     ],
 )
+
+TOOLS = [TOOL, MAP]

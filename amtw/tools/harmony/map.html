@@ -1,0 +1,280 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Harmonic map</title>
+<style>
+  :root {
+    --bg:#12120f; --panel:#1a1a17; --line:#2c2c27; --ink:#eceadf;
+    --dim:#9a988c; --faint:#6a685f;
+    --flat:#eb6834; --sharp:#2a78d6; --pick:#e5b23c; --fork:#c77dff;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:14px/1.55 "Segoe UI",system-ui,sans-serif; }
+  header { padding:14px 18px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:15px; font-weight:500; }
+  .meta { color:var(--dim); font-size:12px; margin-top:3px; }
+  .wrap { padding:14px 18px 40px; }
+  .controls { display:flex; flex-wrap:wrap; gap:18px; align-items:center;
+              padding:10px 0 14px; border-bottom:1px solid var(--line);
+              margin-bottom:14px; }
+  .ctl { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--dim); }
+  select, button { background:var(--panel); color:var(--ink);
+                   border:1px solid var(--line); border-radius:5px;
+                   padding:4px 8px; font:inherit; font-size:12px; cursor:pointer; }
+  button:hover, select:hover { border-color:var(--faint); }
+  .scroll { overflow-x:auto; padding-bottom:8px; }
+  .grid { display:grid; gap:6px; align-items:stretch; }
+  .rowlab { font-size:11px; color:var(--faint); text-align:right;
+            padding-right:8px; align-self:center; white-space:nowrap; }
+  .barhead { text-align:center; font-size:11px; color:var(--dim);
+             border-bottom:1px solid var(--line); padding-bottom:4px; }
+  .barhead .n { color:var(--ink); }
+  .fork { color:var(--fork); }
+  .stack { display:flex; flex-direction:column; gap:3px; }
+  .rd { border:1px solid var(--line); border-radius:5px; padding:3px 6px;
+        font-size:11px; cursor:pointer; background:var(--panel);
+        color:var(--dim); white-space:nowrap; overflow:hidden;
+        text-overflow:ellipsis; }
+  .rd:hover { border-color:var(--faint); color:var(--ink); }
+  .rd.bassroot { border-left:3px solid var(--dim); }
+  .rd.chosen { background:rgba(229,178,60,.14); border-color:var(--pick);
+               color:var(--pick); }
+  .rd .sub { color:var(--faint); font-size:10px; }
+  .pcs { font-size:11px; color:var(--dim); text-align:center;
+         border-top:1px solid var(--line); padding-top:5px; }
+  .rn { text-align:center; font-size:12px; color:var(--pick); padding:3px 0; }
+  .cell { height:17px; border-radius:3px; border:1px solid var(--line); }
+  .cell.on-flat { background:var(--flat); border-color:transparent; }
+  .cell.on-sharp { background:var(--sharp); border-color:transparent; }
+  .amb { text-align:center; font-size:11px; color:var(--dim); }
+  .legend { display:flex; flex-wrap:wrap; gap:16px; margin-top:14px;
+            font-size:11px; color:var(--faint); }
+  .sw { width:10px; height:10px; border-radius:2px; display:inline-block;
+        vertical-align:-1px; margin-right:5px; }
+  .note { color:var(--dim); font-size:12px; margin-top:16px; max-width:70ch; }
+  .detail { margin-top:16px; padding:12px 14px; background:var(--panel);
+            border:1px solid var(--line); border-radius:8px; font-size:12px;
+            display:none; }
+  .detail h2 { margin:0 0 6px; font-size:13px; font-weight:500; }
+  .detail li { margin:2px 0; color:var(--dim); }
+  .detail b { color:var(--ink); font-weight:500; }
+</style>
+
+<header>
+  <h1 id="title">Harmonic map</h1>
+  <div class="meta" id="meta"></div>
+</header>
+
+<div class="wrap">
+  <div class="controls">
+    <label class="ctl">tonic
+      <select id="tonic"></select>
+    </label>
+    <label class="ctl">lens
+      <select id="lens">
+        <option value="explains">most complete reading</option>
+        <option value="bass">rooted on the bass</option>
+        <option value="rooted">root must be sounding</option>
+        <option value="diatonic">functional in the tonic</option>
+      </select>
+    </label>
+    <button id="reset">clear my picks</button>
+    <span class="ctl" id="picked"></span>
+  </div>
+
+  <div class="scroll"><div class="grid" id="grid"></div></div>
+
+  <div class="legend">
+    <span><i class="sw" style="background:var(--flat)"></i>flat-side key fits</span>
+    <span><i class="sw" style="background:var(--sharp)"></i>sharp-side key fits</span>
+    <span><i class="sw" style="background:var(--pick)"></i>the reading in play</span>
+    <span><span class="fork">⑂</span> more than one root explains the bar equally well</span>
+    <span><i class="sw" style="border-left:3px solid var(--dim);background:transparent"></i>rooted on the bass</span>
+  </div>
+
+  <div class="detail" id="detail"></div>
+
+  <p class="note">
+    Every reading here is defensible. The lens only reorders them — it never
+    removes one. A bass note is a hypothesis about function, not a verdict: it
+    may be the root, or a pedal, or colour, or an anticipation of the next
+    chord, and the readings that treat it each way are all listed. Click any
+    reading to pin it; the roman-numeral row rewrites itself from your picks.
+  </p>
+</div>
+
+<script>
+const DATA = __DATA__;
+
+const PCS = ["C","C#","D","Eb","E","F","F#","G","Ab","A","Bb","B"];
+const MAJOR = [0,2,4,5,7,9,11];
+const KEY_ORDER = ["Db","Ab","Eb","Bb","F","C","G","D","A","E","B","F#"];
+const FLATSIDE = new Set(["Db","Ab","Eb","Bb","F"]);
+const ROMAN = ["I","bII","II","bIII","III","IV","#IV","V","bVI","VI","bVII","VII"];
+
+const picks = {};                       // bar -> reading name
+let tonic = DATA.tonic || "C";
+
+function pc(n){ const a={"A#":"Bb","D#":"Eb","G#":"Ab","Db":"C#","Gb":"F#"};
+  return PCS.indexOf(a[n]||n); }
+
+/* which keys are worth a row: any that fits at least one bar */
+const usedKeys = KEY_ORDER.filter(k => DATA.bars.some(b => b.fits.includes(k)));
+
+function score(rd, bar, lens){
+  if (lens === "bass")     return [rd.bass_root?1:0, rd.explains];
+  if (lens === "rooted")   return [rd.root_sounding?1:0, rd.explains];
+  if (lens === "diatonic"){
+    const col = MAJOR.map(i => (pc(tonic)+i)%12);
+    return [col.includes(pc(rd.root))?1:0, rd.explains];
+  }
+  return [rd.explains, rd.bass_root?1:0];
+}
+
+function ordered(bar, lens){
+  return bar.readings.slice().sort((a,b)=>{
+    const x = score(a,bar,lens), y = score(b,bar,lens);
+    return (y[0]-x[0]) || (y[1]-x[1]);
+  });
+}
+
+function chosen(bar, lens){
+  if (picks[bar.bar]){
+    const hit = bar.readings.find(r => r.name === picks[bar.bar]);
+    if (hit) return hit;
+  }
+  return ordered(bar, lens)[0];
+}
+
+function roman(rd){
+  if (!rd) return "";
+  const d = ((pc(rd.root) - pc(tonic)) + 12) % 12;
+  let sym = ROMAN[d];
+  const q = rd.quality;
+  if (q === "m" || q.startsWith("m7") || q === "m6" || q === "m9" || q === "m(add9)")
+    sym = sym.toLowerCase();
+  if (q === "dim" || q === "dim7" || q === "m7b5") sym = sym.toLowerCase()+"°";
+  return sym;
+}
+
+function render(){
+  const lens = document.getElementById("lens").value;
+  const grid = document.getElementById("grid");
+  const n = DATA.bars.length;
+  grid.style.gridTemplateColumns = `110px repeat(${n}, minmax(104px,1fr))`;
+  grid.innerHTML = "";
+
+  const add = (html, cls, style) => {
+    const d = document.createElement("div");
+    if (cls) d.className = cls;
+    if (style) d.style.cssText = style;
+    d.innerHTML = html;
+    grid.appendChild(d);
+    return d;
+  };
+
+  /* bar numbers */
+  add("", "rowlab");
+  DATA.bars.forEach(b => add(
+    `<span class="n">bar ${b.bar}</span>${b.forked?' <span class="fork">⑂</span>':""}`,
+    "barhead"));
+
+  /* readings */
+  add("readings", "rowlab");
+  DATA.bars.forEach(b => {
+    const cell = add("", "stack");
+    const pick = chosen(b, lens);
+    ordered(b, lens).forEach(rd => {
+      const el = document.createElement("div");
+      el.className = "rd" + (rd.bass_root ? " bassroot":"")
+                   + (pick && rd.name === pick.name ? " chosen":"");
+      const bits = [];
+      if (rd.leftover.length) bits.push("+"+rd.leftover.join(""));
+      if (!rd.root_sounding) bits.push("rootless");
+      el.innerHTML = rd.label.split(" ")[0] +
+        (bits.length ? ` <span class="sub">${bits.join(" ")}</span>` : "");
+      el.title = `${rd.label} — explains ${rd.explains} of ${b.pitches.length}`
+        + (rd.bass_root ? ", rooted on the bass" : "")
+        + (rd.missing.length ? `, no ${rd.missing.join(" ")}` : "");
+      el.onclick = () => {
+        picks[b.bar] = (picks[b.bar] === rd.name) ? undefined : rd.name;
+        if (!picks[b.bar]) delete picks[b.bar];
+        showDetail(b, rd); render();
+      };
+      cell.appendChild(el);
+    });
+  });
+
+  /* roman numerals from whatever is in play */
+  add(`function in ${tonic}`, "rowlab");
+  DATA.bars.forEach(b => add(roman(chosen(b, lens)), "rn"));
+
+  /* sounding pitches */
+  add("sounding", "rowlab");
+  DATA.bars.forEach(b => add(b.pitches.join(" "), "pcs"));
+
+  /* key ribbon */
+  usedKeys.forEach(k => {
+    add(k + " major", "rowlab");
+    DATA.bars.forEach(b => {
+      const on = b.fits.includes(k);
+      add("", "cell" + (on ? (FLATSIDE.has(k) ? " on-flat" : " on-sharp") : ""));
+    });
+  });
+
+  add("keys that fit", "rowlab");
+  DATA.bars.forEach(b => add(String(b.ambiguity), "amb"));
+
+  const c = Object.keys(picks).length;
+  document.getElementById("picked").textContent =
+    c ? `${c} bar${c>1?"s":""} pinned` : "";
+}
+
+function showDetail(bar, rd){
+  const d = document.getElementById("detail");
+  const alts = Object.entries(bar.without_voice || {});
+  d.style.display = "block";
+  d.innerHTML =
+    `<h2>bar ${bar.bar} — ${bar.pitches.join(" ")}`
+    + (bar.bass ? ` (lowest ${bar.bass})` : "") + `</h2>`
+    + `<div>reading as <b>${rd.label}</b>, explaining ${rd.explains} of `
+    + `${bar.pitches.length} sounding notes`
+    + (rd.leftover.length ? ` — <b>${rd.leftover.join(" ")}</b> left over, which is `
+        + `where colour, anticipation or passing motion would live` : "")
+    + `.</div>`
+    + (bar.spread.length > 1
+        ? `<div style="margin-top:6px">Roots that explain this bar equally well: `
+          + `<b>${bar.spread.join(", ")}</b>. Which one you take changes the `
+          + `functional story downstream.</div>` : "")
+    + (alts.length
+        ? `<div style="margin-top:6px">If a line is colour rather than a chord tone:`
+          + `<ul style="margin:4px 0 0;padding-left:18px">`
+          + alts.map(([who,list]) =>
+              `<li>without <b>${who}</b>: ${list.join(" &nbsp;|&nbsp; ")}</li>`).join("")
+          + `</ul></div>` : "")
+    + (Object.keys(bar.narrowed_by||{}).length
+        ? `<div style="margin-top:6px">Narrowing the key set here: `
+          + Object.entries(bar.narrowed_by).map(([w,k]) =>
+              `<b>${w}</b> rules out ${k.join(" ")}`).join("; ") + `.</div>` : "");
+}
+
+/* boot */
+const tsel = document.getElementById("tonic");
+PCS.forEach(p => {
+  const o = document.createElement("option");
+  o.value = o.textContent = p;
+  if (p === tonic) o.selected = true;
+  tsel.appendChild(o);
+});
+tsel.onchange = e => { tonic = e.target.value; render(); };
+document.getElementById("lens").onchange = render;
+document.getElementById("reset").onclick = () => {
+  for (const k in picks) delete picks[k];
+  document.getElementById("detail").style.display = "none";
+  render();
+};
+
+document.getElementById("title").textContent = DATA.title || "Harmonic map";
+document.getElementById("meta").textContent = DATA.subtitle || "";
+render();
+</script>

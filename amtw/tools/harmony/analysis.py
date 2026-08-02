@@ -184,6 +184,103 @@ QUALITIES: list[tuple[str, set[int]]] = [
 ]
 
 
+@dataclass
+class Reading:
+    """One defensible interpretation of a set of sounding notes.
+
+    Not "the chord". A reading claims some of the notes as chord tones and
+    leaves the rest over — and the leftovers are the interesting part, because
+    that is where colour, anticipation and passing motion live. C-D-F-G-Bb is
+    C11 with nothing left over, *and* Bb6 with C as an added 9th, *and* Gm7
+    with F as an 11th. Which one is true depends on what the music is doing,
+    which is a judgement the tool must not make on your behalf.
+    """
+    root: int
+    quality: str
+    chord_tones: set[int]
+    leftover: set[int]          # sounding, but not part of this chord
+    missing: set[int]           # in the chord shape but not sounding
+    root_sounding: bool
+    is_bass_root: bool
+
+    @property
+    def name(self) -> str:
+        return f"{PCS[self.root]}{self.quality}"
+
+    @property
+    def explains(self) -> int:
+        return len(self.chord_tones)
+
+    def label(self, bass: int | None = None) -> str:
+        n = self.name
+        if bass is not None and bass != self.root:
+            n += f"/{PCS[bass]}"
+        # the slash already says the bass is not a chord tone; repeating it in
+        # the leftovers reads as two different notes ("Gm7/C +C")
+        extra = self.leftover - ({bass} if bass is not None else set())
+        if extra:
+            n += " +" + "".join(PCS[p] for p in sorted(extra))
+        return n
+
+
+def readings(pcs: set[int], bass: int | None = None,
+             allow_rootless: bool = True) -> list[Reading]:
+    """Every defensible reading of these notes, best-explaining first.
+
+    Deliberately does NOT pick a winner. A bass note is only one hypothesis
+    about function — it may equally be colour, a pedal, or an anticipation of
+    the next chord — so `is_bass_root` is reported as a *property* of each
+    reading rather than used to eliminate the others.
+
+    Ordering is by how much each reading explains, then by whether its root is
+    actually sounding, then by conventionality (bass-rooted). That ordering is
+    a convenience, not a verdict; the caller gets the whole list.
+    """
+    out: list[Reading] = []
+    for root in range(12):
+        root_sounding = root in pcs
+        if not root_sounding and not allow_rootless:
+            continue
+        iv = {(p - root) % 12 for p in pcs}
+        for quality, shape in QUALITIES:
+            if not shape <= iv:
+                continue
+            tones = {(root + i) % 12 for i in shape}
+            out.append(Reading(
+                root=root, quality=quality,
+                chord_tones=tones & pcs,
+                leftover=pcs - tones,
+                missing=tones - pcs,
+                root_sounding=root_sounding,
+                is_bass_root=(bass is not None and root == bass),
+            ))
+    # drop readings whose shape is entirely contained in a better one at the
+    # same root -- "Csus4 inside C7sus4" is noise, not an alternative lens
+    keep: list[Reading] = []
+    for r in out:
+        if any(o.root == r.root and o.chord_tones > r.chord_tones for o in out):
+            continue
+        keep.append(r)
+
+    keep.sort(key=lambda r: (-r.explains, len(r.missing), not r.root_sounding,
+                             not r.is_bass_root, r.root))
+    return keep
+
+
+def interpretive_spread(rs: list[Reading]) -> list[int]:
+    """Distinct roots among the *best-explaining* readings.
+
+    This is the "does the lens matter here" number, and it is orthogonal to key
+    ambiguity. One root means every reasonable reading agrees and the bar is
+    what it looks like. Three roots means the bar is a genuine fork, and which
+    branch you take changes the functional story downstream.
+    """
+    if not rs:
+        return []
+    top = rs[0].explains
+    return sorted({r.root for r in rs if r.explains == top})
+
+
 def name_chord(pcs: set[int], bass: int | None = None) -> str:
     """Best-effort name. Falls back to the raw pitch-class set rather than
     inventing a root — an honest '{C D F G}' beats a confident wrong symbol."""
@@ -259,6 +356,36 @@ def narrowing_voices(bar: Bar, voices: list[Voice],
         gained = without - full
         if gained:
             out[v.index] = sorted(gained, key=KEY_ORDER.index)
+    return out
+
+
+def readings_without_voice(bar: Bar, voices: list[Voice]
+                           ) -> dict[int, list[Reading]]:
+    """Per voice: how the bar reads if that line is NOT a chord tone.
+
+    The lens the bass most often needs. A bass note may be defining the chord,
+    or it may be a pedal, a passing tone, or an anticipation of where the music
+    is about to go — and in the last three cases the real chord is what the
+    *other* voices are spelling. Same question for a melody sitting on a 9th.
+
+    Only returns voices whose removal actually changes the best reading; a line
+    that is doubling the others tells you nothing by leaving.
+    """
+    full = readings(bar.pcs, bar.bass)
+    full_best = {r.name for r in full if r.explains == (full[0].explains if full else 0)}
+
+    out: dict[int, list[Reading]] = {}
+    for v in voices:
+        if v.index not in bar.voices or len(bar.voices) < 2:
+            continue
+        rest = {n.klass for i, ns in bar.voices.items() if i != v.index for n in ns}
+        if not rest or rest == bar.pcs:
+            continue
+        low = [n for i, ns in bar.voices.items() if i != v.index for n in ns]
+        rest_bass = min(low, key=lambda n: n.pitch).klass if low else None
+        alt = readings(rest, rest_bass)
+        if alt and {r.name for r in alt if r.explains == alt[0].explains} != full_best:
+            out[v.index] = alt
     return out
 
 
