@@ -36,7 +36,8 @@ commands (type and press Enter):
   a          analyse - name the chords in the selected clip
   p          pull the selected clip from Bitwig now
   m <mode>   set the line: smooth | top | bottom
-  o <where>  where results go: newtrack | inplace | launcher
+  o <where>  where results go: file | inplace | newtrack | launcher
+  t          write ONE test note into the selected clip and report back
   s          status
   q          quit
 """
@@ -51,7 +52,7 @@ class Bridge:
         self.mode = "smooth"
         self.packets = 0                    # anything at all from the extension
         self.reply_port: int | None = None  # learned from the clip payload
-        self.output = "newtrack"           # newtrack | inplace | launcher
+        self.output = "file"               # file | inplace | newtrack | launcher
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._out = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._cmds: queue.Queue[str] = queue.Queue()
@@ -135,7 +136,11 @@ class Bridge:
         self.log(f"  reduce[{mode}]: {len(self.notes)} -> {len(picks)} notes, "
                  f"mean leap {stats['mean_leap']}")
 
-        if self.output == "newtrack":
+        if self.output == "file":
+            path = self._write_midi(picks, f"{mode} line")
+            self.log(f"  wrote {path}")
+            self._reveal(path)
+        elif self.output == "newtrack":
             path = self._write_midi(picks, f"{mode} line")
             self.log(f"  wrote {path}")
             self.send("/amtw/insertFile", str(path))
@@ -149,6 +154,24 @@ class Bridge:
                if stats["total_moves"] else 100)
         self.notify(f"{mode} line: {len(picks)} notes, mean leap "
                     f"{stats['mean_leap']} semitones, {pct:.0f}% stepwise")
+
+    def _reveal(self, path) -> None:
+        """Show the file in Explorer, selected and ready to drag into Bitwig.
+
+        Bitwig's clip clipboard is a private format, so there is nothing to
+        paste into a web page. Dragging a .mid file IS the cross-application
+        convention that works, and unlike every write-back route tried so far
+        it puts the user in control of exactly which track and which bar the
+        notes land on. Popping the folder open makes that one drag instead of
+        a hunt through Explorer.
+        """
+        import subprocess
+
+        try:
+            subprocess.Popen(["explorer", "/select,", str(path)])
+            self.log("  Explorer opened - drag the file into Bitwig where you want it")
+        except OSError as e:
+            self.log(f"  (could not open Explorer: {e})")
 
     def _write_midi(self, picks, name: str):
         """A one-track MIDI file for Bitwig to import as a new track.
@@ -299,11 +322,11 @@ class Bridge:
             self.log(HELP)
         elif head in ("o", "out", "output"):
             want = rest.strip().lower()
-            if want in ("newtrack", "inplace", "launcher"):
+            if want in ("file", "newtrack", "inplace", "launcher"):
                 self.output = want
                 self.log(f"  output = {self.output}")
             else:
-                self.log("  output must be newtrack, inplace or launcher")
+                self.log("  output must be file, inplace, newtrack or launcher")
         elif head in ("m", "mode"):
             want = rest.strip().lower()
             if want in ("smooth", "top", "bottom"):
@@ -311,6 +334,9 @@ class Bridge:
                 self.log(f"  mode = {self.mode}")
             else:
                 self.log("  mode must be smooth, top or bottom")
+        elif head in ("t", "test"):
+            self.log("  asking Bitwig to write ONE note into the selected clip ...")
+            self.send("/amtw/testNote")
         elif head in ("p", "pull"):
             if self.pull():
                 self.log(f"  pulled {len(self.notes)} notes")

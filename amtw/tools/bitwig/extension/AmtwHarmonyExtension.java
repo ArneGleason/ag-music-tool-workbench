@@ -157,6 +157,8 @@ public class AmtwHarmonyExtension extends ControllerExtension
          (source, message) -> insertBelow(message.getString(0)));
       in.registerMethod("/amtw/inPlace", ",s", "replace the selected clip's notes",
          (source, message) -> replaceInPlace(message.getString(0)));
+      in.registerMethod("/amtw/testNote", ",", "write ONE note and report back",
+         (source, message) -> testNote());
 
       // Never let a busy port kill init. Losing the inbound channel is a
       // degradation; failing to start is the whole control surface gone.
@@ -365,6 +367,78 @@ public class AmtwHarmonyExtension extends ControllerExtension
    private ClipLauncherSlot slot(final int i)
    {
       return (ClipLauncherSlot) mSlots.getItemAt(i);
+   }
+
+   /**
+    * Write ONE note into the selected clip and report the result in a popup.
+    *
+    * Everything so far has debugged seven notes at once through a console the
+    * user cannot read. This writes a single middle C at the very start, tries
+    * four plausible readings of what setStep's arguments mean, and reads each
+    * back -- so the answer arrives as a popup rather than in a log file.
+    *
+    * The four candidates exist because the failure is almost certainly a
+    * coordinate convention: whether y is a MIDI pitch or a row in a scrolled
+    * window, and whether duration counts beats or steps.
+    */
+   private void testNote()
+   {
+      final StringBuilder r = new StringBuilder();
+      try
+      {
+         mClip.scrollToKey(0);
+         mClip.scrollToStep(0);
+         mClip.clearSteps();
+
+         // (x, y, velocity, duration) candidates
+         final int[][] tries = {
+            {0, 60, 100},      // y = MIDI middle C, duration in beats
+            {0, 60, 100},      // same but duration in steps
+            {0, 0, 100},       // y = bottom row of the grid
+            {4, 60, 100},      // a step in, in case 0 is special
+         };
+         final double[] durs = {1.0, 4.0, 1.0, 1.0};
+
+         for (int i = 0; i < tries.length; i++)
+         {
+            final int x = tries[i][0], y = tries[i][1], v = tries[i][2];
+            try
+            {
+               mClip.setStep(0, x, y, v, durs[i]);
+               r.append(" w(").append(x).append(',').append(y).append(',')
+                .append(durs[i]).append(')');
+            }
+            catch (final Exception e)
+            {
+               r.append(" THREW(").append(x).append(',').append(y).append(')');
+            }
+         }
+         mHost.println("amtw testNote wrote:" + r);
+
+         mHost.scheduleTask(() -> {
+            final StringBuilder back = new StringBuilder();
+            for (final int[] t : tries)
+            {
+               try
+               {
+                  final NoteStep s = mClip.getStep(0, t[0], t[1]);
+                  back.append(' ').append(t[0]).append(',').append(t[1]).append('=')
+                      .append(s == null ? "null" : String.valueOf(s.state()));
+               }
+               catch (final Exception e)
+               {
+                  back.append(' ').append(t[0]).append(',').append(t[1]).append("=ERR");
+               }
+            }
+            mHost.println("amtw testNote read back:" + back);
+            mHost.showPopupNotification("AMTW test:" + back);
+         }, 500);
+      }
+      catch (final Exception e)
+      {
+         mHost.errorln("amtw testNote: " + e);
+         mHost.showPopupNotification("AMTW test failed: " + e);
+      }
    }
 
    /**
