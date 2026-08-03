@@ -212,6 +212,14 @@ public class AmtwHarmonyExtension extends ControllerExtension
          mDirty = true;
          mLastChange = System.currentTimeMillis();
       });
+      // Pin the grid's origin. x and y in setStep/getStep are positions in the
+      // clip's visible WINDOW, not absolute step and MIDI pitch -- scrollToKey
+      // decides which key row 0 is. Left unset it is wherever Bitwig last put
+      // it, so writing y=55 need not mean G3. Anchoring both to 0 makes the
+      // coordinates mean what the rest of this code assumes they mean.
+      mClip.scrollToKey(0);
+      mClip.scrollToStep(0);
+
       mClip.getPlayStart().markInterested();
       mClip.getLoopLength().markInterested();
 
@@ -395,23 +403,63 @@ public class AmtwHarmonyExtension extends ControllerExtension
    {
       try
       {
+         mClip.scrollToKey(0);
+         mClip.scrollToStep(0);
          mClip.clearSteps();
+
          int written = 0;
          final Matcher m = NOTE_RE.matcher(notesJson);
+         final StringBuilder wrote = new StringBuilder();
          while (m.find())
          {
-            mClip.setStep(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2)),
-                          Math.max(1, Math.min(127, Integer.parseInt(m.group(3)))),
-                          Double.parseDouble(m.group(4)));
+            final int x = Integer.parseInt(m.group(1));
+            final int y = Integer.parseInt(m.group(2));
+            final int v = Math.max(1, Math.min(127, Integer.parseInt(m.group(3))));
+            final double d = Double.parseDouble(m.group(4));
+            // explicit channel: the 4-arg overload leaves it implicit, while
+            // everything read back uses channel 0
+            mClip.setStep(0, x, y, v, d);
+            wrote.append(" (").append(x).append(',').append(y).append(',')
+                 .append(v).append(',').append(d).append(')');
             written++;
          }
-         mHost.println("amtw: replaced the selected clip with " + written + " notes");
-         mHost.showPopupNotification("AMTW: " + written
-                                     + " notes replaced this clip (Ctrl+Z to undo)");
+         mHost.println("amtw: setStep x" + written + " ->" + wrote);
+         final int total = written;      // lambdas need it effectively final
+
+         // Read it straight back. If nothing is there, the arguments are wrong
+         // rather than the write path, and this says so instead of leaving a
+         // blank clip and no explanation.
+         mHost.scheduleTask(() -> {
+            int found = 0;
+            final StringBuilder back = new StringBuilder();
+            final Matcher m2 = NOTE_RE.matcher(notesJson);
+            while (m2.find())
+            {
+               final int x = Integer.parseInt(m2.group(1));
+               final int y = Integer.parseInt(m2.group(2));
+               try
+               {
+                  final NoteStep s = mClip.getStep(0, x, y);
+                  final String st = (s == null) ? "null" : String.valueOf(s.state());
+                  back.append(" (").append(x).append(',').append(y).append(")=")
+                      .append(st);
+                  if ("NoteOn".equals(st))
+                     found++;
+               }
+               catch (final Exception e)
+               {
+                  back.append(" (").append(x).append(',').append(y).append(")=ERR");
+               }
+            }
+            mHost.println("amtw: read back " + found + " of " + total + " ->" + back);
+            mHost.showPopupNotification("AMTW: wrote " + total + ", read back "
+                                        + found + " - see the controller console");
+         }, 400);
       }
       catch (final Exception e)
       {
-         mHost.errorln("amtw inPlace: " + e);
+         mHost.errorln("amtw inPlace FAILED: " + e);
+         mHost.showPopupNotification("AMTW: inPlace failed - " + e);
       }
    }
 
@@ -504,7 +552,7 @@ public class AmtwHarmonyExtension extends ControllerExtension
    {
       try
       {
-         mLauncherClip.setStep(x, y, Math.max(1, Math.min(127, velocity)), duration);
+         mLauncherClip.setStep(0, x, y, Math.max(1, Math.min(127, velocity)), duration);
       }
       catch (final Exception e)
       {
