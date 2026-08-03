@@ -88,10 +88,16 @@ INSTALL = Tool(
     help="build and install the Bitwig control-surface extension",
     blurb="Compiles the bridge extension and copies it into your Bitwig "
           "Extensions folder.",
-    note="Needs no JDK: it compiles with the Eclipse batch compiler running on "
+    note="AFTER INSTALLING: fully quit and reopen Bitwig, then Settings > "
+         "Controllers > Add Controller > AG Music Tool Workbench > Harmony "
+         "Bridge. The restart matters — the extension's port is held for the "
+         "life of the Bitwig process, so installing over a running copy and "
+         "re-adding the controller is the one sequence that reliably fails.\n"
+         "\n"
+         "Needs no JDK: it compiles with the Eclipse batch compiler running on "
          "Bitwig's own bundled java.exe, against the API classes inside "
-         "Bitwig's bitwig.jar. Nothing is downloaded and nothing is added to "
-         "PATH. After installing, enable it in Settings > Controllers.",
+         "Bitwig's bitwig.jar. Nothing is added to PATH. If it reports ecj "
+         "missing, that jar is the one download this needs.",
     fields=[
         Field("dest", "Extensions folder", "dir", flag="--dest", advanced=True,
               help="blank = your Bitwig Extensions folder"),
@@ -103,14 +109,24 @@ INSTALL = Tool(
 
 BRIDGE = Tool(
     name="bitwig-bridge", title="Bitwig bridge", group="Bitwig",
-    run=run_bridge, order=20, background=True,
+    run=run_bridge, order=20, background=True, opens_browser=True,
     help="run the workbench end of the Bitwig bridge",
-    blurb="Listens for the selected clip from Bitwig, answers questions about "
-          "it, and writes results back into a new clip.",
-    note="Leave this running while you work. Select a chord clip in Bitwig and "
-         "press Reduce in the project panel: the line lands in a NEW clip on "
-         "the same track and opens in the editor. Your original is never "
-         "touched — reject a result by deleting the clip.",
+    blurb="Streams whatever clip is selected in Bitwig to a live piano-roll "
+          "page, and sends analysis and results back. Start it here and leave "
+          "it running; press Stop when you are done.",
+    note="LIVE VIEW: once running, open http://127.0.0.1:8750/ — it draws the "
+         "selected clip and redraws as you click around Bitwig.\n"
+         "\n"
+         "FIRST TIME, in Bitwig: Settings > Controllers > Add Controller > "
+         "AG Music Tool Workbench > Harmony Bridge. Run 'Install Bitwig "
+         "extension' first if it is not in that list, and fully quit and "
+         "reopen Bitwig after installing — the extension holds its port for "
+         "the life of the Bitwig process, so re-adding the controller without "
+         "a restart is the one thing that reliably breaks it.\n"
+         "\n"
+         "Typed commands (r to reduce, a to analyse) need a console, so run it "
+         "from a terminal if you want those. Started from here it still "
+         "streams the live view, which is what most of the value is.",
     fields=[
         Field("port", "Listen port", "int", flag="--port", default=8732,
               advanced=True),

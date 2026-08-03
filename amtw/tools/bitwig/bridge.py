@@ -387,10 +387,17 @@ class Bridge:
             return False
 
         self.log(f"  another bridge is already running (PID {pid}).")
-        try:
-            answer = input("  Stop it and take over? [Y/n] ").strip().lower()
-        except EOFError:
-            answer = "n"
+        if not sys.stdin or not sys.stdin.isatty():
+            # Started from the workbench, so there is nobody to ask. A stale
+            # bridge is the only realistic reason the port is held, and taking
+            # it is what the user wanted by pressing Run.
+            self.log("  no console to ask on - taking over.")
+            answer = "y"
+        else:
+            try:
+                answer = input("  Stop it and take over? [Y/n] ").strip().lower()
+            except EOFError:
+                answer = "y"
         if answer not in ("", "y", "yes"):
             self.log("  left it running - use that window instead.")
             return False
