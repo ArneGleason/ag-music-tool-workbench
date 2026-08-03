@@ -323,6 +323,95 @@ class Bridge:
                     + f"  |  fits: {keys}")
         self.log(f"  analyse: {len(seq)} chords {seq}, fits {fits}")
 
+    # -- starting up --------------------------------------------------------
+
+    def _port_owner(self, port: int) -> tuple[int, str] | None:
+        """-> (pid, command line) of whatever holds this UDP port."""
+        import subprocess
+
+        try:
+            out = subprocess.run(["netstat", "-ano", "-p", "UDP"],
+                                 capture_output=True, text=True, timeout=15).stdout
+        except (OSError, subprocess.SubprocessError):
+            return None
+        pid = None
+        for line in out.splitlines():
+            parts = line.split()
+            if len(parts) >= 4 and parts[1].endswith(f":{port}"):
+                try:
+                    pid = int(parts[-1])
+                except ValueError:
+                    pass
+                break
+        if pid is None:
+            return None
+        try:
+            info = subprocess.run(
+                ["powershell", "-NoProfile", "-Command",
+                 f"(Get-CimInstance Win32_Process -Filter \"ProcessId={pid}\")"
+                 f".CommandLine"],
+                capture_output=True, text=True, timeout=20).stdout.strip()
+        except (OSError, subprocess.SubprocessError):
+            info = ""
+        return pid, info
+
+    def _bind(self) -> bool:
+        """Take the port, offering to stop a previous bridge that still has it.
+
+        A forgotten bridge in a minimised window is the normal case, and the
+        useful thing to do about it is offer to end it -- not print a command
+        the user has to remember, find again and paste. That is the same
+        mistake as telling someone to go hunting for a panel.
+
+        Only ever offers for a process that is plainly another bridge. Anything
+        else is named and left alone.
+        """
+        try:
+            self._sock.bind((HOST, RECV_PORT))
+            return True
+        except OSError as e:
+            self.log(f"cannot listen on {HOST}:{RECV_PORT}: {e}")
+
+        owner = self._port_owner(RECV_PORT)
+        if not owner:
+            self.log("  could not identify what holds the port.")
+            self.log(f"  try: amtw bitwig-bridge --port {RECV_PORT + 10}")
+            return False
+
+        pid, cmd = owner
+        is_bridge = "bitwig-bridge" in cmd or "bitwig_bridge" in cmd
+        if not is_bridge:
+            self.log(f"  held by PID {pid}: {cmd[:110] or 'unknown'}")
+            self.log("  that is not another bridge, so it is left alone.")
+            self.log(f"  try: amtw bitwig-bridge --port {RECV_PORT + 10}")
+            return False
+
+        self.log(f"  another bridge is already running (PID {pid}).")
+        try:
+            answer = input("  Stop it and take over? [Y/n] ").strip().lower()
+        except EOFError:
+            answer = "n"
+        if answer not in ("", "y", "yes"):
+            self.log("  left it running - use that window instead.")
+            return False
+
+        import subprocess
+
+        subprocess.run(["taskkill", "/PID", str(pid), "/F"],
+                       capture_output=True, text=True)
+        for _ in range(20):                     # up to ~4s for the port to free
+            time.sleep(0.2)
+            try:
+                self._sock.close()
+                self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                self._sock.bind((HOST, RECV_PORT))
+                self.log(f"  stopped PID {pid}; this bridge has the port now.")
+                return True
+            except OSError:
+                continue
+        self.log(f"  stopped PID {pid} but the port is still busy - try again.")
+        return False
+
     # -- typed commands -----------------------------------------------------
 
     def _read_stdin(self) -> None:
@@ -439,15 +528,7 @@ class Bridge:
     # -- loop ---------------------------------------------------------------
 
     def serve(self) -> int:
-        try:
-            self._sock.bind((HOST, RECV_PORT))
-        except OSError as e:
-            # Almost always a bridge already running, often minimised and
-            # forgotten. A traceback here reads as "the tool is broken" when
-            # the truth is "it is already working, in the other window".
-            self.log(f"cannot listen on {HOST}:{RECV_PORT}: {e}")
-            self.log("A bridge is probably already running - use that window,")
-            self.log(f"or stop it and retry, or: amtw bitwig-bridge --port {RECV_PORT + 10}")
+        if not self._bind():
             return 1
         self._sock.settimeout(0.3)
         self.log(f"bridge listening on {HOST}:{RECV_PORT}, "
