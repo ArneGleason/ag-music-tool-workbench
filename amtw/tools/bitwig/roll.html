@@ -1,0 +1,158 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>AMTW - live clip</title>
+<style>
+  :root {
+    --bg:#0f0f0e; --panel:#171716; --line:#262625; --line2:#333331;
+    --ink:#e9e7dc; --dim:#96948b; --faint:#605e58;
+    --white-row:#1c1c1a; --black-row:#141413;
+  }
+  * { box-sizing:border-box; }
+  html,body { height:100%; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:13px/1.5 "Segoe UI",system-ui,sans-serif; overflow:hidden; }
+  header { display:flex; align-items:baseline; gap:16px; padding:9px 14px;
+           border-bottom:1px solid var(--line); background:var(--panel); }
+  h1 { margin:0; font-size:13px; font-weight:500; }
+  .meta { color:var(--dim); font-size:12px; }
+  .dot { width:8px; height:8px; border-radius:50%; background:#d03b3b;
+         display:inline-block; margin-right:5px; vertical-align:0px; }
+  .dot.live { background:#0ca30c; }
+  .wrap { position:absolute; top:41px; bottom:26px; left:0; right:0;
+          overflow:auto; }
+  svg { display:block; }
+  footer { position:absolute; bottom:0; left:0; right:0; height:26px;
+           border-top:1px solid var(--line); background:var(--panel);
+           color:var(--faint); font-size:11px; padding:5px 14px; }
+  .legend { display:flex; gap:7px; flex-wrap:wrap; }
+  .sw { display:inline-flex; align-items:center; gap:3px; }
+  .sw i { width:9px; height:9px; border-radius:2px; display:inline-block; }
+  .empty { position:absolute; inset:41px 0 26px 0; display:flex;
+           align-items:center; justify-content:center; color:var(--faint);
+           text-align:center; padding:0 40px; }
+</style>
+
+<header>
+  <h1><span class="dot" id="dot"></span>AMTW live clip</h1>
+  <span class="meta" id="meta">waiting for Bitwig ...</span>
+</header>
+
+<div class="wrap" id="wrap"><svg id="roll"></svg></div>
+<div class="empty" id="empty">
+  Select a MIDI clip in Bitwig.<br>
+  The bridge streams whatever is selected; this redraws on its own.
+</div>
+
+<footer><div class="legend" id="legend"></div></footer>
+
+<script>
+const NAMES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const BLACK = [0,1,0,1,0,0,1,0,1,0,1,0];
+
+/* One hue per pitch class, which is the thing that makes a roll readable at a
+   glance -- you follow a colour rather than counting lines. Lightness is tuned
+   per hue because equal HSL lightness does not look equal: yellows and greens
+   read far brighter than blues at the same value. */
+const HUE_L = { 0:56, 1:58, 2:52, 3:56, 4:47, 5:50, 6:52, 7:58, 8:62, 9:60, 10:60, 11:58 };
+function pcColor(pc, alpha) {
+  const h = pc * 30, l = HUE_L[pc] ?? 55;
+  return alpha === undefined ? `hsl(${h} 68% ${l}%)` : `hsl(${h} 68% ${l}% / ${alpha})`;
+}
+
+const ROW = 11;           // pixels per semitone
+const GUT = 46;           // keyboard gutter width
+const RULER = 18;
+let lastSig = "";
+
+function render(st) {
+  const notes = st.notes || [];
+  document.getElementById("empty").style.display = notes.length ? "none" : "flex";
+  document.getElementById("dot").className = "dot" + (st.connected ? " live" : "");
+
+  const bars = st.step_size ? (st.steps_per_bar || 16) : 16;
+  document.getElementById("meta").textContent = notes.length
+    ? `${notes.length} notes · ${st.bars} bars · 1/${Math.round(1/st.step_size/4*16)} grid`
+      + (st.packets ? ` · ${st.packets} updates` : "")
+    : "no clip selected";
+  if (!notes.length) { document.getElementById("roll").innerHTML = ""; return; }
+
+  // pitch range, padded so nothing sits on the edge
+  let lo = Math.min(...notes.map(n => n.y)) - 2;
+  let hi = Math.max(...notes.map(n => n.y)) + 2;
+  if (hi - lo < 24) { const mid = (hi + lo) / 2; lo = Math.round(mid - 12); hi = Math.round(mid + 12); }
+  const rows = hi - lo + 1;
+
+  const lastStep = Math.max(...notes.map(n => n.x + Math.max(1, n.steps)));
+  const totalSteps = Math.ceil(lastStep / bars) * bars;
+  const STEP_W = Math.max(7, Math.min(22, 1100 / Math.max(16, totalSteps)));
+  const W = GUT + totalSteps * STEP_W;
+  const H = RULER + rows * ROW;
+
+  const yOf = p => RULER + (hi - p) * ROW;
+  const parts = [];
+
+  // row shading: black keys darker, exactly like the DAW
+  for (let p = lo; p <= hi; p++) {
+    const black = BLACK[((p % 12) + 12) % 12];
+    parts.push(`<rect x="${GUT}" y="${yOf(p)}" width="${W - GUT}" height="${ROW}"
+      fill="${black ? 'var(--black-row)' : 'var(--white-row)'}"/>`);
+    if (((p % 12) + 12) % 12 === 0)      // octave boundary
+      parts.push(`<line x1="${GUT}" y1="${yOf(p) + ROW}" x2="${W}" y2="${yOf(p) + ROW}"
+        stroke="var(--line2)" stroke-width="1"/>`);
+  }
+
+  // beat and bar lines
+  for (let s = 0; s <= totalSteps; s++) {
+    const x = GUT + s * STEP_W;
+    const isBar = s % bars === 0, isBeat = s % (bars / 4) === 0;
+    if (!isBar && !isBeat) continue;
+    parts.push(`<line x1="${x}" y1="${RULER}" x2="${x}" y2="${H}"
+      stroke="${isBar ? 'var(--line2)' : 'var(--line)'}" stroke-width="1"/>`);
+    if (isBar)
+      parts.push(`<text x="${x + 4}" y="${RULER - 5}" fill="var(--faint)"
+        font-size="10">${s / bars + 1}</text>`);
+  }
+
+  // keyboard gutter
+  for (let p = lo; p <= hi; p++) {
+    const black = BLACK[((p % 12) + 12) % 12];
+    parts.push(`<rect x="0" y="${yOf(p)}" width="${GUT - 3}" height="${ROW - 0.5}"
+      fill="${black ? '#0c0c0b' : '#d9d7cd'}" stroke="#000" stroke-width="0.4"/>`);
+    if (((p % 12) + 12) % 12 === 0)
+      parts.push(`<text x="${GUT - 7}" y="${yOf(p) + ROW - 2.5}" text-anchor="end"
+        font-size="9" fill="#5a5952">C${Math.floor(p / 12) - 2}</text>`);
+  }
+
+  // notes, coloured by pitch class
+  for (const n of notes) {
+    const pc = ((n.y % 12) + 12) % 12;
+    const w = Math.max(3, n.steps * STEP_W - 1.5);
+    const a = 0.55 + 0.45 * Math.min(1, (n.vel ?? 100) / 110);
+    parts.push(`<rect x="${GUT + n.x * STEP_W + 0.5}" y="${yOf(n.y) + 1}"
+      width="${w}" height="${ROW - 2}" rx="2"
+      fill="${pcColor(pc, a)}" stroke="rgba(0,0,0,.55)" stroke-width="0.5"/>`);
+    if (w > 22)
+      parts.push(`<text x="${GUT + n.x * STEP_W + 4}" y="${yOf(n.y) + ROW - 3}"
+        font-size="8" fill="rgba(0,0,0,.72)">${NAMES[pc]}</text>`);
+  }
+
+  const svg = document.getElementById("roll");
+  svg.setAttribute("width", W);
+  svg.setAttribute("height", H);
+  svg.innerHTML = parts.join("");
+}
+
+const legend = document.getElementById("legend");
+legend.innerHTML = NAMES.map((n, i) =>
+  `<span class="sw"><i style="background:${pcColor(i)}"></i>${n}</span>`).join("");
+
+async function poll() {
+  try {
+    const st = await (await fetch("/api/state", {cache:"no-store"})).json();
+    const sig = JSON.stringify([st.notes, st.connected]);
+    if (sig !== lastSig) { lastSig = sig; render(st); }
+  } catch (e) { document.getElementById("dot").className = "dot"; }
+  setTimeout(poll, 350);
+}
+poll();
+</script>

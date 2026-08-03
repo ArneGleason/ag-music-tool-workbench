@@ -27,6 +27,10 @@ SEND_PORT = 8733        # where the extension listens, if it got its first choic
 SEND_PORT_TRIES = 10    # ...and the range it falls back through
 HOST = "127.0.0.1"
 
+# Deliberately clear of 8733-8742: the extension walks that range when its
+# first choice is taken, so a page server sitting in it would be fighting the
+# very thing it displays.
+PAGE_PORT = 8750        # the live clip view (workbench 8730, ab 8731)
 PPQ = 480               # analysis tick resolution
 
 
@@ -64,6 +68,7 @@ class Bridge:
         self.mode = "smooth"
         self.packets = 0                    # anything at all from the extension
         self.reply_port: int | None = None  # learned from the clip payload
+        self.last_seen = 0.0                # when the extension last spoke
         self.output = "file"               # file | inplace | newtrack | launcher
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._out = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -122,6 +127,7 @@ class Bridge:
             for n in data.get("notes", [])
         ]
         self.clip_seen = True
+        self.last_seen = time.monotonic()
         self.log(f"  clip: {len(self.notes)} notes")
 
     def on_reduce(self, mode: str) -> None:
@@ -166,6 +172,68 @@ class Bridge:
                if stats["total_moves"] else 100)
         self.notify(f"{mode} line: {len(picks)} notes, mean leap "
                     f"{stats['mean_leap']} semitones, {pct:.0f}% stepwise")
+
+    # -- the live page ------------------------------------------------------
+
+    def state(self) -> dict:
+        """What the roll page draws: notes in step coordinates, plus context."""
+        tps = self.step_size * PPQ
+        notes = [{"x": int(round(s / tps)),
+                  "steps": max(1, int(round((e - s) / tps))),
+                  "y": p, "vel": v}
+                 for s, e, p, v in self.notes]
+        steps_per_bar = max(1, int(round(4.0 / self.step_size)))
+        last = max((n["x"] + n["steps"] for n in notes), default=0)
+        return {
+            "notes": notes,
+            "step_size": self.step_size,
+            "steps_per_bar": steps_per_bar,
+            "bars": max(1, -(-last // steps_per_bar)),
+            "connected": bool(self.packets) and (time.monotonic() - self.last_seen < 10),
+            "packets": self.packets,
+            "mode": self.mode,
+            "output": self.output,
+        }
+
+    def serve_page(self, port: int = PAGE_PORT) -> None:
+        """A tiny HTTP server for the live piano roll.
+
+        Same shape as the workbench and A/B tools: stdlib http.server, one
+        hand-written HTML file, no build step. It runs on a daemon thread
+        beside the OSC loop, so the page reflects the Bitwig selection without
+        the bridge having to stop listening.
+        """
+        import http.server
+        import threading as _t
+        from pathlib import Path
+
+        page = (Path(__file__).resolve().parent / "roll.html").read_bytes()
+        bridge = self
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def log_message(self, *a):        # silence per-request logging
+                pass
+
+            def do_GET(self):                 # noqa: N802
+                if self.path.startswith("/api/state"):
+                    body = json.dumps(bridge.state()).encode()
+                    ctype = "application/json"
+                else:
+                    body, ctype = page, "text/html; charset=utf-8"
+                self.send_response(200)
+                self.send_header("Content-Type", ctype)
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                self.wfile.write(body)
+
+        try:
+            httpd = http.server.ThreadingHTTPServer((HOST, port), Handler)
+        except OSError as e:
+            self.log(f"  live page unavailable on {port}: {e}")
+            return
+        _t.Thread(target=httpd.serve_forever, daemon=True).start()
+        self.log(f"live clip view: http://{HOST}:{port}/")
 
     def _reveal(self, path) -> None:
         """Show the file in Explorer, selected and ready to drag into Bitwig.
@@ -384,6 +452,7 @@ class Bridge:
         self._sock.settimeout(0.3)
         self.log(f"bridge listening on {HOST}:{RECV_PORT}, "
                  f"replying to {SEND_PORT}")
+        self.serve_page()
         self.log("select a clip in Bitwig - the extension streams it here")
         self.log(HELP)
         threading.Thread(target=self._read_stdin, daemon=True).start()
