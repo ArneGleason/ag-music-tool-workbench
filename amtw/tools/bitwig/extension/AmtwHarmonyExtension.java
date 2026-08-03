@@ -77,9 +77,18 @@ public class AmtwHarmonyExtension extends ControllerExtension
 
    /** The bridge's note payload. A JSON library would be a dependency for one
     *  fixed shape that this repo produces itself; a scanner over a known
-    *  format is smaller than the argument for adding one. */
+    *  format is smaller than the argument for adding one.
+    *
+    *  Whitespace is optional everywhere, which it was NOT in the first version
+    *  — and json.dumps writes {"x": 0, "y": 58} with a space after each colon.
+    *  The pattern matched nothing, every write parsed zero notes, and since
+    *  clearSteps() had already run the result was a blank clip. That is the
+    *  bug behind every "the clip is empty" report; setStep was innocent. */
    private static final Pattern NOTE_RE = Pattern.compile(
-      "\\{\"x\":(-?\\d+),\"y\":(-?\\d+),\"vel\":(-?\\d+),\"dur\":(-?[\\d.]+)\\}");
+      "\\{\\s*\"x\"\\s*:\\s*(-?\\d+)\\s*,"
+      + "\\s*\"y\"\\s*:\\s*(-?\\d+)\\s*,"
+      + "\\s*\"vel\"\\s*:\\s*(-?\\d+)\\s*,"
+      + "\\s*\"dur\"\\s*:\\s*(-?[\\d.]+)\\s*\\}");
 
    private ControllerHost mHost;
    private Clip mClip;              // arranger: what you SELECTED, read only

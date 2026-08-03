@@ -30,6 +30,18 @@ HOST = "127.0.0.1"
 PPQ = 480               # analysis tick resolution
 
 
+def _compact(obj) -> str:
+    """JSON with no spaces.
+
+    The extension parses this with a regex rather than a JSON library, and the
+    default json.dumps separators put a space after every colon. The pattern
+    did not allow for that, matched nothing, and every write produced a blank
+    clip. The extension tolerates whitespace now, but sending the compact form
+    keeps the payload small and the two ends obviously in step.
+    """
+    return json.dumps(obj, separators=(",", ":"))
+
+
 HELP = """
 commands (type and press Enter):
   r          reduce the selected clip to a line, into a new clip
@@ -145,10 +157,10 @@ class Bridge:
             self.log(f"  wrote {path}")
             self.send("/amtw/insertFile", str(path))
         elif self.output == "inplace":
-            self.send("/amtw/inPlace", json.dumps(out))
+            self.send("/amtw/inPlace", _compact(out))
         else:
             self.send("/amtw/newClip", f"{mode} line",
-                      max(1, int(round(length_beats))), json.dumps(out))
+                      max(1, int(round(length_beats))), _compact(out))
 
         pct = (100 * stats["steps_or_less"] / stats["total_moves"]
                if stats["total_moves"] else 100)
