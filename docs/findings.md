@@ -139,6 +139,30 @@ scrape.**
 - Sucial big / super-big MBR models fail to load in `audio-separator`
   (band-config vs STFT mismatch); they'd need the MSST loader.
 
+### Never de-reverb backing vocals (2026-08-08)
+
+**DeEcho-DeReverb annihilates a stacked harmony.** User's verdict on the first
+backing-vocal stem this chain has seen: it "totally annihilates" them. The
+model is trained on lead vocals and reads the other harmony voices as the
+reverb tail of the loudest one, so it removes them.
+
+For backing vocals, run **`--stages superres`** — Apollo alone. On the same
+material that was judged "a good nice tidy".
+
+The null tests hinted at it before the listening did, though they could not
+prove it: de-reverb changed the stack far more than the lead (residual
+−22.1 dB vs −24.5 dB), which is either "more reverb to find" or "took
+something that was not reverb". The two are indistinguishable by that number.
+
+**The check that settles it in one listen: play the `(Reverb)` stem the
+cleanup stage writes out.** That file *is* what was removed. Recognisable
+singing in it means a voice was eaten. Use that before trusting any metric on
+new material — it is a direct answer where everything else is an inference.
+
+Same session, on the lead vocal of the same song: de-reverb removed almost
+nothing (tail 0.531 → 0.513, ~3%), because the source was already a "clear
+vocals" export. Apollo behaved exactly as recorded above, residual −25.0 dB.
+
 ## MIDI
 
 Stem-to-MIDI exports split one instrument across two tracks — bass low, voicing
@@ -173,6 +197,19 @@ Kept because each one produced a confident wrong answer.
    coefficient of variation is 1.020 at the artifact vs 0.455 in clean singing —
    it is *more* modulated, i.e. spiky and impulsive. **Always use coefficient of
    variation (std/mean), never max-normalised std.**
+
+4. **Two metrics written to answer "did a harmony get stripped?" both failed,
+   and one failed silently plausibly.** A tail-energy measure built on
+   percentile loud/quiet bands returned exactly 0.000 on backing vocals,
+   because intermittent material makes those bands degenerate. Worse, a
+   "count prominent spectral peaks per frame" measure reported 15.2 → 12.2 →
+   9.6 → 12.1 across the chain, which reads as a dramatic harmony loss — but
+   the null test showed the last two stages were the *same signal*
+   (residual −67.6 dB, correlation 1.0000), so a metric giving different
+   answers for identical audio proves nothing. Likely 16-bit requantisation
+   noise. **Before believing a new metric, run it on two files you already
+   know are identical.** The listening test settled the question in seconds
+   where both metrics had failed.
 
 Also worth remembering: `scipy.ndimage.uniform_filter1d` runs a moving sum whose
 rounding error can go slightly negative over near-silent stretches; `sqrt()` of
