@@ -48,6 +48,8 @@ Everything is runnable by hand too; the UI just builds these command lines:
 | Listening | `ab` | play aligned files in lockstep, switch instantly, mark regions |
 | MIDI | `midi-merge` | fold duplicate stem-to-MIDI tracks into one clean track |
 | | `midi-inspect` | list a MIDI file's tracks |
+| Drums | `drum-profile` | measure where a drum stem's bleed is before processing it |
+| | `drum-clean` | remove sustained tonal bleed below a crossover, between hits only |
 | Harmony | `harm-read` | bar-by-bar readings, how many keys still fit, and which voice narrows them |
 | | `harm-map` | interactive page of every reading and every key, with a lens switch |
 | | `harm-render` | render a bar range to audio, one file per voice-set, for A/B |

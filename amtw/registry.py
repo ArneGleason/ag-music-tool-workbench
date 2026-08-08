@@ -30,7 +30,7 @@ from .spec import Tool
 # Sidebar order. Groups not listed here sort after these, alphabetically, so a
 # new group appears without needing to be registered — just not jumping the
 # queue ahead of the established ones.
-GROUP_ORDER = ["Pipeline", "Fry repair", "Listening", "MIDI", "Harmony"]
+GROUP_ORDER = ["Pipeline", "Fry repair", "Drums", "Listening", "MIDI", "Harmony"]
 
 
 _MISSING: list[tuple[str, str]] = []
