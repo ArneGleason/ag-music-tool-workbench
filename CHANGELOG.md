@@ -10,6 +10,10 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Current stem-restoration research shortlist, including Smule Renaissance's
+  mono preprocessing caveat and MSR/LOUDAR/SonicMaster follow-ups. This is a
+  source-linked audit, not a local listening result; see
+  `docs/stem-restoration-audit-2026-09-12.md`.
 - Canonical runtime pointer and shared launcher/installer resolution, including
   discovery of Claude's packaged-app runtime. Recovered and relocated the
   complete working runtime with compatibility junctions; Doctor now passes.
