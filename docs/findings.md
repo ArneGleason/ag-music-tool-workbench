@@ -11,6 +11,36 @@ it with a measurement and edit the entry. Don't quietly contradict it.
 
 ---
 
+## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
+
+No listening verdict yet. Ran `stem-audition` from the workbench on the actual
+Lead Vocal WAV, using source seconds 6–18, 48–60 and 182–194, with two seconds of
+model context on either side. Each of four outputs is exactly 1,824,000 frames,
+48 kHz stereo (38 seconds including two one-second gaps). Original samples in
+the selected intervals are retained in the reference. Outputs are float WAVs;
+all samples finite and peaks below 1. Apollo uses Lew vocal ep54, no cleanup.
+
+Renaissance revision `b80e3a69c347f1290e62dddcb8e069654825aa7b`, model SHA-256
+`dd73b487ed058fdea66a25915f9f5a50b3d2dd97c03480f268a1d50a00fe2b06`.
+Existing main Torch 2.11/cu128 worked without added dependencies. L/R inference
+is independent with a shared peak reference and the upstream 60 Hz high-pass.
+Exact-length iSTFT prevents truncation. This does not guarantee spatial fidelity.
+
+Apollo waveform-correlation lag was zero in both channels of all three clips.
+Renaissance lags were [9, 8], [4, 4], [4, 0] samples (maximum 0.188 ms). These
+can reflect phase changes, not a fixed latency; no shifts were applied. Its
+side/mid ratio decreased by 0.50, 1.49 and 0.86 dB respectively. These numbers
+are diagnostics, not evidence that the vocal improved or a voice disappeared.
+The fourth audition slot is source minus Renaissance at original gain, including
+phase differences; do not describe it as a separated noise/reverb stem.
+
+Observed timings: Apollo subprocess 44.0 seconds; Renaissance loop including
+diagnostics/output 2.8 seconds, excluding model load. Not a controlled benchmark.
+All 27 tool declarations round-tripped; Doctor passed. User notes autosave to
+`C:/audio/shared/amtw-runtime/jobs/vocal-audition-20260912-101606-f59e5b/listening-notes.json`.
+Job manifest records source hash, provenance, timing and per-excerpt diagnostics.
+Audition sections start at 0, 13 and 26 seconds; labels are setup cues only.
+
 ## Runtime consolidation and false missing-model diagnosis (2026-09-12)
 
 The apparent missing Apollo/Torch/engines were a **path error**, not missing

@@ -10,6 +10,11 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Vocal restoration audition on the Listening workbench: short original/Apollo/
+  Renaissance comparisons with a source-minus-Renaissance difference signal,
+  surrounding context, exact-length reconstruction and per-channel lag/width
+  diagnostics. Renaissance uses the existing main environment; its code, weights
+  and rendered audio live in the shared runtime. See `docs/renaissance-audition.md`.
 - Current stem-restoration research shortlist, including Smule Renaissance's
   mono preprocessing caveat and MSR/LOUDAR/SonicMaster follow-ups. This is a
   source-linked audit, not a local listening result; see
