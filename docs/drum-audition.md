@@ -49,3 +49,18 @@ through Listening → A/B listening with the corresponding files and port.
 
 Next: listen for lost ghost notes, bleed, altered attacks and cymbal tails.
 Only then trial Apollo universal on a selected problem part. Bitwig is unchanged.
+
+## Apollo refinement comparison
+
+**Drums → Apollo drum refinement audition** accepts one or more separation
+manifest files. It reuses the contextual `out/seg_*` snare and hh audio, not the
+joined montage. Universal Apollo runs in the existing MSST environment. Both
+untreated and processed comparisons share resampling to 48 kHz; no gating,
+gain matching or lag correction is applied. Each job contains solo comparisons,
+untreated-minus-processed difference files, and a kit comparison replacing only
+snare/hh. Kick, toms, ride and crash remain identical in that kit comparison.
+
+Per-excerpt lag and width diagnostics are in the manifest. These describe changes,
+not improvements. Use the A/B tool with untreated, Apollo and optionally difference
+for either instrument, then the two kit files. Additional model downloads or
+Python dependencies are not needed.

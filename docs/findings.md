@@ -164,7 +164,28 @@ For a full-song pass, retain all six raw outputs for recovery even if ride/crash
 are kept muted in the working mix. Full-song separation and any extra restoration
 remain outstanding; no need for further excerpt checks without a new concern.
 
+## Apollo drum refinement prepared (2026-09-12)
+
+Job `drum-restore-20260912-113822-29355b`: Apollo universal on separated
+snare/hh, retaining real surrounding context from both approved DrumSep jobs.
+Source starts 40, 95, 180, 195, 207s; montage starts 0, 13, 26, 39, 52s.
+Eight float stereo files, each 3,072,000 frames / 48 kHz / 64s, all finite,
+all peaks below 1 (maximum 0.6115). Per-channel correlation lag is zero in
+all ten instrument/excerpt comparisons. This is not a quality verdict.
+Kit comparison replaces only snare/hh; other separated components are unchanged.
+No gate, loudness normalization or latency correction. A/B views 8736 snare,
+8737 hh/shaker, 8738 kit; matching off, separate notes stored beside manifest.
+
+Main run took 173.64s, inflated by an overlapping UI validation run exhausting
+most GPU memory (15,748/16,376 MiB). Stopped that extra inference and reran the
+UI check alone. Do not schedule concurrent Apollo models on this 16 GB GPU.
+The isolated UI run completed in 31s on the two ending excerpts:
+`drum-restore-20260912-114133-c647a7`, visibly done with all eight output files.
+Doctor passed; 30 declaration roundtrips passed. No Bitwig changes. Listening
+verdict and decision on full-song processing remain pending.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
+
 
 No listening verdict yet. Ran `stem-audition` from the workbench on the actual
 Lead Vocal WAV, using source seconds 6–18, 48–60 and 182–194, with two seconds of

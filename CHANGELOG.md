@@ -10,6 +10,9 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Apollo universal refinement auditions for separated snare and hi-hat/shaker,
+  with contextual rendering, solo/difference and recombined-kit comparisons.
+  Exposed on the Drums workbench using the existing MSST environment.
 - Recorded approval of ending hi-hat/percussion separation and near-empty
   ride/crash; the initial drum-separation listening checks are complete.
 - Recorded hi-hat approval and shaker-preservation preference; prepared an
