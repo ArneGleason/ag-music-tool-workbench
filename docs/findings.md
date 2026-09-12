@@ -155,6 +155,15 @@ versus original -22.44 dBFS. This indicates little energy assigned to those
 classes in the ending, not proof of instrument identity. Shaker routing still
 requires user listening. Nothing gated, removed, restored or imported to Bitwig.
 
+Ending listening verdict: Arne confirms good separation in hi-hat and toms.
+Ride/crash are almost empty, consistent with the arrangement; the faint content
+sounds to him like hi-hat bleed classified as ride. This is a listening inference,
+not ground-truth instrument identification. All auditioned parts are now accepted
+as useful. Preserve hi-hat/shaker and percussion/accents; do not bake in a gate.
+For a full-song pass, retain all six raw outputs for recovery even if ride/crash
+are kept muted in the working mix. Full-song separation and any extra restoration
+remain outstanding; no need for further excerpt checks without a new concern.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 No listening verdict yet. Ran `stem-audition` from the workbench on the actual
