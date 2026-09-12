@@ -58,7 +58,9 @@ Do not claim Boolean writes have been validated merely because name writes work.
 
 Following the successful full lead, Arne requested the same pass on backing vocals
 to address spectral scratching. Removing or retaining doubling is acceptable;
-cleaner sound is the priority. No backing-vocal listening verdict yet.
+cleaner sound is the priority. Subsequent listening verdict: very good; removing
+doubling and effects is ideal because Arne prefers to recreate these himself.
+Both Renaissance vocals are approved as better starting stems for this song.
 
 Full source: `Downloads/Set the Monsters Loose Stems/Set the Monsters Loose (Backing Vocals).wav`.
 Rendered 10,535,040 frames, 48 kHz stereo, 219.480 seconds, peak 0.4750,
@@ -75,6 +77,26 @@ index 11 muted, Renaissance index 12 active, neither soloed. Original lead remai
 muted and Renaissance lead active. Collect and Save completed; collected sample
 hash matches the render. Doctor passes. Audio quality awaits Arne's listening;
 successful rendering/placement is not a measurement of scratch reduction.
+
+Stereo follow-up: our wrapper processes L/R independently, unlike upstream's
+mono averaging. Full renders have nonidentical channels; whole-file side/mid
+energy ratios measured -12.24 dB (lead) and -4.89 dB (backing). Neither is mono.
+These figures do not establish spatial fidelity or preservation of original
+width. Expect two channels with potentially altered width, not automatic mono.
+
+Next requested experiment is drum-kit separation for mixing control, followed
+by selective cleanup. Strategy (not yet run): audition sparse, busy and fill/tail
+passages through jarredou's five-stem MDX23C DrumSep (kick/snare/toms/hh/cymbals).
+Public configs/weights are listed in
+https://github.com/ZFTurbo/Music-Source-Separation-Training/blob/main/docs/pretrained_models.md .
+MVSep also lists newer SCNet XL and MelBand Roformer alternatives at
+https://mvsep.com/algorithms/29?lang=en ; their public weight availability has not
+been established here. No listed model promises a dedicated hand-clap stem.
+Compare individual stems AND their unprocessed sum against original, then test
+Apollo universal on selected problem parts. Do not apply the vocal Renaissance
+model to drums by analogy. Existing drum-clean targets low tonal bleed, not
+kit-piece separation; sustained drum energy is not automatically contamination.
+No drum model installed or audio/project changed during this strategy review.
 
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 

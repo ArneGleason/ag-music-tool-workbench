@@ -10,6 +10,8 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Recorded backing-vocal approval, measured stereo retention in both Renaissance
+  renders, and outlined a staged drum-separation/cleanup audition.
 - Full Renaissance backing-vocal pass placed beneath the original in MonstersUndone,
   with original muted and rendered sample collected into the saved project.
   Recorded the user's full-song lead approval; backing listening verdict pending.
