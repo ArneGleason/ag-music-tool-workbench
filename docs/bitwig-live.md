@@ -29,6 +29,9 @@ project import was required in the measured setup.
   effects and master, plus project name, play state, beat position and BPM.
 - Writes support name, mute, solo, volume and pan. Volume/pan are normalized
   **0..1**, not dB; center pan is 0.5.
+  **2026-09-12 live limitation:** mute dispatch currently fails with
+  `BooleanValueAtomProxy ... Message not supported`. Name writes were verified;
+  do not infer that Boolean writes work. Use the GUI for mute until repaired.
 - A fresh session/revision and expected track name are mandatory for MCP edits.
   Track state observers invalidate revisions; moving transport alone does not.
   These are observed-state checks, not an atomic transaction with the GUI.

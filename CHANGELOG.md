@@ -10,6 +10,10 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Full-song Renaissance cleanup tool, following the user's accepted core-vocal
+  audition. Contextual overlap rendering retains the source sample rate/count;
+  no Apollo, trimming or gain normalization. Saved MonstersUndone with the new
+  Raw audio track beneath the original and collected its sample into the project.
 - Vocal restoration audition on the Listening workbench: short original/Apollo/
   Renaissance comparisons with a source-minus-Renaissance difference signal,
   surrounding context, exact-length reconstruction and per-channel lag/width

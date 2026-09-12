@@ -24,3 +24,12 @@ Install outside the code checkout, under the configured runtime root:
   contextual inputs stay in a unique runtime `jobs/vocal-audition-*` directory.
 
 This is a short-excerpt audition tool, not a full-song restoration command.
+
+## Full-song render
+
+After a listening verdict, use **Renaissance vocal cleanup** (`amtw renaissance`)
+in Pipeline. It uses the same inference function with 12-second cores, two-second
+overlaps and two seconds of surrounding context. Normalized overlap weights avoid
+hard joins. Output has the source sample rate, channels and sample count; it is
+a float WAV with a provenance manifest in the shared runtime. No Apollo pass or
+overall gain matching is applied. Keep the original for intentional doubling.

@@ -11,6 +11,47 @@ it with a measurement and edit the entry. Don't quietly contradict it.
 
 ---
 
+## Renaissance accepted as a core vocal; full render (2026-09-12)
+
+Arne's audition verdict: "the Renaissance stuff is amazing at separating all the
+extra doubling and effects out" and "Renaissance is a great core track." He likes
+the original's doubling and may blend it back or reproduce it. He also identified
+the cleaner vocal as a possible Kling lip-sync input (not tested). Apollo is a
+subtle improvement preserving the source character, but he explicitly chose to
+skip a full Apollo pass and keep original + Renaissance for this song.
+
+Rendered the full Lead Vocal through Renaissance: 10,535,040 frames, 48 kHz stereo,
+219.480 seconds, peak 0.5131, finite samples throughout. 22 contextual blocks with
+normalized two-second overlaps; same independent-L/R inference as the audition.
+Render loop/write/hash took 7.56 seconds, excluding model load. Output hash:
+`6c658543745e430ba3626324125263965123454e6a8139f8395b02294a0deb14`.
+Runtime job: `jobs/renaissance-20260912-102230-07ccd8`.
+Doctor and all 28 tool declaration roundtrips passed. The full-render tool also
+completed from its workbench UI on the real 38-second reference montage (four
+blocks, five seconds including startup). That smoke-test output was not imported.
+
+Inserted into the running Bitwig project, track index 17 immediately below the
+original at index 16, same -10 dB track level. Raw playback, source offset zero,
+play stop displayed 3:39.479 (UI precision). The original's actual start is
+15.619962250 beats, before bar 5. Selecting it then Down into the empty arranger
+lane and pasting the Browser-copied audio retained that exact cursor; bridge
+readback after selecting the new clip: 15.619962692260742 beats (float precision).
+Do not round the displayed 4.4.3.47 for placement. Pasting with a TRACK HEADER
+focused creates a Convolution device instead; that attempt was undone. Native
+browser drag attempts produced no clips; copy/paste in arranger focus worked.
+The imported clip container is longer than the original, but Raw audio retains
+its own play stop; no stretching or looping was enabled.
+
+Original is retained and muted; Renaissance active. Saved native project at
+`C:/Users/arneg/OneDrive/Documents/Bitwig Studio/Projects/MonstersUndone.cleaned-groove/MonstersUndone.cleaned-groove.bwproject`.
+Collect and Save copied the Renaissance WAV into that project's `samples` folder.
+The full-song version has not yet received a separate user listening verdict.
+
+Live bridge limitation discovered: `set_track` mute failed with
+`BooleanValueAtomProxy ... Message not supported` at `.set(value)`. Original
+mute was applied through the Bitwig UI and confirmed by a fresh bridge snapshot.
+Do not claim Boolean writes have been validated merely because name writes work.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 No listening verdict yet. Ran `stem-audition` from the workbench on the actual
