@@ -64,3 +64,23 @@ Per-excerpt lag and width diagnostics are in the manifest. These describe change
 not improvements. Use the A/B tool with untreated, Apollo and optionally difference
 for either instrument, then the two kit files. Additional model downloads or
 Python dependencies are not needed.
+
+## Full-song delivery
+
+**Drums → Render separated drums** runs full six-part separation, then applies
+Apollo universal only to active hi-hat/shaker spans. Stereo RMS activity uses
+-55 dBFS, 1s pads, 3s gap merging and 2s additional context. In-pad 100ms fades
+join restored audio to the unchanged quiet material. The tool checks that skipped
+samples are bit-identical at processing rate. It exports full-length source-rate
+float WAVs and retains all six untreated parts under `raw/` for recovery.
+
+MonstersUndone full job: `drum-full-20260912-115537-f239de`. The activity spans
+cover 71.24%; including model context, Apollo receives 184.35s versus 219.48s
+for a continuous pass. The initial separation still uses the whole drum stem.
+This is selective processing, not a noise gate. No extra brightening is applied.
+
+Delivery is installed in the native `MonstersUndone.cleaned-groove` project,
+inside Drums under Group 9. All six clips share the original's 4.4.3.47 start,
+Raw playback and full duration. Original Drum Kit, ride and crash are muted.
+The four selected parts are active at -10dB each, Drums group at 0dB. Save and
+Collect and Save completed; all six collected WAV hashes match the job manifest.

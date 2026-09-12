@@ -11,6 +11,33 @@ it with a measurement and edit the entry. Don't quietly contradict it.
 
 ---
 
+## Full drum delivery in Bitwig (2026-09-12)
+
+Workbench `drum-render` completed the real 219.480s stereo drum stem in 79s
+including startup (manifest render time 77.83s). Job:
+`jobs/drum-full-20260912-115537-f239de`. Six finite stereo 48kHz float WAVs
+each retain 10,535,040 frames. No peak normalization or gating was applied.
+Apollo universal processed only hi-hat/shaker: seven activity spans covering
+71.24% including pads, with 184.35s of inference input after additional context
+versus 219.48s continuous. This saves about 16% of input duration, not a measured
+16% wall-clock speedup. Full drum separation still processes the entire stem.
+Skipped samples were bit-identical at the 44.1kHz processing rate before export
+resampling. All six untreated parts are retained separately for recovery.
+
+Imported into the running `MonstersUndone.cleaned-groove` project inside a new
+Drums group nested in Group 9. Kick, snare and percussion remain untreated;
+hi-hat/shaker uses Apollo. Original Drum Kit and optional ride/crash are muted.
+All six clips jointly inspected: position 4.4.3.47, offset 1.1.1.00, length
+88.3.1.77, Raw mode, looping off, play stop 3:39.479 (UI precision).
+New tracks are -10dB and Drums group is 0dB. Existing vocal levels and effects
+were retained. Native Save and Collect and Save completed; SHA256 matches for
+all six files in the project's samples folder. Live snapshot confirms four
+active new parts, muted original/ride/crash, no solos. This validates delivery
+and timing setup, not a new listening verdict on the full mix.
+
+Doctor and 31 tool declaration roundtrips passed. The full render was launched
+from its workbench form and its console reached `done`.
+
 ## Renaissance accepted as a core vocal; full render (2026-09-12)
 
 Arne's audition verdict: "the Renaissance stuff is amazing at separating all the

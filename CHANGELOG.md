@@ -10,6 +10,12 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Delivered six aligned drum tracks into MonstersUndone's Drums group and
+  collected verified audio into the native project. Original/ride/crash muted;
+  untreated kick/snare/percussion and Apollo hi-hat/shaker active.
+- Full-length drum delivery tool with selective Apollo hi-hat/shaker processing,
+  stereo-aware activity detection, padded transitions and preserved quiet audio.
+  Retains six untreated parts alongside source-rate delivery files.
 - Finalized Apollo for combined hi-hat/shaker on future drum import, accepting
   the softer bead texture; retain untreated snare and optional live-shaker augmentation.
 - Recorded tentative Apollo preference on hi-hats for reduced artificial
