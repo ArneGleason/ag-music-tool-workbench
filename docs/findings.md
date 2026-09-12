@@ -121,6 +121,14 @@ hh/ride/crash), each with source-time markers and separate notes in the job.
 Doctor passed; 29 tool declarations round-tripped. User listening pending.
 No Bitwig edits or Apollo pass yet: separation is the first listening decision.
 
+Arne's subsequent recombined-kit verdict: certainly better, but modest compared
+with the vocal improvement. He hears a little reverb removed, welcome for mixing
+control, and possibly less spectral scratching. Transient improvement is uncertain;
+the original drums may not have had much papery attack character in these passages.
+This is a listening verdict, not proof of a specific dereverberation mechanism.
+Individual stem isolation/mix usefulness has not yet received a verdict. Do not
+infer it from approval of the recombined sum. No additional cleanup was applied.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 No listening verdict yet. Ran `stem-audition` from the workbench on the actual
