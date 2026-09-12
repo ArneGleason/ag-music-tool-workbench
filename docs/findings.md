@@ -194,6 +194,15 @@ Apollo to all drums. Hi-hat/shaker verdict is still pending. The existing kit
 Apollo audition processes BOTH snare and hh, so it is not the final proposed mix
 after rejecting Apollo on snare.
 
+Hi-hat/shaker Apollo listening: tentative preference for Apollo. Arne hears less
+artificial, distracting scratchiness, but again loses presence. He would like
+the presence without the artifacts. Do not mark this as unconditional approval.
+Candidate next comparison: Apollo unchanged versus a gentle high-shelf EQ on
+Apollo, with untreated retained as reference. EQ can emphasize surviving detail,
+not reconstruct removed detail, and may emphasize remaining artifacts too.
+Dry blending could reintroduce the very scratchiness he dislikes; not the first
+assumed solution. Snare remains untreated. No EQ or blending has been applied yet.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 

@@ -10,6 +10,8 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Recorded tentative Apollo preference on hi-hats for reduced artificial
+  scratchiness, with lost presence still an unresolved tradeoff.
 - Recorded rejection of Apollo on snare: retain untreated separation for its
   preferred presence and brightness; hi-hat/shaker decision remains open.
 - Apollo universal refinement auditions for separated snare and hi-hat/shaker,
