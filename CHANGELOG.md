@@ -10,6 +10,8 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Recorded hi-hat approval and shaker-preservation preference; prepared an
+  ending audition to check shaker/accents and near-silent ride/crash outputs.
 - Recorded usable kick/snare/toms separation, optional bleed retention, and
   checked snare levels with audition matching disabled.
 - Recorded positive but modest recombined-drum listening verdict; individual

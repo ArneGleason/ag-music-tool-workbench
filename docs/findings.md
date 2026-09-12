@@ -142,6 +142,19 @@ No global snare boost was applied. These aggregate figures cannot explain away
 perceived loudness or establish level preservation at individual hits; isolated
 presentation and separation-induced phase changes remain possible contributors.
 
+Hi-hat audition verdict: works great. Arne hears no conventional ride/crash in
+the first excerpts; he likes shaker material especially toward the song ending.
+Some accents may land in the model's toms output and need not be isolated further.
+Do not discard ride/crash globally on the basis of excerpts, or assume the model
+has a shaker class. Retain shaker and optional bleed as creative material.
+
+Prepared ending check, source 195–207 and 207–219s, at port 8735:
+`jobs/drum-audition-20260912-113229-ac963d`. Original, hh, toms and ride+crash
+comparison, 25s including 1s gap. Combined ride/crash peak 0.0053, RMS -71.98 dBFS
+versus original -22.44 dBFS. This indicates little energy assigned to those
+classes in the ending, not proof of instrument identity. Shaker routing still
+requires user listening. Nothing gated, removed, restored or imported to Bitwig.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 No listening verdict yet. Ran `stem-audition` from the workbench on the actual
