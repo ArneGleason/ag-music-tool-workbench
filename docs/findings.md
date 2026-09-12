@@ -98,6 +98,29 @@ model to drums by analogy. Existing drum-clean targets low tonal bleed, not
 kit-piece separation; sustained drum energy is not automatically contamination.
 No drum model installed or audio/project changed during this strategy review.
 
+## DrumSep first audition (2026-09-12)
+
+Five-stem upstream release returned 404; Hugging Face weight mirrors returned
+429. Pivoted to openmirlab's maintained six-stem release. Checkpoint and config
+hashes match its published values (see docs/drum-audition.md). Existing MSST
+venv ran it without new dependencies. No five-stem weights installed.
+
+CLI and workbench both completed on the original MonstersUndone Drum Kit.
+Workbench job `drum-audition-20260912-105204-d61357` took nine seconds including
+startup. Source excerpts 40–52, 95–107, 180–192 seconds, each with 3s context.
+Nine outputs each have 1,675,800 frames (38s), 44.1 kHz stereo, all finite, all
+peaks below 1. Six outputs: kick/snare/toms/hh/ride/crash, plus original,
+recombined, difference. No normalization, cleanup, sum correction or lag shift.
+CLI residual RMS relative to source: -34.40, -37.52, -38.86 dB. A close sum does
+not establish correct allocation between stems or transient fidelity.
+Ride/crash peaks in the workbench result are only 0.0155/0.0117; do not mistake
+loudness-matched audition amplification for their contribution in the kit.
+
+Prepared three A/B views (8732 sum comparison, 8733 kick/snare/toms, 8734
+hh/ride/crash), each with source-time markers and separate notes in the job.
+Doctor passed; 29 tool declarations round-tripped. User listening pending.
+No Bitwig edits or Apollo pass yet: separation is the first listening decision.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 No listening verdict yet. Ran `stem-audition` from the workbench on the actual

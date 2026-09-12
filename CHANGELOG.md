@@ -10,6 +10,9 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Drum separation audition on the workbench: six-part MDX23C with contextual
+  excerpts, original/recombined/difference files and provenance. Uses existing
+  MSST runtime. Prepared three MonstersUndone excerpts for listening.
 - Recorded backing-vocal approval, measured stereo retention in both Renaissance
   renders, and outlined a staged drum-separation/cleanup audition.
 - Full Renaissance backing-vocal pass placed beneath the original in MonstersUndone,

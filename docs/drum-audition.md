@@ -1,0 +1,51 @@
+# Drum separation audition
+
+Workbench: **Drums → Drum separation audition**. Choose the original drum WAV,
+enter excerpt starts in seconds and a duration. Outputs are placed in shared
+runtime `jobs/drum-audition-*`, with provenance in `manifest.json`.
+
+This is separation, not restoration. Six parts are kick, snare, toms, hi-hat,
+ride and crash. Claps have no dedicated class. Original, sum and difference WAVs
+make any reconstruction discrepancy audible; the difference is not a clean
+noise stem. Inputs are resampled to 44.1 kHz; all comparison outputs share that
+path and duration. Three seconds of context surrounds each evaluated excerpt.
+Do not interpret a close sum as proof of good individual isolation.
+
+## Runtime setup
+
+Uses existing MSST environment and clone; no added Python dependencies.
+Create `models/drumsep` in the shared runtime and download these release assets:
+
+- [six.ckpt](https://github.com/openmirlab/mdxnet-infer/releases/download/weights-drumsep-v1/aufr33-jarredou_DrumSep_model_mdx23c_ep_141_sdr_10.8059.ckpt)
+- [six.yaml](https://github.com/openmirlab/mdxnet-infer/releases/download/weights-drumsep-v1/aufr33-jarredou_DrumSep_model_mdx23c_ep_141_sdr_10.8059.yaml)
+
+Save using the short filenames above. The tool verifies both SHA-256 values
+before running. The checkpoint is 438 MB, outside Git. Source is aufr33/jarredou's
+six-stem DrumSep, mirrored by openmirlab; MSST commit used locally is
+`ccc011abf7f89dd7922bb2888d48493b575c0289`. Upstream weight licensing is not
+clearly established by the mirror; do not represent the weights as MIT merely
+because inference code is MIT. See the mirror's README for provenance.
+
+The proposed five-stem release returned 404 on 2026-09-12. Two Hugging Face
+checkpoint mirrors returned 429. Six-stem download succeeded and its hash
+matched the release documentation. The unused five-stem config remains in the
+runtime; no five-stem checkpoint was installed.
+
+## First listening set
+
+MonstersUndone source seconds 40–52, 95–107, 180–192; montage starts 0, 13, 26.
+These are distributed sample passages, not verified musical section labels.
+Workbench-rendered job: `drum-audition-20260912-105204-d61357`.
+
+- Port 8732: original / recombined / difference.
+- Port 8733: original / kick / snare / toms.
+- Port 8734: original / hi-hat / ride / crash.
+
+Each is the existing A/B tool with its own notes JSON in the job. Keep loudness
+matching off when judging contribution levels and the residual. Matching can
+help reveal faint bleed, but then its loudness no longer reflects the mix.
+The job-local `serve_auditions.py` launches these views; any can also be launched
+through Listening → A/B listening with the corresponding files and port.
+
+Next: listen for lost ghost notes, bleed, altered attacks and cymbal tails.
+Only then trial Apollo universal on a selected problem part. Bitwig is unchanged.
