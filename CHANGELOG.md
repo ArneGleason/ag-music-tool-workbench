@@ -10,6 +10,8 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Recorded rejection of Apollo on snare: retain untreated separation for its
+  preferred presence and brightness; hi-hat/shaker decision remains open.
 - Apollo universal refinement auditions for separated snare and hi-hat/shaker,
   with contextual rendering, solo/difference and recombined-kit comparisons.
   Exposed on the Drums workbench using the existing MSST environment.

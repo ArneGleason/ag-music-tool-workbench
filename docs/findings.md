@@ -184,6 +184,16 @@ The isolated UI run completed in 31s on the two ending excerpts:
 Doctor passed; 30 declaration roundtrips passed. No Bitwig changes. Listening
 verdict and decision on full-song processing remain pending.
 
+Snare listening verdict: **untreated wins**. Arne hears Apollo removing too much
+presence and brightness; the original texture may suit the snare even if some
+of it is spectral artifact. He describes a possible phase-alignment correction,
+but this mechanism is unconfirmed. Zero correlation lag does not rule out phase
+changes. Preserve the untreated separated snare in the working kit. Do not try
+to override this preference with a restoration metric or automatically apply
+Apollo to all drums. Hi-hat/shaker verdict is still pending. The existing kit
+Apollo audition processes BOTH snare and hh, so it is not the final proposed mix
+after rejecting Apollo on snare.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 
