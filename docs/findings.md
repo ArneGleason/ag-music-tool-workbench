@@ -129,6 +129,19 @@ This is a listening verdict, not proof of a specific dereverberation mechanism.
 Individual stem isolation/mix usefulness has not yet received a verdict. Do not
 infer it from approval of the recombined sum. No additional cleanup was applied.
 
+Subsequent kick/snare/toms audition: Arne finds isolation pretty good and useful.
+Remaining bleed is mainly noticeable in extended quiet sections; he may gate it
+or keep it, since bleed can add something. Do not bake in gating by default.
+Toms sound like unusual percussion that fits neither kick nor snare; they work
+when blended, but the model label is not a verified instrument identity.
+He hears the snare as substantially louder and kick approximately unchanged.
+Checked current audition: loudness matching off; UI uses unity gain in that mode.
+Across the 38s montage, original/snare peak levels are -4.75/-4.73 dBFS and RMS
+levels -20.85/-31.72 dBFS. Kick peak/RMS -6.91/-21.36; toms -9.96/-41.57 dBFS.
+No global snare boost was applied. These aggregate figures cannot explain away
+perceived loudness or establish level preservation at individual hits; isolated
+presentation and separation-induced phase changes remain possible contributors.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 No listening verdict yet. Ran `stem-audition` from the workbench on the actual

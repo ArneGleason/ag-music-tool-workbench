@@ -10,6 +10,8 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Recorded usable kick/snare/toms separation, optional bleed retention, and
+  checked snare levels with audition matching disabled.
 - Recorded positive but modest recombined-drum listening verdict; individual
   isolation and transient improvement remain unconfirmed.
 - Drum separation audition on the workbench: six-part MDX23C with contextual
