@@ -1,5 +1,8 @@
 # AG Music Tool Workbench
 
+For the canonical repository/runtime locations, shared model storage, and
+recovery on another machine, see [Local layout and recovery](docs/local-layout.md).
+
 A local workbench for music-production tools you'd otherwise have to remember
 command lines for. Double-click one file, get a browser page listing every tool
 with real widgets — file pickers, sliders, checkboxes — that runs the tool and

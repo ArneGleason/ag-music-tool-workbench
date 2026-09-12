@@ -1,0 +1,27 @@
+{
+  "session": "2026-07-25T18:09:10.666Z",
+  "files": [
+    {
+      "name": "00_ORIGINAL.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_pockets\\00_ORIGINAL.wav"
+    },
+    {
+      "name": "050_harmonic.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_pockets\\050_harmonic.wav"
+    },
+    {
+      "name": "080_harmonic.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_pockets\\080_harmonic.wav"
+    },
+    {
+      "name": "100_harmonic.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_pockets\\100_harmonic.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "050_harmonic.wav": "best on the subtler scrape part",
+    "080_harmonic.wav": "best over all",
+    "100_harmonic.wav": "best when the scrape in prolonged and pronounced"
+  }
+}

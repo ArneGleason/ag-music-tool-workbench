@@ -1,0 +1,22 @@
+{
+  "session": "2026-08-27T20:04:05.594Z",
+  "files": [
+    {
+      "name": "finger-1_current-at-70pct.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\finger-1_current-at-70pct.wav"
+    },
+    {
+      "name": "finger-2_no-finger-noise.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\finger-2_no-finger-noise.wav"
+    },
+    {
+      "name": "finger-3_removed-noise-only.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\finger-3_removed-noise-only.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\finger-1_current-at-70pct.wav": "finger noise should should like finger sliding on a string. I imagine it as one part vertical bowing on the string, one part finger speed driven hiss that can on depth engage into a string harmonic-position pitched squeek",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\finger-3_removed-noise-only.wav": "finger noise isolated sounds like plucking the teeth on a stiff plastic hair comb. not at all like noise from fingers moving along guitar strings"
+  }
+}

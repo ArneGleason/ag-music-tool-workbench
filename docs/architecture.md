@@ -5,7 +5,8 @@
 **The project folder** (this repo) holds code, plus `input/` and `output/` job
 dirs — both gitignored, because `output/` reaches several GB.
 
-**The runtime root** — `%LOCALAPPDATA%\VocalStemRegen` — holds everything heavy
+**The runtime root** — selected by `%USERPROFILE%\.config\amtw\runtime.json`
+(legacy fallback `%USERPROFILE%\AppData\Local\VocalStemRegen`) — holds everything heavy
 and regenerable: virtualenvs, model checkpoints, third-party clones, the
 HuggingFace cache. Override with `AMTW_RUNTIME`.
 
@@ -16,10 +17,10 @@ in OneDrive until 2026-08-02 for exactly that reason — the split predates the
 move and still applies.) **Never write weights or working audio into the
 project folder.**
 
-The runtime folder kept its old `VocalStemRegen` name through the rename to
-`amtw`, because four venvs have their absolute paths baked into their own
-scripts. Renaming it means a full re-setup and several GB of re-downloads for
-zero functional gain.
+The shared runtime now lives at `C:\audio\shared\amtw-runtime` on the author's
+machine. Compatibility junctions preserve the old paths baked into venvs.
+See [local-layout.md](local-layout.md) before moving anything or downloading
+missing models: packaged apps can redirect LOCALAPPDATA into their own cache.
 
 ## Four virtualenvs
 

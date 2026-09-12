@@ -31,6 +31,9 @@ def run(args: argparse.Namespace) -> int:
     cfg.cleanup.denoise = args.denoise
     cfg.cleanup.deecho = args.deecho
     cfg.cleanup.dereverb_model = DEREVERB_MODELS[args.dereverb]
+    cfg.superres.model = args.apollo_model
+    cfg.superres.skip_silence = args.skip_silence
+    cfg.superres.silence_db = args.silence_db
     cfg.resynth.engine = args.engine
     cfg.resynth.diffusion_steps = args.diffusion_steps
     cfg.resynth.inference_cfg_rate = args.cfg_rate
@@ -82,7 +85,9 @@ TOOL = Tool(
     blurb="Full restore + re-synthesis on a vocal stem. Writes a job folder "
           "with every stage's output and a comparison report.",
     note="Restoration-only (cleanup + superres, no resynth) can't touch grit "
-         "because it never re-synthesizes — worth A/B-ing on every song.",
+         "because it never re-synthesizes — worth A/B-ing on every song. "
+         "For instrument stems pick the universal Apollo model; for stems "
+         "with stacked harmonies run superres only (de-echo eats them).",
     fields=[
         Field("input", "Vocal stem", "file", accept=AUDIO, root="input",
               required=True, help="wav / mp3 / flac / m4a"),
@@ -92,6 +97,17 @@ TOOL = Tool(
               help="stages to run, space- or comma-separated"),
         Field("name", "Job name", "text", flag="--name",
               help="blank = <stem>_<timestamp>"),
+        Field("apollo_model", "Apollo model", "choice", flag="--apollo-model",
+              choices=["vocal", "universal"], default="vocal",
+              help="vocal = Lew ep54, the one every vocal verdict was made on; "
+                   "universal = any instrument (drums, bass, guitar, synth)"),
+        Field("skip_silence", "Skip silence", "bool", flag="--skip-silence",
+              default=True,
+              help="process only the loud spans; quiet stretches stay the "
+                   "literal original samples and cost no GPU time"),
+        Field("silence_db", "Silence threshold", "float", flag="--silence-db",
+              default=-55.0, min=-80.0, max=-30.0, step=1.0, advanced=True,
+              help="dBFS of 50 ms RMS below which audio counts as silence"),
         Field("deecho", "De-echo pass", "bool", flag="--deecho",
               help="kills short slap reflections that resynth otherwise "
                    "re-renders as a doubled vocal"),

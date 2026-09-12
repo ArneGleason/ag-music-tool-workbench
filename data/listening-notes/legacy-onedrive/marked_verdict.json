@@ -1,0 +1,21 @@
+{
+  "session": "2026-07-25T18:41:01.473Z",
+  "files": [
+    {
+      "name": "00_ORIGINAL.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_marked\\00_ORIGINAL.wav"
+    },
+    {
+      "name": "adaptive.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_marked\\adaptive.wav"
+    },
+    {
+      "name": "adaptive.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_v3\\adaptive.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "adaptive.wav": "better on louder segments"
+  }
+}

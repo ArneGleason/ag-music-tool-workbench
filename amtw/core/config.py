@@ -22,7 +22,14 @@ class CleanupCfg:
 
 @dataclass
 class SuperresCfg:
-    enabled: bool = True                  # Apollo vocal enhancer via MSST
+    enabled: bool = True                  # Apollo via MSST
+    model: str = "vocal"                  # vocal (Lew ep54) | universal (Lew) --
+                                          # universal is the one for drums/bass/
+                                          # guitar/synth stems
+    skip_silence: bool = False            # process only active spans; quiet
+                                          # stretches stay the literal original
+                                          # samples (and cost no GPU time)
+    silence_db: float = -55.0             # active = 50 ms RMS above this dBFS
 
 
 @dataclass

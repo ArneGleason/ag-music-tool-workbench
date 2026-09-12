@@ -13,7 +13,7 @@
 param(
     # Where the runtime lives. Defaults to what amtw.ps1 and core/paths.py look
     # for; override to test without touching a real install.
-    [string]$RuntimeRoot = (Join-Path $env:LOCALAPPDATA "VocalStemRegen"),
+    [string]$RuntimeRoot = (& (Join-Path $PSScriptRoot 'resolve_runtime.ps1')),
 
     # numpy + soundfile, so harm-render's built-in synth works. About 30 MB.
     # Without them the analysis tools still run; only rendering is unavailable.

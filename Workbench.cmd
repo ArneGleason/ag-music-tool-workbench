@@ -9,10 +9,4 @@ rem The window is deliberately not minimised. It used to be, which meant any
 rem startup failure scrolled past inside a hidden window and the whole thing
 rem just looked like "double-click does nothing".
 cd /d "%~dp0"
-set PY=%LOCALAPPDATA%\VocalStemRegen\venvs\main\Scripts\python.exe
-if not exist "%PY%" (
-    echo main venv missing at "%PY%" -- run scripts\setup_runtime.ps1, see README.
-    pause
-    exit /b 1
-)
-start "AG Music Tool Workbench" "%PY%" -m amtw workbench
+start "AG Music Tool Workbench" powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0amtw.ps1" workbench

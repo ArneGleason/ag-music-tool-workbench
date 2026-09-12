@@ -40,6 +40,11 @@ def _browse_roots() -> dict[str, Path]:
         "downloads": home / "Downloads",
         "music": home / "Music",
         "desktop": home / "Desktop",
+        # Bitwig keeps projects under Documents, which on this machine is the
+        # OneDrive one; try that first, then the plain one
+        "bitwig": next((d for d in (home / "OneDrive" / "Documents" / "Bitwig Studio" / "Projects",
+                                    home / "Documents" / "Bitwig Studio" / "Projects")
+                        if d.exists()), home / "Documents" / "Bitwig Studio" / "Projects"),
     }
     return {k: v for k, v in roots.items() if v.exists() or k in ("input", "output")}
 
@@ -47,7 +52,7 @@ def _browse_roots() -> dict[str, Path]:
 ROOTS = _browse_roots()
 
 # paths the tools print that are worth offering as results
-RESULT_RE = re.compile(r"(?:[A-Za-z]:\\|\.\\|/)[^\r\n\"']*?\.(?:wav|mp3|flac|png|html|mid|json)",
+RESULT_RE = re.compile(r"(?:[A-Za-z]:\\|\.\\|/)[^\r\n\"']*?\.(?:dawproject|wav|mp3|flac|png|html|mid|json)",
                        re.IGNORECASE)
 
 

@@ -9,6 +9,121 @@ session finds out what moved.
 
 ## [Unreleased]
 
+### Added — 2026-09-12
+- Canonical runtime pointer and shared launcher/installer resolution, including
+  discovery of Claude's packaged-app runtime. Recovered and relocated the
+  complete working runtime with compatibility junctions; Doctor now passes.
+  Added model hashes, engine revisions, environment inventories, and archived
+  listening notes for cross-machine recovery. Code remains in the GitHub repo;
+  audio, weights and environments remain outside Git. See `docs/local-layout.md`.
+- Live Bitwig project bridge: official JavaScript controller, loopback TCP
+  broker, stdio MCP adapter and four workbench tools. Reads up to 64 tracks and
+  transport; edits name/mute/solo/volume/pan with stale-state checks and readback.
+  Installed the personal `bitwig-live` plugin and verified live reads, a group
+  rename/restoration and stale rejection in Bitwig 6.1. Exact notes, tempo ramps
+  and audio replacement are not implemented in this bridge yet. See
+  `docs/bitwig-live.md` for setup and limits.
+- `project-groove` on the workbench: identify unedited Suno MIDI groups by
+  exact note fingerprints, consolidate and clean them with the existing MIDI
+  rules, measure a shared non-vocal audio offset, and write an embedded-audio
+  DAWproject with linear tempo ramps. Drum anchors lead; agreement between
+  non-vocal stems fills drumless passages. Source MIDI supplies the prior when
+  imported tempo points were not moved with the clips. Notes are inverse-mapped
+  through the written lane to preserve their source performance times. Original
+  projects are never overwritten; audio archive entries are hash-verified.
+- The new workflow removes terminal-only CC7 messages that Bitwig imports as
+  track-long volume ramps, but refuses unexpected controllers or edited notes.
+  Review WAVs, anchor errors, cleanup counts and timing checks accompany output.
+  Thinning is constrained to less than 1 ms of cumulative drift, and the bench
+  now recognizes `.dawproject` files as clickable run results.
+- Restored the existing NumPy/SciPy/librosa/soundfile/matplotlib analysis
+  dependencies in the local main runtime. No new engine dependencies; full
+  `doctor` still fails on pre-existing missing Torch, engines and model files.
+
+### Added
+- **docs/using-the-ab-tool.md** — how another agent should prepare, launch
+  and read back an `amtw ab` listening test: file-preparation rules, the
+  keyboard map, the notes JSON schema and its consumers, and the gotchas
+  (never POST into a live session; loudness matching is on by default).
+  Linked from CLAUDE.md and AGENTS.md.
+- **`suno-project` — a Suno Stems folder → a Bitwig starter project.** One
+  folder of `<song> (Instrument).wav/.mid` pairs in; one light `.dawproject`
+  out (85 KB): the tempo lane bent to the drums (tempo-map's solver, plus
+  the downbeat pinned to the measured per-song offset), one cleaned note
+  track per stem with notes placed at their *audio* time through the new
+  lane, velocities read off each note's own harmonic band in the stem
+  (fixed 24 dB range below the stem's loud reference, floor 30 so
+  split-softened notes still sound; drums per piece), per-note pitch curves
+  on lead vocal and bass as DAWproject `transpose` expression, and an empty
+  audio track per stem. Prints the drop position (bar.beat.16th) it derived
+  — 2.4.2.00 on RiversOnMars, the same one the user had chosen by hand. No
+  per-note gain envelopes, by request. Project XML is written from scratch
+  in the shape Bitwig exports (ids, Master channel, Scene/ClipSlots).
+- `midi-clean` rules are now callable in-memory (`clean.clean_notes`).
+- **`tempo-map` — a performance-following tempo lane for a Bitwig project,
+  from the drum stem.** Reads a `.dawproject`, follows the drum audio inside
+  it, anchors every 16th it can to a hit (bounded rule: within 40% of a grid
+  step of where the existing lane predicts it), solves linear tempo ramps by
+  least squares so each anchored 16th lands on its hit while a weak pull
+  keeps the lane near the prior (the S-curve the user draws by hand), thins
+  the points, and writes `<name>.tempo.dawproject` — every other zip entry
+  byte-identical, outer clip durations re-covered, the count-in kept flat.
+  Also writes a drums+click mix rendered from the *written* lane for the A/B
+  tool and a picture of anchor errors and hit-vs-prior offsets. First run on
+  RiversOnMars: 849 hits, 844 anchored, median anchor error 2.9 ms, tempo
+  within −2.9%…+3.2% of Suno's lane, 694 points over 71 bars (the user's hand
+  maps run ~8 points a bar). DAWproject is the delivery format because its
+  `TempoAutomation` holds linear-interpolated points — ramps — which a MIDI
+  file cannot.
+- Bench file browser gained a `bitwig` root (Bitwig Studio/Projects).
+- `tempo-map --light` (on by default) also writes `<name>.tempo.light.dawproject`:
+  the same tempo lane and note clips with every audio clip and wav removed,
+  audio tracks left empty — 274 KB instead of 289 MB, for opening in Bitwig
+  and dropping the stems in by hand to check the lane against the audio.
+- **`midi-clean` — instrument-aware cleanup of Suno per-stem MIDI, with
+  alignment to the wav.** Select a whole Stems folder: each file is measured
+  against the wav of the same name (onset cross-correlation), the per-song
+  median offset is applied — Suno's MIDI runs 0.1–0.55 s early, see
+  findings — tracks fold to one, same-pitch tail re-detections extend the
+  note rather than flicker, stray sub-30 ms notes go, and polyphony is capped
+  per instrument by voice stealing (lead 1, bass 2, backing 4, guitar 6,
+  keys 12). Drums and FX keep their 1 ms triggers and only lose
+  double-triggers inside 15 ms. Reports every count. Ran clean over 474
+  exports.
+- `write_midi` now substitutes non-latin-1 characters in track names instead
+  of letting mido raise — Suno titles with an em-dash were unwritable by
+  `midi-merge` too.
+- **Universal Apollo as a superres model choice** (`--apollo-model
+  vocal|universal`). Lew's universal checkpoint (the model MVSEP runs as
+  "Universal Super Resolution") restores any instrument, which opens the
+  restore chain to drum/bass/guitar/synth stems. Downloaded from
+  `huggingface.co/ASesYusuf1/Apollo_universal_model` into the runtime model
+  dir; doctor reports it as optional rather than failing without it. Smoke
+  test on a synth clip: sample-exact length, residual -16.2 dB vs source
+  (the vocal model barely touches instruments, so this is real new work).
+- **`--skip-silence` on the run pipeline** (on by default on the bench).
+  Superres finds active spans (50 ms RMS above `--silence-db`, default
+  -55 dBFS, padded 1 s, merged across gaps under 3 s) and sends only those
+  through Apollo. Quiet stretches stay the *literal original samples* — the
+  same untouched-samples guarantee the fry tools make, verified bit-identical
+  on a real stem — and sparse files finish in roughly the processed fraction
+  of the usual time. Files with under 15% skippable audio process whole, so
+  dense material never gains splice seams.
+
+### Documented
+- **docs/stem-toolset-roadmap.md** — per-stem-type restoration plan after a
+  research pass (Apollo universal ckpt located on HF, karaoke roformers already
+  in audio-separator, SonicMaster/AnyEnhance/FlashSR on a watchlist with the
+  generative-warble caveat attached). Build order: universal Apollo in
+  superres, stem profiles on the bench, wet/dry layer tool, karaoke split.
+- **`--deecho` is the harmony-eater, not de-reverb** (docs/findings.md). On a
+  mixed solo/stacked lead stem the classic de-reverb pass removed −31.1 dB
+  overall and left band balance flat to 0.1 dB, while the optional `--deecho`
+  roformer removed −15.0 dB overall and up to −2.0 dB — most of the block —
+  in exactly the passages where the backing stack is loudest. Also recorded:
+  a chroma-based screen for telling a removed tail from a removed voice, and
+  two tail/echo proxies that do not work on continuous singing.
+
 ### Added
 - **Bitwig bridge — the workbench, reachable from inside the DAW.**
   `bitwig-install` builds and installs a control-surface extension;

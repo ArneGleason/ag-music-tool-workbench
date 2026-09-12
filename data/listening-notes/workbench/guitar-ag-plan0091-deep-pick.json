@@ -1,0 +1,31 @@
+{
+  "session": "2026-08-27T20:35:23.090Z",
+  "files": [
+    {
+      "name": "1_deep-flex-textured-current.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091-deep-pick\\1_deep-flex-textured-current.wav"
+    },
+    {
+      "name": "2_deep-no-chirp-modes.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091-deep-pick\\2_deep-no-chirp-modes.wav"
+    },
+    {
+      "name": "3_deep-no-explicit-overlays.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091-deep-pick\\3_deep-no-explicit-overlays.wav"
+    },
+    {
+      "name": "4_deep-modal-body-only.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091-deep-pick\\4_deep-modal-body-only.wav"
+    },
+    {
+      "name": "5_deep-removed-attack-extras.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091-deep-pick\\5_deep-removed-attack-extras.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091-deep-pick\\2_deep-no-chirp-modes.wav": "Not too much different than 1",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091-deep-pick\\1_deep-flex-textured-current.wav": "sort of like a pick noise if the pick texture was both pronounced and sparse. It's almost like a woody rattle",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091-deep-pick\\5_deep-removed-attack-extras.wav": "the sound isolated is very digital noise sounding. not like an the sound realy material interactions would make and very much a digital synthesis crude approximation "
+  }
+}

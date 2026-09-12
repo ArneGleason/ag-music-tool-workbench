@@ -3,7 +3,8 @@
 #
 # Requires: Python 3.12 (py launcher), git, ffmpeg on PATH, NVIDIA GPU driver.
 $ErrorActionPreference = "Stop"
-$rt = "$env:LOCALAPPDATA\VocalStemRegen"
+$rt = & (Join-Path $PSScriptRoot 'resolve_runtime.ps1')
+$env:AMTW_RUNTIME = $rt
 New-Item -ItemType Directory -Force -Path "$rt\venvs", "$rt\third_party", "$rt\models\apollo", "$rt\models\uvr", "$rt\hf_cache", "$rt\logs" | Out-Null
 
 function Venv-Python($name) { "$rt\venvs\$name\Scripts\python.exe" }
@@ -58,7 +59,7 @@ $env:HF_HOME = "$rt\hf_cache"
 & (Venv-Python "main") -c @'
 from huggingface_hub import hf_hub_download
 import shutil, os, pathlib
-d = pathlib.Path(os.environ["LOCALAPPDATA"]) / "VocalStemRegen" / "models" / "yingmusic"
+d = pathlib.Path(os.environ["AMTW_RUNTIME"]) / "models" / "yingmusic"
 if not (d / "YingMusic-SVC-full.pt").exists():
     shutil.copy2(hf_hub_download("GiantAILab/YingMusic-SVC", "YingMusic-SVC-full.pt"), d / "YingMusic-SVC-full.pt")
 print("yingmusic checkpoint ready")
@@ -69,7 +70,7 @@ $env:HF_HOME = "$rt\hf_cache"
 & (Venv-Python "main") -c @'
 from huggingface_hub import hf_hub_download
 import shutil, os, pathlib
-d = pathlib.Path(os.environ["LOCALAPPDATA"]) / "VocalStemRegen" / "models" / "apollo"
+d = pathlib.Path(os.environ["AMTW_RUNTIME"]) / "models" / "apollo"
 for f in ["model_apollo_vocals_ep_54.ckpt", "config_apollo_vocals_ep_54.yaml"]:
     if not (d / f).exists():
         shutil.copy2(hf_hub_download("baicai1145/Apollo-vocal-msst", f), d / f)

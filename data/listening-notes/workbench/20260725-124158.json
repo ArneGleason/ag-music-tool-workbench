@@ -1,0 +1,42 @@
+{
+  "session": "2026-07-25T17:35:00.577Z",
+  "files": [
+    {
+      "name": "00_ORIGINAL.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\defizz_pockets\\00_ORIGINAL.wav"
+    },
+    {
+      "name": "01_narrow400_str050.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\defizz_pockets\\01_narrow400_str050.wav"
+    },
+    {
+      "name": "02_narrow400_str085.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\defizz_pockets\\02_narrow400_str085.wav"
+    },
+    {
+      "name": "03_wide1400_str085.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\defizz_pockets\\03_wide1400_str085.wav"
+    }
+  ],
+  "markers": [
+    {
+      "t": 24.04303836757676,
+      "track": 3,
+      "trackName": "03_wide1400_str085.wav",
+      "text": ""
+    },
+    {
+      "t": 24.251617481938087,
+      "track": 3,
+      "trackName": "03_wide1400_str085.wav",
+      "text": ""
+    },
+    {
+      "t": 28.217790117692207,
+      "track": 1,
+      "trackName": "01_narrow400_str050.wav",
+      "text": ""
+    }
+  ],
+  "verdicts": {}
+}

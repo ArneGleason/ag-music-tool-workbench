@@ -53,6 +53,13 @@ def run(_args: argparse.Namespace) -> int:
     check("apollo ckpt", APOLLO_CKPT.exists())
     check("apollo config", APOLLO_CONFIG.exists())
 
+    # Optional: only --apollo-model universal needs it, so missing is a
+    # downgrade, not a failure.
+    from ...core.paths import APOLLO_UNIVERSAL_CKPT, APOLLO_UNIVERSAL_CONFIG
+    uni = APOLLO_UNIVERSAL_CKPT.exists() and APOLLO_UNIVERSAL_CONFIG.exists()
+    print(f"  [{'ok ' if uni else '--'}] apollo universal ckpt"
+          f"{'' if uni else ' — optional; huggingface.co/ASesYusuf1/Apollo_universal_model'}")
+
     try:
         import audio_separator  # noqa: F401
         check("audio-separator importable (main env)", True)

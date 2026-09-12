@@ -183,6 +183,20 @@ def ticks_to_seconds(tick: float, ppq: int, tempo_map: list[tuple[int, int]]) ->
     return secs + (tick - prev_tick) / ppq * (prev_tempo / 1e6)
 
 
+def seconds_to_ticks(secs: float, ppq: int, tempo_map: list[tuple[int, int]]) -> float:
+    """Inverse of ticks_to_seconds through the same tempo map. Negative
+    seconds extrapolate before tick 0 at the first tempo; callers clamp."""
+    t_acc = 0.0
+    prev_tick, prev_tempo = tempo_map[0]
+    for change_tick, tempo in tempo_map[1:]:
+        seg = (change_tick - prev_tick) / ppq * (prev_tempo / 1e6)
+        if t_acc + seg >= secs:
+            break
+        t_acc += seg
+        prev_tick, prev_tempo = change_tick, tempo
+    return prev_tick + (secs - t_acc) / (prev_tempo / 1e6) * ppq
+
+
 # --------------------------------------------------------------------------- #
 # merging
 # --------------------------------------------------------------------------- #
@@ -256,6 +270,11 @@ def write_midi(path: Path, notes: list[Note], ccs: list[tuple[int, int, int]],
                ppq: int, tempo_map: list[tuple[int, int]], channel: int,
                program: int | None, name: str) -> None:
     mf = mido.MidiFile(type=1, ticks_per_beat=ppq)
+
+    # MIDI text metas are latin-1. Suno song titles carry em-dashes and worse,
+    # and mido raises on save rather than substituting — 74 files in one
+    # corpus run died on a single "—". Substitute here, once, for every writer.
+    name = name.encode("latin-1", "replace").decode("latin-1")
 
     meta = mido.MidiTrack()
     meta.name = name

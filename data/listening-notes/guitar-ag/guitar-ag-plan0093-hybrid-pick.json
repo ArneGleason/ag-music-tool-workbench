@@ -1,0 +1,30 @@
+{
+  "session": "2026-08-27T23:16:34.145Z",
+  "files": [
+    {
+      "name": "1_modal-force-175.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg093-hybrid-pick\\1_modal-force-175.wav"
+    },
+    {
+      "name": "2_hybrid-12pct-dense.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg093-hybrid-pick\\2_hybrid-12pct-dense.wav"
+    },
+    {
+      "name": "3_hybrid-22pct-dense.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg093-hybrid-pick\\3_hybrid-22pct-dense.wav"
+    },
+    {
+      "name": "4_hybrid-22pct-sparse.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg093-hybrid-pick\\4_hybrid-22pct-sparse.wav"
+    },
+    {
+      "name": "5_added-dense-texture-22pct.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg093-hybrid-pick\\5_added-dense-texture-22pct.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg093-hybrid-pick\\2_hybrid-12pct-dense.wav": "this is a good medium setting",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg093-hybrid-pick\\3_hybrid-22pct-dense.wav": "This is a good max setting"
+  }
+}

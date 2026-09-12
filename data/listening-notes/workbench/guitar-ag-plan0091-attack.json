@@ -1,0 +1,40 @@
+{
+  "session": "2026-08-27T19:53:11.324Z",
+  "files": [
+    {
+      "name": "1_current-legacy.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\1_current-legacy.wav"
+    },
+    {
+      "name": "2_no-chirp-modes.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\2_no-chirp-modes.wav"
+    },
+    {
+      "name": "3_no-explicit-overlays.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\3_no-explicit-overlays.wav"
+    },
+    {
+      "name": "4_modal-body-only.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\4_modal-body-only.wav"
+    },
+    {
+      "name": "5_removed-attack-extras.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\5_removed-attack-extras.wav"
+    }
+  ],
+  "markers": [
+    {
+      "t": 1.9238492086168477,
+      "t_end": 3.1565348536817273,
+      "track": 0,
+      "trackName": "1_current-legacy.wav",
+      "text": "The high register notes sound a semi-realistic low-register guitar sound that has been digitally pitch shifted than a realistic high-register guitar sound"
+    }
+  ],
+  "verdicts": {
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\2_no-chirp-modes.wav": "barely different than the legacy but the current pick parameters are not chirpy on legacy. the chirpyness comes in when trying to emulate a really deep pick with flexable pick and some texutre",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\3_no-explicit-overlays.wav": "yes, not pick sound",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\4_modal-body-only.wav": "sounds exactly like 3",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg091\\5_removed-attack-extras.wav": "sounds like 3"
+  }
+}

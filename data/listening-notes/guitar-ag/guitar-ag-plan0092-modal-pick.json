@@ -1,0 +1,29 @@
+{
+  "session": "2026-08-27T23:02:40.912Z",
+  "files": [
+    {
+      "name": "1_deep-current-additive.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg092-modal-pick\\1_deep-current-additive.wav"
+    },
+    {
+      "name": "2_deep-body-only.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg092-modal-pick\\2_deep-body-only.wav"
+    },
+    {
+      "name": "3_deep-modal-force-100.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg092-modal-pick\\3_deep-modal-force-100.wav"
+    },
+    {
+      "name": "4_deep-modal-force-175.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg092-modal-pick\\4_deep-modal-force-175.wav"
+    },
+    {
+      "name": "5_deep-modal-contribution-175.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg092-modal-pick\\5_deep-modal-contribution-175.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg092-modal-pick\\4_deep-modal-force-175.wav": "What would might be good is deep-modal-force-175 this plus a lesser amount of deep-current-additive.wav for texture with that texture having a bit more density"
+  }
+}

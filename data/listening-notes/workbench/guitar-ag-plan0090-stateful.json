@@ -1,0 +1,23 @@
+{
+  "session": "2026-08-27T19:23:02.462Z",
+  "files": [
+    {
+      "name": "eg090-legacy.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg090-legacy.wav"
+    },
+    {
+      "name": "eg090-stateful-preserve.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg090-stateful-preserve.wav"
+    },
+    {
+      "name": "eg090-stateful-reset.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg090-stateful-reset.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg090-legacy.wav": "what we have now. Sounds not bad but the attack is kind of spectral  chirp and the not body sound a bit glassy",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg090-stateful-preserve.wav": "Just sound like a synth",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg090-stateful-reset.wav": "Just sound like a synth"
+  }
+}

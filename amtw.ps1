@@ -17,6 +17,7 @@
 # the venv is missing.
 
 $candidates = @()
+$candidates += (& (Join-Path $PSScriptRoot 'scripts\resolve_runtime.ps1'))
 if ($env:AMTW_RUNTIME) { $candidates += $env:AMTW_RUNTIME.Trim() }
 if ($env:VSR_RUNTIME)  { $candidates += $env:VSR_RUNTIME.Trim() }
 if ($env:LOCALAPPDATA) { $candidates += (Join-Path $env:LOCALAPPDATA.Trim() "VocalStemRegen") }

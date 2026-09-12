@@ -11,6 +11,33 @@ it with a measurement and edit the entry. Don't quietly contradict it.
 
 ---
 
+## Runtime consolidation and false missing-model diagnosis (2026-09-12)
+
+The apparent missing Apollo/Torch/engines were a **path error**, not missing
+assets. Claude's packaged Windows app had redirected LOCALAPPDATA to
+`AppData/Local/Packages/Claude_pzs8sxrjxfjjc/LocalCache/Local`, where the complete
+48.8 GB runtime still worked. A second ordinary-AppData runtime had only the
+lightweight tools. An unnecessary partial MSST install and 341 MB Apollo
+download were made before this was discovered; both downloaded checkpoints
+and both configs were SHA-256 identical to the existing copies.
+
+Moved the complete runtime to `C:/audio/shared/amtw-runtime`, preserved both old
+paths as junctions, merged this session's jobs/tools, and retained the inactive
+partial runtime under `C:/audio/archives/amtw-partial-runtime-2026-09-12`.
+Doctor then passed all checks: main CUDA Torch 2.11/cu128, MSST 2.6/cu124,
+seed-vc 2.4/cu124, model files, audio-separator and FluidSynth. The live Bitwig
+bridge reconnected and the consolidated workbench responded on port 8730.
+The 26-tool CLI/bench roundtrip and four bridge regression tests passed.
+
+The canonical repo already was `C:/code/github/ag-music-tool-workbench`; the
+old OneDrive checkout's commit is an ancestor, with no unique code changes.
+Its ground-truth JSON differs only in serialization, not values. Preserved 22
+listening-note JSONs (about 30 KB) in versioned `data/listening-notes`, including
+four guitar experiment notes that were sitting loose in the repository root.
+Model hashes, source revisions and package inventories are also versioned.
+See `docs/local-layout.md`; check the user runtime pointer and packaged-app
+paths **before** installing allegedly missing assets.
+
 ## Resynthesis is closed
 
 Three engines, two architecture families, all fail the same way — modulation
@@ -163,7 +190,169 @@ Same session, on the lead vocal of the same song: de-reverb removed almost
 nothing (tail 0.531 → 0.513, ~3%), because the source was already a "clear
 vocals" export. Apollo behaved exactly as recorded above, residual −25.0 dB.
 
+### It is `--deecho` that eats a harmony, not de-reverb (2026-08-22)
+
+On a lead-vocal stem that is a mix of solo and stacked passages
+("Synth Groove 2022-09-17 ... (Lead Vocal)", RiversOnMars), the two cleanup
+models behave completely differently, and the aggressive one is the *optional*
+one:
+
+| pass | removed overall | worst 8 s block |
+|---|---|---|
+| classic `UVR-DeEcho-DeReverb` | −31.1 dB | −21.2 dB |
+| `--deecho` roformer, after it | −15.0 dB | **−2.0 dB** |
+
+−2 dB removed means most of the block left with the "echo". Those blocks
+(112 s, 136 s, 160 s) are exactly the ones where the separate Backing Vocals
+stem is loudest — backing sits at −0.4 / +0.2 / −2.2 dB relative to the lead
+there, i.e. a full stack. **Do not run `--deecho` on a stem with stacked
+passages.** The rule from 2026-08-08 is really about the echo model, and it
+applies to lead stems too whenever the lead is doubled or harmonised.
+
+Classic de-reverb on the same stem is close to a no-op: band balance flat to
+0.1 dB, stereo width down ≤1.3 dB (one block −2.1 dB), level unchanged. Null
+test vs source: Apollo alone −24.7 dB — the same number as the two songs
+above, so Apollo is doing its usual work — and de-reverb+Apollo −22.2 dB.
+
+**A screen for "was that a tail or a voice", when you cannot listen yet.**
+Periodicity does *not* answer it: the reverb of a sung note is a smeared copy
+of a periodic signal, so the removed stem measures 0.81–0.89 either way — as
+periodic as the source. What does separate them is pitch. A tail lags but does
+not transpose; a stolen harmony sings a *different note at the same time*. So
+compare the chroma of the removed stem against the kept stem widened ±250 ms
+(so an honest late tail still matches its source) and report the fraction of
+removed energy sitting on pitch classes the kept stem is not singing. On this
+material that read 0.00 through the solo passages and 0.13–0.18 in the stacked
+ones, for both models. Treat it as a pointer to where to listen, not a verdict
+— it is a proxy invented in one session, and the `(Reverb)` / `(No dry)` stem
+in the ear is still the thing that settles it.
+
+**Stems vary this much inside one song.** Measured per 8 s block on this file:
+stereo width swings from −39 dB side/mid (literally mono, 96 s) to −8 dB
+(160 s), and de-reverb finds −48 to −85 dB of reverb through 24–108 s but
+−21 to −30 dB at the edges. One global cleanup setting is therefore the wrong
+shape for this kind of source, which is what motivates a per-section wetness
+fader rather than an on/off de-reverb.
+
+**Two proxies that failed here, recorded so they are not retried.** Post-offset
+tail energy returned ~1.0 (no decay at all) because the singing is nearly
+continuous — there are no gaps to decay into, so the "tail" window just catches
+the next phrase. And envelope autocorrelation over 150–900 ms lags pinned to
+the lag floor on most blocks: it finds the rhythm of the *singing*, which a
+tempo-synced delay is deliberately hiding inside. Neither is usable on dense
+material.
+
+**User verdict on this stem (2026-08-22): Apollo-only wins.** "Only sounds a
+little more refined than the original, but it's the best." De-reverb was not
+wanted here — its output is kept in mind as an *alt track* to switch to when a
+specific section needs drying, not as part of the default chain. So for mixed
+solo/stacked lead stems the default is the same as for backing stems:
+`--stages superres`.
+
+### Universal Apollo and skip-silence, first full-song pass (2026-08-22)
+
+All seven RiversOnMars stems through `--stages superres --skip-silence`,
+vocal ckpt for the two vocal stems, Lew's universal ckpt for the rest.
+Null residual against the source = how much the model actually changed:
+
+| stem | model | residual | spans / processed |
+|---|---|---|---|
+| Lead Vocal | vocal | -24.7 dB | dense, whole file |
+| Backing Vocals | vocal | -23.1 dB | 7 / 73% |
+| Bass | universal | -23.1 dB | dense, whole file |
+| Drum Kit | universal | -21.2 dB | dense, whole file |
+| Guitar | universal | -20.4 dB | 7 / 72% |
+| Synth | universal | -19.6 dB | 8 / 82% |
+| Sound Effects | universal | -16.8 dB | 3 / 82% |
+
+The gradient is sensible: the busier and more layered the material, the more
+fine detail there is to restore. All outputs are sample-exact in length; a
+20 s synth smoke test measured -16.2 dB residual against the same clip
+through the *vocal* model barely changing it — the universal ckpt does real
+new work on instruments rather than repeating what ep54 would do.
+
+Skip-silence held its guarantee on a real stem: skipped stretches verified
+**bit-identical** to the input (max |diff| exactly 0.0 over 17.6% of the FX
+stem). Engagement is conservative by design — the Backing stem is 61% under
+-50 dBFS on a 100 ms grid but only 27% got skipped, because 1 s pads and a
+3 s merge gap keep decays attached to their notes. That is the right side to
+err on; lower `--silence-db` or trim the pads only with a null test in hand.
+
+Whole song, one 4080: ~9.5 minutes for all seven stems.
+
+Listening verdicts on these outputs are pending. The vocal-stem verdict from
+earlier today (Apollo-only, "a little more refined, but the best") is what
+motivated the batch; per-instrument verdicts still need ears.
+
 ## MIDI
+
+### What a Suno per-stem MIDI export actually contains (2026-08-22)
+
+Measured over 200 per-stem exports on disk (85,343 notes, ~25 songs):
+
+- **Zero pitch-bend events in every file.** A handful of CCs per file (0–14),
+  which is an init message, not expression.
+- **Velocity is flat.** Most files have exactly **1 distinct velocity value**;
+  the rest have 2–20. (The older whole-song "Instrumental"/"Vocals" exports
+  from 2024 carried 90+ distinct velocities — the per-stem exporter dropped
+  dynamics entirely.) So "better dynamics" is not an improvement target, it is
+  a missing feature: there are none to improve.
+- **7.7% of notes are under 30 ms.** Drum stems are the bulk — every hit is a
+  1–2 ms trigger (e.g. 2261/2261 on the RiversOnMars Drum Kit), which is a
+  convention, not a defect. But pitched stems have them too: Guitar 142/261,
+  Vocals 139/507, Bass 135/1444 on individual songs.
+- **2,892 same-pitch overlaps** — a note retriggered while the same pitch is
+  still sounding. Heaviest on Guitar (172, 160), Synth (172, 116), Keyboard
+  (140, 105) per file.
+- **Only 656 of the 6,572 short notes are same-pitch tail re-detections**
+  (under 30 ms, starting within 100 ms after the same pitch ended). The
+  user's "it's the tail detected as a new onset" theory is true for those;
+  the other 90% of flickers are *different* pitches, i.e. transcriber noise.
+- **Polyphony is implausible**: max simultaneous notes of 95 on one Guitar
+  file, 81 on an FX file, 14 on a Bass. A per-instrument voice cap is a
+  legitimate cleanup rule, not an aesthetic choice.
+
+Implication: a cleanup pass can fix overlaps, flickers and polyphony by rule,
+but expression has to come from the *stem audio* — the export does not carry
+any to recover.
+
+### Suno MIDI runs early against its own wav, by a per-song constant (2026-08-22)
+
+The big one. Pitch-matching a lead-vocal MIDI against pyin on its own wav
+stem: **28% of notes on the sung pitch as exported, 86% shifted +0.55 s.**
+Not an octave (0–3% at ±12), not the tracker — a time offset. Per song:
+
+| song | offset | stems agreeing |
+|---|---|---|
+| RiversOnMars ("Synth Groove …") | +0.517 … +0.533 s | all 7 |
+| We Be Pop | +0.224 … +0.256 s | all 5 |
+| RideTheWave | +0.219 … +0.256 s | 3 of 4 (Lead Vocal +1.4 s — a bad file, pitch-matches 28% at best) |
+| Pockets Keep | +0.085 … +0.112 s | all 3 |
+
+Constant within a song to ±25 ms (quarter-by-quarter scan), different
+between songs. The sign: audio events happen *later* than the MIDI says, so
+the MIDI must be moved later. Dropped at bar 1 beside its wav in a DAW the
+notes lead the audio by up to half a second — almost certainly most of the
+hand cleanup the exports used to need.
+
+Estimator that works on every instrument: cross-correlate a MIDI onset
+impulse train (30 ms Hann-smoothed) against the wav's onset-strength
+envelope, peak lag within ±1.5 s. It agrees with the pitch-derived offset to
+~25 ms and, because stems of one song agree, `midi-clean` takes the per-song
+median and flags any stem >100 ms from it. Verified end to end: the cleaned
+RiversOnMars lead vocal pitch-matches 86% at zero shift.
+
+`midi-clean` over the full raw corpus (474 files, 222,618 notes): 3.1% of
+notes removed — 2,331 duplicates collapsed, 5,850 restrikes truncated, 488
+tails extended, 1,643 flickers dropped, 7,347 voices stolen, 2,492 chord
+stubs dropped; polyphony reduced on 232 files. No listening verdict yet.
+
+Two traps met on the way: (1) Suno song titles contain em-dashes, MIDI text
+metas are latin-1, and mido raises on save rather than substituting — 74
+files died on one "—" until `write_midi` started substituting; (2) onset
+strength cannot judge a chord-dropped note, because it shares its onset with
+the note that was kept. Judge those by pitch against the audio instead.
+
 
 Stem-to-MIDI exports split one instrument across two tracks — bass low, voicing
 high — then start writing the same notes to *both* partway through, which
@@ -215,6 +404,306 @@ Also worth remembering: `scipy.ndimage.uniform_filter1d` runs a moving sum whose
 rounding error can go slightly negative over near-silent stretches; `sqrt()` of
 that gives NaN, and NaN written to a PCM16 wav becomes a **constant DC offset**,
 not an obvious failure. `audio_utils.save` now refuses non-finite input.
+
+## Tempo maps
+
+### MonstersUndone: consolidated Suno import and drumless passages (2026-09-12)
+
+Source: `MonstersUndone.dawproject`, Bitwig 6.1; matching originals in
+Downloads/Set the Monsters Loose Stems. All clips were placed at beat 16
+(bar 5). The exported tempo automation was already linear but remained at
+beat 0; its initial duplicate points included 110 BPM followed by 97.071671.
+Use the source MIDI tempo map shifted to the musical start, not this displaced
+project lane. All eight embedded WAVs matched the downloaded originals.
+
+48 MIDI tracks in eight parts matched their source onset/pitch fingerprints
+exactly; six wrappers had generic group names and most children were named
+Acoustic Grand Piano. Consolidation yields eight named tracks. Existing cleanup
+rules took 3490 notes to 3463: 18 duplicates and 9 short flickers removed,
+106 same-pitch restrikes truncated, 61 polyphony voice steals. Final same-pitch
+overlap count: zero. All 908 drum notes remain. Banjo and Koto use the permissive
+polyphonic profile, not a monophonic voice cap.
+
+Non-vocal alignment estimates: guitar +245.3 ms, bass +234.7, drums +224.0,
+koto +240.0, synth +229.3. Banjo's -736 ms peak is inconsistent and excluded.
+Shared correction: +234.667 ms relative to audio. Independent quarter-song
+checks on drums were +224/+224/+229.3/+229.3 ms and bass
++240/+245.3/+234.7/+229.3 ms. Koto had an ambiguous section near the search
+boundary; do not promote it to an independent clock. No vocals set the grid.
+
+`project-groove` ran successfully through the workbench UI. It fits 694 drum
+anchors plus 71 lower-weight non-vocal consensus anchors more than one beat
+from any drum anchor (two instruments within 25 ms). Drumless intro and later
+gaps now have support; shared bleed means this consensus is NOT independent
+ground truth. Final written lane: 1023 linear points, 86.0765–99.0276 BPM,
+anchor absolute error median 5.67 ms, p95 20.77 ms, max 34.57 ms. A 0.1 BPM
+thinning tolerance alone does not bound cumulative timing error; the new
+workflow tightens it until added drift is under 1 ms (0.799 ms here).
+
+Musical start remains beat 16. All raw audio clips move together to beat
+15.619962250, 234.667 ms before it, within the flat count-in. Cleaned note
+times are converted from the original stepped MIDI tempo to seconds, then
+inverted through the written ramps. Every non-project.xml ZIP entry, including
+all eight WAVs, remains byte-identical. This preserves performance time while
+changing the grid; leaving note beat positions alone would move them audibly.
+
+All source MIDI CCs were terminal CC7=100 at tick 160595. Bitwig imported them
+as linear lanes starting at zero volume, ramping over the entire song, then
+falling to zero. Removed those non-musical importer lanes; mixer settings and
+note velocities are retained. Unexpected controllers fail closed.
+
+The user imported the result in Bitwig, auditioned the metronome and confirmed
+the sync/groove is good on 2026-09-12. They muted all eight MIDI tracks and
+grouped the audio under Group 9. No further timing correction was requested.
+The runtime's
+analysis libraries are restored, and registry roundtrip checks pass for all
+22 tools. Full doctor still fails on missing Torch/engine environments and
+model checkpoints; this CPU-only workflow does not need those engines.
+
+### Live project bridge in Bitwig 6.1 (2026-09-12)
+
+Enabled the new official-API JavaScript controller in the running project,
+without reopening Bitwig or exporting/importing the project. The loopback TCP
+bridge read 19 tracks: eight muted instruments, Group 9, eight audio tracks,
+FX 1 and Master. It read stopped transport at beat 350.6808606162667 and
+86.58008575439453 BPM.
+
+Renamed Group 9 to `Group 9 [bridge test]` through the protocol, verified the
+readback, submitted a stale request (rejected), then restored Group 9 and
+verified that **all track snapshot values matched the initial snapshot**.
+Evidence is in runtime `jobs/MonstersUndone/live-bridge/verification.json`.
+The MCP stdio initialize, tool listing and live snapshot succeeded. The same
+live snapshot also completed from the workbench's Run button. Guarded same-name
+writes returned verified readback through both MCP and the workbench edit form.
+Four transport/protocol regression tests passed, including fragmented UTF-8
+frames, oversized-frame rejection, disconnected/unsupported requests, and MCP
+initialization plus invalid edit arguments. All 26 catalog entries round-trip
+between the workbench argument builder and CLI without failures.
+
+RemoteConnection uses four-byte big-endian length prefixes in both directions:
+send requires the prefix and the receive callback removes it. The controller's
+flat bank includes group children, effect tracks and master. No exact note,
+tempo-envelope, device or audio-file editing is implemented in this version.
+The revision guard observes state changes; it is not an atomic GUI transaction.
+The existing doctor failures (Torch/engines/model files) remain unrelated to
+the dependency-free live bridge.
+
+### Where Suno's drum hits sit against its own beat grid (2026-08-22)
+
+RiversOnMars Drum Kit, 849 onsets, position inside the beat under the
+project's (Suno-derived) tempo lane, 16 bins:
+
+```
+0.000 ################### 157      0.500 ################### 152
+0.188 ### 27                       0.688 ##### 44
+0.250 ############### 127          0.750 ################### 155
+0.438 ########## 85                0.938 ########### 95
+```
+
+Hits cluster on the 16ths, with a second population one bin *early* of each
+(0.19 / 0.44 / 0.69 / 0.94 — 251 hits, 30%): a pushed, anticipating feel,
+~45 ms ahead of the grid. A per-beat tempo map cannot represent that; it is
+the sub-beat timing the user's hand-drawn ramps absorb.
+
+`tempo-map` on that project: 844/849 hits anchored, anchor error after the
+solve median 2.9 ms / 95th percentile 11.8 ms / max 71 ms (the max is in the
+last two bars, where the kit thins out), tempo −2.9%…+3.2% around the prior.
+The user's own hand map on another song stays within about ±5%, so the
+excursion size is in character.
+
+**User verdict (2026-08-23): "That worked out exactly like I wanted."** The
+test was the light project (`tempo-map --light`: lane + note clips, no
+audio) opened in Bitwig with the stems dropped at 2.4.2.00 (beat 7.25),
+raw. So: Bitwig integrates `interpolation="linear"` tempo points the way
+`solve.seg_seconds` does, the drop-position convention holds, and the
+anchor rule was right often enough on this song. A job that takes the user
+2–3 hours by hand.
+
+Two things learned building it: the count-in must be pinned flat, because
+the user's own lead-in tweak (a point at 7.75 beats, 87.5 bpm) otherwise
+becomes the prior and the solved lane ramps up into the song; and anchoring
+every hit at 3 ms tightness draws tempo wiggles for drum-machine jitter, so
+the timing sigma is 4 ms — tight for a 20–45 ms push, loose for 2 ms noise.
+
+## Expression read off the stems (2026-08-23)
+
+The exports carry none (see the MIDI section), so `suno-project` reads it
+from the wav. What the first song measured:
+
+**Pitch, lead vocal (353 voiced notes).** The transcribed key is right for
+86% of notes (median offset from key 0.19 st). The note *core* (15–85% of
+its length) moves 0.80 st median; the *whole* note 1.80 st median / 5.7 st
+at the 90th percentile — Suno's note boundaries include the glide into the
+neighbouring pitch. Rules that followed: frames more than 2.5 st from the
+key are not this note; curves clamp at ±2 st; a note whose contour mostly
+disagrees with its key (median off >1 st, or >30% of frames far) gets no
+curve. Result: 288 of 358 notes carry a curve, range median 1.2 st, 90% 2.4
+st, ~11 points each. Bass: 170 of 359, median 0.3 st. Backing vocals get no
+curves on purpose — a stack is not mono.
+
+**Velocity.** Percentile mapping (10th→floor, 90th→ceiling) was wrong: it
+forced the quietest tenth of every stem to the floor whether it was 3 dB
+quieter or 30. Fixed dB range instead: ceiling at the stem's 90th-percentile
+note energy, floor 24 dB below. Drums normalise per piece (a loud hat is loud
+for a hat): kick 83–120, hats 72–120, snare/side-stick carry ghost notes to
+the floor. Pitched notes measure the peak in a ±0.6 st band around f0 and
+2·f0 over the first 80 ms, so an inner voice is read as itself.
+
+**Listening verdict pending** on both. The user's stated worry is that the
+stem split makes some notes much softer than played; the floor is the
+answer offered, not a measurement.
+
+## Guitar AG stateful-string A/B (2026-08-27)
+
+The Guitar AG Plan 0090 fixture compared three aligned 10.125 s renders with
+the A/B tool's loudness matching enabled: the legacy modal engine, a stateful
+two-polarization waveguide preserving repick state, and the same stateful
+engine resetting on repicks.
+
+**User verdict:** legacy "sounds not bad" but has a spectral-chirp attack and
+a somewhat glassy note body; both stateful variants "just sound like a synth."
+No timestamp markers were recorded. This is a negative result for the current
+stateful timbre, not for the A/B harness: stability, determinism, spectral
+metrics, and audible preserve/reset differences did not make the new engine
+read as electric-guitar DI. Keep it offline and improve isolated-note string,
+pickup, and body mechanics before testing state continuity as a promotion gate.
+
+Notes JSON:
+`output/ab_notes/guitar-ag-plan0090-stateful.json` (local, gitignored).
+
+## Guitar AG legacy-layer ablation (2026-08-27)
+
+Plan 0091 used aligned 10.125 s renders to remove the legacy modal engine's
+short chirp modes, explicit pick/contact overlays, and global finger-noise
+generator independently.
+
+At ordinary pick settings, removing the chirp modes was barely different. The
+user clarified that objectionable chirp occurs under deep pick, flexible pick
+stiffness, and raised texture; test the reported regime rather than defaults.
+Removing the explicit overlays removed recognizable pick sound but did not
+change the modal-body character. At 1.924–3.157 s, high E sounded like a
+semi-realistic low-register guitar digitally pitch-shifted upward, pointing to
+a register-identity problem rather than brightness alone.
+
+The isolated finger-noise contribution sounded like "plucking the teeth on a
+stiff plastic hair comb." The desired replacement is speed-driven friction
+hiss plus less-periodic transverse/bowing motion, with depth optionally engaging
+a restrained string/harmonic-position-dependent squeak.
+
+**Residual-generation measurement error:** FFmpeg `amix` treated a negative
+weight as a magnitude and summed the two files. The false residual was exactly
+6 dB louder and sounded like its sources. Use `amerge` plus explicit `pan`
+channel subtraction, then verify that ablated source plus residual reconstructs
+the original. Corrected residuals measured infinite reconstruction PSNR.
+
+Notes JSON:
+`output/ab_notes/guitar-ag-plan0091-attack.json` and
+`output/ab_notes/guitar-ag-plan0091-finger-noise.json` (local, gitignored).
+
+A targeted third pass used 100% `Pick Bite`, 10% `Pick Stiffness`, and 75%
+`Pick Texture`. The current attack sounded like a pronounced but sparse woody
+rattle; removing the short chirp modes was again not much different. The
+correctly isolated explicit attack extras sounded like crude digital synthesis,
+not a plausible material interaction. This rules out the short chirp-mode bank
+as the primary cause in the reported failure regime and rejects retuning the
+additive pick/contact layers as the next path. The next comparison should inject
+a finite-duration pick force into the modal string and let pickup output emerge
+from the resulting string response.
+
+Deep-pick notes JSON:
+`output/ab_notes/guitar-ag-plan0091-deep-pick.json` (local, gitignored).
+
+## Guitar AG modal-coupled pick direction (2026-08-27)
+
+Plan 0092 replaced direct picked output with a deterministic finite force on the
+legacy modal quadrature state. Human listening selected the 1.75x force version
+as the next foundation and requested a lesser amount of the current additive
+attack for texture, with higher event density. The direct layer should therefore
+become subordinate surface detail rather than the sparse woody event rejected in
+Plan 0091.
+
+The same pass described the upper-register body as analogous to vocal pitch
+shifting without formant correction: the low note retains plausible scale while
+high notes sound artificially smaller. This supports a separate test that keeps
+harmonic frequencies pitch-relative but anchors more of the pickup/material
+spectral envelope in absolute Hz.
+
+No Plan 0092 notes JSON was saved; this verdict was provided directly in the
+task conversation.
+
+## Guitar AG register/formant anchor (2026-08-27)
+
+Plan 0094 kept the accepted medium hybrid pick fixed and compared 0%, 35%, 65%,
+and 100% movement from a harmonic-number modal envelope toward an absolute-
+frequency envelope. Audition-only register gain kept note levels comparable.
+
+With loudness matching on, the user judged the 35% anchor "pretty good" and
+"much better than current." It also flattened progressively and lost some metal
+ring and brightness toward the high register. This is a positive result for the
+formant premise but a negative result for using one scalar to control amplitude
+and decay together. Preserve the 35% amplitude correction and test decay plus a
+narrow fixed-Hz metallic side-mode contribution independently.
+
+No Plan 0094 notes JSON was saved; the exported notes were provided directly in
+the task conversation.
+
+## Guitar AG decay/metal-ring separation (2026-08-27)
+
+Plan 0095 held the accepted 35% amplitude/formant envelope fixed and crossed
+anchored versus harmonic-number decay with zero versus a labelled 6x restoration
+of lost inharmonic side-mode energy. Literal 1x restoration had been too quiet
+for a useful listening slot, so 6x was an audibility diagnostic rather than a
+proposed production amount.
+
+With loudness matching on, the user called the combined harmonic-number-decay
+plus 6x restoration track "pretty good." Keep that combination as the
+provisional offline foundation and calibrate restoration downward. No separate
+verdict was recorded for decay-only or metal-only, so this result does not prove
+that both axes are independently necessary.
+
+No Plan 0095 notes JSON was saved; the exported notes were provided directly in
+the task conversation.
+
+## Guitar AG metal-restoration amount calibration (2026-08-27)
+
+Plan 0096 held harmonic-number decay and the accepted 35% amplitude envelope
+fixed while comparing 0x, 2x, 4x, and the previously accepted 6x side-mode
+restoration. The four full mixes were within 0.1 dB mean and 0.2 dB per note.
+
+With loudness matching on, the user selected 2x as good. Use 2x in the
+consolidated offline recipe and retire the deliberately exaggerated 6x probe.
+The selected render hash is
+`ABF261ECD386B652755244D6A63786E6DB4A8899E1948DDF263750EC770AC041`.
+
+No Plan 0096 notes JSON was saved; the verdict was provided directly in the task
+conversation.
+
+## Guitar AG production-tone promotion gate (2026-08-27)
+
+Plan 0097 compared the current production-equivalent legacy tone against the
+complete accepted offline recipe in one aligned 26.9-second program: ordinary
+E2–E4 picking, the deep/flexible/textured failure regime, and a compact
+riff/arpeggio/upper-melody/chord phrase.
+
+With loudness matching on, the user confirmed that the candidate track works.
+This clears the combined recipe for a separate production implementation rather
+than another isolated-tone experiment. Preserve the former tone as an explicit
+offline regression recipe during promotion.
+
+No Plan 0097 notes JSON was saved; the verdict was provided directly in the task
+conversation.
+
+## Guitar AG hybrid pick-texture calibration (2026-08-27)
+
+Plan 0093 kept the 1.75x modal-force foundation and compared 12% and 22% mixes
+of the direct texture at 2.5x event density, plus a same-mix sparse control and
+the isolated dense contribution. With loudness matching on, the user accepted
+12% dense texture as a good medium setting and 22% as a good maximum setting.
+
+This is a range calibration rather than a single winner. Use 12% as the neutral
+attack baseline for body/register experiments and preserve 22% as the upper
+texture extent. No notes JSON was saved; the exported notes were provided in the
+task conversation.
 
 ## Ground truth
 

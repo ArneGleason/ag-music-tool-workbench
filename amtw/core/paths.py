@@ -6,6 +6,7 @@ the repo stays small enough to clone and nothing large is ever version
 controlled or synced.
 """
 import os
+import json
 from pathlib import Path
 
 # amtw/core/paths.py -> amtw/core -> amtw -> the repo root.
@@ -33,6 +34,11 @@ def _env(name: str) -> str:
 
 
 _RUNTIME_OVERRIDE = _env("AMTW_RUNTIME") or _env("VSR_RUNTIME")
+# USERPROFILE is stable across packaged apps; LOCALAPPDATA may be redirected
+# into an app sandbox. A bad explicit pointer must fail, not create a new runtime.
+_pointer = Path(_env("USERPROFILE") or Path.home()) / ".config" / "amtw" / "runtime.json"
+if not _RUNTIME_OVERRIDE and _pointer.exists():
+    _RUNTIME_OVERRIDE = json.loads(_pointer.read_text(encoding="utf-8-sig"))["runtime_root"]
 if _RUNTIME_OVERRIDE:
     RUNTIME_ROOT = Path(_RUNTIME_OVERRIDE)
 else:
@@ -45,7 +51,12 @@ else:
                 if _env("USERPROFILE") else None)
         if _alt is not None and _alt.exists():
             _candidate = _alt
+    _legacy = Path(_env("USERPROFILE") or Path.home()) / "AppData/Local/Packages/Claude_pzs8sxrjxfjjc/LocalCache/Local/VocalStemRegen"
+    if (_legacy / "models/apollo/model_apollo_vocals_ep_54.ckpt").exists() and not (_candidate and (_candidate / "models/apollo/model_apollo_vocals_ep_54.ckpt").exists()):
+        _candidate = _legacy
     RUNTIME_ROOT = _candidate or Path(_local or ".") / "VocalStemRegen"
+
+RUNTIME_ROOT = RUNTIME_ROOT.resolve()
 
 VENVS = RUNTIME_ROOT / "venvs"
 THIRD_PARTY = RUNTIME_ROOT / "third_party"
@@ -60,6 +71,11 @@ YM_CKPT = MODELS / "yingmusic" / "YingMusic-SVC-full.pt"
 
 APOLLO_CKPT = MODELS / "apollo" / "model_apollo_vocals_ep_54.ckpt"
 APOLLO_CONFIG = MODELS / "apollo" / "config_apollo_vocals_ep_54.yaml"
+# Lew's universal Apollo (any instrument, not just vocals). Rehost:
+# huggingface.co/ASesYusuf1/Apollo_universal_model (the model MVSEP runs as
+# "Universal Super Resolution"). Optional -- doctor reports it without failing.
+APOLLO_UNIVERSAL_CKPT = MODELS / "apollo" / "model_apollo_universal.ckpt"
+APOLLO_UNIVERSAL_CONFIG = MODELS / "apollo" / "config_apollo_universal.yaml"
 UVR_MODEL_DIR = MODELS / "uvr"
 
 INPUT_DIR = PROJECT_ROOT / "input"

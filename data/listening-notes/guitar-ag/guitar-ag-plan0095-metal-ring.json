@@ -1,0 +1,29 @@
+{
+  "session": "2026-08-28T01:03:35.602Z",
+  "files": [
+    {
+      "name": "1_anchor35-accepted.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg095-metal-retention-ab\\1_anchor35-accepted.wav"
+    },
+    {
+      "name": "2_anchor35-harmonic-decay.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg095-metal-retention-ab\\2_anchor35-harmonic-decay.wav"
+    },
+    {
+      "name": "3_anchor35-metal-restore-6x.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg095-metal-retention-ab\\3_anchor35-metal-restore-6x.wav"
+    },
+    {
+      "name": "4_anchor35-harmonic-decay-metal-restore-6x.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg095-metal-retention-ab\\4_anchor35-harmonic-decay-metal-restore-6x.wav"
+    },
+    {
+      "name": "5_combined-added-contribution.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg095-metal-retention-ab\\5_combined-added-contribution.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg095-metal-retention-ab\\4_anchor35-harmonic-decay-metal-restore-6x.wav": "This is pretty good"
+  }
+}

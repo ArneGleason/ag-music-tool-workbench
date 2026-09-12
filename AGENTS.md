@@ -71,7 +71,8 @@ amtw/
     midi/           merge + inspect, sharing one reader
     harmony/        harmonic readout: chords, key ambiguity, per-voice analysis
     report/ doctor/
-docs/               architecture, findings, how to add a tool
+docs/               architecture, findings, how to add a tool,
+                    using-the-ab-tool.md (start here for listening tests)
 data/labels/        ground-truth listening labels -- the only way to check a detector
 scripts/            runtime setup (venvs, model downloads)
 ```

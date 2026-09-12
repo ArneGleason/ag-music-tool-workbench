@@ -1,0 +1,30 @@
+{
+  "session": "2026-08-28T00:43:20.833Z",
+  "files": [
+    {
+      "name": "1_current-harmonic-envelope.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg094-register-anchor\\1_current-harmonic-envelope.wav"
+    },
+    {
+      "name": "2_register-anchor-35.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg094-register-anchor\\2_register-anchor-35.wav"
+    },
+    {
+      "name": "3_register-anchor-65.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg094-register-anchor\\3_register-anchor-65.wav"
+    },
+    {
+      "name": "4_register-anchor-100.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg094-register-anchor\\4_register-anchor-100.wav"
+    },
+    {
+      "name": "5_anchor-65-signed-difference.wav",
+      "path": "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg094-register-anchor\\5_anchor-65-signed-difference.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg094-register-anchor\\4_register-anchor-100.wav": "",
+    "C:\\code\\github\\guitar-ag\\build-vs2022-x64\\diagnostics\\eg094-register-anchor\\2_register-anchor-35.wav": "This one is pretty good. much better than current. It does kind of flatten out and lose some of the metal ring and brightness the higher up it goes"
+  }
+}

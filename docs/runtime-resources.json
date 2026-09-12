@@ -1,0 +1,129 @@
+{
+  "models": [
+    {
+      "path": "models/apollo/config_apollo_universal.yaml",
+      "bytes": 560,
+      "sha256": "493f21cb0b300309506486b3861d573a2a05124c8b20f23f9ff261fa1f26e0ab"
+    },
+    {
+      "path": "models/apollo/config_apollo_vocals_ep_54.yaml",
+      "bytes": 519,
+      "sha256": "0b7a0bbc12e0b23101895ff5b290c914fbadcf32f3241cb7c81c7c12dd5fa895"
+    },
+    {
+      "path": "models/apollo/model_apollo_universal.ckpt",
+      "bytes": 146867952,
+      "sha256": "11433256eca90143d32f1108d156ac756fd0201fbc69e5f736def4062fb52186"
+    },
+    {
+      "path": "models/apollo/model_apollo_vocals_ep_54.ckpt",
+      "bytes": 194278526,
+      "sha256": "59e1311f93e1f0fde6d5d11fa69d97e41cdee39be38f0cf4ccb80cfce34b2a2b"
+    },
+    {
+      "path": "models/uvr/config_dereverb-echo_mel_band_roformer_sdr_13.4843_v2.yaml",
+      "bytes": 1106,
+      "sha256": "9abd9b811b432beca3e6974a31eb3e9c2c72d3f4d7297473cce6a4721ba135c1"
+    },
+    {
+      "path": "models/uvr/config_dereverb_echo_mel_band_roformer_v2.yaml",
+      "bytes": 1105,
+      "sha256": "b801c49dbc09372f85281127adde7ded28f475d98e9940efba4a2f45202b38f2"
+    },
+    {
+      "path": "models/uvr/dereverb-echo_mel_band_roformer_sdr_13.4843_v2.ckpt",
+      "bytes": 455862568,
+      "sha256": "396432f5af25992fe82d0286634bd879027c073721db6ab10199e75459708b9f"
+    },
+    {
+      "path": "models/uvr/dereverb_big_mbr_ep_362.ckpt",
+      "bytes": 455864012,
+      "sha256": "0506455e74ffc02bbec700df9863ae243597034003815f1418227c6dee33b6ea"
+    },
+    {
+      "path": "models/uvr/dereverb_mel_band_roformer_anvuew.yaml",
+      "bytes": 1846,
+      "sha256": "1599d9ea717ea2b5b3bc55d936f752b8d0f67baaa3de95acd6d03259a2f37784"
+    },
+    {
+      "path": "models/uvr/dereverb_mel_band_roformer_anvuew_sdr_19.1729.ckpt",
+      "bytes": 913107578,
+      "sha256": "9262877b87e9ebb0fb808a456b0a411fa677f5df31c8383c1254af531c078970"
+    },
+    {
+      "path": "models/uvr/dereverb_mel_band_roformer_less_aggressive_anvuew_sdr_18.8050.ckpt",
+      "bytes": 913107578,
+      "sha256": "0db8f1b41c00cead1112e967262a12802fd32e76c0c3a8eb207e772bae25d07b"
+    },
+    {
+      "path": "models/uvr/dereverb_super_big_mbr_ep_346.ckpt",
+      "bytes": 455864012,
+      "sha256": "26dda242bce4405555f2d6086d079fe8cc23f1f04e02e501d2689bfe3ece0489"
+    },
+    {
+      "path": "models/uvr/deverb_bs_roformer_8_384dim_10depth.ckpt",
+      "bytes": 361499604,
+      "sha256": "9c38653aaa5e49f2f7b84dd3be2b6b679e0cbea23978e6b48389ee6f0a914768"
+    },
+    {
+      "path": "models/uvr/deverb_bs_roformer_8_384dim_10depth_config.yaml",
+      "bytes": 2329,
+      "sha256": "57c7d6b6742e2dc64d091892ae6fc1160410b365c39d1db9c9d1f772f3a4d8ce"
+    },
+    {
+      "path": "models/uvr/download_checks.json",
+      "bytes": 28267,
+      "sha256": "d3622e1fa19c161d3cf704927711b453d593a3f1eb0f2e0838c3136907935151"
+    },
+    {
+      "path": "models/uvr/mdx_model_data.json",
+      "bytes": 15358,
+      "sha256": "1aca8f9bcc57233bc714029663a9ec2345d9c7721f91e5e08f46392a879c6a9a"
+    },
+    {
+      "path": "models/uvr/UVR-DeEcho-DeReverb.pth",
+      "bytes": 223650277,
+      "sha256": "e644028ec82865dc0fe082bc6fea85a43f7c71cfe375caee2da2d154aa661ee7"
+    },
+    {
+      "path": "models/uvr/vr_model_data.json",
+      "bytes": 4380,
+      "sha256": "6a2021b9aa355c10f845b68c73944d47bd9e1fdf37b8a584b14ce8f88b09bb2f"
+    },
+    {
+      "path": "models/yingmusic/YingMusic-SVC-full.pt",
+      "bytes": 731683240,
+      "sha256": "8e4b83e18669b046be79e7c6a979ad33f162d2a75c40213d998ad5687d7c6054"
+    }
+  ],
+  "source_repositories": [
+    {
+      "directory": "amphion",
+      "origin": "https://github.com/open-mmlab/Amphion",
+      "commit": "26f6883110181f1dbfe95c70a7c7dbaf4de5f42a",
+      "local_changes": "?? vsr_vevo2_infer.py"
+    },
+    {
+      "directory": "msst",
+      "origin": "https://github.com/ZFTurbo/Music-Source-Separation-Training",
+      "commit": "ccc011abf7f89dd7922bb2888d48493b575c0289",
+      "local_changes": ""
+    },
+    {
+      "directory": "seed-vc",
+      "origin": "https://github.com/Plachtaa/seed-vc",
+      "commit": "51383efd921027683c89e5348211d93ff12ac2a8",
+      "local_changes": ""
+    },
+    {
+      "directory": "yingmusic",
+      "origin": "https://github.com/GiantAILab/YingMusic-SVC",
+      "commit": "4974a80c6044c4557059548409379f6365129f88",
+      "local_changes": "?? Remix/__pycache__/\n?? __pycache__/\n?? checkpoints/\n?? modules/__pycache__/\n?? modules/bigvgan/__pycache__/\n?? modules/bigvgan/alias_free_activation/torch/__pycache__/\n?? modules/campplus/__pycache__/"
+    }
+  ],
+  "apollo_sources": [
+    "https://huggingface.co/baicai1145/Apollo-vocal-msst",
+    "https://huggingface.co/ASesYusuf1/Apollo_universal_model"
+  ]
+}

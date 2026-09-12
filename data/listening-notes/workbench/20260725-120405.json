@@ -1,0 +1,30 @@
+{
+  "session": "2026-07-25T16:18:11.007Z",
+  "files": [
+    {
+      "name": "01_source_cleaned_30s.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\_vevo2_smoke\\01_source_cleaned_30s.wav"
+    },
+    {
+      "name": "02_vevo2_resynth_30s.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\_vevo2_smoke\\02_vevo2_resynth_30s.wav"
+    },
+    {
+      "name": "03_vevo2_plus_apollo_30s.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\_vevo2_smoke\\03_vevo2_plus_apollo_30s.wav"
+    }
+  ],
+  "markers": [
+    {
+      "t": 24.068870457863447,
+      "track": 0,
+      "trackName": "01_source_cleaned_30s.wav",
+      "text": "Example of scrape+fizz Suno typically produces on breathy vocal fry (get the same kind of thing but worse on yell-like vocal fry)"
+    }
+  ],
+  "verdicts": {
+    "01_source_cleaned_30s.wav": "good stuff. the only thing that really bothersome is that it does little to correct the fixed-resonance-scrape+fizz that suno vocals produces when there is vocal fry",
+    "02_vevo2_resynth_30s.wav": " really warbly and unstable  ",
+    "03_vevo2_plus_apollo_30s.wav": "slightly brighter  warbly and unstable  "
+  }
+}

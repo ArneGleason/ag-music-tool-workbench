@@ -1,0 +1,27 @@
+{
+  "session": "2026-07-25T19:01:20.236Z",
+  "files": [
+    {
+      "name": "00_ORIGINAL.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_v4\\00_ORIGINAL.wav"
+    },
+    {
+      "name": "100_harmonic.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_v4\\100_harmonic.wav"
+    },
+    {
+      "name": "adaptive.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_v4\\adaptive.wav"
+    },
+    {
+      "name": "adaptive.wav",
+      "path": "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_marked\\adaptive.wav"
+    }
+  ],
+  "markers": [],
+  "verdicts": {
+    "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_v4\\adaptive.wav": "best balance of effect",
+    "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_v4\\100_harmonic.wav": "really pretty good ",
+    "C:\\Users\\arneg\\OneDrive\\Documents\\VocalStemRegen\\output\\harm_marked\\adaptive.wav": "goes a little too far in places"
+  }
+}
