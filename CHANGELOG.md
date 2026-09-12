@@ -10,6 +10,9 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- [MonstersUndone stopping point](docs/monsters-undone-checkpoint.md): user saved
+  and closed the native project after further setup; stem processing is complete
+  for now. Next are overdubs, then a Rivers of Mars-style music visualizer video.
 - Delivered six aligned drum tracks into MonstersUndone's Drums group and
   collected verified audio into the native project. Original/ride/crash muted;
   untreated kick/snare/percussion and Apollo hi-hat/shaker active.
