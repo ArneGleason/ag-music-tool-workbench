@@ -45,12 +45,36 @@ its own play stop; no stretching or looping was enabled.
 Original is retained and muted; Renaissance active. Saved native project at
 `C:/Users/arneg/OneDrive/Documents/Bitwig Studio/Projects/MonstersUndone.cleaned-groove/MonstersUndone.cleaned-groove.bwproject`.
 Collect and Save copied the Renaissance WAV into that project's `samples` folder.
-The full-song version has not yet received a separate user listening verdict.
+Arne subsequently approved the full-song lead: much cleaner and more legible,
+still sounds great, without the blatant synthetic character of past regenerations.
+He is using it with the original lead entirely muted.
 
 Live bridge limitation discovered: `set_track` mute failed with
 `BooleanValueAtomProxy ... Message not supported` at `.set(value)`. Original
 mute was applied through the Bitwig UI and confirmed by a fresh bridge snapshot.
 Do not claim Boolean writes have been validated merely because name writes work.
+
+## Renaissance backing vocals rendered and placed (2026-09-12)
+
+Following the successful full lead, Arne requested the same pass on backing vocals
+to address spectral scratching. Removing or retaining doubling is acceptable;
+cleaner sound is the priority. No backing-vocal listening verdict yet.
+
+Full source: `Downloads/Set the Monsters Loose Stems/Set the Monsters Loose (Backing Vocals).wav`.
+Rendered 10,535,040 frames, 48 kHz stereo, 219.480 seconds, peak 0.4750,
+22 contextual blocks with the same Renaissance settings as the approved lead.
+Render/write/hash took 7.34 seconds excluding model load. Runtime job:
+`jobs/renaissance-20260912-103717-6685c4`. Output SHA-256:
+`a12d26f96e2f1d1f540b8fd358fa0812a0feab491db9d650d9925bc79a68fb28`.
+
+Inserted immediately below original backing vocals in the open native project,
+using Browser Copy, original arranger clip selection, Down into the new empty
+lane, then Paste. Inspector confirms start 4.4.3.47, zero source offset, Raw mode,
+no loop, play stop 3:39.479. Both tracks remain at -10 dB. Bridge confirms original
+index 11 muted, Renaissance index 12 active, neither soloed. Original lead remains
+muted and Renaissance lead active. Collect and Save completed; collected sample
+hash matches the render. Doctor passes. Audio quality awaits Arne's listening;
+successful rendering/placement is not a measurement of scratch reduction.
 
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 

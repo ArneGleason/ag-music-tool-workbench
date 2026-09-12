@@ -10,6 +10,9 @@ session finds out what moved.
 ## [Unreleased]
 
 ### Added — 2026-09-12
+- Full Renaissance backing-vocal pass placed beneath the original in MonstersUndone,
+  with original muted and rendered sample collected into the saved project.
+  Recorded the user's full-song lead approval; backing listening verdict pending.
 - Full-song Renaissance cleanup tool, following the user's accepted core-vocal
   audition. Contextual overlap rendering retains the source sample rate/count;
   no Apollo, trimming or gain normalization. Saved MonstersUndone with the new
