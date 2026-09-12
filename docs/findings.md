@@ -203,6 +203,17 @@ not reconstruct removed detail, and may emphasize remaining artifacts too.
 Dry blending could reintroduce the very scratchiness he dislikes; not the first
 assumed solution. Snare remains untreated. No EQ or blending has been applied yet.
 
+Final hi-hat/shaker decision: **use Apollo when importing the separated drums
+into Bitwig**. This supersedes the tentative preference above; no additional EQ
+audition is required. Arne confirms the shaker is heard in this combined output.
+He hears more shaker presence with Apollo but less distinct bead texture, more
+of a hiss, and accepts that tradeoff. He may replace or augment it with a real
+shaker instrument to add life. Do not promise a separately isolated shaker stem.
+Working choices: untreated separated snare; Apollo hi-hat/shaker; keep kick and
+toms/percussion untreated unless subsequently requested. No gate or brightening
+EQ committed. Full-song separation, full hh Apollo pass and Bitwig import remain
+outstanding; this entry records the chosen processing, not completed renders.
+
 ## MonstersUndone Apollo / Renaissance audition prepared (2026-09-12)
 
 
