@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "revision": 2,
+  "project": "Monsters Loose",
+  "id_policy": "Asset IDs name the subject and remain stable; version IDs name individual immutable candidates. SCN IDs name the existing 15 broad narrative scenes. Never renumber IDs to match a new order. Shot IDs will be assigned when shots are authored.",
+  "scenes": [
+    {
+      "id": "SCN-001",
+      "title": "A STRANGE PLACE",
+      "start": 0,
+      "end": 8.6
+    },
+    {
+      "id": "SCN-002",
+      "title": "THE KEEPER ON DUTY",
+      "start": 8.6,
+      "end": 20.96
+    },
+    {
+      "id": "SCN-003",
+      "title": "A PLACE BUILT FOR MONSTERS",
+      "start": 20.96,
+      "end": 42.98
+    },
+    {
+      "id": "SCN-004",
+      "title": "DANGEROUS AMBITION",
+      "start": 42.98,
+      "end": 54.32
+    },
+    {
+      "id": "SCN-005",
+      "title": "TROUBLE BREWING",
+      "start": 54.32,
+      "end": 62.77
+    },
+    {
+      "id": "SCN-006",
+      "title": "THE VISITORS' TOUR",
+      "start": 62.77,
+      "end": 84.8
+    },
+    {
+      "id": "SCN-007",
+      "title": "CHOOSE YOUR CREATURE",
+      "start": 84.8,
+      "end": 102.55
+    },
+    {
+      "id": "SCN-008",
+      "title": "THE MONSTER SHOWDOWN",
+      "start": 102.55,
+      "end": 121.04
+    },
+    {
+      "id": "SCN-009",
+      "title": "WHAT SHALL WE MAKE NEXT?",
+      "start": 121.04,
+      "end": 134.23
+    },
+    {
+      "id": "SCN-010",
+      "title": "THE SCIENTIST'S SECRET",
+      "start": 134.23,
+      "end": 140.74
+    },
+    {
+      "id": "SCN-011",
+      "title": "CONTAINMENT FAILS",
+      "start": 140.74,
+      "end": 157.23
+    },
+    {
+      "id": "SCN-012",
+      "title": "NO WAY. YES WAY.",
+      "start": 157.23,
+      "end": 171.87
+    },
+    {
+      "id": "SCN-013",
+      "title": "FAMILIAR FACES, NOW REAL",
+      "start": 171.87,
+      "end": 176.7
+    },
+    {
+      "id": "SCN-014",
+      "title": "BEYOND THE FENCE",
+      "start": 176.7,
+      "end": 206.27
+    },
+    {
+      "id": "SCN-015",
+      "title": "LOOSE AT LAST",
+      "start": 206.27,
+      "end": 220.387
+    }
+  ],
+  "assets": [
+    {
+      "id": "CHAR-001",
+      "name": "Zookeeper · Harper",
+      "kind": "character",
+      "brief": "First candidate reference derived from SRC-001. Review identity, costume and ink treatment before extending to more views.",
+      "continuity": "Auburn curly bob and short fringe; freckles and hazel-green eyes; olive work uniform; HARPER badge, M.U.C.F. shoulder patch, ZOO STAFF ID, radio, utility belt and fingerless gloves. Full trousers and boots are candidate extensions of the cropped source costume. Lasso design remains open.",
+      "scene_ids": [
+        "SCN-002",
+        "SCN-003",
+        "SCN-004",
+        "SCN-006",
+        "SCN-012",
+        "SCN-014"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "CHAR-001-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "SRC-001 / v001"
+          ],
+          "prompt": "Use case: illustration-story. Generate ONE character reference image for Monsters Loose, asset CHAR-001 Zookeeper v001. Input image is the identity, costume, and visual-style reference, not a composition to reproduce. Show the SAME adult female zookeeper from the input, maintaining recognizable facial identity: dense freckles, pale warm skin, hazel-green eyes, auburn/copper curly chin-to-shoulder-length bob with short straight fringe, same facial proportions. Single full-length standing three-quarter-front reference portrait, entire head and boots in frame, natural competent relaxed stance, arms resting where uniform and hands can be clearly seen, alert and slightly wry closed-mouth expression. No multiple views or panels. Preserve olive short-sleeved button-front work shirt, practical trousers, dark utility belt, fingerless work gloves, M.U.C.F. dinosaur shoulder patch, HARPER name badge, hanging ZOO STAFF ID and existing practical gear. Finish unseen lower costume conservatively with olive work trousers and sturdy dark boots; these are candidate additions for approval. No extra weapons, creatures, hats, or unrelated accessories. Quiet plain warm parchment backdrop with subtle ground shadow. Match the original richly illustrated retro 1960s monster-comic / graphic-novel treatment: confident ink contours, detailed crosshatching and restrained halftone grain, earthy olive and warm paper palette, believable anatomy and dimensional face without becoming a glossy photograph or cartoon caricature. Even readable lighting on face and costume. Do not copy cover title, caption boxes, speech bubbles, alarm or background architecture. No large titles, no catalog ID burned into artwork. Only small original costume labels. High-quality reference image that can anchor consistent future generated scenes.",
+          "sha256": "399f43a765f53bbb69b827e0ed071a25cf7bd4c1d56aca86a7a31f4e76864a3f"
+        }
+      ]
+    },
+    {
+      "id": "CHAR-001-CU",
+      "parent_asset_id": "CHAR-001",
+      "name": "Harper · face & singing continuity",
+      "kind": "character",
+      "brief": "Supplemental 2×2 close-up sheet: A three-quarter, B profile, C singing AH, D frontal smile. Same character as CHAR-001; the full-body reference stays separate.",
+      "continuity": "Compare all four faces against CHAR-001. Preserve freckles, eye color and shape, fringe/curl silhouette, nose, lips and jaw. Panels C and D establish a candidate shared dental baseline: natural ivory teeth, consistent incisors, spacing and dental arch. Approve the mouth/teeth appearance before using it to guide close-up shots.",
+      "scene_ids": [
+        "SCN-002",
+        "SCN-003",
+        "SCN-004",
+        "SCN-006",
+        "SCN-012",
+        "SCN-014"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "CHAR-001-CU-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "CHAR-001 / v001",
+            "SRC-001 / v001"
+          ],
+          "prompt": "undefined",
+          "sha256": "2b5b302b1da17f22717e1ecb3d5ff922b0f69145af5e374099b98d69c9fd2c78"
+        }
+      ]
+    },
+    {
+      "id": "SRC-001",
+      "name": "Original monster-zoo cover",
+      "kind": "source",
+      "brief": "User-provided starting image. Anchor for the zookeeper, containment-facility world and comic-book treatment.",
+      "continuity": "Retro monster-comic ink and halftone texture; warm paper, olive uniforms, dark teal architecture and red warning accents. This image retains its original Monsters Undone cover lettering.",
+      "scene_ids": [
+        "SCN-001",
+        "SCN-002",
+        "SCN-003",
+        "SCN-004",
+        "SCN-005",
+        "SCN-006",
+        "SCN-007",
+        "SCN-008",
+        "SCN-009",
+        "SCN-010",
+        "SCN-011",
+        "SCN-012",
+        "SCN-013",
+        "SCN-014",
+        "SCN-015"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "SRC-001-v001.png",
+          "status": "source",
+          "review": "",
+          "generator": "Original user-provided reference",
+          "source_ids": [],
+          "prompt": "",
+          "sha256": "e32d9258ba5bdbc81a3e4eb8e26996566b9f939f29bc0361e4a8650f0550f5f8"
+        }
+      ]
+    },
+    {
+      "id": "ENV-001",
+      "name": "Remote zoo & lab · night establishing",
+      "kind": "environment",
+      "brief": "Wide establishing reference for the remote containment zoo and laboratory in coastal swampland. Nighttime is the direction for the entire video; the architecture, causeway road and helipad are candidate layout choices.",
+      "continuity": "Keep the zoo/lab relationship, perimeter, approach road, helipad and wetland/coast geography consistent once approved. Cool readable moonlit surroundings, warm practical exterior lights, lit laboratory interiors and restrained red beacons. Delay full monster reveals.",
+      "scene_ids": [
+        "SCN-001",
+        "SCN-014"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "ENV-001-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "SRC-001 / v001"
+          ],
+          "prompt": "undefined",
+          "sha256": "cb00afac1877b8a8dec9f8c6de6b18bbd11cd2d561ea2bd4a7891cc83ed6d7c3"
+        }
+      ]
+    }
+  ],
+  "visual_direction": {
+    "time_of_day": "night throughout the video",
+    "interiors": "Artificially lit interiors; practical fixtures motivate the lighting.",
+    "exteriors": "Moonlight and artificial lighting reveal environments and faces while retaining a nocturnal mood.",
+    "world": "Remote zoo and biological laboratory amid swampland, with a suggested coastal setting.",
+    "status": "User-directed nighttime rule; specific facility layout and optional helipad/road remain candidate design choices."
+  }
+}

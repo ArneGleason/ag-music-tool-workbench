@@ -1,0 +1,46 @@
+{
+  "checks": [
+    "unique IDs",
+    "positive word durations",
+    "word bounds within master",
+    "source/master offsets agree within 1 microsecond",
+    "byte-range server returned exact requested bytes"
+  ],
+  "statistics": {
+    "lead": {
+      "words": 359,
+      "lyric_words": 342,
+      "vocalization_syllables": 17,
+      "phrases": 54,
+      "unresolved_events": 1,
+      "flag_counts": {
+        "audible_tail_after_alignment": 25,
+        "sustain_review": 35,
+        "text_review": 114,
+        "vocalization_syllables_provisional": 17,
+        "weak_acoustic_match": 81,
+        "audible_attack_before_alignment": 37,
+        "overlap_previous_word": 7,
+        "window_edge": 8,
+        "very_short": 1
+      }
+    },
+    "backing": {
+      "words": 91,
+      "lyric_words": 91,
+      "vocalization_syllables": 0,
+      "phrases": 27,
+      "unresolved_events": 13,
+      "flag_counts": {
+        "text_review": 91,
+        "weak_acoustic_match": 30,
+        "audible_attack_before_alignment": 9,
+        "very_short": 1,
+        "audible_tail_after_alignment": 4,
+        "sustain_review": 10,
+        "window_edge": 4,
+        "overlap_previous_word": 2
+      }
+    }
+  }
+}

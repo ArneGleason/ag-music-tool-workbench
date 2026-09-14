@@ -1,0 +1,97 @@
+[
+  {
+    "id": "ANCH-001-B",
+    "scene": "SCN-001",
+    "name": "The secret island facility",
+    "start": 4.3,
+    "end": 8.6,
+    "refs": [
+      "ENV-001-v002.png"
+    ],
+    "body": "Beyond swamp trees the remote monster zoo glows quietly beside the coast. Match the supplied facility tower, fenced enclosures and approach road. View from low wooded rise outside, branches frame distant laboratory and enclosures. No people or creatures. Remote isolation and ordered little pools of light swallowed by huge dark swampland.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Beyond swamp trees the remote monster zoo glows quietly beside the coast. Match the supplied facility tower, fenced enclosures and approach road. View from low wooded rise outside, branches frame distant laboratory and enclosures. No people or creatures. Remote isolation and ordered little pools of light swallowed by huge dark swampland.",
+    "image": "ANCH-001-B-v001.png"
+  },
+  {
+    "id": "ANCH-002-B",
+    "scene": "SCN-002",
+    "name": "Harper hears the breach",
+    "start": 12.13,
+    "end": 20.96,
+    "refs": [
+      "CHAR-001-v002.png",
+      "ENV-003-v001.png"
+    ],
+    "body": "Harper has just noticed a containment fault at enclosure 2. Medium view of her turning her head sharply toward offscreen sound, thoughtful alert face rather than panic. One gloved hand near radio, the gate behind her slightly ajar, bolt disengaged and a broken fastener on matte ground. No visible creature, no monster shadow. Preserve curly red bob, freckles, olive uniform and patch. Nighttime.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Harper has just noticed a containment fault at enclosure 2. Medium view of her turning her head sharply toward offscreen sound, thoughtful alert face rather than panic. One gloved hand near radio, the gate behind her slightly ajar, bolt disengaged and a broken fastener on matte ground. No visible creature, no monster shadow. Preserve curly red bob, freckles, olive uniform and patch. Nighttime.",
+    "image": "ANCH-002-B-v001.png"
+  },
+  {
+    "id": "ANCH-003-B",
+    "scene": "SCN-003",
+    "name": "The quiet cages are stirring",
+    "start": 36.38,
+    "end": 42.98,
+    "refs": [
+      "ENV-004-v001.png"
+    ],
+    "body": "View down the same habitat branch, strong foreground steel cage bars and a suspended heavy chain pulled taut against its latch. Leaves shifting within deep unlit enclosure; all creatures COMPLETELY hidden. Smaller habitat doors and warm path lamps recede, with a period PA horn on a wall. Ominous contained pressure disturbs the cheerful orderly zoo. No people or written sound effects.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. View down the same habitat branch, strong foreground steel cage bars and a suspended heavy chain pulled taut against its latch. Leaves shifting within deep unlit enclosure; all creatures COMPLETELY hidden. Smaller habitat doors and warm path lamps recede, with a period PA horn on a wall. Ominous contained pressure disturbs the cheerful orderly zoo. No people or written sound effects.",
+    "image": "ANCH-003-B-v001.png"
+  },
+  {
+    "id": "ANCH-004-A",
+    "scene": "SCN-004",
+    "name": "The laboratory's dangerous ambition",
+    "start": 42.98,
+    "end": 48.37,
+    "refs": [
+      "CHAR-004-v003.png",
+      "CHAR-002-v002.png",
+      "CHAR-003-v002.png"
+    ],
+    "body": "Inside a retro biological laboratory at night, three referenced scientists around a workbench with paper plans and analog gauges. Image1 wild-haired mustache/goatee scientist grins recklessly, raising his RIGHT brass mechanical replacement hand to describe something enormous. Image2 bespectacled Japanese male and image3 brunette senior woman exchange concerned skeptical looks, same costumes. Offscreen ambition, NO creatures or tanks with bodies, NO modern digital screens. High dark windows, amber desk lamp, green instrument glow. Single group scene.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Inside a retro biological laboratory at night, three referenced scientists around a workbench with paper plans and analog gauges. Image1 wild-haired mustache/goatee scientist grins recklessly, raising his RIGHT brass mechanical replacement hand to describe something enormous. Image2 bespectacled Japanese male and image3 brunette senior woman exchange concerned skeptical looks, same costumes. Offscreen ambition, NO creatures or tanks with bodies, NO modern digital screens. High dark windows, amber desk lamp, green instrument glow. Single group scene.",
+    "image": "ANCH-004-A-v001.png"
+  },
+  {
+    "id": "ANCH-004-B",
+    "scene": "SCN-004",
+    "name": "Memory of the last creation",
+    "start": 48.37,
+    "end": 54.32,
+    "refs": [
+      "ENV-001-v002.png"
+    ],
+    "body": "A remembered nighttime coastal town disaster, far from zoo, same illustrated world but not same building. Small 1960s town rooftops burn in scattered orange fires under dark smoke, broken empty street and fallen streetlamp foreground. A huge trail of crushed masonry implies the passage of their last creation, but absolutely NO monster, silhouette or body visible. No people, no bodies or injuries. Restrained pulp monster-movie destruction, emotionally uneasy warning of reckless science.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. A remembered nighttime coastal town disaster, far from zoo, same illustrated world but not same building. Small 1960s town rooftops burn in scattered orange fires under dark smoke, broken empty street and fallen streetlamp foreground. A huge trail of crushed masonry implies the passage of their last creation, but absolutely NO monster, silhouette or body visible. No people, no bodies or injuries. Restrained pulp monster-movie destruction, emotionally uneasy warning of reckless science.",
+    "image": "ANCH-004-B-v001.png"
+  },
+  {
+    "id": "ANCH-005-A",
+    "scene": "SCN-005",
+    "name": "Something towers above Harper",
+    "start": 54.32,
+    "end": 58.5,
+    "refs": [
+      "CHAR-001-v002.png",
+      "ENV-003-v001.png"
+    ],
+    "body": "Back in the zoo beside enclosure 2, Harper stands near lower right looking high upward out of frame with dawning concern, chin lifted, brows raised, hand shielding eyes from an amber overhead lamp. Towering cage framework disappears beyond top of composition, no creature whatsoever visible. Her scale against architecture suggests something much bigger. Same recognizable face, curls, uniform, matte concourse. No fear caricature.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Back in the zoo beside enclosure 2, Harper stands near lower right looking high upward out of frame with dawning concern, chin lifted, brows raised, hand shielding eyes from an amber overhead lamp. Towering cage framework disappears beyond top of composition, no creature whatsoever visible. Her scale against architecture suggests something much bigger. Same recognizable face, curls, uniform, matte concourse. No fear caricature.",
+    "image": "ANCH-005-A-v001.png"
+  },
+  {
+    "id": "ANCH-005-B",
+    "scene": "SCN-005",
+    "name": "Pressure behind the doors",
+    "start": 58.5,
+    "end": 62.77,
+    "refs": [
+      "ENV-003-v001.png"
+    ],
+    "body": "An ominously quiet stretch of the same zoo concourse at night, foreground enclosure latch strained and chain links vibrating suggested by a few restrained ink marks, amber warning beacon lighting edge of bars. Dense foliage conceals everything inside. Other orderly lamps recede toward familiar laboratory. The empty walkway leaves space for the approaching tour. No visitors, people, visible creatures, or written sound effects. Matte paving.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. An ominously quiet stretch of the same zoo concourse at night, foreground enclosure latch strained and chain links vibrating suggested by a few restrained ink marks, amber warning beacon lighting edge of bars. Dense foliage conceals everything inside. Other orderly lamps recede toward familiar laboratory. The empty walkway leaves space for the approaching tour. No visitors, people, visible creatures, or written sound effects. Matte paving.",
+    "image": "ANCH-005-B-v001.png"
+  }
+]

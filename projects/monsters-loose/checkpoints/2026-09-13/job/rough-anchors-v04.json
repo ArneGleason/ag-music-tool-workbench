@@ -1,0 +1,497 @@
+[
+  {
+    "id": "ANCH-001",
+    "scene": "SCN-001",
+    "name": "SCN-001 · Something behind the mesh",
+    "body": "Mood of concealed danger. From close to the enclosure threshold, the near foreground is dark black steel mesh with a single curled claw gripping it and ONE yellow-green slit-pupil eye partly visible behind foliage and deep shadow. Show only those tiny fragments of the supplied creature, absolutely no full head/body reveal. Beyond the mesh the quiet lamp-lit concourse recedes toward the laboratory; the zoo looks organized and calm but something is watching. No Harper or other people. The image captures the scene's tension, not a prescribed opening camera frame.",
+    "prompt": "Create a SCENE ANCHOR illustration for Monsters Loose: an evocative rough scene reference, not a storyboard panel, video-generation start frame, end frame or locked shot. Capture narrative mood and character relationships within an existing coherent world. Retro 1960s monster comic, bold ink and crosshatching, dimensional character art, nighttime cool teal and practical amber light, rough MATTE paving, existing cream concrete/black steel zoo architecture. Wide 16:9 with strong readable storytelling composition. No overlaid labels, lettering or speech bubbles. Preserve identities and environment references. \nMood of concealed danger. From close to the enclosure threshold, the near foreground is dark black steel mesh with a single curled claw gripping it and ONE yellow-green slit-pupil eye partly visible behind foliage and deep shadow. Show only those tiny fragments of the supplied creature, absolutely no full head/body reveal. Beyond the mesh the quiet lamp-lit concourse recedes toward the laboratory; the zoo looks organized and calm but something is watching. No Harper or other people. The image captures the scene's tension, not a prescribed opening camera frame.",
+    "refs": [
+      "ENV-003-v001.png",
+      "CHAR-010-v001.png"
+    ],
+    "image": "ANCH-001-v001.png",
+    "start": 0,
+    "end": 4.3
+  },
+  {
+    "id": "ANCH-001-B",
+    "scene": "SCN-001",
+    "name": "The secret island facility",
+    "start": 4.3,
+    "end": 8.6,
+    "refs": [
+      "ENV-001-v002.png"
+    ],
+    "body": "Beyond swamp trees the remote monster zoo glows quietly beside the coast. Match the supplied facility tower, fenced enclosures and approach road. View from low wooded rise outside, branches frame distant laboratory and enclosures. No people or creatures. Remote isolation and ordered little pools of light swallowed by huge dark swampland.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Beyond swamp trees the remote monster zoo glows quietly beside the coast. Match the supplied facility tower, fenced enclosures and approach road. View from low wooded rise outside, branches frame distant laboratory and enclosures. No people or creatures. Remote isolation and ordered little pools of light swallowed by huge dark swampland.",
+    "image": "ANCH-001-B-v001.png"
+  },
+  {
+    "id": "ANCH-002",
+    "scene": "SCN-002",
+    "name": "SCN-002 · Harper has it handled",
+    "body": "Harper, exactly the red-haired freckled keeper from input1, stands confidently beside enclosure 2 of input2. Medium-wide full-figure environmental illustration: grounded casual stance, one gloved hand resting against the enclosure door, head turned toward a faint sound with alert knowing half-smile. She is experienced and competent, not panicking. Gate appears slightly ajar behind her, a subtle clue, no visible monster. Plenty of concourse remains visible with rough matte paving and lab beyond. Her uniform, hair, face and creature patch remain consistent. No lasso in this anchor; opening carry remains undecided. Show the contrast of relaxed competence and an ominous small containment fault.",
+    "prompt": "Create a SCENE ANCHOR illustration for Monsters Loose: an evocative rough scene reference, not a storyboard panel, video-generation start frame, end frame or locked shot. Capture narrative mood and character relationships within an existing coherent world. Retro 1960s monster comic, bold ink and crosshatching, dimensional character art, nighttime cool teal and practical amber light, rough MATTE paving, existing cream concrete/black steel zoo architecture. Wide 16:9 with strong readable storytelling composition. No overlaid labels, lettering or speech bubbles. Preserve identities and environment references. \nHarper, exactly the red-haired freckled keeper from input1, stands confidently beside enclosure 2 of input2. Medium-wide full-figure environmental illustration: grounded casual stance, one gloved hand resting against the enclosure door, head turned toward a faint sound with alert knowing half-smile. She is experienced and competent, not panicking. Gate appears slightly ajar behind her, a subtle clue, no visible monster. Plenty of concourse remains visible with rough matte paving and lab beyond. Her uniform, hair, face and creature patch remain consistent. No lasso in this anchor; opening carry remains undecided. Show the contrast of relaxed competence and an ominous small containment fault.",
+    "refs": [
+      "CHAR-001-v002.png",
+      "ENV-003-v001.png"
+    ],
+    "image": "ANCH-002-v001.png",
+    "start": 8.6,
+    "end": 12.13
+  },
+  {
+    "id": "ANCH-002-B",
+    "scene": "SCN-002",
+    "name": "Harper hears the breach",
+    "start": 12.13,
+    "end": 20.96,
+    "refs": [
+      "CHAR-001-v002.png",
+      "ENV-003-v001.png"
+    ],
+    "body": "Harper has just noticed a containment fault at enclosure 2. Medium view of her turning her head sharply toward offscreen sound, thoughtful alert face rather than panic. One gloved hand near radio, the gate behind her slightly ajar, bolt disengaged and a broken fastener on matte ground. No visible creature, no monster shadow. Preserve curly red bob, freckles, olive uniform and patch. Nighttime.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Harper has just noticed a containment fault at enclosure 2. Medium view of her turning her head sharply toward offscreen sound, thoughtful alert face rather than panic. One gloved hand near radio, the gate behind her slightly ajar, bolt disengaged and a broken fastener on matte ground. No visible creature, no monster shadow. Preserve curly red bob, freckles, olive uniform and patch. Nighttime.",
+    "image": "ANCH-002-B-v001.png"
+  },
+  {
+    "id": "ANCH-003",
+    "scene": "SCN-003",
+    "name": "SCN-003 · A cheerful tour, an uneasy zoo",
+    "body": "Harper in the habitat junction from input2, same face, red curly bob, olive uniform and approved sleeve patch. She gestures with playful theatrical confidence toward the illustrated creature interpretation board, making an amused exaggerated expression as if telling a tall story. A simple coiled restraining rope is clipped at her hip as a provisional lasso design, not in use. Behind her, one large dark enclosure's bars and hanging chain suggest a recent heavy rattle, with no creature revealed. A small period wall-mounted PA horn above the junction helps convey an uneasy announcement without written sound effects. Warm public-facing zoo welcome versus unnerving darkness behind mesh. No visitors yet. The sign's creature icons remain small placeholder illustrations. This scene anchor combines several broad beats; not a literal simultaneous shot or a start/end frame.",
+    "prompt": "Create a SCENE ANCHOR illustration for Monsters Loose: an evocative rough scene reference, not a storyboard panel, video-generation start frame, end frame or locked shot. Capture narrative mood and character relationships within an existing coherent world. Retro 1960s monster comic, bold ink and crosshatching, dimensional character art, nighttime cool teal and practical amber light, rough MATTE paving, existing cream concrete/black steel zoo architecture. Wide 16:9 with strong readable storytelling composition. No overlaid labels, lettering or speech bubbles. Preserve identities and environment references. \nHarper in the habitat junction from input2, same face, red curly bob, olive uniform and approved sleeve patch. She gestures with playful theatrical confidence toward the illustrated creature interpretation board, making an amused exaggerated expression as if telling a tall story. A simple coiled restraining rope is clipped at her hip as a provisional lasso design, not in use. Behind her, one large dark enclosure's bars and hanging chain suggest a recent heavy rattle, with no creature revealed. A small period wall-mounted PA horn above the junction helps convey an uneasy announcement without written sound effects. Warm public-facing zoo welcome versus unnerving darkness behind mesh. No visitors yet. The sign's creature icons remain small placeholder illustrations. This scene anchor combines several broad beats; not a literal simultaneous shot or a start/end frame.",
+    "refs": [
+      "CHAR-001-v002.png",
+      "ENV-004-v001.png"
+    ],
+    "image": "ANCH-003-v001.png",
+    "start": 20.96,
+    "end": 36.38
+  },
+  {
+    "id": "ANCH-003-B",
+    "scene": "SCN-003",
+    "name": "The quiet cages are stirring",
+    "start": 36.38,
+    "end": 42.98,
+    "refs": [
+      "ENV-004-v001.png"
+    ],
+    "body": "View down the same habitat branch, strong foreground steel cage bars and a suspended heavy chain pulled taut against its latch. Leaves shifting within deep unlit enclosure; all creatures COMPLETELY hidden. Smaller habitat doors and warm path lamps recede, with a period PA horn on a wall. Ominous contained pressure disturbs the cheerful orderly zoo. No people or written sound effects.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. View down the same habitat branch, strong foreground steel cage bars and a suspended heavy chain pulled taut against its latch. Leaves shifting within deep unlit enclosure; all creatures COMPLETELY hidden. Smaller habitat doors and warm path lamps recede, with a period PA horn on a wall. Ominous contained pressure disturbs the cheerful orderly zoo. No people or written sound effects.",
+    "image": "ANCH-003-B-v001.png"
+  },
+  {
+    "id": "ANCH-004-A",
+    "scene": "SCN-004",
+    "name": "The laboratory's dangerous ambition",
+    "start": 42.98,
+    "end": 45.9,
+    "refs": [
+      "CHAR-004-v003.png",
+      "CHAR-002-v002.png",
+      "CHAR-003-v002.png"
+    ],
+    "body": "Inside a retro biological laboratory at night, three referenced scientists around a workbench with paper plans and analog gauges. Image1 wild-haired mustache/goatee scientist grins recklessly, raising his RIGHT brass mechanical replacement hand to describe something enormous. Image2 bespectacled Japanese male and image3 brunette senior woman exchange concerned skeptical looks, same costumes. Offscreen ambition, NO creatures or tanks with bodies, NO modern digital screens. High dark windows, amber desk lamp, green instrument glow. Single group scene.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Inside a retro biological laboratory at night, three referenced scientists around a workbench with paper plans and analog gauges. Image1 wild-haired mustache/goatee scientist grins recklessly, raising his RIGHT brass mechanical replacement hand to describe something enormous. Image2 bespectacled Japanese male and image3 brunette senior woman exchange concerned skeptical looks, same costumes. Offscreen ambition, NO creatures or tanks with bodies, NO modern digital screens. High dark windows, amber desk lamp, green instrument glow. Single group scene.",
+    "image": "ANCH-004-A-v001.png"
+  },
+  {
+    "id": "ANCH-004-B",
+    "scene": "SCN-004",
+    "name": "Memory of the last creation",
+    "start": 45.9,
+    "end": 48.37,
+    "refs": [
+      "ENV-001-v002.png"
+    ],
+    "body": "A remembered nighttime coastal town disaster, far from zoo, same illustrated world but not same building. Small 1960s town rooftops burn in scattered orange fires under dark smoke, broken empty street and fallen streetlamp foreground. A huge trail of crushed masonry implies the passage of their last creation, but absolutely NO monster, silhouette or body visible. No people, no bodies or injuries. Restrained pulp monster-movie destruction, emotionally uneasy warning of reckless science.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. A remembered nighttime coastal town disaster, far from zoo, same illustrated world but not same building. Small 1960s town rooftops burn in scattered orange fires under dark smoke, broken empty street and fallen streetlamp foreground. A huge trail of crushed masonry implies the passage of their last creation, but absolutely NO monster, silhouette or body visible. No people, no bodies or injuries. Restrained pulp monster-movie destruction, emotionally uneasy warning of reckless science.",
+    "image": "ANCH-004-B-v001.png"
+  },
+  {
+    "id": "ANCH-004-A",
+    "scene": "SCN-004",
+    "name": "The laboratory's dangerous ambition",
+    "start": 48.37,
+    "end": 54.32,
+    "refs": [
+      "CHAR-004-v003.png",
+      "CHAR-002-v002.png",
+      "CHAR-003-v002.png"
+    ],
+    "body": "Inside a retro biological laboratory at night, three referenced scientists around a workbench with paper plans and analog gauges. Image1 wild-haired mustache/goatee scientist grins recklessly, raising his RIGHT brass mechanical replacement hand to describe something enormous. Image2 bespectacled Japanese male and image3 brunette senior woman exchange concerned skeptical looks, same costumes. Offscreen ambition, NO creatures or tanks with bodies, NO modern digital screens. High dark windows, amber desk lamp, green instrument glow. Single group scene.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Inside a retro biological laboratory at night, three referenced scientists around a workbench with paper plans and analog gauges. Image1 wild-haired mustache/goatee scientist grins recklessly, raising his RIGHT brass mechanical replacement hand to describe something enormous. Image2 bespectacled Japanese male and image3 brunette senior woman exchange concerned skeptical looks, same costumes. Offscreen ambition, NO creatures or tanks with bodies, NO modern digital screens. High dark windows, amber desk lamp, green instrument glow. Single group scene.",
+    "image": "ANCH-004-A-v001.png"
+  },
+  {
+    "id": "ANCH-005-A",
+    "scene": "SCN-005",
+    "name": "Something towers above Harper",
+    "start": 54.32,
+    "end": 58.5,
+    "refs": [
+      "CHAR-001-v002.png",
+      "ENV-003-v001.png"
+    ],
+    "body": "Back in the zoo beside enclosure 2, Harper stands near lower right looking high upward out of frame with dawning concern, chin lifted, brows raised, hand shielding eyes from an amber overhead lamp. Towering cage framework disappears beyond top of composition, no creature whatsoever visible. Her scale against architecture suggests something much bigger. Same recognizable face, curls, uniform, matte concourse. No fear caricature.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. Back in the zoo beside enclosure 2, Harper stands near lower right looking high upward out of frame with dawning concern, chin lifted, brows raised, hand shielding eyes from an amber overhead lamp. Towering cage framework disappears beyond top of composition, no creature whatsoever visible. Her scale against architecture suggests something much bigger. Same recognizable face, curls, uniform, matte concourse. No fear caricature.",
+    "image": "ANCH-005-A-v001.png"
+  },
+  {
+    "id": "ANCH-005-B",
+    "scene": "SCN-005",
+    "name": "Pressure behind the doors",
+    "start": 58.5,
+    "end": 62.77,
+    "refs": [
+      "ENV-003-v001.png"
+    ],
+    "body": "An ominously quiet stretch of the same zoo concourse at night, foreground enclosure latch strained and chain links vibrating suggested by a few restrained ink marks, amber warning beacon lighting edge of bars. Dense foliage conceals everything inside. Other orderly lamps recede toward familiar laboratory. The empty walkway leaves space for the approaching tour. No visitors, people, visible creatures, or written sound effects. Matte paving.",
+    "prompt": "Use case: illustration-story. Create ONE wide 16:9 scene mood anchor for Monsters Loose. Single cinematic illustration, NOT collage, NO panels, captions or overlays. Rich 1960s monster-comic ink, crosshatching, aged halftone, dimensional faces, cool teal night and warm amber practical lighting. Matte rough paving, cream concrete and black steel zoo architecture. Preserve referenced identities exactly. A broad narrative moment, not a locked shot or video start/end frame. An ominously quiet stretch of the same zoo concourse at night, foreground enclosure latch strained and chain links vibrating suggested by a few restrained ink marks, amber warning beacon lighting edge of bars. Dense foliage conceals everything inside. Other orderly lamps recede toward familiar laboratory. The empty walkway leaves space for the approaching tour. No visitors, people, visible creatures, or written sound effects. Matte paving.",
+    "image": "ANCH-005-B-v001.png"
+  },
+  {
+    "id": "ANCH-006-A",
+    "scene": "SCN-006",
+    "start": 62.77,
+    "end": 71.14,
+    "name": "A cheerful welcome to a dangerous zoo",
+    "body": "Harper welcomes the visiting delegation along the central concourse.",
+    "refs": [
+      "CHAR-001-v002.png",
+      "CHAR-006-v002.png",
+      "CHAR-007-v002.png",
+      "CHAR-009-v001.png",
+      "ENV-002-v003.png",
+      "CHAR-008-v003.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. Harper, the redheaded keeper reference, gestures welcomingly to four distinct visitors walking together beside the enclosures: burgundy-suited pharmaceutical CEO, short overweight pinstripe governor with toupee, round rumpled oversized-glasses inspector carrying checklist, and her orange sweater-vest boy carrying sketchbook. Smiling guided tour with unease beneath, shadowy creatures almost hidden behind mesh. Preserve exact diverse visitor identities; no additional people. Wide ensemble composition, the night laboratory tower behind.\n\nCorrection pass: Edit first image only: replace the thin male inspector between governor and Harper with the exact FEMALE site inspector from second reference: short sturdy round face, huge round spectacles, messy gray-streaked bun with pencils, mustard cardigan, rumpled checked blazer, cropped brown trousers, mismatched socks, overflowing satchel and long checklist. Keep every other character and the night concourse composition unchanged. Single 16:9 image, no panels.",
+    "image": "ANCH-006-A-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-8f062f89-b05a-4404-a65a-469fa62efa42.png",
+    "status": "awaiting_review"
+  },
+  {
+    "id": "ANCH-006-B",
+    "scene": "SCN-006",
+    "start": 71.14,
+    "end": 84.8,
+    "name": "The lasso and the skeptic",
+    "body": "Harper's playful lasso demonstration meets the child's skeptical stare.",
+    "refs": [
+      "CHAR-001-v002.png",
+      "CHAR-009-v001.png",
+      "ENV-002-v003.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. Harper on the open matte concourse smoothly spins a modest rope lasso loop beside herself, not around anyone. She gives a mischievous teasing smile toward the boy in orange sweater vest who stands safely beyond reach with sketchbook hugged underarm and skeptical raised eyebrow, unimpressed. A huge anonymous claw grips mesh far behind them as an uneasy visual joke; creature remains hidden. Medium-wide two-character composition, no other visitors needed.",
+    "image": "ANCH-006-B-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-afea9edf-5468-4695-93ed-7b487b996d39.png",
+    "status": "awaiting_review"
+  },
+  {
+    "id": "ANCH-007-A",
+    "scene": "SCN-007",
+    "start": 84.8,
+    "end": 90.37,
+    "name": "A world of impossible habitats",
+    "body": "The zoo opens into contrasting habitats and a wider creature collection.",
+    "refs": [
+      "ENV-002-v003.png",
+      "CHAR-010-v001.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. A sweeping high oblique view through interconnected zoo habitat glasshouses beside the familiar concrete paths. ONE coherent continuous architectural space showing lush jungle in near enclosure with the referenced green spiny long-armed creature, arid sand with an original small horned beetle-lizard in adjacent enclosure, distant cold blue frosted glasshouse, and a dark lake enclosure with a subtle fin. Variety of jungle, desert, ice, lake, alien botanical forms visible through layered structures. No surrounding coastal swamp creatures. No split panels, no labels, no people. Human-made nighttime environmental chambers artificially lit.",
+    "image": "ANCH-007-A-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-0dd004a3-6aa0-4d8d-a75d-5fa86ed24d3e.png",
+    "status": "awaiting_review"
+  },
+  {
+    "id": "ANCH-007-B",
+    "scene": "SCN-007",
+    "start": 90.37,
+    "end": 102.55,
+    "name": "Hide-and-seek means hunting",
+    "body": "A glimpse of creatures in their imagined wild capture habitat.",
+    "refs": [
+      "CHAR-010-v001.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. The referenced green long-armed spiny reptile crouches stalking through a mountainous prehistoric jungle at night, huge fern fronds framing its yellow eyes. A smaller original rabbit-moth hybrid slips behind a rock in the middle distance, a tense game of hide and seek that is actually hunting. No blood, no capture happening, no people, no zoo buildings, NOT the coastal swamp around the lab; dry rocky forest floor and distant mountains imply a separate remembered wilderness. Blue moonlight and faint warm bioluminescent plants, dynamic predatory posture.",
+    "image": "ANCH-007-B-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-2385edc3-bd92-4501-a044-665ef5ede3db.png",
+    "status": "awaiting_review"
+  },
+  {
+    "id": "ANCH-008-A",
+    "scene": "SCN-008",
+    "start": 102.55,
+    "end": 113.6,
+    "name": "Two rivals remain",
+    "body": "An ambiguous natural or staged showdown narrows to two monsters.",
+    "refs": [
+      "CHAR-010-v001.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. Two fantastical monsters square off across a broad rocky clearing at night. The supplied green spiny long-armed reptile faces an original stocky rust-red armored toad-beetle creature with thick hindlegs, blunt round face and plate shell. Other indistinct creature silhouettes retreat at the extreme distance, leaving just these two. Near lower foreground a few tiny back-facing human visitor silhouettes watch from a safe elevated rocky overlook, pointing at their favorites. No arena, no sports equipment, no betting signs or gladiatorial architecture. Could be natural wilderness or a huge zoo habitat; deliberately ambiguous. Comically oversized showdown tension, no injury.",
+    "image": "ANCH-008-A-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-8dbbdb46-3da8-4dba-bd65-9aa895ba1f76.png",
+    "status": "awaiting_review"
+  },
+  {
+    "id": "ANCH-008-B",
+    "scene": "SCN-008",
+    "start": 113.6,
+    "end": 121.04,
+    "name": "Over the mountains and back",
+    "body": "An impossible kick launches the rival into a resilient comic aftermath.",
+    "refs": [
+      "CHAR-010-v001.png",
+      "ANCH-008-A-v001.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. Exuberant impossible monster-movie action at night: the green spiny long-armed reptile in follow-through of an exaggerated high kick on a rocky ridge, while the stocky rust-red toad-beetle rival with blunt round head and plate shell tumbles in a long airborne arc above distant mountains. Broad readable comic motion trails only, no text. Rival looks indignant and resilient, entirely intact, not wounded. Moonlit mountain layers, deep teal ink and restrained amber rimlight. Funny extravagant spectacle, not realistic cruelty, no gore. ONE continuous wide landscape.",
+    "image": "ANCH-008-B-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-8c23133b-a7f8-485e-a98e-5639ef57ce53.png",
+    "status": "awaiting_review",
+    "concerns": [
+      "Generated containment walls bias location toward zoo habitat; not locked geography.",
+      "Kick represented; subsequent recovery remains in narrative."
+    ]
+  },
+  {
+    "id": "ANCH-009-A",
+    "scene": "SCN-009",
+    "start": 121.04,
+    "end": 127.6,
+    "name": "What should we create next?",
+    "body": "The laboratory team debates new hybrids over the plans.",
+    "refs": [
+      "CHAR-002-v002.png",
+      "CHAR-003-v002.png",
+      "CHAR-004-v003.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. Inside the zoo's retro laboratory at night, the three supplied scientists gather round a large illuminated drafting table covered with simple creature anatomy sketches and transparent overlays. The bespectacled Japanese male researcher examines a design, the short-haired brunette senior woman scientist considers it with clipboard, and the wild silver-haired curled-moustache goateed rogue enthuses, his RIGHT hand a brass-and-steel mechanical prosthesis, his LEFT hand human. Ivory coats unchanged. Analog meters, valves, frosted windows and amber desk lights, teal shadow. Their excitement exceeds their caution. No modern screens, no gruesome experiments.",
+    "image": "ANCH-009-A-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-3bb71ccf-5a7f-4747-a0c1-04cdfc26bc14.png",
+    "status": "awaiting_review"
+  },
+  {
+    "id": "ANCH-009-B",
+    "scene": "SCN-009",
+    "start": 127.6,
+    "end": 134.23,
+    "name": "Dangerous enthusiasm",
+    "body": "The commercial pitch and the inspector's concern pull the discussion apart.",
+    "refs": [
+      "CHAR-006-v002.png",
+      "CHAR-008-v003.png",
+      "CHAR-004-v003.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. Same 1960s industrial laboratory night, closer ensemble around an illuminated drafting table. The wild silver-haired moustached rogue scientist confidently presents a paper drawing of an outsized improbable hybrid, gesturing with RIGHT mechanical brass steel hand. Burgundy-suited black-bob white-streak CEO leans in with calculating pleased smile, seeing opportunity. The rumpled round inspector in oversized spectacles studies the proposed animal's requirements with clear concern and pencil poised over her lengthy checklist. Contrast profit and welfare without villain caricature facial distortion. Identity exact to refs, no other people, no captions.",
+    "image": "ANCH-009-B-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-352ff135-e565-4b0f-85ee-f7050cfa2452.png",
+    "status": "awaiting_review",
+    "concerns": [
+      "Visitor participation is a proposed narrative interpretation."
+    ]
+  },
+  {
+    "id": "ANCH-010-A",
+    "scene": "SCN-010",
+    "start": 134.23,
+    "end": 137.5,
+    "name": "A private plan",
+    "body": "The rogue scientist slips away to the master enclosure controls.",
+    "refs": [
+      "CHAR-004-v003.png",
+      "ENV-005-v001.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. At night in the recessed service control alcove immediately right of the referenced laboratory entrance, the rogue scientist quietly looks back over his shoulder while his human LEFT hand opens a heavy old gray steel control cabinet. His RIGHT brass and steel prosthetic hand is visible near the switches, long wild silver hair, curled moustache, pointed goatee, rumpled ivory coat, crooked dark red tie. Conspiratorial restrained smile, dramatic red indicator lamp and warm wall light, matte concrete. Keep original facade and adjacent concrete planter implied in background. No other people. An intimate mid-scene moment, not an establishing shot.",
+    "image": "ANCH-010-A-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-2b4bacc1-e11d-48b4-bd63-9f53ad0c298c.png",
+    "status": "awaiting_review"
+  },
+  {
+    "id": "ANCH-010-B",
+    "scene": "SCN-010",
+    "start": 137.5,
+    "end": 140.74,
+    "name": "Unlock the zoo",
+    "body": "A mechanical hand releases the containment controls.",
+    "refs": [
+      "CHAR-004-v003.png",
+      "ENV-005-v001.png"
+    ],
+    "prompt": "Single 16:9 landscape illustration-story scene mood anchor for Monsters Loose, one continuous cinematic scene, NOT a collage, no panels, no captions, no title. Retro 1960s monster comic, bold black ink contours, detailed crosshatching and restrained halftone, aged cream highlights, deep teal shadows, amber practical light. Nighttime only. Match supplied character identity references closely, costumes and faces. Environment reference gives concrete, black steel enclosures, matte rough paving and warm industrial lamps; no wet glossy ground. A broad narrative impression, not a finalized video-generation frame. Close narrative still at the opened vintage gray steel enclosure-control cabinet from the lab exterior. The rogue scientist's distinctive RIGHT brass-and-steel mechanical replacement hand deliberately draws down a heavy master release lever, his face partly visible at edge with curled moustache and knowing eye; natural LEFT hand holds cabinet edge. Rows of analog red warning lamps begin illuminating. Through the blurred background is a black mesh enclosure door slightly parting, warm light and deep teal night. No legible invented writing, no modern electronics, no weapons. The clear story is covert unlocking, not destruction. Composition has environmental context as well as the hand.",
+    "image": "ANCH-010-B-v001.png",
+    "generatedSource": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-0880-7a93-b019-fc1d93e0b425\\exec-85de176a-fec4-4a25-82e2-45246183b10b.png",
+    "status": "awaiting_review",
+    "concerns": [
+      "Control hardware differs slightly from companion; provisional mood/action, not final matched geometry."
+    ]
+  },
+  {
+    "id": "ANCH-011-A",
+    "scene": "SCN-011",
+    "name": "A mighty creature becomes tiny",
+    "start": 140.74,
+    "end": 146.41,
+    "refs": [
+      "CHAR-010-v001.png",
+      "ENV-004-v001.png"
+    ],
+    "body": "At ground level beside heavy zoo enclosure bars, the reference green reptilian monster is now mouse-sized and slips easily between the bars onto the walkway, cheeky grin, huge former claw scratches on the inside wall and a discarded massive restraining cuff indicate its previous enormous scale. ONE tiny creature only, not duplicate stages of shrinking. Macro foreground tiny body sharply readable, looming cage and amber lantern behind. No humans. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. At ground level beside heavy zoo enclosure bars, the reference green reptilian monster is now mouse-sized and slips easily between the bars onto the walkway, cheeky grin, huge former claw scratches on the inside wall and a discarded massive restraining cuff indicate its previous enormous scale. ONE tiny creature only, not duplicate stages of shrinking. Macro foreground tiny body sharply readable, looming cage and amber lantern behind. No humans.",
+    "image": "ANCH-011-A-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-0dd150ea-4d0f-4e07-9f40-f5f649b09ed3.png"
+  },
+  {
+    "id": "ANCH-011-B",
+    "scene": "SCN-011",
+    "name": "Too big for its cage",
+    "start": 146.41,
+    "end": 151.7,
+    "refs": [
+      "ENV-004-v001.png"
+    ],
+    "body": "A newly enormous original insect hybrid has burst up out of a small planted enclosure: six articulated legs, round copper beetle carapace, mantis forearms and fluffy moth antennae, green-gold chitin. Its head and shoulders tower above the roofline and bent mesh curls outward around its abdomen. Tiny intact inspection stool and feeder beneath establish the scale reversal. No humans hurt, no gore. Match zoo concrete walls and iron mesh architecture but show a close adjacent enclosure, no identifiable numbers. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. A newly enormous original insect hybrid has burst up out of a small planted enclosure: six articulated legs, round copper beetle carapace, mantis forearms and fluffy moth antennae, green-gold chitin. Its head and shoulders tower above the roofline and bent mesh curls outward around its abdomen. Tiny intact inspection stool and feeder beneath establish the scale reversal. No humans hurt, no gore. Match zoo concrete walls and iron mesh architecture but show a close adjacent enclosure, no identifiable numbers.",
+    "image": "ANCH-011-B-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-975d0fea-bbaf-48a0-9ccc-55b95b8d6e45.png"
+  },
+  {
+    "id": "ANCH-011-C",
+    "scene": "SCN-011",
+    "name": "Through the keyhole",
+    "start": 151.7,
+    "end": 157.23,
+    "refs": [
+      "ENV-004-v001.png"
+    ],
+    "body": "A whimsical eerie ORIGINAL smoky creature escapes a thick riveted steel containment door through its brass keyhole: a narrow ribbon of pale teal vapor threads from keyhole and curls into one ghostlike lizard/cephalopod head with two amber eyes and wispy tendrils on the free side. Focus composition on absurdly heavy closed lock defeated by delicate smoke. Brass lamp lights rough concrete corridor at night; no solid reptile body, no people. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. A whimsical eerie ORIGINAL smoky creature escapes a thick riveted steel containment door through its brass keyhole: a narrow ribbon of pale teal vapor threads from keyhole and curls into one ghostlike lizard/cephalopod head with two amber eyes and wispy tendrils on the free side. Focus composition on absurdly heavy closed lock defeated by delicate smoke. Brass lamp lights rough concrete corridor at night; no solid reptile body, no people.",
+    "image": "ANCH-011-C-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-dfa2a2ec-ae42-42f8-abbe-9c86fb290e89.png"
+  },
+  {
+    "id": "ANCH-012-A",
+    "scene": "SCN-012",
+    "name": "The keeper and the skeptic",
+    "start": 157.23,
+    "end": 161.74,
+    "refs": [
+      "CHAR-001-v002.png",
+      "CHAR-009-v001.png",
+      "ENV-004-v001.png"
+    ],
+    "body": "Medium two-person illustration in zoo walkway. Exact reference Harper red curled bob, freckles, olive uniform faces the exact reference precocious kid in orange vest with satchel and notebook. Kid arches skeptical eyebrow, one hand questioning. Harper leans slightly to eye level and points behind herself with a dry knowing smile, insisting the extraordinary story is true. Warmly funny confident exchange, clear faces, no fear or danger to child. Dark enclosure and amber sconces behind. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. Medium two-person illustration in zoo walkway. Exact reference Harper red curled bob, freckles, olive uniform faces the exact reference precocious kid in orange vest with satchel and notebook. Kid arches skeptical eyebrow, one hand questioning. Harper leans slightly to eye level and points behind herself with a dry knowing smile, insisting the extraordinary story is true. Warmly funny confident exchange, clear faces, no fear or danger to child. Dark enclosure and amber sconces behind.",
+    "image": "ANCH-012-A-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-e6a734ac-27da-4b69-b4d3-065093150808.png"
+  },
+  {
+    "id": "ANCH-012-B",
+    "scene": "SCN-012",
+    "name": "They think it is part of the show",
+    "start": 161.74,
+    "end": 171.87,
+    "refs": [
+      "CHAR-001-v002.png",
+      "CHAR-009-v001.png",
+      "ENV-006-v001.png",
+      "CHAR-010-v001.png"
+    ],
+    "body": "Wide zoo concourse with open perimeter gates. In foreground Harper and orange-vest child seen three-quarter back observing. In middle distance green reference creature and a long-necked eel-like hybrid amble through opened enclosures toward exit. A few adult visitor silhouettes behind a railing clap and wave excitedly as if it is staged entertainment, rather than stampeding. Strong comic irony, red alarm lights against calm amber illumination. No one attacked; maintain broad matte clear concourse. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. Wide zoo concourse with open perimeter gates. In foreground Harper and orange-vest child seen three-quarter back observing. In middle distance green reference creature and a long-necked eel-like hybrid amble through opened enclosures toward exit. A few adult visitor silhouettes behind a railing clap and wave excitedly as if it is staged entertainment, rather than stampeding. Strong comic irony, red alarm lights against calm amber illumination. No one attacked; maintain broad matte clear concourse.",
+    "image": "ANCH-012-B-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-2130f34b-e38a-48ce-921d-53b262f110f4.png"
+  },
+  {
+    "id": "ANCH-013-A",
+    "scene": "SCN-013",
+    "name": "The sign comes alive",
+    "start": 171.87,
+    "end": 174.28,
+    "refs": [
+      "CHAR-010-v001.png",
+      "ENV-004-v001.png"
+    ],
+    "body": "Return to exact reference zoo creature directory board in foreground, then actual green reptile CHAR010 pokes its big head around the side just behind the board, matching the illustrated JUNGLE silhouette and head direction in the sign. Friendly alarming recognition, yellow eye and spiny crown, real creature is much larger than picture. Other enclosure architecture secondary, no people, no invented speech or caption. Match existing five icon board, do not add more signs. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. Return to exact reference zoo creature directory board in foreground, then actual green reptile CHAR010 pokes its big head around the side just behind the board, matching the illustrated JUNGLE silhouette and head direction in the sign. Friendly alarming recognition, yellow eye and spiny crown, real creature is much larger than picture. Other enclosure architecture secondary, no people, no invented speech or caption. Match existing five icon board, do not add more signs.",
+    "image": "ANCH-013-A-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-27036224-7220-4313-a9da-f13fc67e58ca.png"
+  },
+  {
+    "id": "ANCH-013-B",
+    "scene": "SCN-013",
+    "name": "Another familiar face",
+    "start": 174.28,
+    "end": 176.7,
+    "refs": [
+      "ENV-004-v001.png",
+      "ANCH-011-B-v001.png"
+    ],
+    "body": "A familiar face from the DESERT sign is now real: the exact copper beetle/mantis/moth hybrid in second reference peers around the original directory board in first reference, real head and fluffy antennae matching a newly clarified small beetle silhouette in the DESERT circle. Focus on face recognition, not breaking a cage. Original board structure and remaining four icons remain; night amber light, no people. This provisional creature design and updated desert icon are continuity proposals. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. A familiar face from the DESERT sign is now real: the exact copper beetle/mantis/moth hybrid in second reference peers around the original directory board in first reference, real head and fluffy antennae matching a newly clarified small beetle silhouette in the DESERT circle. Focus on face recognition, not breaking a cage. Original board structure and remaining four icons remain; night amber light, no people. This provisional creature design and updated desert icon are continuity proposals.",
+    "image": "ANCH-013-B-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-5c4d7d50-94ec-4af1-bf3e-d15b3555e368.png"
+  },
+  {
+    "id": "ANCH-014-A",
+    "scene": "SCN-014",
+    "name": "Waiting beyond the fence",
+    "start": 176.7,
+    "end": 183.88,
+    "refs": [
+      "ENV-001-v002.png",
+      "CHAR-010-v001.png"
+    ],
+    "body": "From mangrove swamp outside the zoo look back toward the warmly lit remote laboratory and now-open perimeter entrance. In foreground a native original broad-backed mossy amphibian watches as the green reference reptile emerges along the causeway; the two exchange an almost conspiratorial look, subtle suggestion only. Reeds, cypress roots and coastal mist. No human scientist shown, do not make secret conspiracy explicit. Moonlit spacious escape mood, rough road with diffuse light. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. From mangrove swamp outside the zoo look back toward the warmly lit remote laboratory and now-open perimeter entrance. In foreground a native original broad-backed mossy amphibian watches as the green reference reptile emerges along the causeway; the two exchange an almost conspiratorial look, subtle suggestion only. Reeds, cypress roots and coastal mist. No human scientist shown, do not make secret conspiracy explicit. Moonlit spacious escape mood, rough road with diffuse light.",
+    "image": "ANCH-014-A-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-704f5f21-7ffb-4e3e-b48e-1cccf24aca04.png"
+  },
+  {
+    "id": "ANCH-014-B",
+    "scene": "SCN-014",
+    "name": "Even Harper cannot catch them all",
+    "start": 183.88,
+    "end": 206.27,
+    "refs": [
+      "CHAR-001-v002.png",
+      "CHAR-010-v001.png",
+      "ENV-006-v001.png"
+    ],
+    "body": "At the open perimeter gate from reference, capable Harper in exact olive outfit braces in a lively lasso cast. Her open rope loop sails harmlessly through EMPTY space behind the tail of the reference green reptile bounding toward swamp; creature slips away. Other distant monster silhouettes already cross the causeway. Harper is rueful and determined, not incompetent, unharmed. Single natural tan rope and anatomically correct two hands, clear readable missed-loop action, no binding injuries. Gate towers still recognizable, no conflicting enclosure numbers visible. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. At the open perimeter gate from reference, capable Harper in exact olive outfit braces in a lively lasso cast. Her open rope loop sails harmlessly through EMPTY space behind the tail of the reference green reptile bounding toward swamp; creature slips away. Other distant monster silhouettes already cross the causeway. Harper is rueful and determined, not incompetent, unharmed. Single natural tan rope and anatomically correct two hands, clear readable missed-loop action, no binding injuries. Gate towers still recognizable, no conflicting enclosure numbers visible.",
+    "image": "ANCH-014-B-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-80b4a095-f383-4cc6-925f-047e4a14d587.png"
+  },
+  {
+    "id": "ANCH-015-A",
+    "scene": "SCN-015",
+    "name": "Free to be themselves",
+    "start": 206.27,
+    "end": 213.33,
+    "refs": [
+      "CHAR-010-v001.png",
+      "ENV-001-v002.png"
+    ],
+    "body": "Quiet release after comic chaos. Exact green reference reptilian monster reclines comfortably on a broad fallen mangrove log in moonlit swamp, eyes half-lidded, closed toothy contented smile, claws relaxed, tail resting among reeds. Nearby a small original amphibian forages naturally in mud. Distant warm zoo lights far behind through trees. No rampage or threat, calm animal behavior, keep green reptile recognizable but softer expression. Lush teal foliage, warm sparse fireflies, naturally rippled water. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. Quiet release after comic chaos. Exact green reference reptilian monster reclines comfortably on a broad fallen mangrove log in moonlit swamp, eyes half-lidded, closed toothy contented smile, claws relaxed, tail resting among reeds. Nearby a small original amphibian forages naturally in mud. Distant warm zoo lights far behind through trees. No rampage or threat, calm animal behavior, keep green reptile recognizable but softer expression. Lush teal foliage, warm sparse fireflies, naturally rippled water.",
+    "image": "ANCH-015-A-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-2098d473-b6e1-4b8c-8212-7a24ab0dce4c.png"
+  },
+  {
+    "id": "ANCH-015-B",
+    "scene": "SCN-015",
+    "name": "A world beyond the zoo",
+    "start": 213.33,
+    "end": 220.387,
+    "refs": [
+      "CHAR-010-v001.png",
+      "ENV-001-v002.png",
+      "ANCH-011-B-v001.png"
+    ],
+    "body": "Final broad serene moonlit coastal swamp panorama: reference green reptile relaxed on log in left foreground, an original long-necked lake serpent gliding peacefully through middle water, a small beetle-moth hybrid cleaning its antenna on a branch. Remote zoo and lab tiny amber lights on far horizon, monsters inhabit nature in their own ways. Rich deep teal night, ochre reeds, restrained moon glints ONLY on water, spacious air and peaceful release. No city destruction, no dawn, no captions. Loose scene mood anchor only, not a locked shot or start/end frame. New creature designs, geography details and size-changing ability assignments are provisional; established character identities remain references.",
+    "prompt": "Create ONE landscape 16:9 scene mood illustration for Monsters Loose, not a collage, no captions/bubbles, no border, no typography overlay. Retro 1960s monster comic, dimensional ink drawing, confident black contours, fine crosshatching, restrained halftone, aged cream/ochre with deep teal shadows. Night only, warm practical lights and cool moonlight. Rough matte concrete outdoors, never mirror-gloss paving. References define identity, costume and built environment; compose a new moment, not a character sheet. Broad narrative anchor, not a finalized shot. Final broad serene moonlit coastal swamp panorama: reference green reptile relaxed on log in left foreground, an original long-necked lake serpent gliding peacefully through middle water, a small beetle-moth hybrid cleaning its antenna on a branch. Remote zoo and lab tiny amber lights on far horizon, monsters inhabit nature in their own ways. Rich deep teal night, ochre reeds, restrained moon glints ONLY on water, spacious air and peaceful release. No city destruction, no dawn, no captions. Match the beetle hybrid in third reference at small natural size.",
+    "image": "ANCH-015-B-v001.png",
+    "source": "C:\\Users\\arneg\\.codex\\generated_images\\01a09ca4-2acf-7631-b73f-4ff26bf6388b\\exec-1a8d39a7-86e8-4b85-a3bd-b8447cd8a5db.png"
+  }
+]

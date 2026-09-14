@@ -1,0 +1,53 @@
+{
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1280,
+      "height": 720,
+      "r_frame_rate": "24/1",
+      "start_time": "0.000000",
+      "duration": "220.416667",
+      "nb_frames": "5290"
+    },
+    {
+      "codec_name": "aac",
+      "codec_type": "audio",
+      "r_frame_rate": "0/0",
+      "start_time": "0.000000",
+      "duration": "220.437000",
+      "nb_frames": "10334"
+    }
+  ],
+  "format": {
+    "duration": "220.437000",
+    "size": "21259814"
+  },
+  "audio_comparisons": [
+    {
+      "master_seconds": 0,
+      "mono_correlation": 0.9999334801932637,
+      "best_lag_samples": 0
+    },
+    {
+      "master_seconds": 100,
+      "mono_correlation": 0.980499043676316,
+      "best_lag_samples": -1
+    },
+    {
+      "master_seconds": 195,
+      "mono_correlation": 0.9836171528454042,
+      "best_lag_samples": -1
+    }
+  ],
+  "checks": [
+    "5290 frames",
+    "1280x720 at24fps",
+    "AAC starts at zero",
+    "audio alignment within 1ms at 0,100,195 seconds",
+    "full movie decode passed"
+  ],
+  "note": "AAC is lossy. Stereo correlation at 100 s was 0.978857. Initially requiring >0.98 correlation and exactly zero samples lag was too strict; reported lag is measured on decoded AAC, with 1ms acceptance for this frame-based animatic."
+}

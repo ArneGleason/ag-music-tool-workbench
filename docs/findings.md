@@ -975,3 +975,148 @@ feature that flags it is a feature that fails.
 
 This is the only reason any detector claim above is checkable. Any detector work
 must report against it.
+
+
+## Performed lyric word timing — Monsters Loose, 2026-09-13
+
+Local Whisper turbo/medium drafts and the lyric worksheet recover complementary
+text: cleaned turbo omitted a 16–20 second ad-lib recovered by original/turbo
+and clean/medium. Recognizers disagree on repetition counts and some hook-like
+vocalizations. Backing ASR produced words over a -105.8 dBFS interval and unrelated
+sentences elsewhere; those were excluded or retained as unresolved events,
+not corrected into invented lyrics.
+
+WhisperX 3.8.6 alignment-only with existing vevo2 torch 2.4.0/cu124 and torchaudio
+WAV2VEC2_ASR_BASE_960H runs on RTX 4080 Super without upgrading the engine.
+An isolated --target --no-deps overlay supplies alignment imports; this is not a
+supported full WhisperX ASR/diarization installation. Model and overlay stay in
+the shared runtime. stable-ts 2.19.1 was an optional crosscheck, not the final
+source of boundaries. Neither method can certify sung syllables automatically.
+
+Independent CTC word edges retain a 1.565 second opening-hook loose, but some
+held vowels still end early. Opening Undone aligns to source 0.283–0.789 while
+the energy extent is approximately 0.200–1.530. Expanding phrase windows does
+not reliably fix this. Energy spans therefore remain separate diagnostics;
+using them as word ends would mistake reverb or breath for articulation.
+No grid snapping, length-weighted distribution, next-onset end filling, or
+missing-word interpolation was used. Raw candidates and uncertainty survive.
+
+The exported project map places stem zero 0.382816124 seconds after master zero.
+Tempo-integrated loop duration differs from the WAV by 3.240 ms. The first pass
+contains 359 lead tokens (342 lyric + 17 provisional syllables), 91 backing tokens,
+and 14 unresolved events. All token intervals are positive, in bounds, uniquely
+identified, and source/master offsets agree to 1 microsecond. 218 lead tokens
+have review flags; seven adjacent overlaps remain. These are consistency checks,
+not evidence every word or endpoint is correct. See
+[the checkpoint](monsters-loose-timing-checkpoint.md) for files and review queue.
+
+Bare http.server caused WAV phrase seeks to restart at zero in the in-app
+browser. The added byte-range server returned exact requested bytes and UI
+seeking reached the intended 9-second phrase. Master selection, automatic stop
+and filtering were checked. An earlier tab crashed during playback; a fresh
+tab after reducing DOM churn passed the bounded check. No full-song stability
+or listening-quality claim is made. Doctor passed and both real input stems
+completed alignment from the workbench UI.
+
+
+## Monsters Loose Blender lyric animatic — 2026-09-13
+
+User explicitly selected Blender as the rig, continuing Rivers of Mars. The
+new Video workbench tool follows that project's native VSE strip compositor.
+Blender 5.2.1 builds 1280x720 / 24 fps with no additional rendering dependencies.
+The font is Barlow Semi Condensed SemiBold; source artwork guides colour and
+readability, with comic caption boxes and bubbles deferred.
+
+The DAWproject map yields 338 integer beat boundaries from beat 15 through 352;
+export zero is bar 4, beat 4. Linear tempo ramps are analytically integrated.
+Master 220.387 seconds requires 5290 frames (220.416667 seconds); the extra
+29.667 ms is frame coverage, not a time stretch. Frame-rate RMS is measured on
+clean source audio with the established +0.382816124 second stem offset.
+
+An initial page preview rule cut tightly adjacent words short. Replaced it with
+bounded previews and grouping of overlapping acoustic candidates: 54 source
+phrases become 47 presentation pages. Validation of the saved .blend checks all
+359 word/syllable tokens plus one labelled unresolved placeholder, and verifies
+that every strip covers its original rounded start/end. Those data remain
+provisional, not new listening judgments. Font widths keep all lines in bounds.
+Blender stills at 12.5, 46, 132.5 and 199.9 seconds were visually inspected.
+
+Both the real-input build and the corrected layout ran from the workbench;
+doctor passed. In headless Blender the newly assigned editor space is only
+fully activated after a file reload. A final reopen sets preview plus timeline,
+packs the font and keeps media paths relative. Native text and keyframes remain
+editable. The waveform is a static measured reference generated inside Blender,
+not a replacement renderer for the words or animation.
+
+
+The completed Blender MP4 has 5290 H.264 frames, 1280x720 at 24 fps, video
+length 220.416667 seconds. AAC/container length is 220.437 seconds (codec frame
+padding); both streams start at zero. Full decode passes. Comparing decoded
+2-second audio windows at master 0, 100 and 195 seconds finds best lags 0, -1,
+-1 samples at 48 kHz, within 0.021 ms. AAC is lossy: the initial >0.98 stereo
+correlation threshold failed at 100 seconds (0.978857), and an exact zero-lag
+assertion was also too strict. The final check reports correlations and lags
+rather than claiming sample-identical audio. Timing tolerance is 1 ms here.
+Playback opening-hook seek was checked in the local video page. Movie output
+is about 21.3 MB; native rig and measured-reference files remain separate.
+
+A small RMS label had mojibake after an implicit Windows text encoding round trip. Corrected the source and native text strip, then used a Blender-only VSE proof composition to replace that label over the rendered picture, using the original master audio. The delivered .blend still contains the original editable words and keyframes; it does not depend on the proof movie. Use explicit UTF-8 for source/HTML edits.
+
+
+## Monsters Loose lightweight listening notes — 2026-09-13
+
+The user rejected the previous register's complexity and accumulating note stack.
+Implemented a separate authored-note document beside the Blender timing data,
+with point/range anchors, four optional note kinds and open/addressed states.
+Addressed notes disappear by default but remain recoverable/reopenable, with
+optional resolution text. No scenes or shots were automatically authored.
+The broader production brief is in monsters-loose-production-direction.md.
+
+Real-song UI validation ran in jobs/monsters-notes-ui-check, not the production
+queue. Saved a 9.12–14.64 s range note, addressed it, reloaded, showed addressed,
+verified text/range/resolution retention, and reopened it. Anchored zoom and
+pointer dragging (72.9–96.5 s selection) were checked visually. Selecting a note
+originally left the phrase dropdown stale; seeking now synchronizes it so Play
+phrase auditions the correct phrase. The tool launched from the Video workbench.
+
+Server checks rejected a stale revision with 409, invalid time/removal requests
+with 400 and a foreign origin with 403, leaving the saved document unchanged.
+Prior revisions exist on disk. Doctor passes. Production notes remain empty;
+only the user's broader brief was recorded, separately from timed notes.
+
+
+## Direct listening-note dictation — 2026-09-13
+
+Added MediaRecorder microphone capture and local Whisper large-v3-turbo to the
+existing notes tool. Reuses cached weights and vevo2; no new packages or cloud
+service. Record pauses the song, holds the note anchor and locks note switching.
+Stop appends the transcript to the draft, which still needs Save note. Cancel,
+retry, three-minute/25 MB limits and temporary-file cleanup are implemented.
+
+A 4.794 second System.Speech test recording of "At this point, cut to a wide
+shot of the monster behind the fence." was transcribed exactly by the worker
+and again through the handler called locally. Worker execution took roughly
+7 seconds including Python/model startup on this machine. A silence recording
+returned 422; the serialization lock was released and the temporary directory
+was empty after both paths. No live microphone was activated. UI verified the
+Record dictation control and an intact notes surface; live microphone capture
+and permission acceptance await the user's first use.
+# Asset catalog and zookeeper reference — 2026-09-13
+
+Generated a single CHAR-001/v001 character reference from the user's original
+MonstersLoose.png, using the built-in image generator. Stored the 1024×1536
+image, original source, hashes and exact prompt in the Monsters Loose job's
+assets directory. Identity/costume and graphic-novel ink treatment were visually
+checked. The completed trousers/boots are candidate extensions of the cropped
+source. The real candidate remains awaiting user approval.
+
+Linked catalog and narrative notes with stable asset/version IDs and SCN-001
+through SCN-015 scene IDs. A UI link to SCN-006 selected the visitors' tour and
+sought to 1:02.8. On a disposable catalog, saved revision feedback, reloaded it,
+and approved the selected version. Handler checks passed per-version isolation,
+history retention, 409 stale revision, 400 invalid state/version/source edits,
+and 403 foreign origin; invalid requests left the file unchanged. Production
+reviews were not modified by QA. Doctor and Python compilation passed. The
+catalog server also launched through Video / Listen and mark creative notes
+in the workbench. Dictation uses the existing tested Whisper endpoint; no live
+microphone was activated during this UI check.

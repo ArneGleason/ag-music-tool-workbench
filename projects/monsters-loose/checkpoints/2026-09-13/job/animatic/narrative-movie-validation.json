@@ -1,0 +1,16 @@
+{
+  "video": "MonstersLoose-narrative-animatic-v02.mp4",
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "frames": 5290,
+  "video_duration": 220.416667,
+  "audio_duration": 220.437,
+  "bytes": 25609834,
+  "full_decode": "passed",
+  "native_timing_comparison": "360 word strips and master audio unchanged",
+  "scene_count": 15,
+  "caption_count": 28,
+  "browser_check": "Movie loaded; scene 10 seeking matched narrative caption at 134.251 seconds; all 40 existing notes loaded",
+  "notes_modified": false
+}

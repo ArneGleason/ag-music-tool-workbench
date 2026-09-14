@@ -1,0 +1,176 @@
+Source: https://docs.google.com/document/d/1qY_kvt5ykP-dRfeW8F32nODp9pwMCTr7itkDVvTKoKk/edit?usp=drivesdk
+Retrieved: 2026-09-13
+
+﻿Monsters Loose Lyric worksheet
+Starting Stream of consciousness lyric sections (in the order written)
+
+[ Section 1 ]
+Got the hang of every face.
+You made.
+Have the knot before it’z time to tie.
+Unpronounced announcement that you’ve come undone.
+Undone.
+…
+Undone until we set the monsters loose, oh my.
+[ Section 2 ]
+What kind of monster would you like to make, now?
+That last one set the town of fire.
+Now make one that is twice as mean.
+And fifty feet or maybe higher.
+Or how ‘bout double that?
+Too high?
+Too high!, oh my,
+[ section 3 ]
+Got a zoo here to keep the monsters in.
+So we can see them stomping round.
+Watch them try to eat the keeper whole.
+Zoo keeper, keeps, them all from breaking out.
+One almost just, just now, got out.
+[ Section 4 ]
+Your eye roll tells me what?
+What your face can’t say.
+You can’t believe…
+“They even call that place a zoo?”
+You’re right, just right now, but you know I don’t mind.
+Spend time watching monsters crash around.
+[ Section 5 ]
+Five, four.
+Three more to go.
+Now only two.
+The final fight between.
+The meanest ones.
+I’ll bet you.
+One has that kick.
+That kick that knock you down.
+And down.
+[ Section 6 ]
+They can shrink down to fit in any scene.
+Just as mean.
+Grow up to be 10 times or more.
+Change to smoke and drift though anything.
+Through the keyhole in the steel door.
+No way!
+Yes way
+[ Section 7 ]
+Choose your favorite monster beast.
+Suit the way you wanna be, be, be,.
+Another planet or in space out space.
+Other worldly looking monster beast.
+Hunting ed, Head hunting ted.
+Hide and seeks the game that monsters play.
+And play,
+And play.
+And play,
+And play.
+
+
+
+
+ .
+GTP-6 arrangement and section direction
+[ Threshold / Intro - 4 bars; 96 BPM, 4/4; close dry voice, low pulse, leave air ]
+Undone.
+…
+Undone until we set the monsters loose, oh my.
+
+
+[ The Familiar Face / Verse - 8 bars; restrained melody, clipped bass, drums enter gradually ]
+Got the hang of every face.
+You made.
+Have the knot before it’z time to tie.
+Unpronounced announcement that you’ve come undone.
+Undone.
+
+
+[ The Invitation / Chorus A - 8 bars; wide melodic lift, full drums, bright doubled vocal ]
+What kind of monster would you like to make, now?
+That last one set the town of fire.
+Now make one that is twice as mean.
+And fifty feet or maybe higher.
+Undone until we set the monsters loose, oh my.
+
+
+[ Behind the Glass / Verse - 8 bars; narrow the vocal, restless bass, keep the beat moving ]
+Got a zoo here to keep the monsters in.
+So we can see them stomping round.
+Watch them try to eat the keeper whole.
+Zoo keeper, keeps, them all from breaking out.
+One almost just, just now, got out.
+
+
+[ The Sideways Look / Turn - 4 bars; drop the kick, conversational delivery, suspend the chord ]
+Your eye roll tells me what?
+What your face can’t say.
+You can’t believe…
+“They even call that place a zoo?”
+
+
+[ The Fitting Room / Chorus B - 8 bars; new rising melody, open chords, answering backing voices ]
+Choose your favorite monster beast.
+Suit the way you wanna be, be, be,.
+Hunting ed, Head hunting ted.
+Hide and seeks the game that monsters play.
+And play,
+And play.
+
+
+[ The Wager / Breakdown - 8 bars; half-time drums, dry counting, bass strikes on each kick ]
+Five, four.
+Three more to go.
+Now only two.
+The final fight between.
+The meanest ones.
+I’ll bet you.
+One has that kick.
+That kick that knock you down.
+And down.
+
+
+[ The Invitation Returns / Chorus A - 8 bars; same hook, heavier drums, backing voices crowd the lead ]
+What kind of monster would you like to make, now?
+That last one set the town of fire.
+Now make one that is twice as mean.
+And fifty feet or maybe higher.
+Undone until we set the monsters loose, oh my.
+
+
+[ Through the Lock / Bridge - 8 bars; drums fall away, whispered doubles drift across a low pulse ]
+They can shrink down to fit in any scene.
+Just as mean.
+Grow up to be 10 times or more.
+Change to smoke and drift though anything.
+Through the keyhole in the steel door.
+No way!
+Yes way
+
+
+[ The Familiar Face Returns / Reprise - 8 bars; intimate lead, stretch the phrases, slowly rebuild ]
+You’re right, just right now, but you know I don’t mind.
+Spend time watching monsters crash around.
+Got the hang of every face.
+You made.
+Undone.
+
+
+[ The Fitting Room Opens / Chorus B - 8 bars; full band, same rising hook, overlapping vocal echoes ]
+Choose your favorite monster beast.
+Suit the way you wanna be, be, be,.
+Hunting ed, Head hunting ted.
+Hide and seeks the game that monsters play.
+And play,
+And play.
+
+
+[ Still Playing / Coda - 4 bars; strip back to the opening pulse, unresolved chord, abrupt final cut ]
+And play,
+And play.
+Undone.
+Suno cover style prompt — Pass 1
+Follow the supplied instrumental’s groove, tempo, harmonic movement and distinctive phrasing; adapt these lyrics to its rhythmic shape. Recast the accompaniment as bass and dry drums only. Leave generous space around one upfront female lead: close-miked, dry, centered, minimal room sound. Loose, slack-jawed delivery with elastic vowels, sly conversational bite and crisp consonants. Move fluidly between pitched speech, syncopated rap and tuneful singing. Let long lines tumble across the beat; give short fragments sudden space. Wry, curious, casually unsettling, as if enjoying a story she may be inside. Chorus A: an inviting, memorable melodic lift. Chorus B: a different rising hook, playful with an uneasy edge. Keep the same singer throughout; vary intensity through phrasing. Single lead only, no doubles, harmonies, backing vocals or choir. No other instruments, pads, chords, FX washes or vocal reverb. Prioritize intelligible words, expressive timing and a clean, separable vocal.
+
+
+Use with the cover track. Before generating, remove the earlier lyric tags’ fixed 96 BPM and vocal doubling, backing-voice, harmony and echo directions so they agree with this sparse, single-lead pass. The cover’s tempo takes precedence over the earlier timing plan.
+
+
+Suno cover style prompt — Pass 2: Late-’70s surf punk
+Late-’70s surf punk: scrappy beach-club energy, wiry attitude, clipped attacks and a ragged danceable bounce. Follow the supplied cover’s tempo, groove and musical shape. Bass and dry drums only; evoke surf punk through playing and vocals. Alternate female and male leads, handing off at section boundaries. Female: slack-jawed vowels, sharp consonants, sly melodic talk-singing that slips into rhythmic rap. Male: bratty nasal snarl, clipped rhythmic speech and rough melodic hooks. On male-led sections only, female backing voices answer in the gaps with short lyric echoes and punchy shouts; keep his words clear. Female-led sections stay solo. Give Chorus A an inviting melodic lift and Chorus B a different rising hook with an uneasy edge. Playful menace, loose swagger, sudden stops. Close, upfront vocals, minimal room sound. No guitars, keyboards, pads or FX washes; no long reverb. Let the cover guide phrasing; leave air between lines.

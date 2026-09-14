@@ -1,0 +1,8 @@
+{
+  "images": 32,
+  "unique_assets": 31,
+  "frames": 5290,
+  "fps": 24,
+  "audio_identical_to_narrative_v02": true,
+  "coverage": "continuous, no gaps or overlaps, including final frame"
+}

@@ -1,0 +1,372 @@
+{
+  "title": "Monsters Loose — timed narrative v02",
+  "source_revision": 46,
+  "source_note_ids": [
+    "427a4636-4ba8-4901-a237-170e561f15bf",
+    "202bd1e3-2157-4605-b690-1d129d31df70",
+    "216d3e62-50b3-43c6-972d-5868a9c9a2a7",
+    "26f1ba16-86cb-48d1-92ec-6ebf98d969ce",
+    "f1a47d0f-77e3-47e5-ad97-77a580b86f30",
+    "64963b3d-ad99-4649-af87-84f1c88cd632",
+    "0d617d26-27ab-4d67-93cb-059f318988a0",
+    "e3d53cde-0d90-48e6-a994-bdc6213bcd8c",
+    "2ba49b7e-29c1-4f7e-a527-fe514899e5d9",
+    "90869975-993a-4e91-b128-ef19808d4978",
+    "d1d974af-c52d-4f95-9519-5294250df4bd",
+    "d1d539a5-e6d8-4c90-9db2-0e26416425d9",
+    "008bcb24-b4f4-4d2c-a81e-ed7ea0d2f85d",
+    "3e9a2b3d-065d-44f8-9f6a-202449251e57",
+    "9a43e807-d663-4f51-b446-3260081268e7",
+    "ef4d1e0c-76a5-45f1-af99-954369a43053",
+    "6d2711c1-72cc-4df3-9893-77fc605c73c2",
+    "6acb6116-5400-4c2d-b1cc-845e8e39ec9c",
+    "6b16c846-8a28-4e82-a57a-d3f59b80ee2d",
+    "a619dc6b-5830-4f60-864e-c766dde49d8a",
+    "d9a2b5fe-1c1b-4a9f-950e-771e496ab161",
+    "906ca008-ff78-402d-a879-ea3d005202d0",
+    "5ecbc94c-43bd-4348-81ad-0fa0dd6f764f",
+    "122da140-46bb-466d-b6d1-cdb1f526a9d7",
+    "d1f4ef98-38f3-43e3-9f92-0bccccc63b8a",
+    "40759216-b52b-4175-8632-5c635cfc574e",
+    "3b3407f7-0e50-4b4b-9da9-ed147f9f19a9",
+    "7940b814-3fd0-4d09-9281-f11b5dae9fd3",
+    "98f174ae-3db6-4f59-8383-e3538ff97c5c",
+    "1c341bab-de36-467e-ad1f-a1c7c4728a37",
+    "62e47808-a511-405b-9fbf-b7f646895c3c",
+    "10b043ce-35f0-419a-ad85-32e6a98fad84",
+    "8b1701e5-1f62-4f7d-a5a0-5bad030e67c2",
+    "4fef8bac-1520-4d1e-812d-dcbf8ef2b932",
+    "0abb84e5-85b6-4aaa-989e-8947bc136995",
+    "98c235b5-cfb6-4bc0-b992-5c93bf22d50b",
+    "102dd349-0ac1-4a24-b6dc-3017c2c1d9af",
+    "9e92189c-54f0-4a83-ade4-147b5d63ca63",
+    "72f91226-1f6c-4bec-945b-75b9a053d253",
+    "291ffd91-29ed-4982-a3ea-2de86a31ffea"
+  ],
+  "fps": 24,
+  "frames": 5290,
+  "duration": 220.387,
+  "note": "Broad editorial scene groupings, not a shot list. Anchors remain approximate. Original notes are not marked addressed. Lyric corrections remain pending in this pass.",
+  "scenes": [
+    {
+      "scene": "01 / A STRANGE PLACE",
+      "start": 0,
+      "end": 8.6,
+      "color": [
+        0.045,
+        0.105,
+        0.095
+      ],
+      "cards": [
+        {
+          "start": 0,
+          "end": 8.6,
+          "text": "An obscure creature detail foreshadows what is coming.\nThe swamp surrounds a secret monster zoo and laboratory."
+        }
+      ]
+    },
+    {
+      "scene": "02 / THE KEEPER ON DUTY",
+      "start": 8.6,
+      "end": 20.96,
+      "color": [
+        0.045,
+        0.105,
+        0.15
+      ],
+      "cards": [
+        {
+          "start": 8.6,
+          "end": 12.13,
+          "text": "Meet our keeper and singer: capable, alert, expecting trouble.\nThe creatures remain mostly hidden."
+        },
+        {
+          "start": 12.13,
+          "end": 20.96,
+          "text": "A breached enclosure hints that something has slipped out.\nThe keeper hears trouble before we see its source."
+        }
+      ]
+    },
+    {
+      "scene": "03 / A PLACE BUILT FOR MONSTERS",
+      "start": 20.96,
+      "end": 42.98,
+      "color": [
+        0.115,
+        0.105,
+        0.045
+      ],
+      "cards": [
+        {
+          "start": 20.96,
+          "end": 26.07,
+          "text": "Illustrated creature faces hint at the hybrids made here.\nThe keeper plays with expressions; the real monsters stay hidden."
+        },
+        {
+          "start": 26.07,
+          "end": 36.38,
+          "text": "Her equipment hints at a special restraining lasso.\nA garbled PA announcement warns that something is wrong."
+        },
+        {
+          "start": 36.38,
+          "end": 42.98,
+          "text": "Explore the zoo's different habitats and small enclosures.\nBuilding cage-rattles suggest something much larger inside."
+        }
+      ]
+    },
+    {
+      "scene": "04 / DANGEROUS AMBITION",
+      "start": 42.98,
+      "end": 54.32,
+      "color": [
+        0.125,
+        0.055,
+        0.1
+      ],
+      "cards": [
+        {
+          "start": 42.98,
+          "end": 48.37,
+          "text": "Meet the laboratory team and its reckless scientist.\nA town left burning recalls what their last creation could do."
+        },
+        {
+          "start": 48.37,
+          "end": 54.32,
+          "text": "The scientist proposes something even bigger and meaner.\nThe keeper looks upward: its full scale stays out of view."
+        }
+      ]
+    },
+    {
+      "scene": "05 / TROUBLE BREWING",
+      "start": 54.32,
+      "end": 62.77,
+      "color": [
+        0.075,
+        0.09,
+        0.14
+      ],
+      "cards": [
+        {
+          "start": 54.32,
+          "end": 62.77,
+          "text": "Return to the zoo as the threat of escape builds.\nOPEN: use this breathing space to establish what comes next."
+        }
+      ]
+    },
+    {
+      "scene": "06 / THE VISITORS' TOUR",
+      "start": 62.77,
+      "end": 84.8,
+      "color": [
+        0.11,
+        0.085,
+        0.04
+      ],
+      "cards": [
+        {
+          "start": 62.77,
+          "end": 71.14,
+          "text": "The keeper welcomes visitors to this strangely cheerful zoo.\nHer account begins to reveal how dangerous its residents are."
+        },
+        {
+          "start": 71.14,
+          "end": 78.48,
+          "text": "Now demonstrate her lasso skills: she keeps the monsters in.\nShe enjoys giving the visitors a playful scare."
+        },
+        {
+          "start": 78.48,
+          "end": 84.8,
+          "text": "A skeptical child sees through the keeper's teasing.\nReal danger nearby makes that confidence funny and uneasy."
+        }
+      ]
+    },
+    {
+      "scene": "07 / CHOOSE YOUR CREATURE",
+      "start": 84.8,
+      "end": 102.55,
+      "color": [
+        0.04,
+        0.115,
+        0.1
+      ],
+      "cards": [
+        {
+          "start": 84.8,
+          "end": 90.37,
+          "text": "Reveal the variety: jungle, desert, lake, ice and alien habitats.\nSave the creatures of the surrounding swamp for later."
+        },
+        {
+          "start": 90.37,
+          "end": 102.55,
+          "text": "Imagine the monsters in the wild, where they were captured.\nTheir version of hide-and-seek is really hunting."
+        }
+      ]
+    },
+    {
+      "scene": "08 / THE MONSTER SHOWDOWN",
+      "start": 102.55,
+      "end": 121.04,
+      "color": [
+        0.16,
+        0.055,
+        0.04
+      ],
+      "cards": [
+        {
+          "start": 102.55,
+          "end": 109.52,
+          "text": "A countdown gathers monsters into a showdown.\nVisitors root for favorites; the contest soon narrows to two."
+        },
+        {
+          "start": 109.52,
+          "end": 113.6,
+          "text": "Two final rivals face off while spectators back their choices.\nOPEN: a natural clash or something staged at the zoo?"
+        },
+        {
+          "start": 113.6,
+          "end": 121.04,
+          "text": "An impossible monster-movie kick sends a rival over mountains.\nBattered but resilient, it prepares to return to the fight."
+        }
+      ]
+    },
+    {
+      "scene": "09 / WHAT SHALL WE MAKE NEXT?",
+      "start": 121.04,
+      "end": 134.23,
+      "color": [
+        0.125,
+        0.055,
+        0.1
+      ],
+      "cards": [
+        {
+          "start": 121.04,
+          "end": 134.23,
+          "text": "The scientists regroup to imagine their next creation.\nPerhaps the visitors join this dangerously enthusiastic discussion."
+        }
+      ]
+    },
+    {
+      "scene": "10 / THE SCIENTIST'S SECRET",
+      "start": 134.23,
+      "end": 140.74,
+      "color": [
+        0.155,
+        0.045,
+        0.055
+      ],
+      "cards": [
+        {
+          "start": 134.23,
+          "end": 140.74,
+          "text": "Reveal the scientist's plan: unlock the zoo and let them loose.\nThis circles back to the warnings we heard at the beginning."
+        }
+      ]
+    },
+    {
+      "scene": "11 / CONTAINMENT FAILS",
+      "start": 140.74,
+      "end": 157.23,
+      "color": [
+        0.135,
+        0.07,
+        0.035
+      ],
+      "cards": [
+        {
+          "start": 140.74,
+          "end": 146.41,
+          "text": "A huge creature shrinks small enough to escape.\nAbilities once contained now become ways out."
+        },
+        {
+          "start": 146.41,
+          "end": 151.7,
+          "text": "A small, insect-like creature grows to enormous size.\nIts enclosure cannot hold it."
+        },
+        {
+          "start": 151.7,
+          "end": 157.23,
+          "text": "Another creature becomes smoke and slips through a keyhole.\nAn apparently impenetrable door is no defense."
+        }
+      ]
+    },
+    {
+      "scene": "12 / NO WAY. YES WAY.",
+      "start": 157.23,
+      "end": 171.87,
+      "color": [
+        0.11,
+        0.085,
+        0.04
+      ],
+      "cards": [
+        {
+          "start": 157.23,
+          "end": 161.74,
+          "text": "The child refuses to believe it; the keeper insists it is true.\nIs she exaggerating, or should you always trust the tour guide?"
+        },
+        {
+          "start": 161.74,
+          "end": 171.87,
+          "text": "Widen the story to the escape unfolding around them.\nSome people seem to enjoy it as a show rather than a disaster."
+        }
+      ]
+    },
+    {
+      "scene": "13 / FAMILIAR FACES, NOW REAL",
+      "start": 171.87,
+      "end": 176.7,
+      "color": [
+        0.115,
+        0.105,
+        0.045
+      ],
+      "cards": [
+        {
+          "start": 171.87,
+          "end": 176.7,
+          "text": "Return to the faces introduced on the illustrated zoo sign.\nNow the audience meets the actual creatures."
+        }
+      ]
+    },
+    {
+      "scene": "14 / BEYOND THE FENCE",
+      "start": 176.7,
+      "end": 206.27,
+      "color": [
+        0.045,
+        0.105,
+        0.095
+      ],
+      "cards": [
+        {
+          "start": 176.7,
+          "end": 183.88,
+          "text": "Return to the swamp outside the zoo: creatures live here too.\nPOSSIBILITY: they and the scientist share a secret escape plan."
+        },
+        {
+          "start": 183.88,
+          "end": 206.27,
+          "text": "Revisit our favorite monsters as they finally break free.\nEven the keeper's lasso skills cannot hold them all."
+        }
+      ]
+    },
+    {
+      "scene": "15 / LOOSE AT LAST",
+      "start": 206.27,
+      "end": 220.387,
+      "color": [
+        0.065,
+        0.115,
+        0.13
+      ],
+      "cards": [
+        {
+          "start": 206.27,
+          "end": 220.387,
+          "text": "Collected and created monsters are free to be themselves.\nThe ending relaxes into natural behavior, rather than a rampage."
+        }
+      ]
+    }
+  ]
+}

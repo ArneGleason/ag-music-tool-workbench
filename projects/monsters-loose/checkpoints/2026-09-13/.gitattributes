@@ -1,0 +1,4 @@
+# Preserve exact source bytes so manifest hashes survive Git checkout on any OS.
+** -text
+# Historical text is snapshotted faithfully, including original whitespace.
+** whitespace=-blank-at-eol,-blank-at-eof

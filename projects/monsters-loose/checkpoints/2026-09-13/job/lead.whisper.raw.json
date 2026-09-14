@@ -1,0 +1,3355 @@
+{
+  "text": " Undone Undone until we set the monster loose, oh my Got the hand of every face you made Had the knot before it's time to tie Unpronounced announcement that you've come undone Undone, undone, undone, undone What kind of monster would you like to make now that I once set the town on fire? Now make one that is twice as mean and fifty feet or maybe higher Undone until we set the monster loose, oh my Got a zoo here to keep the monsters in so we can see them stomping around much in Try to eat the keeper hole Zookeeper keeps them all from breaking out One, one, almost Just, just now Got out your eye roll Tells me what what your face can't say You can't believe they even call that place a zoo Choose your favorite monster beast Suit the way you wanna be Hunting Ed, headhunting Ted Hide and seek's the game that monsters play And play And play And play, baby Five, four, three more to go Now only two The final fight between the meanest ones I'll bet you One has that kick, that kick That knock you down Down, down, down, down What kind of monster would you like to make now? That last one set the down of fire Now night one that is wise is mean And fifty feet or maybe higher Until we set the monsters loose Oh my They can shrink down to fit in anything just as mean Grow up to be ten times or more Take the smoke and drift, throw anything Through the deep hole in the steel door No, I'll wait, yes, wait You're right, just right now Let you know I don't mind Spend time watching monsters crash around That I ain't already You may Choose your favorite monster Be your suit the way you wanna be Be, be, huntin' dead It hurt, huntin' dead Hide and seek the game That monsters play I'm playing I'm by, I'm by",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 0.0,
+      "end": 1.26,
+      "text": " Undone",
+      "tokens": [
+        50365,
+        2719,
+        546,
+        50465
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.7765602312589946,
+      "compression_ratio": 0.9444444444444444,
+      "no_speech_prob": 3.1321913812609736e-11,
+      "words": [
+        {
+          "word": " Undone",
+          "start": 0.0,
+          "end": 1.26,
+          "probability": 0.6556902229785919
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 8.22,
+      "end": 14.16,
+      "text": " Undone until we set the monster loose, oh my",
+      "tokens": [
+        50790,
+        2719,
+        546,
+        1826,
+        321,
+        992,
+        264,
+        10090,
+        9612,
+        11,
+        1954,
+        452,
+        51115
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.7765602312589946,
+      "compression_ratio": 0.9444444444444444,
+      "no_speech_prob": 3.1321913812609736e-11,
+      "words": [
+        {
+          "word": " Undone",
+          "start": 8.22,
+          "end": 9.3,
+          "probability": 0.7218822538852692
+        },
+        {
+          "word": " until",
+          "start": 9.3,
+          "end": 9.72,
+          "probability": 0.5444045662879944
+        },
+        {
+          "word": " we",
+          "start": 9.72,
+          "end": 10.06,
+          "probability": 0.9817026853561401
+        },
+        {
+          "word": " set",
+          "start": 10.06,
+          "end": 10.42,
+          "probability": 0.6552125811576843
+        },
+        {
+          "word": " the",
+          "start": 10.42,
+          "end": 10.88,
+          "probability": 0.9552252888679504
+        },
+        {
+          "word": " monster",
+          "start": 10.88,
+          "end": 11.24,
+          "probability": 0.5450465083122253
+        },
+        {
+          "word": " loose,",
+          "start": 11.24,
+          "end": 11.86,
+          "probability": 0.22617699205875397
+        },
+        {
+          "word": " oh",
+          "start": 11.86,
+          "end": 13.54,
+          "probability": 0.9667564034461975
+        },
+        {
+          "word": " my",
+          "start": 13.54,
+          "end": 14.16,
+          "probability": 0.9378484487533569
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "seek": 1416,
+      "start": 20.46,
+      "end": 24.9,
+      "text": " Got the hand of every face you made",
+      "tokens": [
+        50365,
+        5803,
+        264,
+        1011,
+        295,
+        633,
+        1851,
+        291,
+        1027,
+        50904
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.31377457599250635,
+      "compression_ratio": 1.4036697247706422,
+      "no_speech_prob": 6.543480340903685e-11,
+      "words": [
+        {
+          "word": " Got",
+          "start": 20.46,
+          "end": 21.58,
+          "probability": 0.21288315951824188
+        },
+        {
+          "word": " the",
+          "start": 21.58,
+          "end": 21.78,
+          "probability": 0.9754199981689453
+        },
+        {
+          "word": " hand",
+          "start": 21.78,
+          "end": 22.16,
+          "probability": 0.8248443007469177
+        },
+        {
+          "word": " of",
+          "start": 22.16,
+          "end": 22.5,
+          "probability": 0.9476452469825745
+        },
+        {
+          "word": " every",
+          "start": 22.5,
+          "end": 22.82,
+          "probability": 0.9942303895950317
+        },
+        {
+          "word": " face",
+          "start": 22.82,
+          "end": 23.72,
+          "probability": 0.9449280500411987
+        },
+        {
+          "word": " you",
+          "start": 23.72,
+          "end": 23.88,
+          "probability": 0.9829502105712891
+        },
+        {
+          "word": " made",
+          "start": 23.88,
+          "end": 24.9,
+          "probability": 0.9302723407745361
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "seek": 1416,
+      "start": 24.9,
+      "end": 30.1,
+      "text": " Had the knot before it's time to tie",
+      "tokens": [
+        50904,
+        12298,
+        264,
+        16966,
+        949,
+        309,
+        311,
+        565,
+        281,
+        7582,
+        51166
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.31377457599250635,
+      "compression_ratio": 1.4036697247706422,
+      "no_speech_prob": 6.543480340903685e-11,
+      "words": [
+        {
+          "word": " Had",
+          "start": 24.9,
+          "end": 26.8,
+          "probability": 0.7551788091659546
+        },
+        {
+          "word": " the",
+          "start": 26.8,
+          "end": 26.94,
+          "probability": 0.8294150829315186
+        },
+        {
+          "word": " knot",
+          "start": 26.94,
+          "end": 27.18,
+          "probability": 0.8325212597846985
+        },
+        {
+          "word": " before",
+          "start": 27.18,
+          "end": 27.76,
+          "probability": 0.9987333416938782
+        },
+        {
+          "word": " it's",
+          "start": 27.76,
+          "end": 28.2,
+          "probability": 0.9274448454380035
+        },
+        {
+          "word": " time",
+          "start": 28.2,
+          "end": 28.74,
+          "probability": 0.994962215423584
+        },
+        {
+          "word": " to",
+          "start": 28.74,
+          "end": 29.22,
+          "probability": 0.991692066192627
+        },
+        {
+          "word": " tie",
+          "start": 29.22,
+          "end": 30.1,
+          "probability": 0.7844101786613464
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "seek": 1416,
+      "start": 31.260000000000005,
+      "end": 35.3,
+      "text": " Unpronounced announcement that you've come undone",
+      "tokens": [
+        51166,
+        1156,
+        1424,
+        266,
+        37879,
+        12847,
+        300,
+        291,
+        600,
+        808,
+        674,
+        546,
+        51427
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.31377457599250635,
+      "compression_ratio": 1.4036697247706422,
+      "no_speech_prob": 6.543480340903685e-11,
+      "words": [
+        {
+          "word": " Unpronounced",
+          "start": 31.260000000000005,
+          "end": 32.38,
+          "probability": 0.9815972149372101
+        },
+        {
+          "word": " announcement",
+          "start": 32.38,
+          "end": 33.1,
+          "probability": 0.9340384602546692
+        },
+        {
+          "word": " that",
+          "start": 33.1,
+          "end": 33.46,
+          "probability": 0.9705782532691956
+        },
+        {
+          "word": " you've",
+          "start": 33.46,
+          "end": 34.04,
+          "probability": 0.9954648613929749
+        },
+        {
+          "word": " come",
+          "start": 34.04,
+          "end": 34.28,
+          "probability": 0.9656118154525757
+        },
+        {
+          "word": " undone",
+          "start": 34.28,
+          "end": 35.3,
+          "probability": 0.9941045045852661
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "seek": 1416,
+      "start": 35.3,
+      "end": 40.12,
+      "text": " Undone, undone, undone, undone",
+      "tokens": [
+        51427,
+        2719,
+        546,
+        11,
+        674,
+        546,
+        11,
+        674,
+        546,
+        11,
+        674,
+        546,
+        51663
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.31377457599250635,
+      "compression_ratio": 1.4036697247706422,
+      "no_speech_prob": 6.543480340903685e-11,
+      "words": [
+        {
+          "word": " Undone,",
+          "start": 35.3,
+          "end": 37.46,
+          "probability": 0.9024576842784882
+        },
+        {
+          "word": " undone,",
+          "start": 37.64,
+          "end": 38.24,
+          "probability": 0.977114200592041
+        },
+        {
+          "word": " undone,",
+          "start": 38.34,
+          "end": 39.0,
+          "probability": 0.9913661777973175
+        },
+        {
+          "word": " undone",
+          "start": 39.0,
+          "end": 40.12,
+          "probability": 0.9818751215934753
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "seek": 4012,
+      "start": 42.26,
+      "end": 47.76,
+      "text": " What kind of monster would you like to make now that I once set the town on fire?",
+      "tokens": [
+        50365,
+        708,
+        733,
+        295,
+        10090,
+        576,
+        291,
+        411,
+        281,
+        652,
+        586,
+        300,
+        286,
+        1564,
+        992,
+        264,
+        3954,
+        322,
+        2610,
+        30,
+        50749
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.25403780479953714,
+      "compression_ratio": 1.5307262569832403,
+      "no_speech_prob": 3.678013102415001e-11,
+      "words": [
+        {
+          "word": " What",
+          "start": 42.26,
+          "end": 42.9,
+          "probability": 0.6331271529197693
+        },
+        {
+          "word": " kind",
+          "start": 42.9,
+          "end": 43.42,
+          "probability": 0.9556620121002197
+        },
+        {
+          "word": " of",
+          "start": 43.42,
+          "end": 43.68,
+          "probability": 0.9873918890953064
+        },
+        {
+          "word": " monster",
+          "start": 43.68,
+          "end": 43.94,
+          "probability": 0.986924409866333
+        },
+        {
+          "word": " would",
+          "start": 43.94,
+          "end": 44.18,
+          "probability": 0.9725082516670227
+        },
+        {
+          "word": " you",
+          "start": 44.18,
+          "end": 44.32,
+          "probability": 0.9937578439712524
+        },
+        {
+          "word": " like",
+          "start": 44.32,
+          "end": 44.64,
+          "probability": 0.9987320303916931
+        },
+        {
+          "word": " to",
+          "start": 44.64,
+          "end": 44.82,
+          "probability": 0.9957348704338074
+        },
+        {
+          "word": " make",
+          "start": 44.82,
+          "end": 45.1,
+          "probability": 0.9983382225036621
+        },
+        {
+          "word": " now",
+          "start": 45.1,
+          "end": 45.4,
+          "probability": 0.8594332337379456
+        },
+        {
+          "word": " that",
+          "start": 45.4,
+          "end": 45.7,
+          "probability": 0.6863430142402649
+        },
+        {
+          "word": " I",
+          "start": 45.7,
+          "end": 45.94,
+          "probability": 0.5389899015426636
+        },
+        {
+          "word": " once",
+          "start": 45.94,
+          "end": 46.08,
+          "probability": 0.6365587115287781
+        },
+        {
+          "word": " set",
+          "start": 46.08,
+          "end": 46.54,
+          "probability": 0.7540128231048584
+        },
+        {
+          "word": " the",
+          "start": 46.54,
+          "end": 46.9,
+          "probability": 0.987666130065918
+        },
+        {
+          "word": " town",
+          "start": 46.9,
+          "end": 47.26,
+          "probability": 0.9612960815429688
+        },
+        {
+          "word": " on",
+          "start": 47.26,
+          "end": 47.46,
+          "probability": 0.3136982321739197
+        },
+        {
+          "word": " fire?",
+          "start": 47.46,
+          "end": 47.76,
+          "probability": 0.998917818069458
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "seek": 4012,
+      "start": 47.78,
+      "end": 53.0,
+      "text": " Now make one that is twice as mean and fifty feet or maybe higher",
+      "tokens": [
+        50755,
+        823,
+        652,
+        472,
+        300,
+        307,
+        6091,
+        382,
+        914,
+        293,
+        13442,
+        3521,
+        420,
+        1310,
+        2946,
+        51012
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.25403780479953714,
+      "compression_ratio": 1.5307262569832403,
+      "no_speech_prob": 3.678013102415001e-11,
+      "words": [
+        {
+          "word": " Now",
+          "start": 47.78,
+          "end": 48.1,
+          "probability": 0.7609065175056458
+        },
+        {
+          "word": " make",
+          "start": 48.1,
+          "end": 48.66,
+          "probability": 0.9644725322723389
+        },
+        {
+          "word": " one",
+          "start": 48.66,
+          "end": 49.12,
+          "probability": 0.9990812540054321
+        },
+        {
+          "word": " that",
+          "start": 49.12,
+          "end": 49.4,
+          "probability": 0.9974029660224915
+        },
+        {
+          "word": " is",
+          "start": 49.4,
+          "end": 49.52,
+          "probability": 0.9685273170471191
+        },
+        {
+          "word": " twice",
+          "start": 49.52,
+          "end": 49.82,
+          "probability": 0.9080301523208618
+        },
+        {
+          "word": " as",
+          "start": 49.82,
+          "end": 50.06,
+          "probability": 0.9565325975418091
+        },
+        {
+          "word": " mean",
+          "start": 50.06,
+          "end": 50.4,
+          "probability": 0.9924813508987427
+        },
+        {
+          "word": " and",
+          "start": 50.4,
+          "end": 50.74,
+          "probability": 0.8950213193893433
+        },
+        {
+          "word": " fifty",
+          "start": 50.74,
+          "end": 51.18,
+          "probability": 0.760625958442688
+        },
+        {
+          "word": " feet",
+          "start": 51.18,
+          "end": 51.68,
+          "probability": 0.9932749271392822
+        },
+        {
+          "word": " or",
+          "start": 51.68,
+          "end": 52.04,
+          "probability": 0.9429891705513
+        },
+        {
+          "word": " maybe",
+          "start": 52.04,
+          "end": 52.48,
+          "probability": 0.9972606897354126
+        },
+        {
+          "word": " higher",
+          "start": 52.48,
+          "end": 53.0,
+          "probability": 0.9136937856674194
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "seek": 4012,
+      "start": 54.839999999999996,
+      "end": 60.6,
+      "text": " Undone until we set the monster loose, oh my",
+      "tokens": [
+        51012,
+        2719,
+        546,
+        1826,
+        321,
+        992,
+        264,
+        10090,
+        9612,
+        11,
+        1954,
+        452,
+        51412
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.25403780479953714,
+      "compression_ratio": 1.5307262569832403,
+      "no_speech_prob": 3.678013102415001e-11,
+      "words": [
+        {
+          "word": " Undone",
+          "start": 54.839999999999996,
+          "end": 55.48,
+          "probability": 0.7975960969924927
+        },
+        {
+          "word": " until",
+          "start": 55.48,
+          "end": 56.12,
+          "probability": 0.8376160264015198
+        },
+        {
+          "word": " we",
+          "start": 56.12,
+          "end": 56.48,
+          "probability": 0.9964744448661804
+        },
+        {
+          "word": " set",
+          "start": 56.48,
+          "end": 56.86,
+          "probability": 0.9512434601783752
+        },
+        {
+          "word": " the",
+          "start": 56.86,
+          "end": 57.12,
+          "probability": 0.9945189356803894
+        },
+        {
+          "word": " monster",
+          "start": 57.12,
+          "end": 57.62,
+          "probability": 0.7081088423728943
+        },
+        {
+          "word": " loose,",
+          "start": 57.62,
+          "end": 58.52,
+          "probability": 0.9165838360786438
+        },
+        {
+          "word": " oh",
+          "start": 58.52,
+          "end": 60.08,
+          "probability": 0.9864656329154968
+        },
+        {
+          "word": " my",
+          "start": 60.08,
+          "end": 60.6,
+          "probability": 0.9788967967033386
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "seek": 4012,
+      "start": 62.12,
+      "end": 68.24,
+      "text": " Got a zoo here to keep the monsters in so we can see them stomping around much in",
+      "tokens": [
+        51412,
+        5803,
+        257,
+        25347,
+        510,
+        281,
+        1066,
+        264,
+        15785,
+        294,
+        370,
+        321,
+        393,
+        536,
+        552,
+        9036,
+        3381,
+        926,
+        709,
+        294,
+        51774
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.25403780479953714,
+      "compression_ratio": 1.5307262569832403,
+      "no_speech_prob": 3.678013102415001e-11,
+      "words": [
+        {
+          "word": " Got",
+          "start": 62.12,
+          "end": 62.76,
+          "probability": 0.7941140532493591
+        },
+        {
+          "word": " a",
+          "start": 62.76,
+          "end": 63.0,
+          "probability": 0.9934779405593872
+        },
+        {
+          "word": " zoo",
+          "start": 63.0,
+          "end": 63.14,
+          "probability": 0.9936119914054871
+        },
+        {
+          "word": " here",
+          "start": 63.14,
+          "end": 63.76,
+          "probability": 0.993842363357544
+        },
+        {
+          "word": " to",
+          "start": 63.76,
+          "end": 64.04,
+          "probability": 0.8629693388938904
+        },
+        {
+          "word": " keep",
+          "start": 64.04,
+          "end": 64.26,
+          "probability": 0.9980481863021851
+        },
+        {
+          "word": " the",
+          "start": 64.26,
+          "end": 64.42,
+          "probability": 0.9636211395263672
+        },
+        {
+          "word": " monsters",
+          "start": 64.42,
+          "end": 64.82,
+          "probability": 0.99265456199646
+        },
+        {
+          "word": " in",
+          "start": 64.82,
+          "end": 65.14,
+          "probability": 0.9948888421058655
+        },
+        {
+          "word": " so",
+          "start": 65.14,
+          "end": 65.34,
+          "probability": 0.8512365818023682
+        },
+        {
+          "word": " we",
+          "start": 65.34,
+          "end": 65.52,
+          "probability": 0.9973794221878052
+        },
+        {
+          "word": " can",
+          "start": 65.52,
+          "end": 65.68,
+          "probability": 0.9982026815414429
+        },
+        {
+          "word": " see",
+          "start": 65.68,
+          "end": 65.92,
+          "probability": 0.9978806972503662
+        },
+        {
+          "word": " them",
+          "start": 65.92,
+          "end": 66.24,
+          "probability": 0.9933547973632812
+        },
+        {
+          "word": " stomping",
+          "start": 66.24,
+          "end": 66.94,
+          "probability": 0.9351332783699036
+        },
+        {
+          "word": " around",
+          "start": 66.94,
+          "end": 67.38,
+          "probability": 0.6730461120605469
+        },
+        {
+          "word": " much",
+          "start": 67.38,
+          "end": 67.94,
+          "probability": 0.233498677611351
+        },
+        {
+          "word": " in",
+          "start": 67.94,
+          "end": 68.24,
+          "probability": 0.5884321331977844
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "seek": 6824,
+      "start": 68.24,
+      "end": 70.32,
+      "text": " Try to eat the keeper hole",
+      "tokens": [
+        50365,
+        6526,
+        281,
+        1862,
+        264,
+        38709,
+        5458,
+        50470
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Try",
+          "start": 68.24,
+          "end": 68.86,
+          "probability": 0.7153014540672302
+        },
+        {
+          "word": " to",
+          "start": 68.86,
+          "end": 69.26,
+          "probability": 0.9674506783485413
+        },
+        {
+          "word": " eat",
+          "start": 69.26,
+          "end": 69.46,
+          "probability": 0.9083894491195679
+        },
+        {
+          "word": " the",
+          "start": 69.46,
+          "end": 69.6,
+          "probability": 0.5910248160362244
+        },
+        {
+          "word": " keeper",
+          "start": 69.6,
+          "end": 70.0,
+          "probability": 0.7913053035736084
+        },
+        {
+          "word": " hole",
+          "start": 70.0,
+          "end": 70.32,
+          "probability": 0.20260217785835266
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "seek": 6824,
+      "start": 70.32,
+      "end": 73.64,
+      "text": " Zookeeper keeps them all from breaking out",
+      "tokens": [
+        50470,
+        34589,
+        23083,
+        5965,
+        552,
+        439,
+        490,
+        7697,
+        484,
+        50644
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Zookeeper",
+          "start": 70.32,
+          "end": 71.18,
+          "probability": 0.5535354316234589
+        },
+        {
+          "word": " keeps",
+          "start": 71.18,
+          "end": 71.68,
+          "probability": 0.9891117215156555
+        },
+        {
+          "word": " them",
+          "start": 71.68,
+          "end": 71.94,
+          "probability": 0.9720726609230042
+        },
+        {
+          "word": " all",
+          "start": 71.94,
+          "end": 72.4,
+          "probability": 0.986927330493927
+        },
+        {
+          "word": " from",
+          "start": 72.4,
+          "end": 72.74,
+          "probability": 0.8633953928947449
+        },
+        {
+          "word": " breaking",
+          "start": 72.74,
+          "end": 73.28,
+          "probability": 0.774151623249054
+        },
+        {
+          "word": " out",
+          "start": 73.28,
+          "end": 73.64,
+          "probability": 0.9443751573562622
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "seek": 6824,
+      "start": 73.64,
+      "end": 75.46,
+      "text": " One, one, almost",
+      "tokens": [
+        50644,
+        1485,
+        11,
+        472,
+        11,
+        1920,
+        50727
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " One,",
+          "start": 73.64,
+          "end": 74.1,
+          "probability": 0.6780872344970703
+        },
+        {
+          "word": " one,",
+          "start": 74.34,
+          "end": 74.62,
+          "probability": 0.9440091848373413
+        },
+        {
+          "word": " almost",
+          "start": 74.88,
+          "end": 75.46,
+          "probability": 0.9833906292915344
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "seek": 6824,
+      "start": 75.46,
+      "end": 77.46,
+      "text": " Just, just now",
+      "tokens": [
+        50727,
+        1449,
+        11,
+        445,
+        586,
+        50830
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Just,",
+          "start": 75.46,
+          "end": 76.16,
+          "probability": 0.5381829738616943
+        },
+        {
+          "word": " just",
+          "start": 76.54,
+          "end": 76.7,
+          "probability": 0.9991784691810608
+        },
+        {
+          "word": " now",
+          "start": 76.7,
+          "end": 77.46,
+          "probability": 0.9366356134414673
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "seek": 6824,
+      "start": 77.46,
+      "end": 79.3,
+      "text": " Got out your eye roll",
+      "tokens": [
+        50830,
+        5803,
+        484,
+        428,
+        3313,
+        3373,
+        50920
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Got",
+          "start": 77.46,
+          "end": 77.98,
+          "probability": 0.8710983395576477
+        },
+        {
+          "word": " out",
+          "start": 77.98,
+          "end": 78.34,
+          "probability": 0.9921669960021973
+        },
+        {
+          "word": " your",
+          "start": 78.34,
+          "end": 78.62,
+          "probability": 0.9434251189231873
+        },
+        {
+          "word": " eye",
+          "start": 78.62,
+          "end": 79.08,
+          "probability": 0.47631779313087463
+        },
+        {
+          "word": " roll",
+          "start": 79.08,
+          "end": 79.3,
+          "probability": 0.8157171010971069
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "seek": 6824,
+      "start": 79.3,
+      "end": 81.62,
+      "text": " Tells me what what your face can't say",
+      "tokens": [
+        50920,
+        5115,
+        82,
+        385,
+        437,
+        437,
+        428,
+        1851,
+        393,
+        380,
+        584,
+        51036
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Tells",
+          "start": 79.3,
+          "end": 79.74,
+          "probability": 0.90113765001297
+        },
+        {
+          "word": " me",
+          "start": 79.74,
+          "end": 79.9,
+          "probability": 0.9982299208641052
+        },
+        {
+          "word": " what",
+          "start": 79.9,
+          "end": 80.26,
+          "probability": 0.9860511422157288
+        },
+        {
+          "word": " what",
+          "start": 80.26,
+          "end": 80.5,
+          "probability": 0.5141411423683167
+        },
+        {
+          "word": " your",
+          "start": 80.5,
+          "end": 80.62,
+          "probability": 0.9875791668891907
+        },
+        {
+          "word": " face",
+          "start": 80.62,
+          "end": 80.94,
+          "probability": 0.9991241097450256
+        },
+        {
+          "word": " can't",
+          "start": 80.94,
+          "end": 81.3,
+          "probability": 0.8823365867137909
+        },
+        {
+          "word": " say",
+          "start": 81.3,
+          "end": 81.62,
+          "probability": 0.999204695224762
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "seek": 6824,
+      "start": 81.62,
+      "end": 84.14,
+      "text": " You can't believe they even call that place a zoo",
+      "tokens": [
+        51036,
+        509,
+        393,
+        380,
+        1697,
+        436,
+        754,
+        818,
+        300,
+        1081,
+        257,
+        25347,
+        51161
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " You",
+          "start": 81.62,
+          "end": 81.92,
+          "probability": 0.9566850662231445
+        },
+        {
+          "word": " can't",
+          "start": 81.92,
+          "end": 82.28,
+          "probability": 0.9994125664234161
+        },
+        {
+          "word": " believe",
+          "start": 82.28,
+          "end": 82.62,
+          "probability": 0.9980689883232117
+        },
+        {
+          "word": " they",
+          "start": 82.62,
+          "end": 82.94,
+          "probability": 0.9161073565483093
+        },
+        {
+          "word": " even",
+          "start": 82.94,
+          "end": 83.2,
+          "probability": 0.9982419013977051
+        },
+        {
+          "word": " call",
+          "start": 83.2,
+          "end": 83.4,
+          "probability": 0.990041196346283
+        },
+        {
+          "word": " that",
+          "start": 83.4,
+          "end": 83.54,
+          "probability": 0.9983848333358765
+        },
+        {
+          "word": " place",
+          "start": 83.54,
+          "end": 83.78,
+          "probability": 0.9986791014671326
+        },
+        {
+          "word": " a",
+          "start": 83.78,
+          "end": 83.94,
+          "probability": 0.9974351525306702
+        },
+        {
+          "word": " zoo",
+          "start": 83.94,
+          "end": 84.14,
+          "probability": 0.9960588216781616
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "seek": 6824,
+      "start": 84.14,
+      "end": 86.82,
+      "text": " Choose your favorite monster beast",
+      "tokens": [
+        51161,
+        21661,
+        428,
+        2954,
+        10090,
+        13464,
+        51303
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Choose",
+          "start": 84.14,
+          "end": 84.74,
+          "probability": 0.6457383036613464
+        },
+        {
+          "word": " your",
+          "start": 84.74,
+          "end": 85.1,
+          "probability": 0.9992941617965698
+        },
+        {
+          "word": " favorite",
+          "start": 85.1,
+          "end": 85.72,
+          "probability": 0.969474732875824
+        },
+        {
+          "word": " monster",
+          "start": 85.72,
+          "end": 86.28,
+          "probability": 0.9890822172164917
+        },
+        {
+          "word": " beast",
+          "start": 86.28,
+          "end": 86.82,
+          "probability": 0.51030433177948
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "seek": 6824,
+      "start": 86.82,
+      "end": 89.36,
+      "text": " Suit the way you wanna be",
+      "tokens": [
+        51303,
+        48854,
+        264,
+        636,
+        291,
+        1948,
+        312,
+        51424
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Suit",
+          "start": 86.82,
+          "end": 87.36,
+          "probability": 0.7082390189170837
+        },
+        {
+          "word": " the",
+          "start": 87.36,
+          "end": 87.66,
+          "probability": 0.999356210231781
+        },
+        {
+          "word": " way",
+          "start": 87.66,
+          "end": 88.14,
+          "probability": 0.9994290471076965
+        },
+        {
+          "word": " you",
+          "start": 88.14,
+          "end": 88.46,
+          "probability": 0.9496790170669556
+        },
+        {
+          "word": " wanna",
+          "start": 88.46,
+          "end": 88.88,
+          "probability": 0.9837574362754822
+        },
+        {
+          "word": " be",
+          "start": 88.88,
+          "end": 89.36,
+          "probability": 0.9531570076942444
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "seek": 6824,
+      "start": 89.36,
+      "end": 91.94,
+      "text": " Hunting Ed, headhunting Ted",
+      "tokens": [
+        51424,
+        44793,
+        3977,
+        11,
+        1378,
+        71,
+        14559,
+        14985,
+        51553
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Hunting",
+          "start": 89.36,
+          "end": 90.3,
+          "probability": 0.5439245104789734
+        },
+        {
+          "word": " Ed,",
+          "start": 90.3,
+          "end": 90.86,
+          "probability": 0.6472575068473816
+        },
+        {
+          "word": " headhunting",
+          "start": 91.08,
+          "end": 91.64,
+          "probability": 0.7132893602053324
+        },
+        {
+          "word": " Ted",
+          "start": 91.64,
+          "end": 91.94,
+          "probability": 0.9950445890426636
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "seek": 6824,
+      "start": 91.94,
+      "end": 94.9,
+      "text": " Hide and seek's the game that monsters play",
+      "tokens": [
+        51553,
+        35118,
+        293,
+        8075,
+        311,
+        264,
+        1216,
+        300,
+        15785,
+        862,
+        51723
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.2615691375732422,
+      "compression_ratio": 1.5681818181818181,
+      "no_speech_prob": 2.8714043295852143e-11,
+      "words": [
+        {
+          "word": " Hide",
+          "start": 91.94,
+          "end": 92.22,
+          "probability": 0.4826173782348633
+        },
+        {
+          "word": " and",
+          "start": 92.22,
+          "end": 92.34,
+          "probability": 0.9692163467407227
+        },
+        {
+          "word": " seek's",
+          "start": 92.34,
+          "end": 92.66,
+          "probability": 0.8867752552032471
+        },
+        {
+          "word": " the",
+          "start": 92.66,
+          "end": 92.8,
+          "probability": 0.9957921504974365
+        },
+        {
+          "word": " game",
+          "start": 92.8,
+          "end": 93.22,
+          "probability": 0.9994658827781677
+        },
+        {
+          "word": " that",
+          "start": 93.22,
+          "end": 93.56,
+          "probability": 0.9479761719703674
+        },
+        {
+          "word": " monsters",
+          "start": 93.56,
+          "end": 94.2,
+          "probability": 0.9880466461181641
+        },
+        {
+          "word": " play",
+          "start": 94.2,
+          "end": 94.9,
+          "probability": 0.9668057560920715
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "seek": 9490,
+      "start": 96.16,
+      "end": 97.22,
+      "text": " And play",
+      "tokens": [
+        50365,
+        400,
+        862,
+        50487
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " And",
+          "start": 96.16,
+          "end": 96.84,
+          "probability": 0.42999428510665894
+        },
+        {
+          "word": " play",
+          "start": 96.84,
+          "end": 97.22,
+          "probability": 0.9329894781112671
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "seek": 9490,
+      "start": 98.75999999999999,
+      "end": 100.12,
+      "text": " And play",
+      "tokens": [
+        50487,
+        400,
+        862,
+        50633
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " And",
+          "start": 98.75999999999999,
+          "end": 99.44,
+          "probability": 0.40352198481559753
+        },
+        {
+          "word": " play",
+          "start": 99.44,
+          "end": 100.12,
+          "probability": 0.9959619641304016
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "seek": 9490,
+      "start": 101.32,
+      "end": 103.3,
+      "text": " And play, baby",
+      "tokens": [
+        50633,
+        400,
+        862,
+        11,
+        3186,
+        50796
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " And",
+          "start": 101.32,
+          "end": 102.0,
+          "probability": 0.8841559290885925
+        },
+        {
+          "word": " play,",
+          "start": 102.0,
+          "end": 102.6,
+          "probability": 0.9973020553588867
+        },
+        {
+          "word": " baby",
+          "start": 102.78,
+          "end": 103.3,
+          "probability": 0.46038001775741577
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "seek": 9490,
+      "start": 104.22,
+      "end": 106.9,
+      "text": " Five, four, three more to go",
+      "tokens": [
+        50796,
+        9436,
+        11,
+        1451,
+        11,
+        1045,
+        544,
+        281,
+        352,
+        50967
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " Five,",
+          "start": 104.22,
+          "end": 104.9,
+          "probability": 0.8048696517944336
+        },
+        {
+          "word": " four,",
+          "start": 105.32,
+          "end": 105.52,
+          "probability": 0.9974606037139893
+        },
+        {
+          "word": " three",
+          "start": 105.7,
+          "end": 105.92,
+          "probability": 0.9991590976715088
+        },
+        {
+          "word": " more",
+          "start": 105.92,
+          "end": 106.32,
+          "probability": 0.8960214257240295
+        },
+        {
+          "word": " to",
+          "start": 106.32,
+          "end": 106.58,
+          "probability": 0.9733877778053284
+        },
+        {
+          "word": " go",
+          "start": 106.58,
+          "end": 106.9,
+          "probability": 0.9989954829216003
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "seek": 9490,
+      "start": 106.9,
+      "end": 108.32,
+      "text": " Now only two",
+      "tokens": [
+        50967,
+        823,
+        787,
+        732,
+        51041
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " Now",
+          "start": 106.9,
+          "end": 107.24,
+          "probability": 0.4384204149246216
+        },
+        {
+          "word": " only",
+          "start": 107.24,
+          "end": 107.82,
+          "probability": 0.9499751329421997
+        },
+        {
+          "word": " two",
+          "start": 107.82,
+          "end": 108.32,
+          "probability": 0.9966738224029541
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "seek": 9490,
+      "start": 108.32,
+      "end": 112.14,
+      "text": " The final fight between the meanest ones",
+      "tokens": [
+        51041,
+        440,
+        2572,
+        2092,
+        1296,
+        264,
+        914,
+        377,
+        2306,
+        51233
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " The",
+          "start": 108.32,
+          "end": 109.6,
+          "probability": 0.9825693368911743
+        },
+        {
+          "word": " final",
+          "start": 109.6,
+          "end": 109.86,
+          "probability": 0.9994277358055115
+        },
+        {
+          "word": " fight",
+          "start": 109.86,
+          "end": 110.22,
+          "probability": 0.8500615358352661
+        },
+        {
+          "word": " between",
+          "start": 110.22,
+          "end": 110.68,
+          "probability": 0.9167101979255676
+        },
+        {
+          "word": " the",
+          "start": 110.68,
+          "end": 111.0,
+          "probability": 0.9362677335739136
+        },
+        {
+          "word": " meanest",
+          "start": 111.0,
+          "end": 111.7,
+          "probability": 0.9991320967674255
+        },
+        {
+          "word": " ones",
+          "start": 111.7,
+          "end": 112.14,
+          "probability": 0.9891681671142578
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "seek": 9490,
+      "start": 112.14,
+      "end": 113.54,
+      "text": " I'll bet you",
+      "tokens": [
+        51233,
+        286,
+        603,
+        778,
+        291,
+        51303
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " I'll",
+          "start": 112.14,
+          "end": 112.84,
+          "probability": 0.9322493076324463
+        },
+        {
+          "word": " bet",
+          "start": 112.84,
+          "end": 113.08,
+          "probability": 0.9985864162445068
+        },
+        {
+          "word": " you",
+          "start": 113.08,
+          "end": 113.54,
+          "probability": 0.9990736246109009
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "seek": 9490,
+      "start": 113.54,
+      "end": 116.02,
+      "text": " One has that kick, that kick",
+      "tokens": [
+        51303,
+        1485,
+        575,
+        300,
+        4437,
+        11,
+        300,
+        4437,
+        51425
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " One",
+          "start": 113.54,
+          "end": 114.7,
+          "probability": 0.9128270745277405
+        },
+        {
+          "word": " has",
+          "start": 114.7,
+          "end": 114.9,
+          "probability": 0.5262966156005859
+        },
+        {
+          "word": " that",
+          "start": 114.9,
+          "end": 115.14,
+          "probability": 0.5418711304664612
+        },
+        {
+          "word": " kick,",
+          "start": 115.14,
+          "end": 115.36,
+          "probability": 0.952576220035553
+        },
+        {
+          "word": " that",
+          "start": 115.64,
+          "end": 115.74,
+          "probability": 0.9786520600318909
+        },
+        {
+          "word": " kick",
+          "start": 115.74,
+          "end": 116.02,
+          "probability": 0.9918728470802307
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "seek": 9490,
+      "start": 116.02,
+      "end": 117.66,
+      "text": " That knock you down",
+      "tokens": [
+        51425,
+        663,
+        6728,
+        291,
+        760,
+        51507
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " That",
+          "start": 116.02,
+          "end": 116.38,
+          "probability": 0.32287949323654175
+        },
+        {
+          "word": " knock",
+          "start": 116.38,
+          "end": 116.72,
+          "probability": 0.6693750023841858
+        },
+        {
+          "word": " you",
+          "start": 116.72,
+          "end": 117.0,
+          "probability": 0.9968356490135193
+        },
+        {
+          "word": " down",
+          "start": 117.0,
+          "end": 117.66,
+          "probability": 0.9989765882492065
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "seek": 9490,
+      "start": 117.66,
+      "end": 120.08,
+      "text": " Down, down, down, down",
+      "tokens": [
+        51507,
+        9506,
+        11,
+        760,
+        11,
+        760,
+        11,
+        760,
+        51640
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " Down,",
+          "start": 117.66,
+          "end": 118.3,
+          "probability": 0.3653215765953064
+        },
+        {
+          "word": " down,",
+          "start": 118.46,
+          "end": 118.78,
+          "probability": 0.9882820248603821
+        },
+        {
+          "word": " down,",
+          "start": 118.78,
+          "end": 119.48,
+          "probability": 0.9977414608001709
+        },
+        {
+          "word": " down",
+          "start": 119.62,
+          "end": 120.08,
+          "probability": 0.9944959282875061
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "seek": 9490,
+      "start": 120.08,
+      "end": 123.42,
+      "text": " What kind of monster would you like to make now?",
+      "tokens": [
+        51640,
+        708,
+        733,
+        295,
+        10090,
+        576,
+        291,
+        411,
+        281,
+        652,
+        586,
+        30,
+        51793
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.27414097104753765,
+      "compression_ratio": 1.5276073619631902,
+      "no_speech_prob": 8.741291024350062e-11,
+      "words": [
+        {
+          "word": " What",
+          "start": 120.08,
+          "end": 120.92,
+          "probability": 0.9756783246994019
+        },
+        {
+          "word": " kind",
+          "start": 120.92,
+          "end": 121.38,
+          "probability": 0.9759843349456787
+        },
+        {
+          "word": " of",
+          "start": 121.38,
+          "end": 121.7,
+          "probability": 0.9946200847625732
+        },
+        {
+          "word": " monster",
+          "start": 121.7,
+          "end": 121.94,
+          "probability": 0.9869460463523865
+        },
+        {
+          "word": " would",
+          "start": 121.94,
+          "end": 122.18,
+          "probability": 0.8592446446418762
+        },
+        {
+          "word": " you",
+          "start": 122.18,
+          "end": 122.32,
+          "probability": 0.9994474053382874
+        },
+        {
+          "word": " like",
+          "start": 122.32,
+          "end": 122.64,
+          "probability": 0.9994896650314331
+        },
+        {
+          "word": " to",
+          "start": 122.64,
+          "end": 122.84,
+          "probability": 0.9940237402915955
+        },
+        {
+          "word": " make",
+          "start": 122.84,
+          "end": 123.12,
+          "probability": 0.999180018901825
+        },
+        {
+          "word": " now?",
+          "start": 123.12,
+          "end": 123.42,
+          "probability": 0.5677484273910522
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "seek": 12342,
+      "start": 123.42,
+      "end": 125.86,
+      "text": " That last one set the down of fire",
+      "tokens": [
+        50365,
+        663,
+        1036,
+        472,
+        992,
+        264,
+        760,
+        295,
+        2610,
+        50487
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.49412818321814905,
+      "compression_ratio": 1.4671052631578947,
+      "no_speech_prob": 7.328543327744796e-11,
+      "words": [
+        {
+          "word": " That",
+          "start": 123.42,
+          "end": 123.68,
+          "probability": 0.21940162777900696
+        },
+        {
+          "word": " last",
+          "start": 123.68,
+          "end": 123.98,
+          "probability": 0.9013513922691345
+        },
+        {
+          "word": " one",
+          "start": 123.98,
+          "end": 124.24,
+          "probability": 0.9612138271331787
+        },
+        {
+          "word": " set",
+          "start": 124.24,
+          "end": 124.56,
+          "probability": 0.49491867423057556
+        },
+        {
+          "word": " the",
+          "start": 124.56,
+          "end": 124.86,
+          "probability": 0.6831205487251282
+        },
+        {
+          "word": " down",
+          "start": 124.86,
+          "end": 125.24,
+          "probability": 0.3807729482650757
+        },
+        {
+          "word": " of",
+          "start": 125.24,
+          "end": 125.5,
+          "probability": 0.6053063869476318
+        },
+        {
+          "word": " fire",
+          "start": 125.5,
+          "end": 125.86,
+          "probability": 0.965377688407898
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "seek": 12342,
+      "start": 125.86,
+      "end": 128.44,
+      "text": " Now night one that is wise is mean",
+      "tokens": [
+        50487,
+        823,
+        1818,
+        472,
+        300,
+        307,
+        10829,
+        307,
+        914,
+        50622
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.49412818321814905,
+      "compression_ratio": 1.4671052631578947,
+      "no_speech_prob": 7.328543327744796e-11,
+      "words": [
+        {
+          "word": " Now",
+          "start": 125.86,
+          "end": 126.2,
+          "probability": 0.31649690866470337
+        },
+        {
+          "word": " night",
+          "start": 126.2,
+          "end": 126.72,
+          "probability": 0.2516825795173645
+        },
+        {
+          "word": " one",
+          "start": 126.72,
+          "end": 127.18,
+          "probability": 0.506960391998291
+        },
+        {
+          "word": " that",
+          "start": 127.18,
+          "end": 127.46,
+          "probability": 0.8631211519241333
+        },
+        {
+          "word": " is",
+          "start": 127.46,
+          "end": 127.6,
+          "probability": 0.9343493580818176
+        },
+        {
+          "word": " wise",
+          "start": 127.6,
+          "end": 127.9,
+          "probability": 0.5206241011619568
+        },
+        {
+          "word": " is",
+          "start": 127.9,
+          "end": 128.08,
+          "probability": 0.5460349321365356
+        },
+        {
+          "word": " mean",
+          "start": 128.08,
+          "end": 128.44,
+          "probability": 0.9118080735206604
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "seek": 12342,
+      "start": 128.44,
+      "end": 131.06,
+      "text": " And fifty feet or maybe higher",
+      "tokens": [
+        50622,
+        400,
+        13442,
+        3521,
+        420,
+        1310,
+        2946,
+        50750
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.49412818321814905,
+      "compression_ratio": 1.4671052631578947,
+      "no_speech_prob": 7.328543327744796e-11,
+      "words": [
+        {
+          "word": " And",
+          "start": 128.44,
+          "end": 128.82,
+          "probability": 0.6411741375923157
+        },
+        {
+          "word": " fifty",
+          "start": 128.82,
+          "end": 129.3,
+          "probability": 0.8273903727531433
+        },
+        {
+          "word": " feet",
+          "start": 129.3,
+          "end": 129.74,
+          "probability": 0.9816184639930725
+        },
+        {
+          "word": " or",
+          "start": 129.74,
+          "end": 130.08,
+          "probability": 0.7753656506538391
+        },
+        {
+          "word": " maybe",
+          "start": 130.08,
+          "end": 130.58,
+          "probability": 0.9809923768043518
+        },
+        {
+          "word": " higher",
+          "start": 130.58,
+          "end": 131.06,
+          "probability": 0.9458640217781067
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "seek": 12342,
+      "start": 131.06,
+      "end": 137.0,
+      "text": " Until we set the monsters loose",
+      "tokens": [
+        50750,
+        9088,
+        321,
+        992,
+        264,
+        15785,
+        9612,
+        51078
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.49412818321814905,
+      "compression_ratio": 1.4671052631578947,
+      "no_speech_prob": 7.328543327744796e-11,
+      "words": [
+        {
+          "word": " Until",
+          "start": 131.06,
+          "end": 131.58,
+          "probability": 0.4631953239440918
+        },
+        {
+          "word": " we",
+          "start": 131.58,
+          "end": 134.6,
+          "probability": 0.9942628741264343
+        },
+        {
+          "word": " set",
+          "start": 134.6,
+          "end": 134.96,
+          "probability": 0.8775485157966614
+        },
+        {
+          "word": " the",
+          "start": 134.96,
+          "end": 135.22,
+          "probability": 0.9898031949996948
+        },
+        {
+          "word": " monsters",
+          "start": 135.22,
+          "end": 135.82,
+          "probability": 0.9771990776062012
+        },
+        {
+          "word": " loose",
+          "start": 135.82,
+          "end": 137.0,
+          "probability": 0.9641605019569397
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "seek": 12342,
+      "start": 137.68,
+      "end": 138.8,
+      "text": " Oh my",
+      "tokens": [
+        51078,
+        876,
+        452,
+        51139
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.49412818321814905,
+      "compression_ratio": 1.4671052631578947,
+      "no_speech_prob": 7.328543327744796e-11,
+      "words": [
+        {
+          "word": " Oh",
+          "start": 137.68,
+          "end": 138.2,
+          "probability": 0.4429478645324707
+        },
+        {
+          "word": " my",
+          "start": 138.2,
+          "end": 138.8,
+          "probability": 0.8375649452209473
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "seek": 12342,
+      "start": 140.4,
+      "end": 144.26,
+      "text": " They can shrink down to fit in anything just as mean",
+      "tokens": [
+        51139,
+        814,
+        393,
+        23060,
+        760,
+        281,
+        3318,
+        294,
+        1340,
+        445,
+        382,
+        914,
+        51409
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.49412818321814905,
+      "compression_ratio": 1.4671052631578947,
+      "no_speech_prob": 7.328543327744796e-11,
+      "words": [
+        {
+          "word": " They",
+          "start": 140.4,
+          "end": 141.12,
+          "probability": 0.438942551612854
+        },
+        {
+          "word": " can",
+          "start": 141.12,
+          "end": 141.22,
+          "probability": 0.9957225322723389
+        },
+        {
+          "word": " shrink",
+          "start": 141.22,
+          "end": 141.52,
+          "probability": 0.7276058197021484
+        },
+        {
+          "word": " down",
+          "start": 141.52,
+          "end": 141.98,
+          "probability": 0.996691107749939
+        },
+        {
+          "word": " to",
+          "start": 141.98,
+          "end": 142.28,
+          "probability": 0.49412792921066284
+        },
+        {
+          "word": " fit",
+          "start": 142.28,
+          "end": 142.46,
+          "probability": 0.8102970123291016
+        },
+        {
+          "word": " in",
+          "start": 142.46,
+          "end": 142.64,
+          "probability": 0.8282724022865295
+        },
+        {
+          "word": " anything",
+          "start": 142.64,
+          "end": 143.0,
+          "probability": 0.8756570219993591
+        },
+        {
+          "word": " just",
+          "start": 143.0,
+          "end": 143.68,
+          "probability": 0.38558632135391235
+        },
+        {
+          "word": " as",
+          "start": 143.68,
+          "end": 143.88,
+          "probability": 0.9900846481323242
+        },
+        {
+          "word": " mean",
+          "start": 143.88,
+          "end": 144.26,
+          "probability": 0.9529013633728027
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "seek": 12342,
+      "start": 145.78,
+      "end": 149.54,
+      "text": " Grow up to be ten times or more",
+      "tokens": [
+        51409,
+        18476,
+        493,
+        281,
+        312,
+        2064,
+        1413,
+        420,
+        544,
+        51673
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.49412818321814905,
+      "compression_ratio": 1.4671052631578947,
+      "no_speech_prob": 7.328543327744796e-11,
+      "words": [
+        {
+          "word": " Grow",
+          "start": 145.78,
+          "end": 146.5,
+          "probability": 0.973967969417572
+        },
+        {
+          "word": " up",
+          "start": 146.5,
+          "end": 146.86,
+          "probability": 0.9933040738105774
+        },
+        {
+          "word": " to",
+          "start": 146.86,
+          "end": 147.06,
+          "probability": 0.9893985986709595
+        },
+        {
+          "word": " be",
+          "start": 147.06,
+          "end": 147.38,
+          "probability": 0.9634823203086853
+        },
+        {
+          "word": " ten",
+          "start": 147.38,
+          "end": 147.74,
+          "probability": 0.9623492360115051
+        },
+        {
+          "word": " times",
+          "start": 147.74,
+          "end": 148.36,
+          "probability": 0.9934157133102417
+        },
+        {
+          "word": " or",
+          "start": 148.36,
+          "end": 148.74,
+          "probability": 0.9876508116722107
+        },
+        {
+          "word": " more",
+          "start": 148.74,
+          "end": 149.54,
+          "probability": 0.9957128763198853
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "seek": 14954,
+      "start": 151.18,
+      "end": 154.0,
+      "text": " Take the smoke and drift, throw anything",
+      "tokens": [
+        50365,
+        3664,
+        264,
+        8439,
+        293,
+        19699,
+        11,
+        3507,
+        1340,
+        50600
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.44049367904663084,
+      "compression_ratio": 1.3741496598639455,
+      "no_speech_prob": 9.455054794660356e-11,
+      "words": [
+        {
+          "word": " Take",
+          "start": 151.18,
+          "end": 151.9,
+          "probability": 0.06897593289613724
+        },
+        {
+          "word": " the",
+          "start": 151.9,
+          "end": 152.26,
+          "probability": 0.9555421471595764
+        },
+        {
+          "word": " smoke",
+          "start": 152.26,
+          "end": 152.54,
+          "probability": 0.9947611689567566
+        },
+        {
+          "word": " and",
+          "start": 152.54,
+          "end": 152.8,
+          "probability": 0.9687291383743286
+        },
+        {
+          "word": " drift,",
+          "start": 152.8,
+          "end": 153.04,
+          "probability": 0.9664316177368164
+        },
+        {
+          "word": " throw",
+          "start": 153.18,
+          "end": 153.38,
+          "probability": 0.5794660449028015
+        },
+        {
+          "word": " anything",
+          "start": 153.38,
+          "end": 154.0,
+          "probability": 0.9831448793411255
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "seek": 14954,
+      "start": 154.0,
+      "end": 156.64,
+      "text": " Through the deep hole in the steel door",
+      "tokens": [
+        50600,
+        8927,
+        264,
+        2452,
+        5458,
+        294,
+        264,
+        8269,
+        2853,
+        50722
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.44049367904663084,
+      "compression_ratio": 1.3741496598639455,
+      "no_speech_prob": 9.455054794660356e-11,
+      "words": [
+        {
+          "word": " Through",
+          "start": 154.0,
+          "end": 154.88,
+          "probability": 0.5761348605155945
+        },
+        {
+          "word": " the",
+          "start": 154.88,
+          "end": 155.06,
+          "probability": 0.9966867566108704
+        },
+        {
+          "word": " deep",
+          "start": 155.06,
+          "end": 155.3,
+          "probability": 0.21630971133708954
+        },
+        {
+          "word": " hole",
+          "start": 155.3,
+          "end": 155.72,
+          "probability": 0.992095947265625
+        },
+        {
+          "word": " in",
+          "start": 155.72,
+          "end": 155.92,
+          "probability": 0.8440533876419067
+        },
+        {
+          "word": " the",
+          "start": 155.92,
+          "end": 156.04,
+          "probability": 0.9777446389198303
+        },
+        {
+          "word": " steel",
+          "start": 156.04,
+          "end": 156.32,
+          "probability": 0.820335328578949
+        },
+        {
+          "word": " door",
+          "start": 156.32,
+          "end": 156.64,
+          "probability": 0.32656386494636536
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "seek": 14954,
+      "start": 156.64,
+      "end": 160.08,
+      "text": " No, I'll wait, yes, wait",
+      "tokens": [
+        50722,
+        883,
+        11,
+        286,
+        603,
+        1699,
+        11,
+        2086,
+        11,
+        1699,
+        50891
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.44049367904663084,
+      "compression_ratio": 1.3741496598639455,
+      "no_speech_prob": 9.455054794660356e-11,
+      "words": [
+        {
+          "word": " No,",
+          "start": 156.64,
+          "end": 156.94,
+          "probability": 0.38879796862602234
+        },
+        {
+          "word": " I'll",
+          "start": 157.14,
+          "end": 157.82,
+          "probability": 0.5784305781126022
+        },
+        {
+          "word": " wait,",
+          "start": 157.82,
+          "end": 158.58,
+          "probability": 0.42972537875175476
+        },
+        {
+          "word": " yes,",
+          "start": 158.68,
+          "end": 159.28,
+          "probability": 0.723782479763031
+        },
+        {
+          "word": " wait",
+          "start": 159.44,
+          "end": 160.08,
+          "probability": 0.9809371829032898
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "seek": 14954,
+      "start": 161.32,
+      "end": 163.7,
+      "text": " You're right, just right now",
+      "tokens": [
+        50891,
+        509,
+        434,
+        558,
+        11,
+        445,
+        558,
+        586,
+        51086
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.44049367904663084,
+      "compression_ratio": 1.3741496598639455,
+      "no_speech_prob": 9.455054794660356e-11,
+      "words": [
+        {
+          "word": " You're",
+          "start": 161.32,
+          "end": 162.04,
+          "probability": 0.6144517660140991
+        },
+        {
+          "word": " right,",
+          "start": 162.04,
+          "end": 162.34,
+          "probability": 0.9925193786621094
+        },
+        {
+          "word": " just",
+          "start": 162.7,
+          "end": 162.86,
+          "probability": 0.9976242184638977
+        },
+        {
+          "word": " right",
+          "start": 162.86,
+          "end": 163.2,
+          "probability": 0.9990550875663757
+        },
+        {
+          "word": " now",
+          "start": 163.2,
+          "end": 163.7,
+          "probability": 0.999376118183136
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "seek": 14954,
+      "start": 163.7,
+      "end": 166.44,
+      "text": " Let you know I don't mind",
+      "tokens": [
+        51086,
+        961,
+        291,
+        458,
+        286,
+        500,
+        380,
+        1575,
+        51220
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.44049367904663084,
+      "compression_ratio": 1.3741496598639455,
+      "no_speech_prob": 9.455054794660356e-11,
+      "words": [
+        {
+          "word": " Let",
+          "start": 163.7,
+          "end": 164.4,
+          "probability": 0.8383423686027527
+        },
+        {
+          "word": " you",
+          "start": 164.4,
+          "end": 164.6,
+          "probability": 0.99638831615448
+        },
+        {
+          "word": " know",
+          "start": 164.6,
+          "end": 165.04,
+          "probability": 0.9998515844345093
+        },
+        {
+          "word": " I",
+          "start": 165.04,
+          "end": 165.52,
+          "probability": 0.9720770716667175
+        },
+        {
+          "word": " don't",
+          "start": 165.52,
+          "end": 165.86,
+          "probability": 0.9971074461936951
+        },
+        {
+          "word": " mind",
+          "start": 165.86,
+          "end": 166.44,
+          "probability": 0.9998726844787598
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "seek": 14954,
+      "start": 166.44,
+      "end": 171.24,
+      "text": " Spend time watching monsters crash around",
+      "tokens": [
+        51220,
+        1738,
+        521,
+        565,
+        1976,
+        15785,
+        8252,
+        926,
+        51478
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.44049367904663084,
+      "compression_ratio": 1.3741496598639455,
+      "no_speech_prob": 9.455054794660356e-11,
+      "words": [
+        {
+          "word": " Spend",
+          "start": 166.44,
+          "end": 167.18,
+          "probability": 0.9283975064754486
+        },
+        {
+          "word": " time",
+          "start": 167.18,
+          "end": 167.68,
+          "probability": 0.9974610805511475
+        },
+        {
+          "word": " watching",
+          "start": 167.68,
+          "end": 168.3,
+          "probability": 0.9758116602897644
+        },
+        {
+          "word": " monsters",
+          "start": 168.3,
+          "end": 169.42,
+          "probability": 0.9957664012908936
+        },
+        {
+          "word": " crash",
+          "start": 169.42,
+          "end": 170.28,
+          "probability": 0.9043862819671631
+        },
+        {
+          "word": " around",
+          "start": 170.28,
+          "end": 171.24,
+          "probability": 0.9770743250846863
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "seek": 17124,
+      "start": 171.94,
+      "end": 173.98,
+      "text": " That I ain't already",
+      "tokens": [
+        50365,
+        663,
+        286,
+        7862,
+        380,
+        1217,
+        50505
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " That",
+          "start": 171.94,
+          "end": 172.62,
+          "probability": 0.27309921383857727
+        },
+        {
+          "word": " I",
+          "start": 172.62,
+          "end": 172.96,
+          "probability": 0.7533894181251526
+        },
+        {
+          "word": " ain't",
+          "start": 172.96,
+          "end": 173.22,
+          "probability": 0.6412004679441452
+        },
+        {
+          "word": " already",
+          "start": 173.22,
+          "end": 173.98,
+          "probability": 0.5161027908325195
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "seek": 17124,
+      "start": 176.98,
+      "end": 178.34,
+      "text": " You may",
+      "tokens": [
+        50505,
+        509,
+        815,
+        50729
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " You",
+          "start": 176.98,
+          "end": 177.66,
+          "probability": 0.08636925369501114
+        },
+        {
+          "word": " may",
+          "start": 177.66,
+          "end": 178.34,
+          "probability": 0.49641910195350647
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "seek": 17124,
+      "start": 183.79999999999998,
+      "end": 185.98,
+      "text": " Choose your favorite monster",
+      "tokens": [
+        50729,
+        21661,
+        428,
+        2954,
+        10090,
+        51104
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " Choose",
+          "start": 183.79999999999998,
+          "end": 184.48,
+          "probability": 0.8265253901481628
+        },
+        {
+          "word": " your",
+          "start": 184.48,
+          "end": 184.92,
+          "probability": 0.9874705672264099
+        },
+        {
+          "word": " favorite",
+          "start": 184.92,
+          "end": 185.26,
+          "probability": 0.4837355315685272
+        },
+        {
+          "word": " monster",
+          "start": 185.26,
+          "end": 185.98,
+          "probability": 0.9639394879341125
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "seek": 17124,
+      "start": 185.98,
+      "end": 189.12,
+      "text": " Be your suit the way you wanna be",
+      "tokens": [
+        51104,
+        879,
+        428,
+        5722,
+        264,
+        636,
+        291,
+        1948,
+        312,
+        51264
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " Be",
+          "start": 185.98,
+          "end": 186.48,
+          "probability": 0.035904671996831894
+        },
+        {
+          "word": " your",
+          "start": 186.48,
+          "end": 186.92,
+          "probability": 0.2089911550283432
+        },
+        {
+          "word": " suit",
+          "start": 186.92,
+          "end": 187.2,
+          "probability": 0.7900378108024597
+        },
+        {
+          "word": " the",
+          "start": 187.2,
+          "end": 187.46,
+          "probability": 0.4400045871734619
+        },
+        {
+          "word": " way",
+          "start": 187.46,
+          "end": 187.82,
+          "probability": 0.9970172643661499
+        },
+        {
+          "word": " you",
+          "start": 187.82,
+          "end": 188.12,
+          "probability": 0.6293764114379883
+        },
+        {
+          "word": " wanna",
+          "start": 188.12,
+          "end": 188.64,
+          "probability": 0.9428882598876953
+        },
+        {
+          "word": " be",
+          "start": 188.64,
+          "end": 189.12,
+          "probability": 0.528185248374939
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "seek": 17124,
+      "start": 189.12,
+      "end": 190.6,
+      "text": " Be, be, huntin' dead",
+      "tokens": [
+        51264,
+        879,
+        11,
+        312,
+        11,
+        12454,
+        259,
+        6,
+        3116,
+        51334
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " Be,",
+          "start": 189.12,
+          "end": 189.42,
+          "probability": 0.6086084842681885
+        },
+        {
+          "word": " be,",
+          "start": 189.66,
+          "end": 189.72,
+          "probability": 0.9433854818344116
+        },
+        {
+          "word": " huntin'",
+          "start": 189.72,
+          "end": 190.2,
+          "probability": 0.7512761652469635
+        },
+        {
+          "word": " dead",
+          "start": 190.24,
+          "end": 190.6,
+          "probability": 0.7105220556259155
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "seek": 17124,
+      "start": 190.6,
+      "end": 191.8,
+      "text": " It hurt, huntin' dead",
+      "tokens": [
+        51334,
+        467,
+        4607,
+        11,
+        12454,
+        259,
+        6,
+        3116,
+        51395
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " It",
+          "start": 190.6,
+          "end": 190.86,
+          "probability": 0.4730948805809021
+        },
+        {
+          "word": " hurt,",
+          "start": 190.86,
+          "end": 191.14,
+          "probability": 0.9238048195838928
+        },
+        {
+          "word": " huntin'",
+          "start": 191.28,
+          "end": 191.52,
+          "probability": 0.9956370294094086
+        },
+        {
+          "word": " dead",
+          "start": 191.58,
+          "end": 191.8,
+          "probability": 0.9984363913536072
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "seek": 17124,
+      "start": 191.8,
+      "end": 193.08,
+      "text": " Hide and seek the game",
+      "tokens": [
+        51395,
+        35118,
+        293,
+        8075,
+        264,
+        1216,
+        51462
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " Hide",
+          "start": 191.8,
+          "end": 192.06,
+          "probability": 0.12219782918691635
+        },
+        {
+          "word": " and",
+          "start": 192.06,
+          "end": 192.16,
+          "probability": 0.9307993650436401
+        },
+        {
+          "word": " seek",
+          "start": 192.16,
+          "end": 192.44,
+          "probability": 0.7488676905632019
+        },
+        {
+          "word": " the",
+          "start": 192.44,
+          "end": 192.64,
+          "probability": 0.4202113449573517
+        },
+        {
+          "word": " game",
+          "start": 192.64,
+          "end": 193.08,
+          "probability": 0.9303596019744873
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "seek": 17124,
+      "start": 193.08,
+      "end": 195.06,
+      "text": " That monsters play",
+      "tokens": [
+        51462,
+        663,
+        15785,
+        862,
+        51557
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " That",
+          "start": 193.08,
+          "end": 193.42,
+          "probability": 0.33304399251937866
+        },
+        {
+          "word": " monsters",
+          "start": 193.42,
+          "end": 194.08,
+          "probability": 0.750591516494751
+        },
+        {
+          "word": " play",
+          "start": 194.08,
+          "end": 195.06,
+          "probability": 0.964154839515686
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "seek": 17124,
+      "start": 197.64,
+      "end": 198.32,
+      "text": " I'm playing",
+      "tokens": [
+        51557,
+        286,
+        478,
+        2433,
+        51694
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.5161782484788161,
+      "compression_ratio": 1.4029850746268657,
+      "no_speech_prob": 1.1420556861319042e-10,
+      "words": [
+        {
+          "word": " I'm",
+          "start": 197.64,
+          "end": 198.32,
+          "probability": 0.6798851788043976
+        },
+        {
+          "word": " playing",
+          "start": 198.32,
+          "end": 198.32,
+          "probability": 0.09847299009561539
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "seek": 19832,
+      "start": 198.32,
+      "end": 203.28,
+      "text": " I'm by, I'm by",
+      "tokens": [
+        50365,
+        286,
+        478,
+        538,
+        11,
+        286,
+        478,
+        538,
+        50615
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.6693209648132324,
+      "compression_ratio": 0.7777777777777778,
+      "no_speech_prob": 6.338822522433674e-11,
+      "words": [
+        {
+          "word": " I'm",
+          "start": 198.32,
+          "end": 199.48,
+          "probability": 0.5867254436016083
+        },
+        {
+          "word": " by,",
+          "start": 199.48,
+          "end": 200.08,
+          "probability": 0.3475886583328247
+        },
+        {
+          "word": " I'm",
+          "start": 200.58,
+          "end": 202.28,
+          "probability": 0.9193547070026398
+        },
+        {
+          "word": " by",
+          "start": 202.28,
+          "end": 203.28,
+          "probability": 0.9866983890533447
+        }
+      ]
+    }
+  ],
+  "language": "en"
+}

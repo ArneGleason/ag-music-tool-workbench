@@ -1,0 +1,116 @@
+{
+  "word_strips": 360,
+  "frames": 5290,
+  "checks": [
+    "all acoustic word spans covered",
+    "one master audio strip",
+    "master zero at frame 1",
+    "native editable text"
+  ],
+  "screens": [
+    {
+      "name": "Animation",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "VIEW_3D",
+        "DOPESHEET_EDITOR",
+        "VIEW_3D"
+      ]
+    },
+    {
+      "name": "Compositing",
+      "areas": [
+        "PROPERTIES",
+        "IMAGE_EDITOR",
+        "DOPESHEET_EDITOR",
+        "NODE_EDITOR"
+      ]
+    },
+    {
+      "name": "Geometry Nodes",
+      "areas": [
+        "PROPERTIES",
+        "NODE_EDITOR",
+        "VIEW_3D",
+        "SPREADSHEET",
+        "OUTLINER",
+        "DOPESHEET_EDITOR"
+      ]
+    },
+    {
+      "name": "Layout",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "DOPESHEET_EDITOR",
+        "SEQUENCE_EDITOR"
+      ]
+    },
+    {
+      "name": "Modeling",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "VIEW_3D"
+      ]
+    },
+    {
+      "name": "Rendering",
+      "areas": [
+        "PROPERTIES",
+        "DOPESHEET_EDITOR",
+        "IMAGE_EDITOR"
+      ]
+    },
+    {
+      "name": "Scripting",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "INFO",
+        "OUTLINER",
+        "TEXT_EDITOR",
+        "VIEW_3D",
+        "CONSOLE"
+      ]
+    },
+    {
+      "name": "Sculpting",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "VIEW_3D"
+      ]
+    },
+    {
+      "name": "Shading",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "IMAGE_EDITOR",
+        "NODE_EDITOR",
+        "FILE_BROWSER",
+        "VIEW_3D"
+      ]
+    },
+    {
+      "name": "Texture Paint",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "IMAGE_EDITOR",
+        "VIEW_3D"
+      ]
+    },
+    {
+      "name": "UV Editing",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "IMAGE_EDITOR",
+        "VIEW_3D"
+      ]
+    }
+  ]
+}

@@ -9,6 +9,46 @@ session finds out what moved.
 
 ## [Unreleased]
 
+### Recovery checkpoint — 2026-09-13
+- Saved the complete Monsters Loose scene roughout state: 31 stills across
+  15 scenes, reference-image versions and approvals, timeline notes, timing data,
+  prompts, review pages, editable Blender rigs and native Bitwig project files.
+  SHA-256 manifest and restore instructions exclude audio/video payloads.
+- Recorded the next step: scene feedback and small video-generator trials before
+  committing to detailed shots and generation start/end images.
+
+### Fixed — 2026-09-13
+- Asset catalog list scrolls independently with search and filters retained,
+  so browsing references keeps the selected image and review controls in view.
+
+### Added — 2026-09-13
+- Recorded the Monsters Loose all-night visual direction: artificially lit
+  interiors, readable moonlit/practical-lit exteriors and a remote coastal-swamp
+  zoo/laboratory establishing reference.
+- Linked asset catalog with stable asset/version and scene IDs, searchable
+  references, per-version approval, recoverable feedback drafts, local dictation
+  and atomic review history. Shared navigation connects assets and video notes.
+- Direct note dictation: browser Record/Stop controls feed local cached Whisper
+  turbo, append editable text, pause the song and preserve the note anchor.
+  Includes cancellation, retry, a three-minute limit and temporary-file cleanup.
+- Lightweight listening notes surface: anchored timeline zoom, phrase stepping,
+  approximate point/range notes, active versus addressed views, reopening,
+  browser draft recovery, atomic project saves and revision history. Available
+  as Video / Listen and mark creative notes. Blender remains the render rig.
+- Saved the Monsters Loose production direction: overlapping continuous takes,
+  narrative and musical visualizers, cutaway coverage, and the user's provider
+  preferences; no shot count or generation commitments imposed.
+- Blender VSE lyric animatic builder in the Video workbench, following the
+  Rivers of Mars workflow: editable timed words, duration underlines, restrained
+  emphasis, DAWproject tempo markers, measured vocal RMS and master audio.
+  Includes a separate .blend and optional full-song H.264/AAC preview.
+- Performed-word alignment and a vocal timing audition server in the Analysis
+  workbench. Independent acoustic word edges, uncertainty flags, source/master
+  offsets, word JSON/CSV, phrase VTT, and clean-vocal/master playback.
+- [Monsters Loose timing checkpoint](docs/monsters-loose-timing-checkpoint.md):
+  reconciled first pass against the lyric worksheet, including provisional
+  ad-libs, repeat counts and unresolved backing events. Not listening verified.
+
 ### Added — 2026-09-12
 - [MonstersUndone stopping point](docs/monsters-undone-checkpoint.md): user saved
   and closed the native project after further setup; stem processing is complete

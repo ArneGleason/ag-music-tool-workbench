@@ -1,0 +1,15 @@
+# Recovery includes source stills and small editable rigs by explicit request.
+# Recreated movie/audio payloads must remain outside Git.
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.wav
+*.flac
+*.mp3
+*.ogg
+*.dawproject
+*.blend1
+*.log
+__pycache__/

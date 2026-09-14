@@ -1,0 +1,92 @@
+﻿id,phrase_id,role,text,kind,start,end,source_start,source_end,alignment_score,status,flags
+backing-008-w001,backing-008,backing,What,lyric,43.167816,43.348816,42.785,42.966,0.907,needs_review,text_review
+backing-008-w002,backing-008,backing,kind,lyric,43.489816,43.971816,43.107,43.589,0.922,needs_review,text_review
+backing-008-w003,backing-008,backing,of,lyric,44.032816,44.092816,43.65,43.71,0.242,needs_review,weak_acoustic_match; text_review
+backing-008-w004,backing-008,backing,monster,lyric,44.112816,44.434816,43.73,44.052,0.524,needs_review,weak_acoustic_match; text_review
+backing-008-w005,backing-008,backing,would,lyric,44.454816,44.615816,44.072,44.233,0.544,needs_review,weak_acoustic_match; text_review
+backing-008-w006,backing-008,backing,you,lyric,44.635816,44.796816,44.253,44.414,0.548,needs_review,weak_acoustic_match; text_review
+backing-008-w007,backing-008,backing,like,lyric,44.816816,45.118816,44.434,44.736,0.71,needs_review,text_review
+backing-008-w008,backing-008,backing,to,lyric,45.138816,45.259816,44.756,44.877,0.472,needs_review,weak_acoustic_match; text_review
+backing-008-w009,backing-008,backing,make,lyric,45.299816,45.540816,44.917,45.158,0.641,needs_review,text_review
+backing-008-w010,backing-008,backing,now?,lyric,45.600816,45.802816,45.218,45.42,0.948,needs_review,text_review
+backing-009-w001,backing-009,backing,That,lyric,45.905816,46.086816,45.523,45.704,0.904,needs_review,text_review; audible_attack_before_alignment
+backing-009-w002,backing-009,backing,last,lyric,46.126816,46.368816,45.744,45.986,0.498,needs_review,weak_acoustic_match; text_review
+backing-009-w003,backing-009,backing,one,lyric,46.489816,46.690816,46.107,46.308,0.678,needs_review,text_review
+backing-009-w004,backing-009,backing,set,lyric,46.731816,46.952816,46.349,46.57,0.691,needs_review,text_review
+backing-009-w005,backing-009,backing,the,lyric,47.033816,47.234816,46.651,46.852,0.893,needs_review,text_review
+backing-009-w006,backing-009,backing,town,lyric,47.375816,47.738816,46.993,47.356,0.751,needs_review,text_review
+backing-009-w007,backing-009,backing,on,lyric,47.758816,47.798816,47.376,47.416,0.02,needs_review,weak_acoustic_match; text_review; very_short
+backing-009-w008,backing-009,backing,fire.,lyric,47.838816,48.221816,47.456,47.839,0.519,needs_review,weak_acoustic_match; text_review
+backing-010-w001,backing-010,backing,Now,lyric,48.264816,48.607816,47.882,48.225,0.675,needs_review,text_review; audible_attack_before_alignment
+backing-010-w002,backing-010,backing,make,lyric,48.667816,49.291816,48.285,48.909,0.637,needs_review,text_review
+backing-010-w003,backing-010,backing,one,lyric,49.391816,49.532816,49.009,49.15,0.809,needs_review,text_review
+backing-010-w004,backing-010,backing,that,lyric,49.552816,49.794816,49.17,49.412,0.228,needs_review,weak_acoustic_match; text_review
+backing-010-w005,backing-010,backing,is,lyric,49.854816,49.915816,49.472,49.533,0.764,needs_review,text_review
+backing-010-w006,backing-010,backing,twice,lyric,49.935816,50.257816,49.553,49.875,0.477,needs_review,weak_acoustic_match; text_review
+backing-010-w007,backing-010,backing,as,lyric,50.357816,50.418816,49.975,50.036,0.32,needs_review,weak_acoustic_match; text_review
+backing-010-w008,backing-010,backing,mean.,lyric,50.458816,50.881816,50.076,50.499,0.655,needs_review,text_review; audible_tail_after_alignment
+backing-hook-1-w001,backing-hook-1,backing,"Loose,",lyric,58.384816,59.972816,58.002,59.59,0.399,needs_review,weak_acoustic_match; text_review; sustain_review
+backing-hook-1-w002,backing-hook-1,backing,oh,lyric,60.455816,60.596816,60.073,60.214,0.71,needs_review,text_review
+backing-hook-1-w003,backing-hook-1,backing,my.,lyric,60.636816,61.782816,60.254,61.4,0.95,needs_review,text_review; sustain_review; window_edge
+backing-020-w001,backing-020,backing,Choose,lyric,84.947816,85.309816,84.565,84.927,0.921,needs_review,text_review; audible_attack_before_alignment
+backing-020-w002,backing-020,backing,your,lyric,85.329816,85.550816,84.947,85.168,0.788,needs_review,text_review
+backing-020-w003,backing-020,backing,favorite,lyric,85.631816,86.174816,85.249,85.792,0.733,needs_review,text_review
+backing-020-w004,backing-020,backing,monster,lyric,86.275816,86.898816,85.893,86.516,0.731,needs_review,text_review
+backing-020-w005,backing-020,backing,beast.,lyric,86.979816,87.341816,86.597,86.959,0.606,needs_review,text_review
+backing-021-w001,backing-021,backing,Suit,lyric,87.526816,87.767816,87.144,87.385,0.613,needs_review,text_review; audible_attack_before_alignment
+backing-021-w002,backing-021,backing,the,lyric,87.908816,88.149816,87.526,87.767,0.812,needs_review,text_review
+backing-021-w003,backing-021,backing,way,lyric,88.250816,88.692816,87.868,88.31,0.929,needs_review,text_review
+backing-021-w004,backing-021,backing,you,lyric,88.712816,88.773816,88.33,88.391,0.007,needs_review,weak_acoustic_match; text_review
+backing-021-w005,backing-021,backing,wanna,lyric,88.873816,89.396816,88.491,89.014,0.544,needs_review,weak_acoustic_match; text_review
+backing-021-w006,backing-021,backing,"be,",lyric,89.416816,89.537816,89.034,89.155,0.504,needs_review,weak_acoustic_match; text_review
+backing-021-w007,backing-021,backing,"be,",lyric,89.577816,89.839816,89.195,89.457,0.485,needs_review,weak_acoustic_match; text_review
+backing-021-w008,backing-021,backing,be.,lyric,89.919816,90.181816,89.537,89.799,0.582,needs_review,text_review; audible_tail_after_alignment
+backing-022-w001,backing-022,backing,Hunting,lyric,90.508816,90.790816,90.126,90.408,0.874,needs_review,text_review; audible_attack_before_alignment
+backing-022-w002,backing-022,backing,"Ed,",lyric,91.092816,91.414816,90.71,91.032,0.569,needs_review,text_review
+backing-022-w003,backing-022,backing,head,lyric,91.494816,91.676816,91.112,91.294,0.338,needs_review,weak_acoustic_match; text_review
+backing-022-w004,backing-022,backing,hunting,lyric,91.797816,92.119816,91.415,91.737,0.765,needs_review,text_review
+backing-022-w005,backing-022,backing,Ted.,lyric,92.159816,92.441816,91.777,92.059,0.764,needs_review,text_review
+backing-023-w001,backing-023,backing,Hide,lyric,92.142816,92.404816,91.76,92.022,0.512,needs_review,weak_acoustic_match; text_review; overlap_previous_word
+backing-023-w002,backing-023,backing,and,lyric,92.504816,92.766816,92.122,92.384,0.576,needs_review,text_review
+backing-023-w003,backing-023,backing,seek's,lyric,92.806816,93.067816,92.424,92.685,0.472,needs_review,weak_acoustic_match; text_review
+backing-023-w004,backing-023,backing,the,lyric,93.107816,93.208816,92.725,92.826,0.893,needs_review,text_review
+backing-023-w005,backing-023,backing,game,lyric,93.268816,93.751816,92.886,93.369,0.576,needs_review,text_review
+backing-023-w006,backing-023,backing,that,lyric,93.771816,93.992816,93.389,93.61,0.29,needs_review,weak_acoustic_match; text_review
+backing-023-w007,backing-023,backing,monsters,lyric,94.093816,94.656816,93.711,94.274,0.754,needs_review,text_review
+backing-023-w008,backing-023,backing,play.,lyric,95.038816,95.862816,94.656,95.48,0.835,needs_review,text_review; sustain_review; window_edge
+backing-025-w001,backing-025,backing,And,lyric,99.691816,99.893816,99.309,99.511,0.842,needs_review,text_review
+backing-025-w002,backing-025,backing,play.,lyric,99.954816,100.842816,99.572,100.46,0.517,needs_review,weak_acoustic_match; text_review; sustain_review
+backing-049-w001,backing-049,backing,Choose,lyric,184.670816,185.052816,184.288,184.67,0.639,needs_review,text_review; audible_attack_before_alignment
+backing-049-w002,backing-049,backing,your,lyric,185.092816,185.273816,184.71,184.891,0.615,needs_review,text_review
+backing-049-w003,backing-049,backing,favorite,lyric,185.374816,185.876816,184.992,185.494,0.444,needs_review,weak_acoustic_match; text_review
+backing-049-w004,backing-049,backing,monster,lyric,185.997816,186.660816,185.615,186.278,0.661,needs_review,text_review; sustain_review
+backing-049-w005,backing-049,backing,beast.,lyric,186.721816,186.922816,186.339,186.54,0.441,needs_review,weak_acoustic_match; text_review
+backing-050-w001,backing-050,backing,Suit,lyric,187.286816,187.628816,186.904,187.246,0.726,needs_review,text_review; audible_attack_before_alignment
+backing-050-w002,backing-050,backing,the,lyric,187.648816,187.890816,187.266,187.508,0.707,needs_review,text_review
+backing-050-w003,backing-050,backing,way,lyric,187.990816,188.312816,187.608,187.93,0.782,needs_review,text_review
+backing-050-w004,backing-050,backing,you,lyric,188.372816,188.573816,187.99,188.191,0.69,needs_review,text_review
+backing-050-w005,backing-050,backing,wanna,lyric,188.634816,189.237816,188.252,188.855,0.908,needs_review,text_review
+backing-050-w006,backing-050,backing,"be,",lyric,189.358816,189.639816,188.976,189.257,0.643,needs_review,text_review
+backing-050-w007,backing-050,backing,"be,",lyric,189.720816,189.860816,189.338,189.478,0.302,needs_review,weak_acoustic_match; text_review
+backing-050-w008,backing-050,backing,be.,lyric,189.880816,189.981816,189.498,189.599,0.423,needs_review,weak_acoustic_match; text_review; audible_tail_after_alignment
+backing-051-w001,backing-051,backing,Hunting,lyric,190.306816,190.629816,189.924,190.247,0.584,needs_review,text_review; audible_attack_before_alignment
+backing-051-w002,backing-051,backing,"Ed,",lyric,190.870816,191.213816,190.488,190.831,0.698,needs_review,text_review
+backing-051-w003,backing-051,backing,head,lyric,191.314816,191.576816,190.932,191.194,0.772,needs_review,text_review
+backing-051-w004,backing-051,backing,hunting,lyric,191.636816,191.958816,191.254,191.576,0.771,needs_review,text_review
+backing-051-w005,backing-051,backing,Ted.,lyric,191.978816,192.281816,191.596,191.899,0.794,needs_review,text_review; audible_tail_after_alignment
+backing-052-w001,backing-052,backing,Hide,lyric,191.822816,192.244816,191.44,191.862,0.697,needs_review,text_review; window_edge; overlap_previous_word
+backing-052-w002,backing-052,backing,and,lyric,192.365816,192.586816,191.983,192.204,0.613,needs_review,text_review
+backing-052-w003,backing-052,backing,seek's,lyric,192.626816,192.928816,192.244,192.546,0.684,needs_review,text_review
+backing-052-w004,backing-052,backing,the,lyric,192.968816,193.068816,192.586,192.686,0.53,needs_review,weak_acoustic_match; text_review
+backing-052-w005,backing-052,backing,game,lyric,193.109816,193.470816,192.727,193.088,0.729,needs_review,text_review
+backing-052-w006,backing-052,backing,that,lyric,193.491816,193.852816,193.109,193.47,0.355,needs_review,weak_acoustic_match; text_review
+backing-052-w007,backing-052,backing,monsters,lyric,193.953816,194.616816,193.571,194.234,0.828,needs_review,text_review; sustain_review
+backing-052-w008,backing-052,backing,play.,lyric,194.998816,195.782816,194.616,195.4,0.747,needs_review,text_review; sustain_review; window_edge
+backing-053-w001,backing-053,backing,And,lyric,196.163816,196.364816,195.781,195.982,0.302,needs_review,weak_acoustic_match; text_review; audible_attack_before_alignment
+backing-053-w002,backing-053,backing,"play,",lyric,196.384816,196.504816,196.002,196.122,0.109,needs_review,weak_acoustic_match; text_review
+backing-053-w003,backing-053,backing,and,lyric,197.065816,197.185816,196.683,196.803,0.357,needs_review,weak_acoustic_match; text_review
+backing-053-w004,backing-053,backing,"play,",lyric,197.226816,198.829816,196.844,198.447,0.867,needs_review,text_review; sustain_review
+backing-053-w005,backing-053,backing,and,lyric,199.650816,199.830816,199.268,199.448,0.724,needs_review,text_review
+backing-053-w006,backing-053,backing,"play,",lyric,199.931816,202.235816,199.549,201.853,0.824,needs_review,text_review; sustain_review
+backing-053-w007,backing-053,backing,and,lyric,202.415816,202.596816,202.033,202.214,0.763,needs_review,text_review
+backing-053-w008,backing-053,backing,play.,lyric,202.656816,203.718816,202.274,203.336,0.714,needs_review,text_review; sustain_review

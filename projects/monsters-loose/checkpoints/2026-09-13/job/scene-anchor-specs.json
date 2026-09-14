@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ANCH-001",
+    "scene": "SCN-001",
+    "start": 0,
+    "end": 8.6,
+    "name": "Something behind the mesh",
+    "refs": [
+      "ENV-003-v001.png",
+      "CHAR-010-v001.png"
+    ],
+    "body": "Mood of concealed danger. From close to the enclosure threshold, the near foreground is dark black steel mesh with a single curled claw gripping it and ONE yellow-green slit-pupil eye partly visible behind foliage and deep shadow. Show only those tiny fragments of the supplied creature, absolutely no full head/body reveal. Beyond the mesh the quiet lamp-lit concourse recedes toward the laboratory; the zoo looks organized and calm but something is watching. No Harper or other people. The image captures the scene's tension, not a prescribed opening camera frame.",
+    "prompt": "Create a SCENE ANCHOR illustration for Monsters Loose: an evocative rough scene reference, not a storyboard panel, video-generation start frame, end frame or locked shot. Capture narrative mood and character relationships within an existing coherent world. Retro 1960s monster comic, bold ink and crosshatching, dimensional character art, nighttime cool teal and practical amber light, rough MATTE paving, existing cream concrete/black steel zoo architecture. Wide 16:9 with strong readable storytelling composition. No overlaid labels, lettering or speech bubbles. Preserve identities and environment references. \nMood of concealed danger. From close to the enclosure threshold, the near foreground is dark black steel mesh with a single curled claw gripping it and ONE yellow-green slit-pupil eye partly visible behind foliage and deep shadow. Show only those tiny fragments of the supplied creature, absolutely no full head/body reveal. Beyond the mesh the quiet lamp-lit concourse recedes toward the laboratory; the zoo looks organized and calm but something is watching. No Harper or other people. The image captures the scene's tension, not a prescribed opening camera frame."
+  },
+  {
+    "id": "ANCH-002",
+    "scene": "SCN-002",
+    "start": 8.6,
+    "end": 20.96,
+    "name": "Harper has it handled",
+    "refs": [
+      "CHAR-001-v002.png",
+      "ENV-003-v001.png"
+    ],
+    "body": "Harper, exactly the red-haired freckled keeper from input1, stands confidently beside enclosure 2 of input2. Medium-wide full-figure environmental illustration: grounded casual stance, one gloved hand resting against the enclosure door, head turned toward a faint sound with alert knowing half-smile. She is experienced and competent, not panicking. Gate appears slightly ajar behind her, a subtle clue, no visible monster. Plenty of concourse remains visible with rough matte paving and lab beyond. Her uniform, hair, face and creature patch remain consistent. No lasso in this anchor; opening carry remains undecided. Show the contrast of relaxed competence and an ominous small containment fault.",
+    "prompt": "Create a SCENE ANCHOR illustration for Monsters Loose: an evocative rough scene reference, not a storyboard panel, video-generation start frame, end frame or locked shot. Capture narrative mood and character relationships within an existing coherent world. Retro 1960s monster comic, bold ink and crosshatching, dimensional character art, nighttime cool teal and practical amber light, rough MATTE paving, existing cream concrete/black steel zoo architecture. Wide 16:9 with strong readable storytelling composition. No overlaid labels, lettering or speech bubbles. Preserve identities and environment references. \nHarper, exactly the red-haired freckled keeper from input1, stands confidently beside enclosure 2 of input2. Medium-wide full-figure environmental illustration: grounded casual stance, one gloved hand resting against the enclosure door, head turned toward a faint sound with alert knowing half-smile. She is experienced and competent, not panicking. Gate appears slightly ajar behind her, a subtle clue, no visible monster. Plenty of concourse remains visible with rough matte paving and lab beyond. Her uniform, hair, face and creature patch remain consistent. No lasso in this anchor; opening carry remains undecided. Show the contrast of relaxed competence and an ominous small containment fault."
+  },
+  {
+    "id": "ANCH-003",
+    "scene": "SCN-003",
+    "start": 20.96,
+    "end": 42.98,
+    "name": "A cheerful tour, an uneasy zoo",
+    "refs": [
+      "CHAR-001-v002.png",
+      "ENV-004-v001.png"
+    ],
+    "body": "Harper in the habitat junction from input2, same face, red curly bob, olive uniform and approved sleeve patch. She gestures with playful theatrical confidence toward the illustrated creature interpretation board, making an amused exaggerated expression as if telling a tall story. A simple coiled restraining rope is clipped at her hip as a provisional lasso design, not in use. Behind her, one large dark enclosure's bars and hanging chain suggest a recent heavy rattle, with no creature revealed. A small period wall-mounted PA horn above the junction helps convey an uneasy announcement without written sound effects. Warm public-facing zoo welcome versus unnerving darkness behind mesh. No visitors yet. The sign's creature icons remain small placeholder illustrations. This scene anchor combines several broad beats; not a literal simultaneous shot or a start/end frame.",
+    "prompt": "Create a SCENE ANCHOR illustration for Monsters Loose: an evocative rough scene reference, not a storyboard panel, video-generation start frame, end frame or locked shot. Capture narrative mood and character relationships within an existing coherent world. Retro 1960s monster comic, bold ink and crosshatching, dimensional character art, nighttime cool teal and practical amber light, rough MATTE paving, existing cream concrete/black steel zoo architecture. Wide 16:9 with strong readable storytelling composition. No overlaid labels, lettering or speech bubbles. Preserve identities and environment references. \nHarper in the habitat junction from input2, same face, red curly bob, olive uniform and approved sleeve patch. She gestures with playful theatrical confidence toward the illustrated creature interpretation board, making an amused exaggerated expression as if telling a tall story. A simple coiled restraining rope is clipped at her hip as a provisional lasso design, not in use. Behind her, one large dark enclosure's bars and hanging chain suggest a recent heavy rattle, with no creature revealed. A small period wall-mounted PA horn above the junction helps convey an uneasy announcement without written sound effects. Warm public-facing zoo welcome versus unnerving darkness behind mesh. No visitors yet. The sign's creature icons remain small placeholder illustrations. This scene anchor combines several broad beats; not a literal simultaneous shot or a start/end frame."
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "CHAR-002",
+    "name": "Japanese research scientist",
+    "description": "A Japanese man in his late 40s to early 50s, thoughtful composed scientific authority, neatly combed black hair with a few silver strands, slim rectangular period-appropriate glasses, clean-shaven, precise observant expression. Slender upright posture. Ivory knee-length laboratory coat worn neatly over a pale shirt, dark narrow tie and charcoal trousers, practical dark shoes. Holding a small closed scientific notebook in one hand, other hand relaxed. Communicate disciplined curiosity rather than menace. Respectful individualized face, no ethnic caricature."
+  },
+  {
+    "id": "CHAR-003",
+    "name": "Senior laboratory scientist",
+    "description": "An adult woman in her early 40s, inspired by capable scientists in mid-century 1950s/1960s science-fiction films: dark brown hair in a tidy short waved bob tucked behind one ear, angular face, brown eyes, no glasses, intelligent skeptical expression. Ivory knee-length lab coat over a muted burgundy blouse and dark straight trousers, flat practical shoes. A pen in breast pocket and one slim clipboard held low at her side. Relaxed but authoritative stance. She is a serious researcher, not a pin-up or secretary. Distinct from Harper: no auburn curls, no heavy freckles, no keeper uniform."
+  },
+  {
+    "id": "CHAR-004",
+    "name": "Rogue experimental scientist",
+    "description": "An adult man around 60 with a lean slightly stooped but energetic figure, long expressive face, prominent hooked nose, lively pale eyes, disordered swept-back silver-gray hair and asymmetric raised eyebrow, clean-shaven. Brilliant overconfident enthusiasm; he thinks his reckless new monster experiment will be magnificent. A worn, slightly rumpled ivory knee-length lab coat, loosened narrow tie, faded pale shirt, dark trousers and scuffed practical shoes; rolled cuffs and modest ink marks, not filthy horror gore. One hand making a small persuasive explanatory gesture, other holding a closed battered notebook. Not a clown, not a wizard, no exaggerated horror deformities, no maniacal laugh; danger comes from conviction and disregard for protocol."
+  },
+  {
+    "id": "CHAR-005",
+    "name": "Containment research specialist",
+    "description": "An adult Black woman in her late 30s to early 40s, compact sturdy build, short close natural curls, dark brown skin, strong brows and warm brown eyes, calm dryly amused expression of someone who has had to solve many containment failures. She is a field biologist and containment researcher, a hands-on scientist, not military security. A practical shorter ivory lab coat over a muted slate-blue work shirt and dark olive trousers, sturdy work boots, safety glasses hanging neatly from her breast pocket and plain protective gloves tucked into a belt loop. Holds a compact rugged analog measuring instrument at waist height. Natural grounded stance, personable and capable. Distinct silhouette from all other scientists; no weapons or futuristic armor."
+  }
+]

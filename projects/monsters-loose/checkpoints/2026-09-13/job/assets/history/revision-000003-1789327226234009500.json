@@ -1,0 +1,330 @@
+{
+  "version": 1,
+  "revision": 3,
+  "project": "Monsters Loose",
+  "id_policy": "Asset IDs name the subject and remain stable; version IDs name individual immutable candidates. SCN IDs name the existing 15 broad narrative scenes. Never renumber IDs to match a new order. Shot IDs will be assigned when shots are authored.",
+  "scenes": [
+    {
+      "id": "SCN-001",
+      "title": "A STRANGE PLACE",
+      "start": 0,
+      "end": 8.6
+    },
+    {
+      "id": "SCN-002",
+      "title": "THE KEEPER ON DUTY",
+      "start": 8.6,
+      "end": 20.96
+    },
+    {
+      "id": "SCN-003",
+      "title": "A PLACE BUILT FOR MONSTERS",
+      "start": 20.96,
+      "end": 42.98
+    },
+    {
+      "id": "SCN-004",
+      "title": "DANGEROUS AMBITION",
+      "start": 42.98,
+      "end": 54.32
+    },
+    {
+      "id": "SCN-005",
+      "title": "TROUBLE BREWING",
+      "start": 54.32,
+      "end": 62.77
+    },
+    {
+      "id": "SCN-006",
+      "title": "THE VISITORS' TOUR",
+      "start": 62.77,
+      "end": 84.8
+    },
+    {
+      "id": "SCN-007",
+      "title": "CHOOSE YOUR CREATURE",
+      "start": 84.8,
+      "end": 102.55
+    },
+    {
+      "id": "SCN-008",
+      "title": "THE MONSTER SHOWDOWN",
+      "start": 102.55,
+      "end": 121.04
+    },
+    {
+      "id": "SCN-009",
+      "title": "WHAT SHALL WE MAKE NEXT?",
+      "start": 121.04,
+      "end": 134.23
+    },
+    {
+      "id": "SCN-010",
+      "title": "THE SCIENTIST'S SECRET",
+      "start": 134.23,
+      "end": 140.74
+    },
+    {
+      "id": "SCN-011",
+      "title": "CONTAINMENT FAILS",
+      "start": 140.74,
+      "end": 157.23
+    },
+    {
+      "id": "SCN-012",
+      "title": "NO WAY. YES WAY.",
+      "start": 157.23,
+      "end": 171.87
+    },
+    {
+      "id": "SCN-013",
+      "title": "FAMILIAR FACES, NOW REAL",
+      "start": 171.87,
+      "end": 176.7
+    },
+    {
+      "id": "SCN-014",
+      "title": "BEYOND THE FENCE",
+      "start": 176.7,
+      "end": 206.27
+    },
+    {
+      "id": "SCN-015",
+      "title": "LOOSE AT LAST",
+      "start": 206.27,
+      "end": 220.387
+    }
+  ],
+  "assets": [
+    {
+      "id": "CHAR-001",
+      "name": "Zookeeper · Harper",
+      "kind": "character",
+      "brief": "First candidate reference derived from SRC-001. Review identity, costume and ink treatment before extending to more views.",
+      "continuity": "Auburn curly bob and short fringe; freckles and hazel-green eyes; olive work uniform; HARPER badge, M.U.C.F. shoulder patch, ZOO STAFF ID, radio, utility belt and fingerless gloves. Full trousers and boots are candidate extensions of the cropped source costume. Lasso design remains open.",
+      "scene_ids": [
+        "SCN-002",
+        "SCN-003",
+        "SCN-004",
+        "SCN-006",
+        "SCN-012",
+        "SCN-014"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "CHAR-001-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "SRC-001 / v001"
+          ],
+          "prompt": "Use case: illustration-story. Generate ONE character reference image for Monsters Loose, asset CHAR-001 Zookeeper v001. Input image is the identity, costume, and visual-style reference, not a composition to reproduce. Show the SAME adult female zookeeper from the input, maintaining recognizable facial identity: dense freckles, pale warm skin, hazel-green eyes, auburn/copper curly chin-to-shoulder-length bob with short straight fringe, same facial proportions. Single full-length standing three-quarter-front reference portrait, entire head and boots in frame, natural competent relaxed stance, arms resting where uniform and hands can be clearly seen, alert and slightly wry closed-mouth expression. No multiple views or panels. Preserve olive short-sleeved button-front work shirt, practical trousers, dark utility belt, fingerless work gloves, M.U.C.F. dinosaur shoulder patch, HARPER name badge, hanging ZOO STAFF ID and existing practical gear. Finish unseen lower costume conservatively with olive work trousers and sturdy dark boots; these are candidate additions for approval. No extra weapons, creatures, hats, or unrelated accessories. Quiet plain warm parchment backdrop with subtle ground shadow. Match the original richly illustrated retro 1960s monster-comic / graphic-novel treatment: confident ink contours, detailed crosshatching and restrained halftone grain, earthy olive and warm paper palette, believable anatomy and dimensional face without becoming a glossy photograph or cartoon caricature. Even readable lighting on face and costume. Do not copy cover title, caption boxes, speech bubbles, alarm or background architecture. No large titles, no catalog ID burned into artwork. Only small original costume labels. High-quality reference image that can anchor consistent future generated scenes.",
+          "sha256": "399f43a765f53bbb69b827e0ed071a25cf7bd4c1d56aca86a7a31f4e76864a3f"
+        }
+      ]
+    },
+    {
+      "id": "CHAR-001-CU",
+      "parent_asset_id": "CHAR-001",
+      "name": "Harper · face & singing continuity",
+      "kind": "character",
+      "brief": "Supplemental 2×2 close-up sheet: A three-quarter, B profile, C singing AH, D frontal smile. Same character as CHAR-001; the full-body reference stays separate.",
+      "continuity": "Compare all four faces against CHAR-001. Preserve freckles, eye color and shape, fringe/curl silhouette, nose, lips and jaw. Panels C and D establish a candidate shared dental baseline: natural ivory teeth, consistent incisors, spacing and dental arch. Approve the mouth/teeth appearance before using it to guide close-up shots.",
+      "scene_ids": [
+        "SCN-002",
+        "SCN-003",
+        "SCN-004",
+        "SCN-006",
+        "SCN-012",
+        "SCN-014"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "CHAR-001-CU-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "CHAR-001 / v001",
+            "SRC-001 / v001"
+          ],
+          "prompt": "undefined",
+          "sha256": "2b5b302b1da17f22717e1ecb3d5ff922b0f69145af5e374099b98d69c9fd2c78"
+        }
+      ]
+    },
+    {
+      "id": "SRC-001",
+      "name": "Original monster-zoo cover",
+      "kind": "source",
+      "brief": "User-provided starting image. Anchor for the zookeeper, containment-facility world and comic-book treatment.",
+      "continuity": "Retro monster-comic ink and halftone texture; warm paper, olive uniforms, dark teal architecture and red warning accents. This image retains its original Monsters Undone cover lettering.",
+      "scene_ids": [
+        "SCN-001",
+        "SCN-002",
+        "SCN-003",
+        "SCN-004",
+        "SCN-005",
+        "SCN-006",
+        "SCN-007",
+        "SCN-008",
+        "SCN-009",
+        "SCN-010",
+        "SCN-011",
+        "SCN-012",
+        "SCN-013",
+        "SCN-014",
+        "SCN-015"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "SRC-001-v001.png",
+          "status": "source",
+          "review": "",
+          "generator": "Original user-provided reference",
+          "source_ids": [],
+          "prompt": "",
+          "sha256": "e32d9258ba5bdbc81a3e4eb8e26996566b9f939f29bc0361e4a8650f0550f5f8"
+        }
+      ]
+    },
+    {
+      "id": "ENV-001",
+      "name": "Remote zoo & lab · night establishing",
+      "kind": "environment",
+      "brief": "Wide establishing reference for the remote containment zoo and laboratory in coastal swampland. Nighttime is the direction for the entire video; the architecture, causeway road and helipad are candidate layout choices.",
+      "continuity": "Keep the zoo/lab relationship, perimeter, approach road, helipad and wetland/coast geography consistent once approved. Cool readable moonlit surroundings, warm practical exterior lights, lit laboratory interiors and restrained red beacons. Delay full monster reveals.",
+      "scene_ids": [
+        "SCN-001",
+        "SCN-014"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "ENV-001-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "SRC-001 / v001"
+          ],
+          "prompt": "undefined",
+          "sha256": "cb00afac1877b8a8dec9f8c6de6b18bbd11cd2d561ea2bd4a7891cc83ed6d7c3"
+        }
+      ]
+    },
+    {
+      "id": "CHAR-002",
+      "name": "Japanese research scientist",
+      "kind": "character",
+      "brief": "One of the three scientist concepts from the original narrative notes.",
+      "continuity": "A Japanese man in his late 40s to early 50s, thoughtful composed scientific authority, neatly combed black hair with a few silver strands, slim rectangular period-appropriate glasses, clean-shaven, precise observant expression. Slender upright posture. Ivory knee-length laboratory coat worn neatly over a pale shirt, dark narrow tie and charcoal trousers, practical dark shoes. Holding a small closed scientific notebook in one hand, other hand relaxed. Communicate disciplined curiosity rather than menace. Respectful individualized face, no ethnic caricature.",
+      "scene_ids": [
+        "SCN-004",
+        "SCN-009"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "CHAR-002-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "SRC-001 / v001"
+          ],
+          "prompt": "Use case: illustration-story. Generate ONE individual full-length character reference portrait for the Monsters Loose video. Reference image supplies ONLY the graphic-novel drawing style, mid-century monster-zoo/laboratory world and fabric/ink vocabulary. Create the new scientist described below; do NOT copy the zookeeper's face, auburn hair, pose or costume. Full figure, entire head and shoes visible, body at a modest three-quarter angle, face clear and readable, natural expressive hands. Plain quiet dark desaturated teal interior-studio backdrop and simple floor contact shadow, no lab scenery or other people. Readable artificial interior lighting: soft neutral key on face and clothes with a restrained warm practical-light edge. The story is all at night; no sunlight or daytime window. Match richly illustrated retro 1960s monster-comic / graphic-novel treatment: confident ink contours, fine crosshatching, controlled halftone print grain, believable dimensional anatomy without glossy photorealism or plastic 3D. Ivory/aged-paper lab coats with a small understated M.U.C.F. facility badge identify the shared institution. Cohesive with the original reference, but a distinct new character. No panels, no comic cover titles, no speech bubbles, no catalog IDs or large text; only small uniform insignia. No monsters or other characters. Character: A Japanese man in his late 40s to early 50s, thoughtful composed scientific authority, neatly combed black hair with a few silver strands, slim rectangular period-appropriate glasses, clean-shaven, precise observant expression. Slender upright posture. Ivory knee-length laboratory coat worn neatly over a pale shirt, dark narrow tie and charcoal trousers, practical dark shoes. Holding a small closed scientific notebook in one hand, other hand relaxed. Communicate disciplined curiosity rather than menace. Respectful individualized face, no ethnic caricature.",
+          "sha256": "385db5e657c525cfc9ee9e8297542b6188a479ddfea32fcec69011b712d6530d"
+        }
+      ]
+    },
+    {
+      "id": "CHAR-003",
+      "name": "Senior laboratory scientist",
+      "kind": "character",
+      "brief": "One of the three scientist concepts from the original narrative notes.",
+      "continuity": "An adult woman in her early 40s, inspired by capable scientists in mid-century 1950s/1960s science-fiction films: dark brown hair in a tidy short waved bob tucked behind one ear, angular face, brown eyes, no glasses, intelligent skeptical expression. Ivory knee-length lab coat over a muted burgundy blouse and dark straight trousers, flat practical shoes. A pen in breast pocket and one slim clipboard held low at her side. Relaxed but authoritative stance. She is a serious researcher, not a pin-up or secretary. Distinct from Harper: no auburn curls, no heavy freckles, no keeper uniform.",
+      "scene_ids": [
+        "SCN-004",
+        "SCN-009"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "CHAR-003-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "SRC-001 / v001"
+          ],
+          "prompt": "Use case: illustration-story. Generate ONE individual full-length character reference portrait for the Monsters Loose video. Reference image supplies ONLY the graphic-novel drawing style, mid-century monster-zoo/laboratory world and fabric/ink vocabulary. Create the new scientist described below; do NOT copy the zookeeper's face, auburn hair, pose or costume. Full figure, entire head and shoes visible, body at a modest three-quarter angle, face clear and readable, natural expressive hands. Plain quiet dark desaturated teal interior-studio backdrop and simple floor contact shadow, no lab scenery or other people. Readable artificial interior lighting: soft neutral key on face and clothes with a restrained warm practical-light edge. The story is all at night; no sunlight or daytime window. Match richly illustrated retro 1960s monster-comic / graphic-novel treatment: confident ink contours, fine crosshatching, controlled halftone print grain, believable dimensional anatomy without glossy photorealism or plastic 3D. Ivory/aged-paper lab coats with a small understated M.U.C.F. facility badge identify the shared institution. Cohesive with the original reference, but a distinct new character. No panels, no comic cover titles, no speech bubbles, no catalog IDs or large text; only small uniform insignia. No monsters or other characters. Character: An adult woman in her early 40s, inspired by capable scientists in mid-century 1950s/1960s science-fiction films: dark brown hair in a tidy short waved bob tucked behind one ear, angular face, brown eyes, no glasses, intelligent skeptical expression. Ivory knee-length lab coat over a muted burgundy blouse and dark straight trousers, flat practical shoes. A pen in breast pocket and one slim clipboard held low at her side. Relaxed but authoritative stance. She is a serious researcher, not a pin-up or secretary. Distinct from Harper: no auburn curls, no heavy freckles, no keeper uniform.",
+          "sha256": "26b84999fcf20985713ca69009053c5530a3ab34fe6ae465f093ad6673b2dd8a"
+        }
+      ]
+    },
+    {
+      "id": "CHAR-004",
+      "name": "Rogue experimental scientist",
+      "kind": "character",
+      "brief": "One of the three scientist concepts from the original narrative notes.",
+      "continuity": "An adult man around 60 with a lean slightly stooped but energetic figure, long expressive face, prominent hooked nose, lively pale eyes, disordered swept-back silver-gray hair and asymmetric raised eyebrow, clean-shaven. Brilliant overconfident enthusiasm; he thinks his reckless new monster experiment will be magnificent. A worn, slightly rumpled ivory knee-length lab coat, loosened narrow tie, faded pale shirt, dark trousers and scuffed practical shoes; rolled cuffs and modest ink marks, not filthy horror gore. One hand making a small persuasive explanatory gesture, other holding a closed battered notebook. Not a clown, not a wizard, no exaggerated horror deformities, no maniacal laugh; danger comes from conviction and disregard for protocol.",
+      "scene_ids": [
+        "SCN-004",
+        "SCN-009",
+        "SCN-010",
+        "SCN-014"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "CHAR-004-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "SRC-001 / v001"
+          ],
+          "prompt": "Use case: illustration-story. Generate ONE individual full-length character reference portrait for the Monsters Loose video. Reference image supplies ONLY the graphic-novel drawing style, mid-century monster-zoo/laboratory world and fabric/ink vocabulary. Create the new scientist described below; do NOT copy the zookeeper's face, auburn hair, pose or costume. Full figure, entire head and shoes visible, body at a modest three-quarter angle, face clear and readable, natural expressive hands. Plain quiet dark desaturated teal interior-studio backdrop and simple floor contact shadow, no lab scenery or other people. Readable artificial interior lighting: soft neutral key on face and clothes with a restrained warm practical-light edge. The story is all at night; no sunlight or daytime window. Match richly illustrated retro 1960s monster-comic / graphic-novel treatment: confident ink contours, fine crosshatching, controlled halftone print grain, believable dimensional anatomy without glossy photorealism or plastic 3D. Ivory/aged-paper lab coats with a small understated M.U.C.F. facility badge identify the shared institution. Cohesive with the original reference, but a distinct new character. No panels, no comic cover titles, no speech bubbles, no catalog IDs or large text; only small uniform insignia. No monsters or other characters. Character: An adult man around 60 with a lean slightly stooped but energetic figure, long expressive face, prominent hooked nose, lively pale eyes, disordered swept-back silver-gray hair and asymmetric raised eyebrow, clean-shaven. Brilliant overconfident enthusiasm; he thinks his reckless new monster experiment will be magnificent. A worn, slightly rumpled ivory knee-length lab coat, loosened narrow tie, faded pale shirt, dark trousers and scuffed practical shoes; rolled cuffs and modest ink marks, not filthy horror gore. One hand making a small persuasive explanatory gesture, other holding a closed battered notebook. Not a clown, not a wizard, no exaggerated horror deformities, no maniacal laugh; danger comes from conviction and disregard for protocol.",
+          "sha256": "a64329ba00bbc82f3836bbf6ed53b61c80c433c999e71ea182a228e322fceb1b"
+        }
+      ]
+    },
+    {
+      "id": "CHAR-005",
+      "name": "Containment research specialist",
+      "kind": "character",
+      "brief": "Proposed fourth scientist for variety: a hands-on field biologist and containment researcher. Role and design remain open for approval.",
+      "continuity": "An adult Black woman in her late 30s to early 40s, compact sturdy build, short close natural curls, dark brown skin, strong brows and warm brown eyes, calm dryly amused expression of someone who has had to solve many containment failures. She is a field biologist and containment researcher, a hands-on scientist, not military security. A practical shorter ivory lab coat over a muted slate-blue work shirt and dark olive trousers, sturdy work boots, safety glasses hanging neatly from her breast pocket and plain protective gloves tucked into a belt loop. Holds a compact rugged analog measuring instrument at waist height. Natural grounded stance, personable and capable. Distinct silhouette from all other scientists; no weapons or futuristic armor.",
+      "scene_ids": [
+        "SCN-004",
+        "SCN-009"
+      ],
+      "versions": [
+        {
+          "id": "v001",
+          "image": "CHAR-005-v001.png",
+          "status": "awaiting_review",
+          "review": "",
+          "generator": "Built-in Codex image generation; exact model not specified by tool",
+          "source_ids": [
+            "SRC-001 / v001"
+          ],
+          "prompt": "Use case: illustration-story. Generate ONE individual full-length character reference portrait for the Monsters Loose video. Reference image supplies ONLY the graphic-novel drawing style, mid-century monster-zoo/laboratory world and fabric/ink vocabulary. Create the new scientist described below; do NOT copy the zookeeper's face, auburn hair, pose or costume. Full figure, entire head and shoes visible, body at a modest three-quarter angle, face clear and readable, natural expressive hands. Plain quiet dark desaturated teal interior-studio backdrop and simple floor contact shadow, no lab scenery or other people. Readable artificial interior lighting: soft neutral key on face and clothes with a restrained warm practical-light edge. The story is all at night; no sunlight or daytime window. Match richly illustrated retro 1960s monster-comic / graphic-novel treatment: confident ink contours, fine crosshatching, controlled halftone print grain, believable dimensional anatomy without glossy photorealism or plastic 3D. Ivory/aged-paper lab coats with a small understated M.U.C.F. facility badge identify the shared institution. Cohesive with the original reference, but a distinct new character. No panels, no comic cover titles, no speech bubbles, no catalog IDs or large text; only small uniform insignia. No monsters or other characters. Character: An adult Black woman in her late 30s to early 40s, compact sturdy build, short close natural curls, dark brown skin, strong brows and warm brown eyes, calm dryly amused expression of someone who has had to solve many containment failures. She is a field biologist and containment researcher, a hands-on scientist, not military security. A practical shorter ivory lab coat over a muted slate-blue work shirt and dark olive trousers, sturdy work boots, safety glasses hanging neatly from her breast pocket and plain protective gloves tucked into a belt loop. Holds a compact rugged analog measuring instrument at waist height. Natural grounded stance, personable and capable. Distinct silhouette from all other scientists; no weapons or futuristic armor.",
+          "sha256": "4b75d601b15687172bfca26c2b025924e4996e3a47aa4d55da0adf1846928b2f"
+        }
+      ]
+    }
+  ],
+  "visual_direction": {
+    "time_of_day": "night throughout the video",
+    "interiors": "Artificially lit interiors; practical fixtures motivate the lighting.",
+    "exteriors": "Moonlight and artificial lighting reveal environments and faces while retaining a nocturnal mood.",
+    "world": "Remote zoo and biological laboratory amid swampland, with a suggested coastal setting.",
+    "status": "User-directed nighttime rule; specific facility layout and optional helipad/road remain candidate design choices."
+  }
+}

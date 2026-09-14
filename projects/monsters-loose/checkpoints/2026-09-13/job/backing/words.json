@@ -1,0 +1,7174 @@
+{
+  "schema_version": 1,
+  "timebase": "master_seconds",
+  "role": "backing",
+  "source_audio": "C:\\Users\\arneg\\OneDrive\\Documents\\Bitwig Studio\\Projects\\MonstersUndone.cleaned-groove\\samples\\Set the Monsters Loose (Backing Vocals) - Renaissance.wav",
+  "source_sha256": "a12d26f96e2f1d1f540b8fd358fa0812a0feab491db9d650d9925bc79a68fb28",
+  "source_duration": 219.48,
+  "stem_offset_seconds": 0.382816123654544,
+  "lyric_source": "https://docs.google.com/document/d/1qY_kvt5ykP-dRfeW8F32nODp9pwMCTr7itkDVvTKoKk/edit",
+  "method": "WhisperX 3.8.6 / WAV2VEC2_ASR_BASE_960H; no timestamp interpolation; independent word starts/ends",
+  "timing_status": "first_pass_not_listening_verified",
+  "phrases": [
+    {
+      "id": "backing-vocalization-1",
+      "text": "[Opening backing vocal sound]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Present in signal; no trustworthy independent word transcription.",
+      "window_source_start": 0,
+      "window_source_end": 1.8,
+      "words": [],
+      "alignment_segments": [],
+      "start": 0.382816123654544,
+      "end": 2.1828161236545442,
+      "audible_extent_candidate": {
+        "start": 0.582816,
+        "end": 1.852816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-01",
+      "text": "[Opening hook backing]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 11.3,
+      "window_source_end": 14.8,
+      "words": [],
+      "alignment_segments": [],
+      "start": 11.682816123654545,
+      "end": 15.182816123654545,
+      "audible_extent_candidate": {
+        "start": 11.962816,
+        "end": 14.872816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-02",
+      "text": "[La/na backing vocalization]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 16.0,
+      "window_source_end": 20.2,
+      "words": [],
+      "alignment_segments": [],
+      "start": 16.382816123654543,
+      "end": 20.582816123654542,
+      "audible_extent_candidate": {
+        "start": 16.562816,
+        "end": 20.302816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-03",
+      "text": "[Undone backing repeats]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 37.0,
+      "window_source_end": 40.8,
+      "words": [],
+      "alignment_segments": [],
+      "start": 37.38281612365454,
+      "end": 41.18281612365454,
+      "audible_extent_candidate": {
+        "start": 37.702816,
+        "end": 40.752816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-008",
+      "text": "What kind of monster would you like to make now?",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 42.24,
+          "end": 45.4,
+          "text": "What kind of monster would you like to make now"
+        }
+      ],
+      "window_source_start": 41.9,
+      "window_source_end": 45.5,
+      "words": [
+        {
+          "id": "backing-008-w001",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "What",
+          "kind": "lyric",
+          "source_start": 42.785,
+          "source_end": 42.966,
+          "start": 43.167816,
+          "end": 43.348816,
+          "alignment_score": 0.907,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w002",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "kind",
+          "kind": "lyric",
+          "source_start": 43.107,
+          "source_end": 43.589,
+          "start": 43.489816,
+          "end": 43.971816,
+          "alignment_score": 0.922,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w003",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "of",
+          "kind": "lyric",
+          "source_start": 43.65,
+          "source_end": 43.71,
+          "start": 44.032816,
+          "end": 44.092816,
+          "alignment_score": 0.242,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w004",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "monster",
+          "kind": "lyric",
+          "source_start": 43.73,
+          "source_end": 44.052,
+          "start": 44.112816,
+          "end": 44.434816,
+          "alignment_score": 0.524,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w005",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "would",
+          "kind": "lyric",
+          "source_start": 44.072,
+          "source_end": 44.233,
+          "start": 44.454816,
+          "end": 44.615816,
+          "alignment_score": 0.544,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w006",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "you",
+          "kind": "lyric",
+          "source_start": 44.253,
+          "source_end": 44.414,
+          "start": 44.635816,
+          "end": 44.796816,
+          "alignment_score": 0.548,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w007",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "like",
+          "kind": "lyric",
+          "source_start": 44.434,
+          "source_end": 44.736,
+          "start": 44.816816,
+          "end": 45.118816,
+          "alignment_score": 0.71,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w008",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "to",
+          "kind": "lyric",
+          "source_start": 44.756,
+          "source_end": 44.877,
+          "start": 45.138816,
+          "end": 45.259816,
+          "alignment_score": 0.472,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w009",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "make",
+          "kind": "lyric",
+          "source_start": 44.917,
+          "source_end": 45.158,
+          "start": 45.299816,
+          "end": 45.540816,
+          "alignment_score": 0.641,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-008-w010",
+          "phrase_id": "backing-008",
+          "role": "backing",
+          "text": "now?",
+          "kind": "lyric",
+          "source_start": 45.218,
+          "source_end": 45.42,
+          "start": 45.600816,
+          "end": 45.802816,
+          "alignment_score": 0.948,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 42.785,
+          "end": 45.42,
+          "text": "What kind of monster would you like to make now?",
+          "words": [
+            {
+              "word": "What",
+              "start": 42.785,
+              "end": 42.966,
+              "score": 0.907
+            },
+            {
+              "word": "kind",
+              "start": 43.107,
+              "end": 43.589,
+              "score": 0.922
+            },
+            {
+              "word": "of",
+              "start": 43.65,
+              "end": 43.71,
+              "score": 0.242
+            },
+            {
+              "word": "monster",
+              "start": 43.73,
+              "end": 44.052,
+              "score": 0.524
+            },
+            {
+              "word": "would",
+              "start": 44.072,
+              "end": 44.233,
+              "score": 0.544
+            },
+            {
+              "word": "you",
+              "start": 44.253,
+              "end": 44.414,
+              "score": 0.548
+            },
+            {
+              "word": "like",
+              "start": 44.434,
+              "end": 44.736,
+              "score": 0.71
+            },
+            {
+              "word": "to",
+              "start": 44.756,
+              "end": 44.877,
+              "score": 0.472
+            },
+            {
+              "word": "make",
+              "start": 44.917,
+              "end": 45.158,
+              "score": 0.641
+            },
+            {
+              "word": "now?",
+              "start": 45.218,
+              "end": 45.42,
+              "score": 0.948
+            }
+          ],
+          "chars": [
+            {
+              "char": "W",
+              "start": 42.785,
+              "end": 42.805,
+              "score": 0.999
+            },
+            {
+              "char": "h",
+              "start": 42.805,
+              "end": 42.865,
+              "score": 0.975
+            },
+            {
+              "char": "a",
+              "start": 42.865,
+              "end": 42.906,
+              "score": 0.994
+            },
+            {
+              "char": "t",
+              "start": 42.906,
+              "end": 42.966,
+              "score": 0.661
+            },
+            {
+              "char": " ",
+              "start": 42.966,
+              "end": 43.107,
+              "score": 0.978
+            },
+            {
+              "char": "k",
+              "start": 43.107,
+              "end": 43.428,
+              "score": 1.0
+            },
+            {
+              "char": "i",
+              "start": 43.428,
+              "end": 43.469,
+              "score": 0.998
+            },
+            {
+              "char": "n",
+              "start": 43.469,
+              "end": 43.529,
+              "score": 0.99
+            },
+            {
+              "char": "d",
+              "start": 43.529,
+              "end": 43.589,
+              "score": 0.702
+            },
+            {
+              "char": " ",
+              "start": 43.589,
+              "end": 43.65,
+              "score": 0.764
+            },
+            {
+              "char": "o",
+              "start": 43.65,
+              "end": 43.67,
+              "score": 0.024
+            },
+            {
+              "char": "f",
+              "start": 43.67,
+              "end": 43.71,
+              "score": 0.46
+            },
+            {
+              "char": " ",
+              "start": 43.71,
+              "end": 43.73,
+              "score": 0.084
+            },
+            {
+              "char": "m",
+              "start": 43.73,
+              "end": 43.791,
+              "score": 0.921
+            },
+            {
+              "char": "o",
+              "start": 43.791,
+              "end": 43.811,
+              "score": 0.781
+            },
+            {
+              "char": "n",
+              "start": 43.811,
+              "end": 43.831,
+              "score": 0.043
+            },
+            {
+              "char": "s",
+              "start": 43.831,
+              "end": 43.871,
+              "score": 0.742
+            },
+            {
+              "char": "t",
+              "start": 43.871,
+              "end": 43.972,
+              "score": 0.524
+            },
+            {
+              "char": "e",
+              "start": 43.972,
+              "end": 44.012,
+              "score": 0.486
+            },
+            {
+              "char": "r",
+              "start": 44.012,
+              "end": 44.052,
+              "score": 0.17
+            },
+            {
+              "char": " ",
+              "start": 44.052,
+              "end": 44.072,
+              "score": 0.88
+            },
+            {
+              "char": "w",
+              "start": 44.072,
+              "end": 44.092,
+              "score": 0.376
+            },
+            {
+              "char": "o",
+              "start": 44.092,
+              "end": 44.153,
+              "score": 0.933
+            },
+            {
+              "char": "u",
+              "start": 44.153,
+              "end": 44.173,
+              "score": 0.266
+            },
+            {
+              "char": "l",
+              "start": 44.173,
+              "end": 44.193,
+              "score": 0.191
+            },
+            {
+              "char": "d",
+              "start": 44.193,
+              "end": 44.233,
+              "score": 0.952
+            },
+            {
+              "char": " ",
+              "start": 44.233,
+              "end": 44.253,
+              "score": 0.767
+            },
+            {
+              "char": "y",
+              "start": 44.253,
+              "end": 44.313,
+              "score": 0.684
+            },
+            {
+              "char": "o",
+              "start": 44.313,
+              "end": 44.334,
+              "score": 0.364
+            },
+            {
+              "char": "u",
+              "start": 44.334,
+              "end": 44.414,
+              "score": 0.596
+            },
+            {
+              "char": " ",
+              "start": 44.414,
+              "end": 44.434,
+              "score": 0.78
+            },
+            {
+              "char": "l",
+              "start": 44.434,
+              "end": 44.575,
+              "score": 0.849
+            },
+            {
+              "char": "i",
+              "start": 44.575,
+              "end": 44.655,
+              "score": 0.849
+            },
+            {
+              "char": "k",
+              "start": 44.655,
+              "end": 44.696,
+              "score": 0.561
+            },
+            {
+              "char": "e",
+              "start": 44.696,
+              "end": 44.736,
+              "score": 0.582
+            },
+            {
+              "char": " ",
+              "start": 44.736,
+              "end": 44.756,
+              "score": 0.693
+            },
+            {
+              "char": "t",
+              "start": 44.756,
+              "end": 44.796,
+              "score": 0.498
+            },
+            {
+              "char": "o",
+              "start": 44.796,
+              "end": 44.877,
+              "score": 0.446
+            },
+            {
+              "char": " ",
+              "start": 44.877,
+              "end": 44.917,
+              "score": 0.771
+            },
+            {
+              "char": "m",
+              "start": 44.917,
+              "end": 44.997,
+              "score": 0.735
+            },
+            {
+              "char": "a",
+              "start": 44.997,
+              "end": 45.078,
+              "score": 0.681
+            },
+            {
+              "char": "k",
+              "start": 45.078,
+              "end": 45.098,
+              "score": 0.421
+            },
+            {
+              "char": "e",
+              "start": 45.098,
+              "end": 45.158,
+              "score": 0.727
+            },
+            {
+              "char": " ",
+              "start": 45.158,
+              "end": 45.218,
+              "score": 0.765
+            },
+            {
+              "char": "n",
+              "start": 45.218,
+              "end": 45.359,
+              "score": 0.957
+            },
+            {
+              "char": "o",
+              "start": 45.359,
+              "end": 45.379,
+              "score": 0.967
+            },
+            {
+              "char": "w",
+              "start": 45.379,
+              "end": 45.399,
+              "score": 0.923
+            },
+            {
+              "char": "?",
+              "start": 45.399,
+              "end": 45.42,
+              "score": 0.945
+            }
+          ]
+        }
+      ],
+      "start": 43.167816,
+      "end": 45.802816,
+      "audible_extent_candidate": {
+        "start": 43.152816,
+        "end": 45.882816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-009",
+      "text": "That last one set the town on fire.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 42.24,
+          "end": 45.4,
+          "text": "What kind of monster would you like to make now"
+        },
+        {
+          "start": 45.4,
+          "end": 47.78,
+          "text": "That has once set the count of fire"
+        },
+        {
+          "start": 47.78,
+          "end": 50.38,
+          "text": "And I'll make one that is twice as mean"
+        }
+      ],
+      "window_source_start": 45.1,
+      "window_source_end": 48.0,
+      "words": [
+        {
+          "id": "backing-009-w001",
+          "phrase_id": "backing-009",
+          "role": "backing",
+          "text": "That",
+          "kind": "lyric",
+          "source_start": 45.523,
+          "source_end": 45.704,
+          "start": 45.905816,
+          "end": 46.086816,
+          "alignment_score": 0.904,
+          "flags": [
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-009-w002",
+          "phrase_id": "backing-009",
+          "role": "backing",
+          "text": "last",
+          "kind": "lyric",
+          "source_start": 45.744,
+          "source_end": 45.986,
+          "start": 46.126816,
+          "end": 46.368816,
+          "alignment_score": 0.498,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-009-w003",
+          "phrase_id": "backing-009",
+          "role": "backing",
+          "text": "one",
+          "kind": "lyric",
+          "source_start": 46.107,
+          "source_end": 46.308,
+          "start": 46.489816,
+          "end": 46.690816,
+          "alignment_score": 0.678,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-009-w004",
+          "phrase_id": "backing-009",
+          "role": "backing",
+          "text": "set",
+          "kind": "lyric",
+          "source_start": 46.349,
+          "source_end": 46.57,
+          "start": 46.731816,
+          "end": 46.952816,
+          "alignment_score": 0.691,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-009-w005",
+          "phrase_id": "backing-009",
+          "role": "backing",
+          "text": "the",
+          "kind": "lyric",
+          "source_start": 46.651,
+          "source_end": 46.852,
+          "start": 47.033816,
+          "end": 47.234816,
+          "alignment_score": 0.893,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-009-w006",
+          "phrase_id": "backing-009",
+          "role": "backing",
+          "text": "town",
+          "kind": "lyric",
+          "source_start": 46.993,
+          "source_end": 47.356,
+          "start": 47.375816,
+          "end": 47.738816,
+          "alignment_score": 0.751,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-009-w007",
+          "phrase_id": "backing-009",
+          "role": "backing",
+          "text": "on",
+          "kind": "lyric",
+          "source_start": 47.376,
+          "source_end": 47.416,
+          "start": 47.758816,
+          "end": 47.798816,
+          "alignment_score": 0.02,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review",
+            "very_short"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-009-w008",
+          "phrase_id": "backing-009",
+          "role": "backing",
+          "text": "fire.",
+          "kind": "lyric",
+          "source_start": 47.456,
+          "source_end": 47.839,
+          "start": 47.838816,
+          "end": 48.221816,
+          "alignment_score": 0.519,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 45.523,
+          "end": 47.839,
+          "text": "That last one set the town on fire.",
+          "words": [
+            {
+              "word": "That",
+              "start": 45.523,
+              "end": 45.704,
+              "score": 0.904
+            },
+            {
+              "word": "last",
+              "start": 45.744,
+              "end": 45.986,
+              "score": 0.498
+            },
+            {
+              "word": "one",
+              "start": 46.107,
+              "end": 46.308,
+              "score": 0.678
+            },
+            {
+              "word": "set",
+              "start": 46.349,
+              "end": 46.57,
+              "score": 0.691
+            },
+            {
+              "word": "the",
+              "start": 46.651,
+              "end": 46.852,
+              "score": 0.893
+            },
+            {
+              "word": "town",
+              "start": 46.993,
+              "end": 47.356,
+              "score": 0.751
+            },
+            {
+              "word": "on",
+              "start": 47.376,
+              "end": 47.416,
+              "score": 0.02
+            },
+            {
+              "word": "fire.",
+              "start": 47.456,
+              "end": 47.839,
+              "score": 0.519
+            }
+          ],
+          "chars": [
+            {
+              "char": "T",
+              "start": 45.523,
+              "end": 45.563,
+              "score": 0.869
+            },
+            {
+              "char": "h",
+              "start": 45.563,
+              "end": 45.624,
+              "score": 0.982
+            },
+            {
+              "char": "a",
+              "start": 45.624,
+              "end": 45.644,
+              "score": 0.966
+            },
+            {
+              "char": "t",
+              "start": 45.644,
+              "end": 45.704,
+              "score": 0.8
+            },
+            {
+              "char": " ",
+              "start": 45.704,
+              "end": 45.744,
+              "score": 0.904
+            },
+            {
+              "char": "l",
+              "start": 45.744,
+              "end": 45.845,
+              "score": 0.721
+            },
+            {
+              "char": "a",
+              "start": 45.845,
+              "end": 45.946,
+              "score": 0.728
+            },
+            {
+              "char": "s",
+              "start": 45.946,
+              "end": 45.966,
+              "score": 0.54
+            },
+            {
+              "char": "t",
+              "start": 45.966,
+              "end": 45.986,
+              "score": 0.002
+            },
+            {
+              "char": " ",
+              "start": 45.986,
+              "end": 46.107,
+              "score": 0.717
+            },
+            {
+              "char": "o",
+              "start": 46.107,
+              "end": 46.147,
+              "score": 0.75
+            },
+            {
+              "char": "n",
+              "start": 46.147,
+              "end": 46.268,
+              "score": 0.676
+            },
+            {
+              "char": "e",
+              "start": 46.268,
+              "end": 46.308,
+              "score": 0.609
+            },
+            {
+              "char": " ",
+              "start": 46.308,
+              "end": 46.349,
+              "score": 0.731
+            },
+            {
+              "char": "s",
+              "start": 46.349,
+              "end": 46.469,
+              "score": 0.824
+            },
+            {
+              "char": "e",
+              "start": 46.469,
+              "end": 46.51,
+              "score": 0.532
+            },
+            {
+              "char": "t",
+              "start": 46.51,
+              "end": 46.57,
+              "score": 0.718
+            },
+            {
+              "char": " ",
+              "start": 46.57,
+              "end": 46.651,
+              "score": 0.854
+            },
+            {
+              "char": "t",
+              "start": 46.651,
+              "end": 46.691,
+              "score": 0.895
+            },
+            {
+              "char": "h",
+              "start": 46.691,
+              "end": 46.812,
+              "score": 0.961
+            },
+            {
+              "char": "e",
+              "start": 46.812,
+              "end": 46.852,
+              "score": 0.824
+            },
+            {
+              "char": " ",
+              "start": 46.852,
+              "end": 46.993,
+              "score": 0.815
+            },
+            {
+              "char": "t",
+              "start": 46.993,
+              "end": 47.174,
+              "score": 0.956
+            },
+            {
+              "char": "o",
+              "start": 47.174,
+              "end": 47.215,
+              "score": 0.589
+            },
+            {
+              "char": "w",
+              "start": 47.215,
+              "end": 47.295,
+              "score": 0.738
+            },
+            {
+              "char": "n",
+              "start": 47.295,
+              "end": 47.356,
+              "score": 0.722
+            },
+            {
+              "char": " ",
+              "start": 47.356,
+              "end": 47.376,
+              "score": 0.033
+            },
+            {
+              "char": "o",
+              "start": 47.376,
+              "end": 47.396,
+              "score": 0.038
+            },
+            {
+              "char": "n",
+              "start": 47.396,
+              "end": 47.416,
+              "score": 0.002
+            },
+            {
+              "char": " ",
+              "start": 47.416,
+              "end": 47.456,
+              "score": 0.513
+            },
+            {
+              "char": "f",
+              "start": 47.456,
+              "end": 47.718,
+              "score": 0.967
+            },
+            {
+              "char": "i",
+              "start": 47.718,
+              "end": 47.758,
+              "score": 0.67
+            },
+            {
+              "char": "r",
+              "start": 47.758,
+              "end": 47.778,
+              "score": 0.062
+            },
+            {
+              "char": "e",
+              "start": 47.778,
+              "end": 47.819,
+              "score": 0.33
+            },
+            {
+              "char": ".",
+              "start": 47.819,
+              "end": 47.839,
+              "score": 0.566
+            }
+          ]
+        }
+      ],
+      "start": 45.905816,
+      "end": 48.221816,
+      "audible_extent_candidate": {
+        "start": 45.522816,
+        "end": 48.382816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-010",
+      "text": "Now make one that is twice as mean.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 45.4,
+          "end": 47.78,
+          "text": "That has once set the count of fire"
+        },
+        {
+          "start": 47.78,
+          "end": 50.38,
+          "text": "And I'll make one that is twice as mean"
+        },
+        {
+          "start": 50.38,
+          "end": 53.0,
+          "text": "And fifty feet or maybe higher"
+        }
+      ],
+      "window_source_start": 47.5,
+      "window_source_end": 50.7,
+      "words": [
+        {
+          "id": "backing-010-w001",
+          "phrase_id": "backing-010",
+          "role": "backing",
+          "text": "Now",
+          "kind": "lyric",
+          "source_start": 47.882,
+          "source_end": 48.225,
+          "start": 48.264816,
+          "end": 48.607816,
+          "alignment_score": 0.675,
+          "flags": [
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-010-w002",
+          "phrase_id": "backing-010",
+          "role": "backing",
+          "text": "make",
+          "kind": "lyric",
+          "source_start": 48.285,
+          "source_end": 48.909,
+          "start": 48.667816,
+          "end": 49.291816,
+          "alignment_score": 0.637,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-010-w003",
+          "phrase_id": "backing-010",
+          "role": "backing",
+          "text": "one",
+          "kind": "lyric",
+          "source_start": 49.009,
+          "source_end": 49.15,
+          "start": 49.391816,
+          "end": 49.532816,
+          "alignment_score": 0.809,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-010-w004",
+          "phrase_id": "backing-010",
+          "role": "backing",
+          "text": "that",
+          "kind": "lyric",
+          "source_start": 49.17,
+          "source_end": 49.412,
+          "start": 49.552816,
+          "end": 49.794816,
+          "alignment_score": 0.228,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-010-w005",
+          "phrase_id": "backing-010",
+          "role": "backing",
+          "text": "is",
+          "kind": "lyric",
+          "source_start": 49.472,
+          "source_end": 49.533,
+          "start": 49.854816,
+          "end": 49.915816,
+          "alignment_score": 0.764,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-010-w006",
+          "phrase_id": "backing-010",
+          "role": "backing",
+          "text": "twice",
+          "kind": "lyric",
+          "source_start": 49.553,
+          "source_end": 49.875,
+          "start": 49.935816,
+          "end": 50.257816,
+          "alignment_score": 0.477,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-010-w007",
+          "phrase_id": "backing-010",
+          "role": "backing",
+          "text": "as",
+          "kind": "lyric",
+          "source_start": 49.975,
+          "source_end": 50.036,
+          "start": 50.357816,
+          "end": 50.418816,
+          "alignment_score": 0.32,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-010-w008",
+          "phrase_id": "backing-010",
+          "role": "backing",
+          "text": "mean.",
+          "kind": "lyric",
+          "source_start": 50.076,
+          "source_end": 50.499,
+          "start": 50.458816,
+          "end": 50.881816,
+          "alignment_score": 0.655,
+          "flags": [
+            "text_review",
+            "audible_tail_after_alignment"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 47.882,
+          "end": 50.499,
+          "text": "Now make one that is twice as mean.",
+          "words": [
+            {
+              "word": "Now",
+              "start": 47.882,
+              "end": 48.225,
+              "score": 0.675
+            },
+            {
+              "word": "make",
+              "start": 48.285,
+              "end": 48.909,
+              "score": 0.637
+            },
+            {
+              "word": "one",
+              "start": 49.009,
+              "end": 49.15,
+              "score": 0.809
+            },
+            {
+              "word": "that",
+              "start": 49.17,
+              "end": 49.412,
+              "score": 0.228
+            },
+            {
+              "word": "is",
+              "start": 49.472,
+              "end": 49.533,
+              "score": 0.764
+            },
+            {
+              "word": "twice",
+              "start": 49.553,
+              "end": 49.875,
+              "score": 0.477
+            },
+            {
+              "word": "as",
+              "start": 49.975,
+              "end": 50.036,
+              "score": 0.32
+            },
+            {
+              "word": "mean.",
+              "start": 50.076,
+              "end": 50.499,
+              "score": 0.655
+            }
+          ],
+          "chars": [
+            {
+              "char": "N",
+              "start": 47.882,
+              "end": 48.043,
+              "score": 0.523
+            },
+            {
+              "char": "o",
+              "start": 48.043,
+              "end": 48.104,
+              "score": 0.746
+            },
+            {
+              "char": "w",
+              "start": 48.104,
+              "end": 48.225,
+              "score": 0.755
+            },
+            {
+              "char": " ",
+              "start": 48.225,
+              "end": 48.285,
+              "score": 0.659
+            },
+            {
+              "char": "m",
+              "start": 48.285,
+              "end": 48.667,
+              "score": 0.768
+            },
+            {
+              "char": "a",
+              "start": 48.667,
+              "end": 48.808,
+              "score": 0.896
+            },
+            {
+              "char": "k",
+              "start": 48.808,
+              "end": 48.848,
+              "score": 0.548
+            },
+            {
+              "char": "e",
+              "start": 48.848,
+              "end": 48.909,
+              "score": 0.334
+            },
+            {
+              "char": " ",
+              "start": 48.909,
+              "end": 49.009,
+              "score": 0.988
+            },
+            {
+              "char": "o",
+              "start": 49.009,
+              "end": 49.05,
+              "score": 0.975
+            },
+            {
+              "char": "n",
+              "start": 49.05,
+              "end": 49.11,
+              "score": 0.829
+            },
+            {
+              "char": "e",
+              "start": 49.11,
+              "end": 49.15,
+              "score": 0.623
+            },
+            {
+              "char": " ",
+              "start": 49.15,
+              "end": 49.17,
+              "score": 0.994
+            },
+            {
+              "char": "t",
+              "start": 49.17,
+              "end": 49.191,
+              "score": 0.0
+            },
+            {
+              "char": "h",
+              "start": 49.191,
+              "end": 49.211,
+              "score": 0.0
+            },
+            {
+              "char": "a",
+              "start": 49.211,
+              "end": 49.271,
+              "score": 0.291
+            },
+            {
+              "char": "t",
+              "start": 49.271,
+              "end": 49.412,
+              "score": 0.62
+            },
+            {
+              "char": " ",
+              "start": 49.412,
+              "end": 49.472,
+              "score": 0.988
+            },
+            {
+              "char": "i",
+              "start": 49.472,
+              "end": 49.492,
+              "score": 0.995
+            },
+            {
+              "char": "s",
+              "start": 49.492,
+              "end": 49.533,
+              "score": 0.533
+            },
+            {
+              "char": " ",
+              "start": 49.533,
+              "end": 49.553,
+              "score": 0.993
+            },
+            {
+              "char": "t",
+              "start": 49.553,
+              "end": 49.593,
+              "score": 0.496
+            },
+            {
+              "char": "w",
+              "start": 49.593,
+              "end": 49.714,
+              "score": 0.836
+            },
+            {
+              "char": "i",
+              "start": 49.714,
+              "end": 49.774,
+              "score": 0.659
+            },
+            {
+              "char": "c",
+              "start": 49.774,
+              "end": 49.855,
+              "score": 0.378
+            },
+            {
+              "char": "e",
+              "start": 49.855,
+              "end": 49.875,
+              "score": 0.017
+            },
+            {
+              "char": " ",
+              "start": 49.875,
+              "end": 49.975,
+              "score": 0.791
+            },
+            {
+              "char": "a",
+              "start": 49.975,
+              "end": 49.996,
+              "score": 0.255
+            },
+            {
+              "char": "s",
+              "start": 49.996,
+              "end": 50.036,
+              "score": 0.386
+            },
+            {
+              "char": " ",
+              "start": 50.036,
+              "end": 50.076,
+              "score": 0.897
+            },
+            {
+              "char": "m",
+              "start": 50.076,
+              "end": 50.237,
+              "score": 0.866
+            },
+            {
+              "char": "e",
+              "start": 50.237,
+              "end": 50.257,
+              "score": 0.01
+            },
+            {
+              "char": "a",
+              "start": 50.257,
+              "end": 50.418,
+              "score": 0.971
+            },
+            {
+              "char": "n",
+              "start": 50.418,
+              "end": 50.479,
+              "score": 0.779
+            },
+            {
+              "char": ".",
+              "start": 50.479,
+              "end": 50.499,
+              "score": 0.648
+            }
+          ]
+        }
+      ],
+      "start": 48.264816,
+      "end": 50.881816,
+      "audible_extent_candidate": {
+        "start": 47.882816,
+        "end": 51.082816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-04",
+      "text": "[Chorus backing / sustained hook]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 50.8,
+      "window_source_end": 57.0,
+      "words": [],
+      "alignment_segments": [],
+      "start": 51.18281612365454,
+      "end": 57.38281612365454,
+      "audible_extent_candidate": {
+        "start": 51.182816,
+        "end": 57.012816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-hook-1",
+      "text": "Loose, oh my.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing ASR misrecognized hook as Who is all right; matched to lead and lyric sheet.",
+      "window_source_start": 57.7,
+      "window_source_end": 61.4,
+      "words": [
+        {
+          "id": "backing-hook-1-w001",
+          "phrase_id": "backing-hook-1",
+          "role": "backing",
+          "text": "Loose,",
+          "kind": "lyric",
+          "source_start": 58.002,
+          "source_end": 59.59,
+          "start": 58.384816,
+          "end": 59.972816,
+          "alignment_score": 0.399,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review",
+            "sustain_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-hook-1-w002",
+          "phrase_id": "backing-hook-1",
+          "role": "backing",
+          "text": "oh",
+          "kind": "lyric",
+          "source_start": 60.073,
+          "source_end": 60.214,
+          "start": 60.455816,
+          "end": 60.596816,
+          "alignment_score": 0.71,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-hook-1-w003",
+          "phrase_id": "backing-hook-1",
+          "role": "backing",
+          "text": "my.",
+          "kind": "lyric",
+          "source_start": 60.254,
+          "source_end": 61.4,
+          "start": 60.636816,
+          "end": 61.782816,
+          "alignment_score": 0.95,
+          "flags": [
+            "text_review",
+            "sustain_review",
+            "window_edge"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 58.002,
+          "end": 61.4,
+          "text": "Loose, oh my.",
+          "words": [
+            {
+              "word": "Loose,",
+              "start": 58.002,
+              "end": 59.59,
+              "score": 0.399
+            },
+            {
+              "word": "oh",
+              "start": 60.073,
+              "end": 60.214,
+              "score": 0.71
+            },
+            {
+              "word": "my.",
+              "start": 60.254,
+              "end": 61.4,
+              "score": 0.95
+            }
+          ],
+          "chars": [
+            {
+              "char": "L",
+              "start": 58.002,
+              "end": 58.042,
+              "score": 0.497
+            },
+            {
+              "char": "o",
+              "start": 58.042,
+              "end": 58.062,
+              "score": 0.187
+            },
+            {
+              "char": "o",
+              "start": 58.062,
+              "end": 59.53,
+              "score": 0.959
+            },
+            {
+              "char": "s",
+              "start": 59.53,
+              "end": 59.55,
+              "score": 0.686
+            },
+            {
+              "char": "e",
+              "start": 59.55,
+              "end": 59.57,
+              "score": 0.017
+            },
+            {
+              "char": ",",
+              "start": 59.57,
+              "end": 59.59,
+              "score": 0.048
+            },
+            {
+              "char": " ",
+              "start": 59.59,
+              "end": 60.073,
+              "score": 0.968
+            },
+            {
+              "char": "o",
+              "start": 60.073,
+              "end": 60.173,
+              "score": 0.931
+            },
+            {
+              "char": "h",
+              "start": 60.173,
+              "end": 60.214,
+              "score": 0.488
+            },
+            {
+              "char": " ",
+              "start": 60.214,
+              "end": 60.254,
+              "score": 0.551
+            },
+            {
+              "char": "m",
+              "start": 60.254,
+              "end": 60.596,
+              "score": 0.987
+            },
+            {
+              "char": "y",
+              "start": 60.596,
+              "end": 61.38,
+              "score": 0.949
+            },
+            {
+              "char": ".",
+              "start": 61.38,
+              "end": 61.4,
+              "score": 0.913
+            }
+          ]
+        }
+      ],
+      "start": 58.384816,
+      "end": 61.782816,
+      "audible_extent_candidate": {
+        "start": 58.212816,
+        "end": 61.782816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-05",
+      "text": "[Hook tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 61.4,
+      "window_source_end": 62.8,
+      "words": [],
+      "alignment_segments": [],
+      "start": 61.78281612365454,
+      "end": 63.18281612365454,
+      "audible_extent_candidate": {
+        "start": 61.782816,
+        "end": 63.022816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-020",
+      "text": "Choose your favorite monster beast.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 81.6,
+          "end": 84.14,
+          "text": "You can't believe they even call that place a zoo"
+        },
+        {
+          "start": 84.14,
+          "end": 86.82,
+          "text": "Choose your favorite monster beast"
+        },
+        {
+          "start": 86.82,
+          "end": 89.34,
+          "text": "Suit the way you wanna be"
+        }
+      ],
+      "window_source_start": 83.8,
+      "window_source_end": 87.1,
+      "words": [
+        {
+          "id": "backing-020-w001",
+          "phrase_id": "backing-020",
+          "role": "backing",
+          "text": "Choose",
+          "kind": "lyric",
+          "source_start": 84.565,
+          "source_end": 84.927,
+          "start": 84.947816,
+          "end": 85.309816,
+          "alignment_score": 0.921,
+          "flags": [
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-020-w002",
+          "phrase_id": "backing-020",
+          "role": "backing",
+          "text": "your",
+          "kind": "lyric",
+          "source_start": 84.947,
+          "source_end": 85.168,
+          "start": 85.329816,
+          "end": 85.550816,
+          "alignment_score": 0.788,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-020-w003",
+          "phrase_id": "backing-020",
+          "role": "backing",
+          "text": "favorite",
+          "kind": "lyric",
+          "source_start": 85.249,
+          "source_end": 85.792,
+          "start": 85.631816,
+          "end": 86.174816,
+          "alignment_score": 0.733,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-020-w004",
+          "phrase_id": "backing-020",
+          "role": "backing",
+          "text": "monster",
+          "kind": "lyric",
+          "source_start": 85.893,
+          "source_end": 86.516,
+          "start": 86.275816,
+          "end": 86.898816,
+          "alignment_score": 0.731,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-020-w005",
+          "phrase_id": "backing-020",
+          "role": "backing",
+          "text": "beast.",
+          "kind": "lyric",
+          "source_start": 86.597,
+          "source_end": 86.959,
+          "start": 86.979816,
+          "end": 87.341816,
+          "alignment_score": 0.606,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 84.565,
+          "end": 86.959,
+          "text": "Choose your favorite monster beast.",
+          "words": [
+            {
+              "word": "Choose",
+              "start": 84.565,
+              "end": 84.927,
+              "score": 0.921
+            },
+            {
+              "word": "your",
+              "start": 84.947,
+              "end": 85.168,
+              "score": 0.788
+            },
+            {
+              "word": "favorite",
+              "start": 85.249,
+              "end": 85.792,
+              "score": 0.733
+            },
+            {
+              "word": "monster",
+              "start": 85.893,
+              "end": 86.516,
+              "score": 0.731
+            },
+            {
+              "word": "beast.",
+              "start": 86.597,
+              "end": 86.959,
+              "score": 0.606
+            }
+          ],
+          "chars": [
+            {
+              "char": "C",
+              "start": 84.565,
+              "end": 84.585,
+              "score": 0.986
+            },
+            {
+              "char": "h",
+              "start": 84.585,
+              "end": 84.625,
+              "score": 0.655
+            },
+            {
+              "char": "o",
+              "start": 84.625,
+              "end": 84.766,
+              "score": 0.963
+            },
+            {
+              "char": "o",
+              "start": 84.766,
+              "end": 84.866,
+              "score": 0.992
+            },
+            {
+              "char": "s",
+              "start": 84.866,
+              "end": 84.887,
+              "score": 0.999
+            },
+            {
+              "char": "e",
+              "start": 84.887,
+              "end": 84.927,
+              "score": 0.932
+            },
+            {
+              "char": " ",
+              "start": 84.927,
+              "end": 84.947,
+              "score": 0.998
+            },
+            {
+              "char": "y",
+              "start": 84.947,
+              "end": 85.027,
+              "score": 0.771
+            },
+            {
+              "char": "o",
+              "start": 85.027,
+              "end": 85.048,
+              "score": 0.981
+            },
+            {
+              "char": "u",
+              "start": 85.048,
+              "end": 85.108,
+              "score": 0.709
+            },
+            {
+              "char": "r",
+              "start": 85.108,
+              "end": 85.168,
+              "score": 0.691
+            },
+            {
+              "char": " ",
+              "start": 85.168,
+              "end": 85.249,
+              "score": 0.751
+            },
+            {
+              "char": "f",
+              "start": 85.249,
+              "end": 85.43,
+              "score": 0.902
+            },
+            {
+              "char": "a",
+              "start": 85.43,
+              "end": 85.53,
+              "score": 0.942
+            },
+            {
+              "char": "v",
+              "start": 85.53,
+              "end": 85.571,
+              "score": 0.999
+            },
+            {
+              "char": "o",
+              "start": 85.571,
+              "end": 85.651,
+              "score": 0.53
+            },
+            {
+              "char": "r",
+              "start": 85.651,
+              "end": 85.712,
+              "score": 0.752
+            },
+            {
+              "char": "i",
+              "start": 85.712,
+              "end": 85.732,
+              "score": 0.69
+            },
+            {
+              "char": "t",
+              "start": 85.732,
+              "end": 85.772,
+              "score": 0.566
+            },
+            {
+              "char": "e",
+              "start": 85.772,
+              "end": 85.792,
+              "score": 0.483
+            },
+            {
+              "char": " ",
+              "start": 85.792,
+              "end": 85.893,
+              "score": 0.986
+            },
+            {
+              "char": "m",
+              "start": 85.893,
+              "end": 86.034,
+              "score": 0.999
+            },
+            {
+              "char": "o",
+              "start": 86.034,
+              "end": 86.074,
+              "score": 0.537
+            },
+            {
+              "char": "n",
+              "start": 86.074,
+              "end": 86.094,
+              "score": 0.001
+            },
+            {
+              "char": "s",
+              "start": 86.094,
+              "end": 86.195,
+              "score": 0.962
+            },
+            {
+              "char": "t",
+              "start": 86.195,
+              "end": 86.355,
+              "score": 0.994
+            },
+            {
+              "char": "e",
+              "start": 86.355,
+              "end": 86.376,
+              "score": 0.895
+            },
+            {
+              "char": "r",
+              "start": 86.376,
+              "end": 86.516,
+              "score": 0.731
+            },
+            {
+              "char": " ",
+              "start": 86.516,
+              "end": 86.597,
+              "score": 0.921
+            },
+            {
+              "char": "b",
+              "start": 86.597,
+              "end": 86.758,
+              "score": 0.914
+            },
+            {
+              "char": "e",
+              "start": 86.758,
+              "end": 86.778,
+              "score": 0.959
+            },
+            {
+              "char": "a",
+              "start": 86.778,
+              "end": 86.798,
+              "score": 0.002
+            },
+            {
+              "char": "s",
+              "start": 86.798,
+              "end": 86.919,
+              "score": 0.825
+            },
+            {
+              "char": "t",
+              "start": 86.919,
+              "end": 86.939,
+              "score": 0.001
+            },
+            {
+              "char": ".",
+              "start": 86.939,
+              "end": 86.959,
+              "score": 0.936
+            }
+          ]
+        }
+      ],
+      "start": 84.947816,
+      "end": 87.341816,
+      "audible_extent_candidate": {
+        "start": 84.452816,
+        "end": 87.482816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-021",
+      "text": "Suit the way you wanna be, be, be.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 84.14,
+          "end": 86.82,
+          "text": "Choose your favorite monster beast"
+        },
+        {
+          "start": 86.82,
+          "end": 89.34,
+          "text": "Suit the way you wanna be"
+        },
+        {
+          "start": 89.34,
+          "end": 91.94,
+          "text": "Hunting Ed, Hit Hunting Ted"
+        }
+      ],
+      "window_source_start": 86.5,
+      "window_source_end": 90.0,
+      "words": [
+        {
+          "id": "backing-021-w001",
+          "phrase_id": "backing-021",
+          "role": "backing",
+          "text": "Suit",
+          "kind": "lyric",
+          "source_start": 87.144,
+          "source_end": 87.385,
+          "start": 87.526816,
+          "end": 87.767816,
+          "alignment_score": 0.613,
+          "flags": [
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-021-w002",
+          "phrase_id": "backing-021",
+          "role": "backing",
+          "text": "the",
+          "kind": "lyric",
+          "source_start": 87.526,
+          "source_end": 87.767,
+          "start": 87.908816,
+          "end": 88.149816,
+          "alignment_score": 0.812,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-021-w003",
+          "phrase_id": "backing-021",
+          "role": "backing",
+          "text": "way",
+          "kind": "lyric",
+          "source_start": 87.868,
+          "source_end": 88.31,
+          "start": 88.250816,
+          "end": 88.692816,
+          "alignment_score": 0.929,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-021-w004",
+          "phrase_id": "backing-021",
+          "role": "backing",
+          "text": "you",
+          "kind": "lyric",
+          "source_start": 88.33,
+          "source_end": 88.391,
+          "start": 88.712816,
+          "end": 88.773816,
+          "alignment_score": 0.007,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-021-w005",
+          "phrase_id": "backing-021",
+          "role": "backing",
+          "text": "wanna",
+          "kind": "lyric",
+          "source_start": 88.491,
+          "source_end": 89.014,
+          "start": 88.873816,
+          "end": 89.396816,
+          "alignment_score": 0.544,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-021-w006",
+          "phrase_id": "backing-021",
+          "role": "backing",
+          "text": "be,",
+          "kind": "lyric",
+          "source_start": 89.034,
+          "source_end": 89.155,
+          "start": 89.416816,
+          "end": 89.537816,
+          "alignment_score": 0.504,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-021-w007",
+          "phrase_id": "backing-021",
+          "role": "backing",
+          "text": "be,",
+          "kind": "lyric",
+          "source_start": 89.195,
+          "source_end": 89.457,
+          "start": 89.577816,
+          "end": 89.839816,
+          "alignment_score": 0.485,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-021-w008",
+          "phrase_id": "backing-021",
+          "role": "backing",
+          "text": "be.",
+          "kind": "lyric",
+          "source_start": 89.537,
+          "source_end": 89.799,
+          "start": 89.919816,
+          "end": 90.181816,
+          "alignment_score": 0.582,
+          "flags": [
+            "text_review",
+            "audible_tail_after_alignment"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 87.144,
+          "end": 89.799,
+          "text": "Suit the way you wanna be, be, be.",
+          "words": [
+            {
+              "word": "Suit",
+              "start": 87.144,
+              "end": 87.385,
+              "score": 0.613
+            },
+            {
+              "word": "the",
+              "start": 87.526,
+              "end": 87.767,
+              "score": 0.812
+            },
+            {
+              "word": "way",
+              "start": 87.868,
+              "end": 88.31,
+              "score": 0.929
+            },
+            {
+              "word": "you",
+              "start": 88.33,
+              "end": 88.391,
+              "score": 0.007
+            },
+            {
+              "word": "wanna",
+              "start": 88.491,
+              "end": 89.014,
+              "score": 0.544
+            },
+            {
+              "word": "be,",
+              "start": 89.034,
+              "end": 89.155,
+              "score": 0.504
+            },
+            {
+              "word": "be,",
+              "start": 89.195,
+              "end": 89.457,
+              "score": 0.485
+            },
+            {
+              "word": "be.",
+              "start": 89.537,
+              "end": 89.799,
+              "score": 0.582
+            }
+          ],
+          "chars": [
+            {
+              "char": "S",
+              "start": 87.144,
+              "end": 87.284,
+              "score": 0.933
+            },
+            {
+              "char": "u",
+              "start": 87.284,
+              "end": 87.305,
+              "score": 0.463
+            },
+            {
+              "char": "i",
+              "start": 87.305,
+              "end": 87.345,
+              "score": 0.585
+            },
+            {
+              "char": "t",
+              "start": 87.345,
+              "end": 87.385,
+              "score": 0.47
+            },
+            {
+              "char": " ",
+              "start": 87.385,
+              "end": 87.526,
+              "score": 0.871
+            },
+            {
+              "char": "t",
+              "start": 87.526,
+              "end": 87.566,
+              "score": 0.673
+            },
+            {
+              "char": "h",
+              "start": 87.566,
+              "end": 87.647,
+              "score": 0.879
+            },
+            {
+              "char": "e",
+              "start": 87.647,
+              "end": 87.767,
+              "score": 0.884
+            },
+            {
+              "char": " ",
+              "start": 87.767,
+              "end": 87.868,
+              "score": 0.838
+            },
+            {
+              "char": "w",
+              "start": 87.868,
+              "end": 88.129,
+              "score": 0.979
+            },
+            {
+              "char": "a",
+              "start": 88.129,
+              "end": 88.21,
+              "score": 0.913
+            },
+            {
+              "char": "y",
+              "start": 88.21,
+              "end": 88.31,
+              "score": 0.895
+            },
+            {
+              "char": " ",
+              "start": 88.31,
+              "end": 88.33,
+              "score": 0.257
+            },
+            {
+              "char": "y",
+              "start": 88.33,
+              "end": 88.351,
+              "score": 0.002
+            },
+            {
+              "char": "o",
+              "start": 88.351,
+              "end": 88.371,
+              "score": 0.018
+            },
+            {
+              "char": "u",
+              "start": 88.371,
+              "end": 88.391,
+              "score": 0.001
+            },
+            {
+              "char": " ",
+              "start": 88.391,
+              "end": 88.491,
+              "score": 0.792
+            },
+            {
+              "char": "w",
+              "start": 88.491,
+              "end": 88.853,
+              "score": 0.957
+            },
+            {
+              "char": "a",
+              "start": 88.853,
+              "end": 88.874,
+              "score": 0.411
+            },
+            {
+              "char": "n",
+              "start": 88.874,
+              "end": 88.934,
+              "score": 0.645
+            },
+            {
+              "char": "n",
+              "start": 88.934,
+              "end": 88.994,
+              "score": 0.704
+            },
+            {
+              "char": "a",
+              "start": 88.994,
+              "end": 89.014,
+              "score": 0.001
+            },
+            {
+              "char": " ",
+              "start": 89.014,
+              "end": 89.034,
+              "score": 0.004
+            },
+            {
+              "char": "b",
+              "start": 89.034,
+              "end": 89.055,
+              "score": 0.004
+            },
+            {
+              "char": "e",
+              "start": 89.055,
+              "end": 89.135,
+              "score": 0.736
+            },
+            {
+              "char": ",",
+              "start": 89.135,
+              "end": 89.155,
+              "score": 0.771
+            },
+            {
+              "char": " ",
+              "start": 89.155,
+              "end": 89.195,
+              "score": 0.954
+            },
+            {
+              "char": "b",
+              "start": 89.195,
+              "end": 89.397,
+              "score": 0.841
+            },
+            {
+              "char": "e",
+              "start": 89.397,
+              "end": 89.437,
+              "score": 0.455
+            },
+            {
+              "char": ",",
+              "start": 89.437,
+              "end": 89.457,
+              "score": 0.16
+            },
+            {
+              "char": " ",
+              "start": 89.457,
+              "end": 89.537,
+              "score": 0.744
+            },
+            {
+              "char": "b",
+              "start": 89.537,
+              "end": 89.618,
+              "score": 0.729
+            },
+            {
+              "char": "e",
+              "start": 89.618,
+              "end": 89.779,
+              "score": 0.806
+            },
+            {
+              "char": ".",
+              "start": 89.779,
+              "end": 89.799,
+              "score": 0.21
+            }
+          ]
+        }
+      ],
+      "start": 87.526816,
+      "end": 90.181816,
+      "audible_extent_candidate": {
+        "start": 86.882816,
+        "end": 90.382816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-022",
+      "text": "Hunting Ed, head hunting Ted.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 89.34,
+          "end": 91.94,
+          "text": "Hunting Ed, Hit Hunting Ted"
+        },
+        {
+          "start": 91.94,
+          "end": 95.06,
+          "text": "Hide and seek's the game that monsters play"
+        }
+      ],
+      "window_source_start": 89.3,
+      "window_source_end": 92.2,
+      "words": [
+        {
+          "id": "backing-022-w001",
+          "phrase_id": "backing-022",
+          "role": "backing",
+          "text": "Hunting",
+          "kind": "lyric",
+          "source_start": 90.126,
+          "source_end": 90.408,
+          "start": 90.508816,
+          "end": 90.790816,
+          "alignment_score": 0.874,
+          "flags": [
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-022-w002",
+          "phrase_id": "backing-022",
+          "role": "backing",
+          "text": "Ed,",
+          "kind": "lyric",
+          "source_start": 90.71,
+          "source_end": 91.032,
+          "start": 91.092816,
+          "end": 91.414816,
+          "alignment_score": 0.569,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-022-w003",
+          "phrase_id": "backing-022",
+          "role": "backing",
+          "text": "head",
+          "kind": "lyric",
+          "source_start": 91.112,
+          "source_end": 91.294,
+          "start": 91.494816,
+          "end": 91.676816,
+          "alignment_score": 0.338,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-022-w004",
+          "phrase_id": "backing-022",
+          "role": "backing",
+          "text": "hunting",
+          "kind": "lyric",
+          "source_start": 91.415,
+          "source_end": 91.737,
+          "start": 91.797816,
+          "end": 92.119816,
+          "alignment_score": 0.765,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-022-w005",
+          "phrase_id": "backing-022",
+          "role": "backing",
+          "text": "Ted.",
+          "kind": "lyric",
+          "source_start": 91.777,
+          "source_end": 92.059,
+          "start": 92.159816,
+          "end": 92.441816,
+          "alignment_score": 0.764,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 90.126,
+          "end": 92.059,
+          "text": "Hunting Ed, head hunting Ted.",
+          "words": [
+            {
+              "word": "Hunting",
+              "start": 90.126,
+              "end": 90.408,
+              "score": 0.874
+            },
+            {
+              "word": "Ed,",
+              "start": 90.71,
+              "end": 91.032,
+              "score": 0.569
+            },
+            {
+              "word": "head",
+              "start": 91.112,
+              "end": 91.294,
+              "score": 0.338
+            },
+            {
+              "word": "hunting",
+              "start": 91.415,
+              "end": 91.737,
+              "score": 0.765
+            },
+            {
+              "word": "Ted.",
+              "start": 91.777,
+              "end": 92.059,
+              "score": 0.764
+            }
+          ],
+          "chars": [
+            {
+              "char": "H",
+              "start": 90.126,
+              "end": 90.166,
+              "score": 0.624
+            },
+            {
+              "char": "u",
+              "start": 90.166,
+              "end": 90.186,
+              "score": 0.979
+            },
+            {
+              "char": "n",
+              "start": 90.186,
+              "end": 90.247,
+              "score": 0.995
+            },
+            {
+              "char": "t",
+              "start": 90.247,
+              "end": 90.307,
+              "score": 0.656
+            },
+            {
+              "char": "i",
+              "start": 90.307,
+              "end": 90.327,
+              "score": 0.977
+            },
+            {
+              "char": "n",
+              "start": 90.327,
+              "end": 90.367,
+              "score": 0.988
+            },
+            {
+              "char": "g",
+              "start": 90.367,
+              "end": 90.408,
+              "score": 0.901
+            },
+            {
+              "char": " ",
+              "start": 90.408,
+              "end": 90.71,
+              "score": 0.982
+            },
+            {
+              "char": "E",
+              "start": 90.71,
+              "end": 90.851,
+              "score": 0.766
+            },
+            {
+              "char": "d",
+              "start": 90.851,
+              "end": 91.012,
+              "score": 0.799
+            },
+            {
+              "char": ",",
+              "start": 91.012,
+              "end": 91.032,
+              "score": 0.142
+            },
+            {
+              "char": " ",
+              "start": 91.032,
+              "end": 91.112,
+              "score": 0.936
+            },
+            {
+              "char": "h",
+              "start": 91.112,
+              "end": 91.133,
+              "score": 0.094
+            },
+            {
+              "char": "e",
+              "start": 91.133,
+              "end": 91.173,
+              "score": 0.497
+            },
+            {
+              "char": "a",
+              "start": 91.173,
+              "end": 91.274,
+              "score": 0.735
+            },
+            {
+              "char": "d",
+              "start": 91.274,
+              "end": 91.294,
+              "score": 0.024
+            },
+            {
+              "char": " ",
+              "start": 91.294,
+              "end": 91.415,
+              "score": 0.891
+            },
+            {
+              "char": "h",
+              "start": 91.415,
+              "end": 91.455,
+              "score": 0.595
+            },
+            {
+              "char": "u",
+              "start": 91.455,
+              "end": 91.495,
+              "score": 0.516
+            },
+            {
+              "char": "n",
+              "start": 91.495,
+              "end": 91.556,
+              "score": 0.989
+            },
+            {
+              "char": "t",
+              "start": 91.556,
+              "end": 91.636,
+              "score": 0.724
+            },
+            {
+              "char": "i",
+              "start": 91.636,
+              "end": 91.656,
+              "score": 0.985
+            },
+            {
+              "char": "n",
+              "start": 91.656,
+              "end": 91.676,
+              "score": 0.992
+            },
+            {
+              "char": "g",
+              "start": 91.676,
+              "end": 91.737,
+              "score": 0.553
+            },
+            {
+              "char": " ",
+              "start": 91.737,
+              "end": 91.777,
+              "score": 0.941
+            },
+            {
+              "char": "T",
+              "start": 91.777,
+              "end": 91.878,
+              "score": 0.908
+            },
+            {
+              "char": "e",
+              "start": 91.878,
+              "end": 91.978,
+              "score": 0.717
+            },
+            {
+              "char": "d",
+              "start": 91.978,
+              "end": 92.039,
+              "score": 0.699
+            },
+            {
+              "char": ".",
+              "start": 92.039,
+              "end": 92.059,
+              "score": 0.73
+            }
+          ]
+        }
+      ],
+      "start": 90.508816,
+      "end": 92.441816,
+      "audible_extent_candidate": {
+        "start": 89.682816,
+        "end": 92.582816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-023",
+      "text": "Hide and seek's the game that monsters play.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 89.34,
+          "end": 91.94,
+          "text": "Hunting Ed, Hit Hunting Ted"
+        },
+        {
+          "start": 91.94,
+          "end": 95.06,
+          "text": "Hide and seek's the game that monsters play"
+        }
+      ],
+      "window_source_start": 91.7,
+      "window_source_end": 95.5,
+      "words": [
+        {
+          "id": "backing-023-w001",
+          "phrase_id": "backing-023",
+          "role": "backing",
+          "text": "Hide",
+          "kind": "lyric",
+          "source_start": 91.76,
+          "source_end": 92.022,
+          "start": 92.142816,
+          "end": 92.404816,
+          "alignment_score": 0.512,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review",
+            "overlap_previous_word"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-023-w002",
+          "phrase_id": "backing-023",
+          "role": "backing",
+          "text": "and",
+          "kind": "lyric",
+          "source_start": 92.122,
+          "source_end": 92.384,
+          "start": 92.504816,
+          "end": 92.766816,
+          "alignment_score": 0.576,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-023-w003",
+          "phrase_id": "backing-023",
+          "role": "backing",
+          "text": "seek's",
+          "kind": "lyric",
+          "source_start": 92.424,
+          "source_end": 92.685,
+          "start": 92.806816,
+          "end": 93.067816,
+          "alignment_score": 0.472,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-023-w004",
+          "phrase_id": "backing-023",
+          "role": "backing",
+          "text": "the",
+          "kind": "lyric",
+          "source_start": 92.725,
+          "source_end": 92.826,
+          "start": 93.107816,
+          "end": 93.208816,
+          "alignment_score": 0.893,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-023-w005",
+          "phrase_id": "backing-023",
+          "role": "backing",
+          "text": "game",
+          "kind": "lyric",
+          "source_start": 92.886,
+          "source_end": 93.369,
+          "start": 93.268816,
+          "end": 93.751816,
+          "alignment_score": 0.576,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-023-w006",
+          "phrase_id": "backing-023",
+          "role": "backing",
+          "text": "that",
+          "kind": "lyric",
+          "source_start": 93.389,
+          "source_end": 93.61,
+          "start": 93.771816,
+          "end": 93.992816,
+          "alignment_score": 0.29,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-023-w007",
+          "phrase_id": "backing-023",
+          "role": "backing",
+          "text": "monsters",
+          "kind": "lyric",
+          "source_start": 93.711,
+          "source_end": 94.274,
+          "start": 94.093816,
+          "end": 94.656816,
+          "alignment_score": 0.754,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-023-w008",
+          "phrase_id": "backing-023",
+          "role": "backing",
+          "text": "play.",
+          "kind": "lyric",
+          "source_start": 94.656,
+          "source_end": 95.48,
+          "start": 95.038816,
+          "end": 95.862816,
+          "alignment_score": 0.835,
+          "flags": [
+            "text_review",
+            "sustain_review",
+            "window_edge"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 91.76,
+          "end": 95.48,
+          "text": "Hide and seek's the game that monsters play.",
+          "words": [
+            {
+              "word": "Hide",
+              "start": 91.76,
+              "end": 92.022,
+              "score": 0.512
+            },
+            {
+              "word": "and",
+              "start": 92.122,
+              "end": 92.384,
+              "score": 0.576
+            },
+            {
+              "word": "seek's",
+              "start": 92.424,
+              "end": 92.685,
+              "score": 0.472
+            },
+            {
+              "word": "the",
+              "start": 92.725,
+              "end": 92.826,
+              "score": 0.893
+            },
+            {
+              "word": "game",
+              "start": 92.886,
+              "end": 93.369,
+              "score": 0.576
+            },
+            {
+              "word": "that",
+              "start": 93.389,
+              "end": 93.61,
+              "score": 0.29
+            },
+            {
+              "word": "monsters",
+              "start": 93.711,
+              "end": 94.274,
+              "score": 0.754
+            },
+            {
+              "word": "play.",
+              "start": 94.656,
+              "end": 95.48,
+              "score": 0.835
+            }
+          ],
+          "chars": [
+            {
+              "char": "H",
+              "start": 91.76,
+              "end": 91.861,
+              "score": 0.772
+            },
+            {
+              "char": "i",
+              "start": 91.861,
+              "end": 91.981,
+              "score": 0.791
+            },
+            {
+              "char": "d",
+              "start": 91.981,
+              "end": 92.002,
+              "score": 0.36
+            },
+            {
+              "char": "e",
+              "start": 92.002,
+              "end": 92.022,
+              "score": 0.126
+            },
+            {
+              "char": " ",
+              "start": 92.022,
+              "end": 92.122,
+              "score": 0.662
+            },
+            {
+              "char": "a",
+              "start": 92.122,
+              "end": 92.303,
+              "score": 0.595
+            },
+            {
+              "char": "n",
+              "start": 92.303,
+              "end": 92.343,
+              "score": 0.687
+            },
+            {
+              "char": "d",
+              "start": 92.343,
+              "end": 92.384,
+              "score": 0.445
+            },
+            {
+              "char": " ",
+              "start": 92.384,
+              "end": 92.424,
+              "score": 0.551
+            },
+            {
+              "char": "s",
+              "start": 92.424,
+              "end": 92.464,
+              "score": 0.663
+            },
+            {
+              "char": "e",
+              "start": 92.464,
+              "end": 92.504,
+              "score": 0.501
+            },
+            {
+              "char": "e",
+              "start": 92.504,
+              "end": 92.565,
+              "score": 0.649
+            },
+            {
+              "char": "k",
+              "start": 92.565,
+              "end": 92.625,
+              "score": 0.653
+            },
+            {
+              "char": "'",
+              "start": 92.625,
+              "end": 92.645,
+              "score": 0.001
+            },
+            {
+              "char": "s",
+              "start": 92.645,
+              "end": 92.685,
+              "score": 0.364
+            },
+            {
+              "char": " ",
+              "start": 92.685,
+              "end": 92.725,
+              "score": 0.87
+            },
+            {
+              "char": "t",
+              "start": 92.725,
+              "end": 92.746,
+              "score": 0.891
+            },
+            {
+              "char": "h",
+              "start": 92.746,
+              "end": 92.786,
+              "score": 0.886
+            },
+            {
+              "char": "e",
+              "start": 92.786,
+              "end": 92.826,
+              "score": 0.902
+            },
+            {
+              "char": " ",
+              "start": 92.826,
+              "end": 92.886,
+              "score": 0.804
+            },
+            {
+              "char": "g",
+              "start": 92.886,
+              "end": 93.087,
+              "score": 0.985
+            },
+            {
+              "char": "a",
+              "start": 93.087,
+              "end": 93.228,
+              "score": 0.88
+            },
+            {
+              "char": "m",
+              "start": 93.228,
+              "end": 93.349,
+              "score": 0.438
+            },
+            {
+              "char": "e",
+              "start": 93.349,
+              "end": 93.369,
+              "score": 0.001
+            },
+            {
+              "char": " ",
+              "start": 93.369,
+              "end": 93.389,
+              "score": 0.783
+            },
+            {
+              "char": "t",
+              "start": 93.389,
+              "end": 93.409,
+              "score": 0.0
+            },
+            {
+              "char": "h",
+              "start": 93.409,
+              "end": 93.51,
+              "score": 0.539
+            },
+            {
+              "char": "a",
+              "start": 93.51,
+              "end": 93.59,
+              "score": 0.622
+            },
+            {
+              "char": "t",
+              "start": 93.59,
+              "end": 93.61,
+              "score": 0.001
+            },
+            {
+              "char": " ",
+              "start": 93.61,
+              "end": 93.711,
+              "score": 0.781
+            },
+            {
+              "char": "m",
+              "start": 93.711,
+              "end": 93.831,
+              "score": 0.997
+            },
+            {
+              "char": "o",
+              "start": 93.831,
+              "end": 93.871,
+              "score": 0.672
+            },
+            {
+              "char": "n",
+              "start": 93.871,
+              "end": 93.932,
+              "score": 0.972
+            },
+            {
+              "char": "s",
+              "start": 93.932,
+              "end": 93.992,
+              "score": 0.674
+            },
+            {
+              "char": "t",
+              "start": 93.992,
+              "end": 94.113,
+              "score": 0.945
+            },
+            {
+              "char": "e",
+              "start": 94.113,
+              "end": 94.133,
+              "score": 0.991
+            },
+            {
+              "char": "r",
+              "start": 94.133,
+              "end": 94.253,
+              "score": 0.779
+            },
+            {
+              "char": "s",
+              "start": 94.253,
+              "end": 94.274,
+              "score": 0.0
+            },
+            {
+              "char": " ",
+              "start": 94.274,
+              "end": 94.656,
+              "score": 0.704
+            },
+            {
+              "char": "p",
+              "start": 94.656,
+              "end": 94.696,
+              "score": 0.892
+            },
+            {
+              "char": "l",
+              "start": 94.696,
+              "end": 95.359,
+              "score": 0.983
+            },
+            {
+              "char": "a",
+              "start": 95.359,
+              "end": 95.399,
+              "score": 0.769
+            },
+            {
+              "char": "y",
+              "start": 95.399,
+              "end": 95.46,
+              "score": 0.648
+            },
+            {
+              "char": ".",
+              "start": 95.46,
+              "end": 95.48,
+              "score": 0.884
+            }
+          ]
+        }
+      ],
+      "start": 92.142816,
+      "end": 95.862816,
+      "audible_extent_candidate": {
+        "start": 92.082816,
+        "end": 95.882816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-06",
+      "text": "[And play backing / tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 95.3,
+      "window_source_end": 98.4,
+      "words": [],
+      "alignment_segments": [],
+      "start": 95.68281612365455,
+      "end": 98.78281612365456,
+      "audible_extent_candidate": {
+        "start": 95.682816,
+        "end": 96.802816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-025",
+      "text": "And play.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 98.7,
+          "end": 100.08,
+          "text": "And play"
+        }
+      ],
+      "window_source_start": 98.3,
+      "window_source_end": 100.5,
+      "words": [
+        {
+          "id": "backing-025-w001",
+          "phrase_id": "backing-025",
+          "role": "backing",
+          "text": "And",
+          "kind": "lyric",
+          "source_start": 99.309,
+          "source_end": 99.511,
+          "start": 99.691816,
+          "end": 99.893816,
+          "alignment_score": 0.842,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-025-w002",
+          "phrase_id": "backing-025",
+          "role": "backing",
+          "text": "play.",
+          "kind": "lyric",
+          "source_start": 99.572,
+          "source_end": 100.46,
+          "start": 99.954816,
+          "end": 100.842816,
+          "alignment_score": 0.517,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review",
+            "sustain_review"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 99.309,
+          "end": 100.46,
+          "text": "And play.",
+          "words": [
+            {
+              "word": "And",
+              "start": 99.309,
+              "end": 99.511,
+              "score": 0.842
+            },
+            {
+              "word": "play.",
+              "start": 99.572,
+              "end": 100.46,
+              "score": 0.517
+            }
+          ],
+          "chars": [
+            {
+              "char": "A",
+              "start": 99.309,
+              "end": 99.35,
+              "score": 0.882
+            },
+            {
+              "char": "n",
+              "start": 99.35,
+              "end": 99.43,
+              "score": 0.867
+            },
+            {
+              "char": "d",
+              "start": 99.43,
+              "end": 99.511,
+              "score": 0.776
+            },
+            {
+              "char": " ",
+              "start": 99.511,
+              "end": 99.572,
+              "score": 0.845
+            },
+            {
+              "char": "p",
+              "start": 99.572,
+              "end": 99.612,
+              "score": 0.329
+            },
+            {
+              "char": "l",
+              "start": 99.612,
+              "end": 100.339,
+              "score": 0.944
+            },
+            {
+              "char": "a",
+              "start": 100.339,
+              "end": 100.379,
+              "score": 0.484
+            },
+            {
+              "char": "y",
+              "start": 100.379,
+              "end": 100.439,
+              "score": 0.588
+            },
+            {
+              "char": ".",
+              "start": 100.439,
+              "end": 100.46,
+              "score": 0.242
+            }
+          ]
+        }
+      ],
+      "start": 99.691816,
+      "end": 100.842816,
+      "audible_extent_candidate": {
+        "start": 99.602816,
+        "end": 100.882816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-07",
+      "text": "[Repeated backing / tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 100.5,
+      "window_source_end": 103.9,
+      "words": [],
+      "alignment_segments": [],
+      "start": 100.88281612365455,
+      "end": 104.28281612365456,
+      "audible_extent_candidate": {
+        "start": 100.882816,
+        "end": 102.022816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-vocalization-2",
+      "text": "[Backing hook / vocalization]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "ASR hallucinated an unrelated sentence; preserve vocal activity without inventing lyrics.",
+      "window_source_start": 130.8,
+      "window_source_end": 140,
+      "words": [],
+      "alignment_segments": [],
+      "start": 131.18281612365456,
+      "end": 140.38281612365455,
+      "audible_extent_candidate": {
+        "start": 131.242816,
+        "end": 140.382816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-08",
+      "text": "[Backing tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 140,
+      "window_source_end": 141.7,
+      "words": [],
+      "alignment_segments": [],
+      "start": 140.38281612365455,
+      "end": 142.08281612365454,
+      "audible_extent_candidate": {
+        "start": 140.382816,
+        "end": 141.692816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-09",
+      "text": "[Short backing sound]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 153,
+      "window_source_end": 154,
+      "words": [],
+      "alignment_segments": [],
+      "start": 153.38281612365455,
+      "end": 154.38281612365455,
+      "audible_extent_candidate": {
+        "start": 153.552816,
+        "end": 154.072816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-event-10",
+      "text": "[No way / yes way backing or vocalization]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed.",
+      "window_source_start": 156.8,
+      "window_source_end": 163,
+      "words": [],
+      "alignment_segments": [],
+      "start": 157.18281612365456,
+      "end": 163.38281612365455,
+      "audible_extent_candidate": {
+        "start": 157.502816,
+        "end": 162.692816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-049",
+      "text": "Choose your favorite monster beast.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 182.94,
+          "end": 186.54,
+          "text": "Choose your favorite monster beast"
+        }
+      ],
+      "window_source_start": 182.8,
+      "window_source_end": 186.6,
+      "words": [
+        {
+          "id": "backing-049-w001",
+          "phrase_id": "backing-049",
+          "role": "backing",
+          "text": "Choose",
+          "kind": "lyric",
+          "source_start": 184.288,
+          "source_end": 184.67,
+          "start": 184.670816,
+          "end": 185.052816,
+          "alignment_score": 0.639,
+          "flags": [
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-049-w002",
+          "phrase_id": "backing-049",
+          "role": "backing",
+          "text": "your",
+          "kind": "lyric",
+          "source_start": 184.71,
+          "source_end": 184.891,
+          "start": 185.092816,
+          "end": 185.273816,
+          "alignment_score": 0.615,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-049-w003",
+          "phrase_id": "backing-049",
+          "role": "backing",
+          "text": "favorite",
+          "kind": "lyric",
+          "source_start": 184.992,
+          "source_end": 185.494,
+          "start": 185.374816,
+          "end": 185.876816,
+          "alignment_score": 0.444,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-049-w004",
+          "phrase_id": "backing-049",
+          "role": "backing",
+          "text": "monster",
+          "kind": "lyric",
+          "source_start": 185.615,
+          "source_end": 186.278,
+          "start": 185.997816,
+          "end": 186.660816,
+          "alignment_score": 0.661,
+          "flags": [
+            "text_review",
+            "sustain_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-049-w005",
+          "phrase_id": "backing-049",
+          "role": "backing",
+          "text": "beast.",
+          "kind": "lyric",
+          "source_start": 186.339,
+          "source_end": 186.54,
+          "start": 186.721816,
+          "end": 186.922816,
+          "alignment_score": 0.441,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 184.288,
+          "end": 186.54,
+          "text": "Choose your favorite monster beast.",
+          "words": [
+            {
+              "word": "Choose",
+              "start": 184.288,
+              "end": 184.67,
+              "score": 0.639
+            },
+            {
+              "word": "your",
+              "start": 184.71,
+              "end": 184.891,
+              "score": 0.615
+            },
+            {
+              "word": "favorite",
+              "start": 184.992,
+              "end": 185.494,
+              "score": 0.444
+            },
+            {
+              "word": "monster",
+              "start": 185.615,
+              "end": 186.278,
+              "score": 0.661
+            },
+            {
+              "word": "beast.",
+              "start": 186.339,
+              "end": 186.54,
+              "score": 0.441
+            }
+          ],
+          "chars": [
+            {
+              "char": "C",
+              "start": 184.288,
+              "end": 184.308,
+              "score": 0.035
+            },
+            {
+              "char": "h",
+              "start": 184.308,
+              "end": 184.348,
+              "score": 0.506
+            },
+            {
+              "char": "o",
+              "start": 184.348,
+              "end": 184.489,
+              "score": 0.853
+            },
+            {
+              "char": "o",
+              "start": 184.489,
+              "end": 184.61,
+              "score": 0.835
+            },
+            {
+              "char": "s",
+              "start": 184.61,
+              "end": 184.63,
+              "score": 0.923
+            },
+            {
+              "char": "e",
+              "start": 184.63,
+              "end": 184.67,
+              "score": 0.68
+            },
+            {
+              "char": " ",
+              "start": 184.67,
+              "end": 184.71,
+              "score": 0.556
+            },
+            {
+              "char": "y",
+              "start": 184.71,
+              "end": 184.75,
+              "score": 0.541
+            },
+            {
+              "char": "o",
+              "start": 184.75,
+              "end": 184.77,
+              "score": 0.769
+            },
+            {
+              "char": "u",
+              "start": 184.77,
+              "end": 184.811,
+              "score": 0.538
+            },
+            {
+              "char": "r",
+              "start": 184.811,
+              "end": 184.891,
+              "score": 0.613
+            },
+            {
+              "char": " ",
+              "start": 184.891,
+              "end": 184.992,
+              "score": 0.996
+            },
+            {
+              "char": "f",
+              "start": 184.992,
+              "end": 185.172,
+              "score": 0.994
+            },
+            {
+              "char": "a",
+              "start": 185.172,
+              "end": 185.273,
+              "score": 0.876
+            },
+            {
+              "char": "v",
+              "start": 185.273,
+              "end": 185.374,
+              "score": 0.596
+            },
+            {
+              "char": "o",
+              "start": 185.374,
+              "end": 185.414,
+              "score": 0.506
+            },
+            {
+              "char": "r",
+              "start": 185.414,
+              "end": 185.434,
+              "score": 0.581
+            },
+            {
+              "char": "i",
+              "start": 185.434,
+              "end": 185.454,
+              "score": 0.0
+            },
+            {
+              "char": "t",
+              "start": 185.454,
+              "end": 185.474,
+              "score": 0.0
+            },
+            {
+              "char": "e",
+              "start": 185.474,
+              "end": 185.494,
+              "score": 0.0
+            },
+            {
+              "char": " ",
+              "start": 185.494,
+              "end": 185.615,
+              "score": 0.998
+            },
+            {
+              "char": "m",
+              "start": 185.615,
+              "end": 185.756,
+              "score": 0.999
+            },
+            {
+              "char": "o",
+              "start": 185.756,
+              "end": 185.816,
+              "score": 0.685
+            },
+            {
+              "char": "n",
+              "start": 185.816,
+              "end": 185.836,
+              "score": 0.001
+            },
+            {
+              "char": "s",
+              "start": 185.836,
+              "end": 185.916,
+              "score": 0.76
+            },
+            {
+              "char": "t",
+              "start": 185.916,
+              "end": 186.158,
+              "score": 0.894
+            },
+            {
+              "char": "e",
+              "start": 186.158,
+              "end": 186.218,
+              "score": 0.64
+            },
+            {
+              "char": "r",
+              "start": 186.218,
+              "end": 186.278,
+              "score": 0.646
+            },
+            {
+              "char": " ",
+              "start": 186.278,
+              "end": 186.339,
+              "score": 0.672
+            },
+            {
+              "char": "b",
+              "start": 186.339,
+              "end": 186.439,
+              "score": 0.914
+            },
+            {
+              "char": "e",
+              "start": 186.439,
+              "end": 186.459,
+              "score": 0.751
+            },
+            {
+              "char": "a",
+              "start": 186.459,
+              "end": 186.479,
+              "score": 0.001
+            },
+            {
+              "char": "s",
+              "start": 186.479,
+              "end": 186.499,
+              "score": 0.001
+            },
+            {
+              "char": "t",
+              "start": 186.499,
+              "end": 186.52,
+              "score": 0.001
+            },
+            {
+              "char": ".",
+              "start": 186.52,
+              "end": 186.54,
+              "score": 0.981
+            }
+          ]
+        }
+      ],
+      "start": 184.670816,
+      "end": 186.922816,
+      "audible_extent_candidate": {
+        "start": 183.362816,
+        "end": 186.982816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-050",
+      "text": "Suit the way you wanna be, be, be.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 182.94,
+          "end": 186.54,
+          "text": "Choose your favorite monster beast"
+        },
+        {
+          "start": 186.54,
+          "end": 189.76,
+          "text": "Shoot the way you wanna be, be, be"
+        }
+      ],
+      "window_source_start": 186.1,
+      "window_source_end": 189.8,
+      "words": [
+        {
+          "id": "backing-050-w001",
+          "phrase_id": "backing-050",
+          "role": "backing",
+          "text": "Suit",
+          "kind": "lyric",
+          "source_start": 186.904,
+          "source_end": 187.246,
+          "start": 187.286816,
+          "end": 187.628816,
+          "alignment_score": 0.726,
+          "flags": [
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-050-w002",
+          "phrase_id": "backing-050",
+          "role": "backing",
+          "text": "the",
+          "kind": "lyric",
+          "source_start": 187.266,
+          "source_end": 187.508,
+          "start": 187.648816,
+          "end": 187.890816,
+          "alignment_score": 0.707,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-050-w003",
+          "phrase_id": "backing-050",
+          "role": "backing",
+          "text": "way",
+          "kind": "lyric",
+          "source_start": 187.608,
+          "source_end": 187.93,
+          "start": 187.990816,
+          "end": 188.312816,
+          "alignment_score": 0.782,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-050-w004",
+          "phrase_id": "backing-050",
+          "role": "backing",
+          "text": "you",
+          "kind": "lyric",
+          "source_start": 187.99,
+          "source_end": 188.191,
+          "start": 188.372816,
+          "end": 188.573816,
+          "alignment_score": 0.69,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-050-w005",
+          "phrase_id": "backing-050",
+          "role": "backing",
+          "text": "wanna",
+          "kind": "lyric",
+          "source_start": 188.252,
+          "source_end": 188.855,
+          "start": 188.634816,
+          "end": 189.237816,
+          "alignment_score": 0.908,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-050-w006",
+          "phrase_id": "backing-050",
+          "role": "backing",
+          "text": "be,",
+          "kind": "lyric",
+          "source_start": 188.976,
+          "source_end": 189.257,
+          "start": 189.358816,
+          "end": 189.639816,
+          "alignment_score": 0.643,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-050-w007",
+          "phrase_id": "backing-050",
+          "role": "backing",
+          "text": "be,",
+          "kind": "lyric",
+          "source_start": 189.338,
+          "source_end": 189.478,
+          "start": 189.720816,
+          "end": 189.860816,
+          "alignment_score": 0.302,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-050-w008",
+          "phrase_id": "backing-050",
+          "role": "backing",
+          "text": "be.",
+          "kind": "lyric",
+          "source_start": 189.498,
+          "source_end": 189.599,
+          "start": 189.880816,
+          "end": 189.981816,
+          "alignment_score": 0.423,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review",
+            "audible_tail_after_alignment"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 186.904,
+          "end": 189.599,
+          "text": "Suit the way you wanna be, be, be.",
+          "words": [
+            {
+              "word": "Suit",
+              "start": 186.904,
+              "end": 187.246,
+              "score": 0.726
+            },
+            {
+              "word": "the",
+              "start": 187.266,
+              "end": 187.508,
+              "score": 0.707
+            },
+            {
+              "word": "way",
+              "start": 187.608,
+              "end": 187.93,
+              "score": 0.782
+            },
+            {
+              "word": "you",
+              "start": 187.99,
+              "end": 188.191,
+              "score": 0.69
+            },
+            {
+              "word": "wanna",
+              "start": 188.252,
+              "end": 188.855,
+              "score": 0.908
+            },
+            {
+              "word": "be,",
+              "start": 188.976,
+              "end": 189.257,
+              "score": 0.643
+            },
+            {
+              "word": "be,",
+              "start": 189.338,
+              "end": 189.478,
+              "score": 0.302
+            },
+            {
+              "word": "be.",
+              "start": 189.498,
+              "end": 189.599,
+              "score": 0.423
+            }
+          ],
+          "chars": [
+            {
+              "char": "S",
+              "start": 186.904,
+              "end": 187.045,
+              "score": 0.918
+            },
+            {
+              "char": "u",
+              "start": 187.045,
+              "end": 187.065,
+              "score": 0.532
+            },
+            {
+              "char": "i",
+              "start": 187.065,
+              "end": 187.146,
+              "score": 0.682
+            },
+            {
+              "char": "t",
+              "start": 187.146,
+              "end": 187.246,
+              "score": 0.773
+            },
+            {
+              "char": " ",
+              "start": 187.246,
+              "end": 187.266,
+              "score": 0.082
+            },
+            {
+              "char": "t",
+              "start": 187.266,
+              "end": 187.307,
+              "score": 0.745
+            },
+            {
+              "char": "h",
+              "start": 187.307,
+              "end": 187.367,
+              "score": 0.669
+            },
+            {
+              "char": "e",
+              "start": 187.367,
+              "end": 187.508,
+              "score": 0.708
+            },
+            {
+              "char": " ",
+              "start": 187.508,
+              "end": 187.608,
+              "score": 0.898
+            },
+            {
+              "char": "w",
+              "start": 187.608,
+              "end": 187.769,
+              "score": 0.863
+            },
+            {
+              "char": "a",
+              "start": 187.769,
+              "end": 187.829,
+              "score": 0.656
+            },
+            {
+              "char": "y",
+              "start": 187.829,
+              "end": 187.93,
+              "score": 0.828
+            },
+            {
+              "char": " ",
+              "start": 187.93,
+              "end": 187.99,
+              "score": 0.791
+            },
+            {
+              "char": "y",
+              "start": 187.99,
+              "end": 188.111,
+              "score": 0.876
+            },
+            {
+              "char": "o",
+              "start": 188.111,
+              "end": 188.131,
+              "score": 0.524
+            },
+            {
+              "char": "u",
+              "start": 188.131,
+              "end": 188.191,
+              "score": 0.671
+            },
+            {
+              "char": " ",
+              "start": 188.191,
+              "end": 188.252,
+              "score": 0.664
+            },
+            {
+              "char": "w",
+              "start": 188.252,
+              "end": 188.493,
+              "score": 0.958
+            },
+            {
+              "char": "a",
+              "start": 188.493,
+              "end": 188.593,
+              "score": 0.98
+            },
+            {
+              "char": "n",
+              "start": 188.593,
+              "end": 188.614,
+              "score": 0.993
+            },
+            {
+              "char": "n",
+              "start": 188.614,
+              "end": 188.734,
+              "score": 0.81
+            },
+            {
+              "char": "a",
+              "start": 188.734,
+              "end": 188.855,
+              "score": 0.797
+            },
+            {
+              "char": " ",
+              "start": 188.855,
+              "end": 188.976,
+              "score": 0.887
+            },
+            {
+              "char": "b",
+              "start": 188.976,
+              "end": 189.116,
+              "score": 0.82
+            },
+            {
+              "char": "e",
+              "start": 189.116,
+              "end": 189.237,
+              "score": 0.716
+            },
+            {
+              "char": ",",
+              "start": 189.237,
+              "end": 189.257,
+              "score": 0.392
+            },
+            {
+              "char": " ",
+              "start": 189.257,
+              "end": 189.338,
+              "score": 0.74
+            },
+            {
+              "char": "b",
+              "start": 189.338,
+              "end": 189.438,
+              "score": 0.77
+            },
+            {
+              "char": "e",
+              "start": 189.438,
+              "end": 189.458,
+              "score": 0.034
+            },
+            {
+              "char": ",",
+              "start": 189.458,
+              "end": 189.478,
+              "score": 0.102
+            },
+            {
+              "char": " ",
+              "start": 189.478,
+              "end": 189.498,
+              "score": 0.004
+            },
+            {
+              "char": "b",
+              "start": 189.498,
+              "end": 189.539,
+              "score": 0.44
+            },
+            {
+              "char": "e",
+              "start": 189.539,
+              "end": 189.579,
+              "score": 0.445
+            },
+            {
+              "char": ".",
+              "start": 189.579,
+              "end": 189.599,
+              "score": 0.385
+            }
+          ]
+        }
+      ],
+      "start": 187.286816,
+      "end": 189.981816,
+      "audible_extent_candidate": {
+        "start": 186.482816,
+        "end": 190.182816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-051",
+      "text": "Hunting Ed, head hunting Ted.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 186.54,
+          "end": 189.76,
+          "text": "Shoot the way you wanna be, be, be"
+        },
+        {
+          "start": 189.76,
+          "end": 191.76,
+          "text": "Huntin' dead, it hurt, huntin' dead"
+        },
+        {
+          "start": 191.76,
+          "end": 194.88,
+          "text": "Hiding seeks to gain, the monsters play"
+        }
+      ],
+      "window_source_start": 189.3,
+      "window_source_end": 192.1,
+      "words": [
+        {
+          "id": "backing-051-w001",
+          "phrase_id": "backing-051",
+          "role": "backing",
+          "text": "Hunting",
+          "kind": "lyric",
+          "source_start": 189.924,
+          "source_end": 190.247,
+          "start": 190.306816,
+          "end": 190.629816,
+          "alignment_score": 0.584,
+          "flags": [
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-051-w002",
+          "phrase_id": "backing-051",
+          "role": "backing",
+          "text": "Ed,",
+          "kind": "lyric",
+          "source_start": 190.488,
+          "source_end": 190.831,
+          "start": 190.870816,
+          "end": 191.213816,
+          "alignment_score": 0.698,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-051-w003",
+          "phrase_id": "backing-051",
+          "role": "backing",
+          "text": "head",
+          "kind": "lyric",
+          "source_start": 190.932,
+          "source_end": 191.194,
+          "start": 191.314816,
+          "end": 191.576816,
+          "alignment_score": 0.772,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-051-w004",
+          "phrase_id": "backing-051",
+          "role": "backing",
+          "text": "hunting",
+          "kind": "lyric",
+          "source_start": 191.254,
+          "source_end": 191.576,
+          "start": 191.636816,
+          "end": 191.958816,
+          "alignment_score": 0.771,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-051-w005",
+          "phrase_id": "backing-051",
+          "role": "backing",
+          "text": "Ted.",
+          "kind": "lyric",
+          "source_start": 191.596,
+          "source_end": 191.899,
+          "start": 191.978816,
+          "end": 192.281816,
+          "alignment_score": 0.794,
+          "flags": [
+            "text_review",
+            "audible_tail_after_alignment"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 189.924,
+          "end": 191.899,
+          "text": "Hunting Ed, head hunting Ted.",
+          "words": [
+            {
+              "word": "Hunting",
+              "start": 189.924,
+              "end": 190.247,
+              "score": 0.584
+            },
+            {
+              "word": "Ed,",
+              "start": 190.488,
+              "end": 190.831,
+              "score": 0.698
+            },
+            {
+              "word": "head",
+              "start": 190.932,
+              "end": 191.194,
+              "score": 0.772
+            },
+            {
+              "word": "hunting",
+              "start": 191.254,
+              "end": 191.576,
+              "score": 0.771
+            },
+            {
+              "word": "Ted.",
+              "start": 191.596,
+              "end": 191.899,
+              "score": 0.794
+            }
+          ],
+          "chars": [
+            {
+              "char": "H",
+              "start": 189.924,
+              "end": 189.985,
+              "score": 0.805
+            },
+            {
+              "char": "u",
+              "start": 189.985,
+              "end": 190.025,
+              "score": 0.888
+            },
+            {
+              "char": "n",
+              "start": 190.025,
+              "end": 190.086,
+              "score": 0.98
+            },
+            {
+              "char": "t",
+              "start": 190.086,
+              "end": 190.166,
+              "score": 0.82
+            },
+            {
+              "char": "i",
+              "start": 190.166,
+              "end": 190.206,
+              "score": 0.525
+            },
+            {
+              "char": "n",
+              "start": 190.206,
+              "end": 190.227,
+              "score": 0.064
+            },
+            {
+              "char": "g",
+              "start": 190.227,
+              "end": 190.247,
+              "score": 0.006
+            },
+            {
+              "char": " ",
+              "start": 190.247,
+              "end": 190.488,
+              "score": 0.987
+            },
+            {
+              "char": "E",
+              "start": 190.488,
+              "end": 190.569,
+              "score": 0.644
+            },
+            {
+              "char": "d",
+              "start": 190.569,
+              "end": 190.73,
+              "score": 0.767
+            },
+            {
+              "char": ",",
+              "start": 190.73,
+              "end": 190.831,
+              "score": 0.683
+            },
+            {
+              "char": " ",
+              "start": 190.831,
+              "end": 190.932,
+              "score": 0.907
+            },
+            {
+              "char": "h",
+              "start": 190.932,
+              "end": 191.012,
+              "score": 0.988
+            },
+            {
+              "char": "e",
+              "start": 191.012,
+              "end": 191.032,
+              "score": 0.685
+            },
+            {
+              "char": "a",
+              "start": 191.032,
+              "end": 191.153,
+              "score": 0.684
+            },
+            {
+              "char": "d",
+              "start": 191.153,
+              "end": 191.194,
+              "score": 0.732
+            },
+            {
+              "char": " ",
+              "start": 191.194,
+              "end": 191.254,
+              "score": 0.681
+            },
+            {
+              "char": "h",
+              "start": 191.254,
+              "end": 191.314,
+              "score": 0.875
+            },
+            {
+              "char": "u",
+              "start": 191.314,
+              "end": 191.355,
+              "score": 0.91
+            },
+            {
+              "char": "n",
+              "start": 191.355,
+              "end": 191.395,
+              "score": 0.964
+            },
+            {
+              "char": "t",
+              "start": 191.395,
+              "end": 191.476,
+              "score": 0.778
+            },
+            {
+              "char": "i",
+              "start": 191.476,
+              "end": 191.496,
+              "score": 0.459
+            },
+            {
+              "char": "n",
+              "start": 191.496,
+              "end": 191.536,
+              "score": 0.809
+            },
+            {
+              "char": "g",
+              "start": 191.536,
+              "end": 191.576,
+              "score": 0.601
+            },
+            {
+              "char": " ",
+              "start": 191.576,
+              "end": 191.596,
+              "score": 0.144
+            },
+            {
+              "char": "T",
+              "start": 191.596,
+              "end": 191.717,
+              "score": 0.954
+            },
+            {
+              "char": "e",
+              "start": 191.717,
+              "end": 191.798,
+              "score": 0.685
+            },
+            {
+              "char": "d",
+              "start": 191.798,
+              "end": 191.878,
+              "score": 0.57
+            },
+            {
+              "char": ".",
+              "start": 191.878,
+              "end": 191.899,
+              "score": 0.967
+            }
+          ]
+        }
+      ],
+      "start": 190.306816,
+      "end": 192.281816,
+      "audible_extent_candidate": {
+        "start": 189.682816,
+        "end": 192.482816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-052",
+      "text": "Hide and seek's the game that monsters play.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 189.76,
+          "end": 191.76,
+          "text": "Huntin' dead, it hurt, huntin' dead"
+        },
+        {
+          "start": 191.76,
+          "end": 194.88,
+          "text": "Hiding seeks to gain, the monsters play"
+        }
+      ],
+      "window_source_start": 191.4,
+      "window_source_end": 195.4,
+      "words": [
+        {
+          "id": "backing-052-w001",
+          "phrase_id": "backing-052",
+          "role": "backing",
+          "text": "Hide",
+          "kind": "lyric",
+          "source_start": 191.44,
+          "source_end": 191.862,
+          "start": 191.822816,
+          "end": 192.244816,
+          "alignment_score": 0.697,
+          "flags": [
+            "text_review",
+            "window_edge",
+            "overlap_previous_word"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-052-w002",
+          "phrase_id": "backing-052",
+          "role": "backing",
+          "text": "and",
+          "kind": "lyric",
+          "source_start": 191.983,
+          "source_end": 192.204,
+          "start": 192.365816,
+          "end": 192.586816,
+          "alignment_score": 0.613,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-052-w003",
+          "phrase_id": "backing-052",
+          "role": "backing",
+          "text": "seek's",
+          "kind": "lyric",
+          "source_start": 192.244,
+          "source_end": 192.546,
+          "start": 192.626816,
+          "end": 192.928816,
+          "alignment_score": 0.684,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-052-w004",
+          "phrase_id": "backing-052",
+          "role": "backing",
+          "text": "the",
+          "kind": "lyric",
+          "source_start": 192.586,
+          "source_end": 192.686,
+          "start": 192.968816,
+          "end": 193.068816,
+          "alignment_score": 0.53,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-052-w005",
+          "phrase_id": "backing-052",
+          "role": "backing",
+          "text": "game",
+          "kind": "lyric",
+          "source_start": 192.727,
+          "source_end": 193.088,
+          "start": 193.109816,
+          "end": 193.470816,
+          "alignment_score": 0.729,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-052-w006",
+          "phrase_id": "backing-052",
+          "role": "backing",
+          "text": "that",
+          "kind": "lyric",
+          "source_start": 193.109,
+          "source_end": 193.47,
+          "start": 193.491816,
+          "end": 193.852816,
+          "alignment_score": 0.355,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-052-w007",
+          "phrase_id": "backing-052",
+          "role": "backing",
+          "text": "monsters",
+          "kind": "lyric",
+          "source_start": 193.571,
+          "source_end": 194.234,
+          "start": 193.953816,
+          "end": 194.616816,
+          "alignment_score": 0.828,
+          "flags": [
+            "text_review",
+            "sustain_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-052-w008",
+          "phrase_id": "backing-052",
+          "role": "backing",
+          "text": "play.",
+          "kind": "lyric",
+          "source_start": 194.616,
+          "source_end": 195.4,
+          "start": 194.998816,
+          "end": 195.782816,
+          "alignment_score": 0.747,
+          "flags": [
+            "text_review",
+            "sustain_review",
+            "window_edge"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 191.44,
+          "end": 195.4,
+          "text": "Hide and seek's the game that monsters play.",
+          "words": [
+            {
+              "word": "Hide",
+              "start": 191.44,
+              "end": 191.862,
+              "score": 0.697
+            },
+            {
+              "word": "and",
+              "start": 191.983,
+              "end": 192.204,
+              "score": 0.613
+            },
+            {
+              "word": "seek's",
+              "start": 192.244,
+              "end": 192.546,
+              "score": 0.684
+            },
+            {
+              "word": "the",
+              "start": 192.586,
+              "end": 192.686,
+              "score": 0.53
+            },
+            {
+              "word": "game",
+              "start": 192.727,
+              "end": 193.088,
+              "score": 0.729
+            },
+            {
+              "word": "that",
+              "start": 193.109,
+              "end": 193.47,
+              "score": 0.355
+            },
+            {
+              "word": "monsters",
+              "start": 193.571,
+              "end": 194.234,
+              "score": 0.828
+            },
+            {
+              "word": "play.",
+              "start": 194.616,
+              "end": 195.4,
+              "score": 0.747
+            }
+          ],
+          "chars": [
+            {
+              "char": "H",
+              "start": 191.44,
+              "end": 191.48,
+              "score": 0.493
+            },
+            {
+              "char": "i",
+              "start": 191.48,
+              "end": 191.561,
+              "score": 0.726
+            },
+            {
+              "char": "d",
+              "start": 191.561,
+              "end": 191.681,
+              "score": 0.864
+            },
+            {
+              "char": "e",
+              "start": 191.681,
+              "end": 191.862,
+              "score": 0.704
+            },
+            {
+              "char": " ",
+              "start": 191.862,
+              "end": 191.983,
+              "score": 0.691
+            },
+            {
+              "char": "a",
+              "start": 191.983,
+              "end": 192.124,
+              "score": 0.608
+            },
+            {
+              "char": "n",
+              "start": 192.124,
+              "end": 192.164,
+              "score": 0.664
+            },
+            {
+              "char": "d",
+              "start": 192.164,
+              "end": 192.204,
+              "score": 0.568
+            },
+            {
+              "char": " ",
+              "start": 192.204,
+              "end": 192.244,
+              "score": 0.601
+            },
+            {
+              "char": "s",
+              "start": 192.244,
+              "end": 192.305,
+              "score": 0.679
+            },
+            {
+              "char": "e",
+              "start": 192.305,
+              "end": 192.345,
+              "score": 0.796
+            },
+            {
+              "char": "e",
+              "start": 192.345,
+              "end": 192.405,
+              "score": 0.878
+            },
+            {
+              "char": "k",
+              "start": 192.405,
+              "end": 192.465,
+              "score": 0.789
+            },
+            {
+              "char": "'",
+              "start": 192.465,
+              "end": 192.506,
+              "score": 0.314
+            },
+            {
+              "char": "s",
+              "start": 192.506,
+              "end": 192.546,
+              "score": 0.651
+            },
+            {
+              "char": " ",
+              "start": 192.546,
+              "end": 192.586,
+              "score": 0.833
+            },
+            {
+              "char": "t",
+              "start": 192.586,
+              "end": 192.606,
+              "score": 0.58
+            },
+            {
+              "char": "h",
+              "start": 192.606,
+              "end": 192.646,
+              "score": 0.512
+            },
+            {
+              "char": "e",
+              "start": 192.646,
+              "end": 192.686,
+              "score": 0.497
+            },
+            {
+              "char": " ",
+              "start": 192.686,
+              "end": 192.727,
+              "score": 0.845
+            },
+            {
+              "char": "g",
+              "start": 192.727,
+              "end": 192.908,
+              "score": 0.992
+            },
+            {
+              "char": "a",
+              "start": 192.908,
+              "end": 192.988,
+              "score": 0.775
+            },
+            {
+              "char": "m",
+              "start": 192.988,
+              "end": 193.028,
+              "score": 0.548
+            },
+            {
+              "char": "e",
+              "start": 193.028,
+              "end": 193.088,
+              "score": 0.6
+            },
+            {
+              "char": " ",
+              "start": 193.088,
+              "end": 193.109,
+              "score": 0.992
+            },
+            {
+              "char": "t",
+              "start": 193.109,
+              "end": 193.129,
+              "score": 0.0
+            },
+            {
+              "char": "h",
+              "start": 193.129,
+              "end": 193.149,
+              "score": 0.0
+            },
+            {
+              "char": "a",
+              "start": 193.149,
+              "end": 193.269,
+              "score": 0.666
+            },
+            {
+              "char": "t",
+              "start": 193.269,
+              "end": 193.47,
+              "score": 0.752
+            },
+            {
+              "char": " ",
+              "start": 193.47,
+              "end": 193.571,
+              "score": 0.993
+            },
+            {
+              "char": "m",
+              "start": 193.571,
+              "end": 193.712,
+              "score": 0.857
+            },
+            {
+              "char": "o",
+              "start": 193.712,
+              "end": 193.752,
+              "score": 0.882
+            },
+            {
+              "char": "n",
+              "start": 193.752,
+              "end": 193.812,
+              "score": 0.71
+            },
+            {
+              "char": "s",
+              "start": 193.812,
+              "end": 193.892,
+              "score": 0.834
+            },
+            {
+              "char": "t",
+              "start": 193.892,
+              "end": 193.993,
+              "score": 0.996
+            },
+            {
+              "char": "e",
+              "start": 193.993,
+              "end": 194.033,
+              "score": 0.976
+            },
+            {
+              "char": "r",
+              "start": 194.033,
+              "end": 194.194,
+              "score": 0.922
+            },
+            {
+              "char": "s",
+              "start": 194.194,
+              "end": 194.234,
+              "score": 0.445
+            },
+            {
+              "char": " ",
+              "start": 194.234,
+              "end": 194.616,
+              "score": 0.937
+            },
+            {
+              "char": "p",
+              "start": 194.616,
+              "end": 194.817,
+              "score": 0.843
+            },
+            {
+              "char": "l",
+              "start": 194.817,
+              "end": 195.259,
+              "score": 0.903
+            },
+            {
+              "char": "a",
+              "start": 195.259,
+              "end": 195.279,
+              "score": 0.418
+            },
+            {
+              "char": "y",
+              "start": 195.279,
+              "end": 195.38,
+              "score": 0.696
+            },
+            {
+              "char": ".",
+              "start": 195.38,
+              "end": 195.4,
+              "score": 0.876
+            }
+          ]
+        }
+      ],
+      "start": 191.822816,
+      "end": 195.782816,
+      "audible_extent_candidate": {
+        "start": 191.782816,
+        "end": 195.782816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-053",
+      "text": "And play, and play, and play, and play.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 195.76,
+          "end": 197.4,
+          "text": "I'm play"
+        }
+      ],
+      "window_source_start": 195.0,
+      "window_source_end": 205.5,
+      "words": [
+        {
+          "id": "backing-053-w001",
+          "phrase_id": "backing-053",
+          "role": "backing",
+          "text": "And",
+          "kind": "lyric",
+          "source_start": 195.781,
+          "source_end": 195.982,
+          "start": 196.163816,
+          "end": 196.364816,
+          "alignment_score": 0.302,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review",
+            "audible_attack_before_alignment"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-053-w002",
+          "phrase_id": "backing-053",
+          "role": "backing",
+          "text": "play,",
+          "kind": "lyric",
+          "source_start": 196.002,
+          "source_end": 196.122,
+          "start": 196.384816,
+          "end": 196.504816,
+          "alignment_score": 0.109,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-053-w003",
+          "phrase_id": "backing-053",
+          "role": "backing",
+          "text": "and",
+          "kind": "lyric",
+          "source_start": 196.683,
+          "source_end": 196.803,
+          "start": 197.065816,
+          "end": 197.185816,
+          "alignment_score": 0.357,
+          "flags": [
+            "weak_acoustic_match",
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-053-w004",
+          "phrase_id": "backing-053",
+          "role": "backing",
+          "text": "play,",
+          "kind": "lyric",
+          "source_start": 196.844,
+          "source_end": 198.447,
+          "start": 197.226816,
+          "end": 198.829816,
+          "alignment_score": 0.867,
+          "flags": [
+            "text_review",
+            "sustain_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-053-w005",
+          "phrase_id": "backing-053",
+          "role": "backing",
+          "text": "and",
+          "kind": "lyric",
+          "source_start": 199.268,
+          "source_end": 199.448,
+          "start": 199.650816,
+          "end": 199.830816,
+          "alignment_score": 0.724,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-053-w006",
+          "phrase_id": "backing-053",
+          "role": "backing",
+          "text": "play,",
+          "kind": "lyric",
+          "source_start": 199.549,
+          "source_end": 201.853,
+          "start": 199.931816,
+          "end": 202.235816,
+          "alignment_score": 0.824,
+          "flags": [
+            "text_review",
+            "sustain_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-053-w007",
+          "phrase_id": "backing-053",
+          "role": "backing",
+          "text": "and",
+          "kind": "lyric",
+          "source_start": 202.033,
+          "source_end": 202.214,
+          "start": 202.415816,
+          "end": 202.596816,
+          "alignment_score": 0.763,
+          "flags": [
+            "text_review"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "id": "backing-053-w008",
+          "phrase_id": "backing-053",
+          "role": "backing",
+          "text": "play.",
+          "kind": "lyric",
+          "source_start": 202.274,
+          "source_end": 203.336,
+          "start": 202.656816,
+          "end": 203.718816,
+          "alignment_score": 0.714,
+          "flags": [
+            "text_review",
+            "sustain_review"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "alignment_segments": [
+        {
+          "start": 195.781,
+          "end": 203.336,
+          "text": "And play, and play, and play, and play.",
+          "words": [
+            {
+              "word": "And",
+              "start": 195.781,
+              "end": 195.982,
+              "score": 0.302
+            },
+            {
+              "word": "play,",
+              "start": 196.002,
+              "end": 196.122,
+              "score": 0.109
+            },
+            {
+              "word": "and",
+              "start": 196.683,
+              "end": 196.803,
+              "score": 0.357
+            },
+            {
+              "word": "play,",
+              "start": 196.844,
+              "end": 198.447,
+              "score": 0.867
+            },
+            {
+              "word": "and",
+              "start": 199.268,
+              "end": 199.448,
+              "score": 0.724
+            },
+            {
+              "word": "play,",
+              "start": 199.549,
+              "end": 201.853,
+              "score": 0.824
+            },
+            {
+              "word": "and",
+              "start": 202.033,
+              "end": 202.214,
+              "score": 0.763
+            },
+            {
+              "word": "play.",
+              "start": 202.274,
+              "end": 203.336,
+              "score": 0.714
+            }
+          ],
+          "chars": [
+            {
+              "char": "A",
+              "start": 195.781,
+              "end": 195.942,
+              "score": 0.898
+            },
+            {
+              "char": "n",
+              "start": 195.942,
+              "end": 195.962,
+              "score": 0.008
+            },
+            {
+              "char": "d",
+              "start": 195.962,
+              "end": 195.982,
+              "score": 0.001
+            },
+            {
+              "char": " ",
+              "start": 195.982,
+              "end": 196.002,
+              "score": 0.001
+            },
+            {
+              "char": "p",
+              "start": 196.002,
+              "end": 196.022,
+              "score": 0.0
+            },
+            {
+              "char": "l",
+              "start": 196.022,
+              "end": 196.042,
+              "score": 0.001
+            },
+            {
+              "char": "a",
+              "start": 196.042,
+              "end": 196.062,
+              "score": 0.0
+            },
+            {
+              "char": "y",
+              "start": 196.062,
+              "end": 196.102,
+              "score": 0.487
+            },
+            {
+              "char": ",",
+              "start": 196.102,
+              "end": 196.122,
+              "score": 0.056
+            },
+            {
+              "char": " ",
+              "start": 196.122,
+              "end": 196.683,
+              "score": 0.995
+            },
+            {
+              "char": "a",
+              "start": 196.683,
+              "end": 196.723,
+              "score": 0.605
+            },
+            {
+              "char": "n",
+              "start": 196.723,
+              "end": 196.783,
+              "score": 0.447
+            },
+            {
+              "char": "d",
+              "start": 196.783,
+              "end": 196.803,
+              "score": 0.019
+            },
+            {
+              "char": " ",
+              "start": 196.803,
+              "end": 196.844,
+              "score": 0.503
+            },
+            {
+              "char": "p",
+              "start": 196.844,
+              "end": 196.924,
+              "score": 0.895
+            },
+            {
+              "char": "l",
+              "start": 196.924,
+              "end": 197.284,
+              "score": 0.897
+            },
+            {
+              "char": "a",
+              "start": 197.284,
+              "end": 197.344,
+              "score": 0.811
+            },
+            {
+              "char": "y",
+              "start": 197.344,
+              "end": 197.465,
+              "score": 0.782
+            },
+            {
+              "char": ",",
+              "start": 197.465,
+              "end": 198.447,
+              "score": 0.952
+            },
+            {
+              "char": " ",
+              "start": 198.447,
+              "end": 199.268,
+              "score": 0.994
+            },
+            {
+              "char": "a",
+              "start": 199.268,
+              "end": 199.328,
+              "score": 0.614
+            },
+            {
+              "char": "n",
+              "start": 199.328,
+              "end": 199.388,
+              "score": 0.824
+            },
+            {
+              "char": "d",
+              "start": 199.388,
+              "end": 199.448,
+              "score": 0.733
+            },
+            {
+              "char": " ",
+              "start": 199.448,
+              "end": 199.549,
+              "score": 0.89
+            },
+            {
+              "char": "p",
+              "start": 199.549,
+              "end": 199.589,
+              "score": 0.49
+            },
+            {
+              "char": "l",
+              "start": 199.589,
+              "end": 201.432,
+              "score": 0.95
+            },
+            {
+              "char": "a",
+              "start": 201.432,
+              "end": 201.653,
+              "score": 0.893
+            },
+            {
+              "char": "y",
+              "start": 201.653,
+              "end": 201.833,
+              "score": 0.875
+            },
+            {
+              "char": ",",
+              "start": 201.833,
+              "end": 201.853,
+              "score": 0.913
+            },
+            {
+              "char": " ",
+              "start": 201.853,
+              "end": 202.033,
+              "score": 0.931
+            },
+            {
+              "char": "a",
+              "start": 202.033,
+              "end": 202.094,
+              "score": 0.806
+            },
+            {
+              "char": "n",
+              "start": 202.094,
+              "end": 202.154,
+              "score": 0.777
+            },
+            {
+              "char": "d",
+              "start": 202.154,
+              "end": 202.214,
+              "score": 0.705
+            },
+            {
+              "char": " ",
+              "start": 202.214,
+              "end": 202.274,
+              "score": 0.674
+            },
+            {
+              "char": "p",
+              "start": 202.274,
+              "end": 202.995,
+              "score": 0.949
+            },
+            {
+              "char": "l",
+              "start": 202.995,
+              "end": 203.015,
+              "score": 0.008
+            },
+            {
+              "char": "a",
+              "start": 203.015,
+              "end": 203.176,
+              "score": 0.776
+            },
+            {
+              "char": "y",
+              "start": 203.176,
+              "end": 203.316,
+              "score": 0.85
+            },
+            {
+              "char": ".",
+              "start": 203.316,
+              "end": 203.336,
+              "score": 0.986
+            }
+          ]
+        }
+      ],
+      "start": 196.163816,
+      "end": 203.718816,
+      "audible_extent_candidate": {
+        "start": 195.382816,
+        "end": 203.872816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    },
+    {
+      "id": "backing-vocalization-3",
+      "text": "[Closing backing sound / tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Late ASR I am bad is not supported by lyric sheet. Voice versus residual bleed and tail remains unresolved.",
+      "window_source_start": 205.5,
+      "window_source_end": 219.48,
+      "words": [],
+      "alignment_segments": [],
+      "start": 205.88281612365455,
+      "end": 219.86281612365454,
+      "audible_extent_candidate": {
+        "start": 207.482816,
+        "end": 208.262816,
+        "method": "10ms energy, max(-48dBFS, local peak RMS minus 26dB); not verified word edges"
+      }
+    }
+  ],
+  "words": [
+    {
+      "id": "backing-008-w001",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "What",
+      "kind": "lyric",
+      "source_start": 42.785,
+      "source_end": 42.966,
+      "start": 43.167816,
+      "end": 43.348816,
+      "alignment_score": 0.907,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w002",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "kind",
+      "kind": "lyric",
+      "source_start": 43.107,
+      "source_end": 43.589,
+      "start": 43.489816,
+      "end": 43.971816,
+      "alignment_score": 0.922,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w003",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "of",
+      "kind": "lyric",
+      "source_start": 43.65,
+      "source_end": 43.71,
+      "start": 44.032816,
+      "end": 44.092816,
+      "alignment_score": 0.242,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w004",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "monster",
+      "kind": "lyric",
+      "source_start": 43.73,
+      "source_end": 44.052,
+      "start": 44.112816,
+      "end": 44.434816,
+      "alignment_score": 0.524,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w005",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "would",
+      "kind": "lyric",
+      "source_start": 44.072,
+      "source_end": 44.233,
+      "start": 44.454816,
+      "end": 44.615816,
+      "alignment_score": 0.544,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w006",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "you",
+      "kind": "lyric",
+      "source_start": 44.253,
+      "source_end": 44.414,
+      "start": 44.635816,
+      "end": 44.796816,
+      "alignment_score": 0.548,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w007",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "like",
+      "kind": "lyric",
+      "source_start": 44.434,
+      "source_end": 44.736,
+      "start": 44.816816,
+      "end": 45.118816,
+      "alignment_score": 0.71,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w008",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "to",
+      "kind": "lyric",
+      "source_start": 44.756,
+      "source_end": 44.877,
+      "start": 45.138816,
+      "end": 45.259816,
+      "alignment_score": 0.472,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w009",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "make",
+      "kind": "lyric",
+      "source_start": 44.917,
+      "source_end": 45.158,
+      "start": 45.299816,
+      "end": 45.540816,
+      "alignment_score": 0.641,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-008-w010",
+      "phrase_id": "backing-008",
+      "role": "backing",
+      "text": "now?",
+      "kind": "lyric",
+      "source_start": 45.218,
+      "source_end": 45.42,
+      "start": 45.600816,
+      "end": 45.802816,
+      "alignment_score": 0.948,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-009-w001",
+      "phrase_id": "backing-009",
+      "role": "backing",
+      "text": "That",
+      "kind": "lyric",
+      "source_start": 45.523,
+      "source_end": 45.704,
+      "start": 45.905816,
+      "end": 46.086816,
+      "alignment_score": 0.904,
+      "flags": [
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-009-w002",
+      "phrase_id": "backing-009",
+      "role": "backing",
+      "text": "last",
+      "kind": "lyric",
+      "source_start": 45.744,
+      "source_end": 45.986,
+      "start": 46.126816,
+      "end": 46.368816,
+      "alignment_score": 0.498,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-009-w003",
+      "phrase_id": "backing-009",
+      "role": "backing",
+      "text": "one",
+      "kind": "lyric",
+      "source_start": 46.107,
+      "source_end": 46.308,
+      "start": 46.489816,
+      "end": 46.690816,
+      "alignment_score": 0.678,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-009-w004",
+      "phrase_id": "backing-009",
+      "role": "backing",
+      "text": "set",
+      "kind": "lyric",
+      "source_start": 46.349,
+      "source_end": 46.57,
+      "start": 46.731816,
+      "end": 46.952816,
+      "alignment_score": 0.691,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-009-w005",
+      "phrase_id": "backing-009",
+      "role": "backing",
+      "text": "the",
+      "kind": "lyric",
+      "source_start": 46.651,
+      "source_end": 46.852,
+      "start": 47.033816,
+      "end": 47.234816,
+      "alignment_score": 0.893,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-009-w006",
+      "phrase_id": "backing-009",
+      "role": "backing",
+      "text": "town",
+      "kind": "lyric",
+      "source_start": 46.993,
+      "source_end": 47.356,
+      "start": 47.375816,
+      "end": 47.738816,
+      "alignment_score": 0.751,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-009-w007",
+      "phrase_id": "backing-009",
+      "role": "backing",
+      "text": "on",
+      "kind": "lyric",
+      "source_start": 47.376,
+      "source_end": 47.416,
+      "start": 47.758816,
+      "end": 47.798816,
+      "alignment_score": 0.02,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review",
+        "very_short"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-009-w008",
+      "phrase_id": "backing-009",
+      "role": "backing",
+      "text": "fire.",
+      "kind": "lyric",
+      "source_start": 47.456,
+      "source_end": 47.839,
+      "start": 47.838816,
+      "end": 48.221816,
+      "alignment_score": 0.519,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-010-w001",
+      "phrase_id": "backing-010",
+      "role": "backing",
+      "text": "Now",
+      "kind": "lyric",
+      "source_start": 47.882,
+      "source_end": 48.225,
+      "start": 48.264816,
+      "end": 48.607816,
+      "alignment_score": 0.675,
+      "flags": [
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-010-w002",
+      "phrase_id": "backing-010",
+      "role": "backing",
+      "text": "make",
+      "kind": "lyric",
+      "source_start": 48.285,
+      "source_end": 48.909,
+      "start": 48.667816,
+      "end": 49.291816,
+      "alignment_score": 0.637,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-010-w003",
+      "phrase_id": "backing-010",
+      "role": "backing",
+      "text": "one",
+      "kind": "lyric",
+      "source_start": 49.009,
+      "source_end": 49.15,
+      "start": 49.391816,
+      "end": 49.532816,
+      "alignment_score": 0.809,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-010-w004",
+      "phrase_id": "backing-010",
+      "role": "backing",
+      "text": "that",
+      "kind": "lyric",
+      "source_start": 49.17,
+      "source_end": 49.412,
+      "start": 49.552816,
+      "end": 49.794816,
+      "alignment_score": 0.228,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-010-w005",
+      "phrase_id": "backing-010",
+      "role": "backing",
+      "text": "is",
+      "kind": "lyric",
+      "source_start": 49.472,
+      "source_end": 49.533,
+      "start": 49.854816,
+      "end": 49.915816,
+      "alignment_score": 0.764,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-010-w006",
+      "phrase_id": "backing-010",
+      "role": "backing",
+      "text": "twice",
+      "kind": "lyric",
+      "source_start": 49.553,
+      "source_end": 49.875,
+      "start": 49.935816,
+      "end": 50.257816,
+      "alignment_score": 0.477,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-010-w007",
+      "phrase_id": "backing-010",
+      "role": "backing",
+      "text": "as",
+      "kind": "lyric",
+      "source_start": 49.975,
+      "source_end": 50.036,
+      "start": 50.357816,
+      "end": 50.418816,
+      "alignment_score": 0.32,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-010-w008",
+      "phrase_id": "backing-010",
+      "role": "backing",
+      "text": "mean.",
+      "kind": "lyric",
+      "source_start": 50.076,
+      "source_end": 50.499,
+      "start": 50.458816,
+      "end": 50.881816,
+      "alignment_score": 0.655,
+      "flags": [
+        "text_review",
+        "audible_tail_after_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-hook-1-w001",
+      "phrase_id": "backing-hook-1",
+      "role": "backing",
+      "text": "Loose,",
+      "kind": "lyric",
+      "source_start": 58.002,
+      "source_end": 59.59,
+      "start": 58.384816,
+      "end": 59.972816,
+      "alignment_score": 0.399,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review",
+        "sustain_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-hook-1-w002",
+      "phrase_id": "backing-hook-1",
+      "role": "backing",
+      "text": "oh",
+      "kind": "lyric",
+      "source_start": 60.073,
+      "source_end": 60.214,
+      "start": 60.455816,
+      "end": 60.596816,
+      "alignment_score": 0.71,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-hook-1-w003",
+      "phrase_id": "backing-hook-1",
+      "role": "backing",
+      "text": "my.",
+      "kind": "lyric",
+      "source_start": 60.254,
+      "source_end": 61.4,
+      "start": 60.636816,
+      "end": 61.782816,
+      "alignment_score": 0.95,
+      "flags": [
+        "text_review",
+        "sustain_review",
+        "window_edge"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-020-w001",
+      "phrase_id": "backing-020",
+      "role": "backing",
+      "text": "Choose",
+      "kind": "lyric",
+      "source_start": 84.565,
+      "source_end": 84.927,
+      "start": 84.947816,
+      "end": 85.309816,
+      "alignment_score": 0.921,
+      "flags": [
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-020-w002",
+      "phrase_id": "backing-020",
+      "role": "backing",
+      "text": "your",
+      "kind": "lyric",
+      "source_start": 84.947,
+      "source_end": 85.168,
+      "start": 85.329816,
+      "end": 85.550816,
+      "alignment_score": 0.788,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-020-w003",
+      "phrase_id": "backing-020",
+      "role": "backing",
+      "text": "favorite",
+      "kind": "lyric",
+      "source_start": 85.249,
+      "source_end": 85.792,
+      "start": 85.631816,
+      "end": 86.174816,
+      "alignment_score": 0.733,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-020-w004",
+      "phrase_id": "backing-020",
+      "role": "backing",
+      "text": "monster",
+      "kind": "lyric",
+      "source_start": 85.893,
+      "source_end": 86.516,
+      "start": 86.275816,
+      "end": 86.898816,
+      "alignment_score": 0.731,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-020-w005",
+      "phrase_id": "backing-020",
+      "role": "backing",
+      "text": "beast.",
+      "kind": "lyric",
+      "source_start": 86.597,
+      "source_end": 86.959,
+      "start": 86.979816,
+      "end": 87.341816,
+      "alignment_score": 0.606,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-021-w001",
+      "phrase_id": "backing-021",
+      "role": "backing",
+      "text": "Suit",
+      "kind": "lyric",
+      "source_start": 87.144,
+      "source_end": 87.385,
+      "start": 87.526816,
+      "end": 87.767816,
+      "alignment_score": 0.613,
+      "flags": [
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-021-w002",
+      "phrase_id": "backing-021",
+      "role": "backing",
+      "text": "the",
+      "kind": "lyric",
+      "source_start": 87.526,
+      "source_end": 87.767,
+      "start": 87.908816,
+      "end": 88.149816,
+      "alignment_score": 0.812,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-021-w003",
+      "phrase_id": "backing-021",
+      "role": "backing",
+      "text": "way",
+      "kind": "lyric",
+      "source_start": 87.868,
+      "source_end": 88.31,
+      "start": 88.250816,
+      "end": 88.692816,
+      "alignment_score": 0.929,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-021-w004",
+      "phrase_id": "backing-021",
+      "role": "backing",
+      "text": "you",
+      "kind": "lyric",
+      "source_start": 88.33,
+      "source_end": 88.391,
+      "start": 88.712816,
+      "end": 88.773816,
+      "alignment_score": 0.007,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-021-w005",
+      "phrase_id": "backing-021",
+      "role": "backing",
+      "text": "wanna",
+      "kind": "lyric",
+      "source_start": 88.491,
+      "source_end": 89.014,
+      "start": 88.873816,
+      "end": 89.396816,
+      "alignment_score": 0.544,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-021-w006",
+      "phrase_id": "backing-021",
+      "role": "backing",
+      "text": "be,",
+      "kind": "lyric",
+      "source_start": 89.034,
+      "source_end": 89.155,
+      "start": 89.416816,
+      "end": 89.537816,
+      "alignment_score": 0.504,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-021-w007",
+      "phrase_id": "backing-021",
+      "role": "backing",
+      "text": "be,",
+      "kind": "lyric",
+      "source_start": 89.195,
+      "source_end": 89.457,
+      "start": 89.577816,
+      "end": 89.839816,
+      "alignment_score": 0.485,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-021-w008",
+      "phrase_id": "backing-021",
+      "role": "backing",
+      "text": "be.",
+      "kind": "lyric",
+      "source_start": 89.537,
+      "source_end": 89.799,
+      "start": 89.919816,
+      "end": 90.181816,
+      "alignment_score": 0.582,
+      "flags": [
+        "text_review",
+        "audible_tail_after_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-022-w001",
+      "phrase_id": "backing-022",
+      "role": "backing",
+      "text": "Hunting",
+      "kind": "lyric",
+      "source_start": 90.126,
+      "source_end": 90.408,
+      "start": 90.508816,
+      "end": 90.790816,
+      "alignment_score": 0.874,
+      "flags": [
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-022-w002",
+      "phrase_id": "backing-022",
+      "role": "backing",
+      "text": "Ed,",
+      "kind": "lyric",
+      "source_start": 90.71,
+      "source_end": 91.032,
+      "start": 91.092816,
+      "end": 91.414816,
+      "alignment_score": 0.569,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-022-w003",
+      "phrase_id": "backing-022",
+      "role": "backing",
+      "text": "head",
+      "kind": "lyric",
+      "source_start": 91.112,
+      "source_end": 91.294,
+      "start": 91.494816,
+      "end": 91.676816,
+      "alignment_score": 0.338,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-022-w004",
+      "phrase_id": "backing-022",
+      "role": "backing",
+      "text": "hunting",
+      "kind": "lyric",
+      "source_start": 91.415,
+      "source_end": 91.737,
+      "start": 91.797816,
+      "end": 92.119816,
+      "alignment_score": 0.765,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-022-w005",
+      "phrase_id": "backing-022",
+      "role": "backing",
+      "text": "Ted.",
+      "kind": "lyric",
+      "source_start": 91.777,
+      "source_end": 92.059,
+      "start": 92.159816,
+      "end": 92.441816,
+      "alignment_score": 0.764,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-023-w001",
+      "phrase_id": "backing-023",
+      "role": "backing",
+      "text": "Hide",
+      "kind": "lyric",
+      "source_start": 91.76,
+      "source_end": 92.022,
+      "start": 92.142816,
+      "end": 92.404816,
+      "alignment_score": 0.512,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review",
+        "overlap_previous_word"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-023-w002",
+      "phrase_id": "backing-023",
+      "role": "backing",
+      "text": "and",
+      "kind": "lyric",
+      "source_start": 92.122,
+      "source_end": 92.384,
+      "start": 92.504816,
+      "end": 92.766816,
+      "alignment_score": 0.576,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-023-w003",
+      "phrase_id": "backing-023",
+      "role": "backing",
+      "text": "seek's",
+      "kind": "lyric",
+      "source_start": 92.424,
+      "source_end": 92.685,
+      "start": 92.806816,
+      "end": 93.067816,
+      "alignment_score": 0.472,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-023-w004",
+      "phrase_id": "backing-023",
+      "role": "backing",
+      "text": "the",
+      "kind": "lyric",
+      "source_start": 92.725,
+      "source_end": 92.826,
+      "start": 93.107816,
+      "end": 93.208816,
+      "alignment_score": 0.893,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-023-w005",
+      "phrase_id": "backing-023",
+      "role": "backing",
+      "text": "game",
+      "kind": "lyric",
+      "source_start": 92.886,
+      "source_end": 93.369,
+      "start": 93.268816,
+      "end": 93.751816,
+      "alignment_score": 0.576,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-023-w006",
+      "phrase_id": "backing-023",
+      "role": "backing",
+      "text": "that",
+      "kind": "lyric",
+      "source_start": 93.389,
+      "source_end": 93.61,
+      "start": 93.771816,
+      "end": 93.992816,
+      "alignment_score": 0.29,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-023-w007",
+      "phrase_id": "backing-023",
+      "role": "backing",
+      "text": "monsters",
+      "kind": "lyric",
+      "source_start": 93.711,
+      "source_end": 94.274,
+      "start": 94.093816,
+      "end": 94.656816,
+      "alignment_score": 0.754,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-023-w008",
+      "phrase_id": "backing-023",
+      "role": "backing",
+      "text": "play.",
+      "kind": "lyric",
+      "source_start": 94.656,
+      "source_end": 95.48,
+      "start": 95.038816,
+      "end": 95.862816,
+      "alignment_score": 0.835,
+      "flags": [
+        "text_review",
+        "sustain_review",
+        "window_edge"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-025-w001",
+      "phrase_id": "backing-025",
+      "role": "backing",
+      "text": "And",
+      "kind": "lyric",
+      "source_start": 99.309,
+      "source_end": 99.511,
+      "start": 99.691816,
+      "end": 99.893816,
+      "alignment_score": 0.842,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-025-w002",
+      "phrase_id": "backing-025",
+      "role": "backing",
+      "text": "play.",
+      "kind": "lyric",
+      "source_start": 99.572,
+      "source_end": 100.46,
+      "start": 99.954816,
+      "end": 100.842816,
+      "alignment_score": 0.517,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review",
+        "sustain_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-049-w001",
+      "phrase_id": "backing-049",
+      "role": "backing",
+      "text": "Choose",
+      "kind": "lyric",
+      "source_start": 184.288,
+      "source_end": 184.67,
+      "start": 184.670816,
+      "end": 185.052816,
+      "alignment_score": 0.639,
+      "flags": [
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-049-w002",
+      "phrase_id": "backing-049",
+      "role": "backing",
+      "text": "your",
+      "kind": "lyric",
+      "source_start": 184.71,
+      "source_end": 184.891,
+      "start": 185.092816,
+      "end": 185.273816,
+      "alignment_score": 0.615,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-049-w003",
+      "phrase_id": "backing-049",
+      "role": "backing",
+      "text": "favorite",
+      "kind": "lyric",
+      "source_start": 184.992,
+      "source_end": 185.494,
+      "start": 185.374816,
+      "end": 185.876816,
+      "alignment_score": 0.444,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-049-w004",
+      "phrase_id": "backing-049",
+      "role": "backing",
+      "text": "monster",
+      "kind": "lyric",
+      "source_start": 185.615,
+      "source_end": 186.278,
+      "start": 185.997816,
+      "end": 186.660816,
+      "alignment_score": 0.661,
+      "flags": [
+        "text_review",
+        "sustain_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-049-w005",
+      "phrase_id": "backing-049",
+      "role": "backing",
+      "text": "beast.",
+      "kind": "lyric",
+      "source_start": 186.339,
+      "source_end": 186.54,
+      "start": 186.721816,
+      "end": 186.922816,
+      "alignment_score": 0.441,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-050-w001",
+      "phrase_id": "backing-050",
+      "role": "backing",
+      "text": "Suit",
+      "kind": "lyric",
+      "source_start": 186.904,
+      "source_end": 187.246,
+      "start": 187.286816,
+      "end": 187.628816,
+      "alignment_score": 0.726,
+      "flags": [
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-050-w002",
+      "phrase_id": "backing-050",
+      "role": "backing",
+      "text": "the",
+      "kind": "lyric",
+      "source_start": 187.266,
+      "source_end": 187.508,
+      "start": 187.648816,
+      "end": 187.890816,
+      "alignment_score": 0.707,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-050-w003",
+      "phrase_id": "backing-050",
+      "role": "backing",
+      "text": "way",
+      "kind": "lyric",
+      "source_start": 187.608,
+      "source_end": 187.93,
+      "start": 187.990816,
+      "end": 188.312816,
+      "alignment_score": 0.782,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-050-w004",
+      "phrase_id": "backing-050",
+      "role": "backing",
+      "text": "you",
+      "kind": "lyric",
+      "source_start": 187.99,
+      "source_end": 188.191,
+      "start": 188.372816,
+      "end": 188.573816,
+      "alignment_score": 0.69,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-050-w005",
+      "phrase_id": "backing-050",
+      "role": "backing",
+      "text": "wanna",
+      "kind": "lyric",
+      "source_start": 188.252,
+      "source_end": 188.855,
+      "start": 188.634816,
+      "end": 189.237816,
+      "alignment_score": 0.908,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-050-w006",
+      "phrase_id": "backing-050",
+      "role": "backing",
+      "text": "be,",
+      "kind": "lyric",
+      "source_start": 188.976,
+      "source_end": 189.257,
+      "start": 189.358816,
+      "end": 189.639816,
+      "alignment_score": 0.643,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-050-w007",
+      "phrase_id": "backing-050",
+      "role": "backing",
+      "text": "be,",
+      "kind": "lyric",
+      "source_start": 189.338,
+      "source_end": 189.478,
+      "start": 189.720816,
+      "end": 189.860816,
+      "alignment_score": 0.302,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-050-w008",
+      "phrase_id": "backing-050",
+      "role": "backing",
+      "text": "be.",
+      "kind": "lyric",
+      "source_start": 189.498,
+      "source_end": 189.599,
+      "start": 189.880816,
+      "end": 189.981816,
+      "alignment_score": 0.423,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review",
+        "audible_tail_after_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-051-w001",
+      "phrase_id": "backing-051",
+      "role": "backing",
+      "text": "Hunting",
+      "kind": "lyric",
+      "source_start": 189.924,
+      "source_end": 190.247,
+      "start": 190.306816,
+      "end": 190.629816,
+      "alignment_score": 0.584,
+      "flags": [
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-051-w002",
+      "phrase_id": "backing-051",
+      "role": "backing",
+      "text": "Ed,",
+      "kind": "lyric",
+      "source_start": 190.488,
+      "source_end": 190.831,
+      "start": 190.870816,
+      "end": 191.213816,
+      "alignment_score": 0.698,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-051-w003",
+      "phrase_id": "backing-051",
+      "role": "backing",
+      "text": "head",
+      "kind": "lyric",
+      "source_start": 190.932,
+      "source_end": 191.194,
+      "start": 191.314816,
+      "end": 191.576816,
+      "alignment_score": 0.772,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-051-w004",
+      "phrase_id": "backing-051",
+      "role": "backing",
+      "text": "hunting",
+      "kind": "lyric",
+      "source_start": 191.254,
+      "source_end": 191.576,
+      "start": 191.636816,
+      "end": 191.958816,
+      "alignment_score": 0.771,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-051-w005",
+      "phrase_id": "backing-051",
+      "role": "backing",
+      "text": "Ted.",
+      "kind": "lyric",
+      "source_start": 191.596,
+      "source_end": 191.899,
+      "start": 191.978816,
+      "end": 192.281816,
+      "alignment_score": 0.794,
+      "flags": [
+        "text_review",
+        "audible_tail_after_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-052-w001",
+      "phrase_id": "backing-052",
+      "role": "backing",
+      "text": "Hide",
+      "kind": "lyric",
+      "source_start": 191.44,
+      "source_end": 191.862,
+      "start": 191.822816,
+      "end": 192.244816,
+      "alignment_score": 0.697,
+      "flags": [
+        "text_review",
+        "window_edge",
+        "overlap_previous_word"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-052-w002",
+      "phrase_id": "backing-052",
+      "role": "backing",
+      "text": "and",
+      "kind": "lyric",
+      "source_start": 191.983,
+      "source_end": 192.204,
+      "start": 192.365816,
+      "end": 192.586816,
+      "alignment_score": 0.613,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-052-w003",
+      "phrase_id": "backing-052",
+      "role": "backing",
+      "text": "seek's",
+      "kind": "lyric",
+      "source_start": 192.244,
+      "source_end": 192.546,
+      "start": 192.626816,
+      "end": 192.928816,
+      "alignment_score": 0.684,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-052-w004",
+      "phrase_id": "backing-052",
+      "role": "backing",
+      "text": "the",
+      "kind": "lyric",
+      "source_start": 192.586,
+      "source_end": 192.686,
+      "start": 192.968816,
+      "end": 193.068816,
+      "alignment_score": 0.53,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-052-w005",
+      "phrase_id": "backing-052",
+      "role": "backing",
+      "text": "game",
+      "kind": "lyric",
+      "source_start": 192.727,
+      "source_end": 193.088,
+      "start": 193.109816,
+      "end": 193.470816,
+      "alignment_score": 0.729,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-052-w006",
+      "phrase_id": "backing-052",
+      "role": "backing",
+      "text": "that",
+      "kind": "lyric",
+      "source_start": 193.109,
+      "source_end": 193.47,
+      "start": 193.491816,
+      "end": 193.852816,
+      "alignment_score": 0.355,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-052-w007",
+      "phrase_id": "backing-052",
+      "role": "backing",
+      "text": "monsters",
+      "kind": "lyric",
+      "source_start": 193.571,
+      "source_end": 194.234,
+      "start": 193.953816,
+      "end": 194.616816,
+      "alignment_score": 0.828,
+      "flags": [
+        "text_review",
+        "sustain_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-052-w008",
+      "phrase_id": "backing-052",
+      "role": "backing",
+      "text": "play.",
+      "kind": "lyric",
+      "source_start": 194.616,
+      "source_end": 195.4,
+      "start": 194.998816,
+      "end": 195.782816,
+      "alignment_score": 0.747,
+      "flags": [
+        "text_review",
+        "sustain_review",
+        "window_edge"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-053-w001",
+      "phrase_id": "backing-053",
+      "role": "backing",
+      "text": "And",
+      "kind": "lyric",
+      "source_start": 195.781,
+      "source_end": 195.982,
+      "start": 196.163816,
+      "end": 196.364816,
+      "alignment_score": 0.302,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review",
+        "audible_attack_before_alignment"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-053-w002",
+      "phrase_id": "backing-053",
+      "role": "backing",
+      "text": "play,",
+      "kind": "lyric",
+      "source_start": 196.002,
+      "source_end": 196.122,
+      "start": 196.384816,
+      "end": 196.504816,
+      "alignment_score": 0.109,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-053-w003",
+      "phrase_id": "backing-053",
+      "role": "backing",
+      "text": "and",
+      "kind": "lyric",
+      "source_start": 196.683,
+      "source_end": 196.803,
+      "start": 197.065816,
+      "end": 197.185816,
+      "alignment_score": 0.357,
+      "flags": [
+        "weak_acoustic_match",
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-053-w004",
+      "phrase_id": "backing-053",
+      "role": "backing",
+      "text": "play,",
+      "kind": "lyric",
+      "source_start": 196.844,
+      "source_end": 198.447,
+      "start": 197.226816,
+      "end": 198.829816,
+      "alignment_score": 0.867,
+      "flags": [
+        "text_review",
+        "sustain_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-053-w005",
+      "phrase_id": "backing-053",
+      "role": "backing",
+      "text": "and",
+      "kind": "lyric",
+      "source_start": 199.268,
+      "source_end": 199.448,
+      "start": 199.650816,
+      "end": 199.830816,
+      "alignment_score": 0.724,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-053-w006",
+      "phrase_id": "backing-053",
+      "role": "backing",
+      "text": "play,",
+      "kind": "lyric",
+      "source_start": 199.549,
+      "source_end": 201.853,
+      "start": 199.931816,
+      "end": 202.235816,
+      "alignment_score": 0.824,
+      "flags": [
+        "text_review",
+        "sustain_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-053-w007",
+      "phrase_id": "backing-053",
+      "role": "backing",
+      "text": "and",
+      "kind": "lyric",
+      "source_start": 202.033,
+      "source_end": 202.214,
+      "start": 202.415816,
+      "end": 202.596816,
+      "alignment_score": 0.763,
+      "flags": [
+        "text_review"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "backing-053-w008",
+      "phrase_id": "backing-053",
+      "role": "backing",
+      "text": "play.",
+      "kind": "lyric",
+      "source_start": 202.274,
+      "source_end": 203.336,
+      "start": 202.656816,
+      "end": 203.718816,
+      "alignment_score": 0.714,
+      "flags": [
+        "text_review",
+        "sustain_review"
+      ],
+      "status": "needs_review"
+    }
+  ],
+  "master_preview": "../master.wav"
+}

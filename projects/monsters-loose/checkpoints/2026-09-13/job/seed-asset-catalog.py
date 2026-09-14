@@ -1,0 +1,18 @@
+from pathlib import Path
+import json,shutil,hashlib
+root=Path(__file__).resolve().parent;out=root/'assets';out.mkdir(exist_ok=True)
+assert not (out/'catalog.json').exists(),'Existing catalog must not be replaced'
+copies={
+ 'SRC-001-v001.png':Path('C:/Users/arneg/Downloads/MonstersLoose.png'),
+ 'CHAR-001-v001.png':Path('C:/Users/arneg/.codex/generated_images/01a09b27-88d1-77a2-85b3-72e9d2a035b1/exec-05d45c5f-c294-4cb8-80ac-2a8e71ad1f90.png')}
+for name,path in copies.items():shutil.copy2(path,out/name)
+prompt=(root/'zookeeper-v001-prompt.txt').read_text(encoding='utf-8').strip()
+story=json.loads((root/'animatic/narrative-v02.json').read_text(encoding='utf-8'))
+scenes=[{'id':f'SCN-{i+1:03}','title':s['scene'].split(' / ',1)[-1],'start':s['start'],'end':s['end']} for i,s in enumerate(story['scenes'])]
+doc={'version':1,'revision':0,'project':'Monsters Loose','id_policy':'Asset IDs name the subject and remain stable; version IDs name individual immutable candidates. SCN IDs name the existing 15 broad narrative scenes. Never renumber IDs to match a new order. Shot IDs will be assigned when shots are authored.','scenes':scenes,'assets':[
+ {'id':'CHAR-001','name':'Zookeeper · Harper','kind':'character','brief':'First candidate reference derived from SRC-001. Review identity, costume and ink treatment before extending to more views.','continuity':'Auburn curly bob and short fringe; freckles and hazel-green eyes; olive work uniform; HARPER badge, M.U.C.F. shoulder patch, ZOO STAFF ID, radio, utility belt and fingerless gloves. Full trousers and boots are candidate extensions of the cropped source costume. Lasso design remains open.','scene_ids':['SCN-002','SCN-003','SCN-004','SCN-006','SCN-012','SCN-014'],'versions':[{'id':'v001','image':'CHAR-001-v001.png','status':'awaiting_review','review':'','generator':'Built-in Codex image generation; exact model not specified by tool','source_ids':['SRC-001 / v001'],'prompt':prompt,'sha256':hashlib.sha256((out/'CHAR-001-v001.png').read_bytes()).hexdigest()}]},
+ {'id':'SRC-001','name':'Original monster-zoo cover','kind':'source','brief':'User-provided starting image. Anchor for the zookeeper, containment-facility world and comic-book treatment.','continuity':'Retro monster-comic ink and halftone texture; warm paper, olive uniforms, dark teal architecture and red warning accents. This image retains its original Monsters Undone cover lettering.','scene_ids':[s['id'] for s in scenes],'versions':[{'id':'v001','image':'SRC-001-v001.png','status':'source','review':'','generator':'Original user-provided reference','source_ids':[],'prompt':'','sha256':hashlib.sha256((out/'SRC-001-v001.png').read_bytes()).hexdigest()}]}
+]}
+(out/'catalog.json').write_text(json.dumps(doc,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(out/'README.md').write_text('# Monsters Loose asset references\n\nReview at http://127.0.0.1:8742/assets/assets.html#CHAR-001/v001 .\n\nCHAR-001 / v001 is awaiting user approval. SRC-001 / v001 is the original reference. Images are immutable versioned files; future revisions get v002, etc. Reviews and approval belong to a specific version, with recoverable history. Scene IDs SCN-001 through SCN-015 are fixed identities for the existing broad narrative scenes; retain IDs if reordered. No shots have been assigned.\n\nThe catalog records each version\'s image hash, source references, generation route and exact prompt. The style guide will grow from accepted elements. This catalog neither generates images nor renders video: generation remains here, Blender remains the video rig.\n',encoding='utf-8')
+print('Seeded 2 references and 15 stable scene IDs; CHAR-001/v001 awaits review.')

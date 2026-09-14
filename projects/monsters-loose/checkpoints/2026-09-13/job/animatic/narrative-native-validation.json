@@ -1,0 +1,17 @@
+{
+  "native_lyric_audio_unchanged": true,
+  "word_strips": 360,
+  "frames": 5290,
+  "fps": 24,
+  "scenes": 15,
+  "caption_cards": 28,
+  "coverage": "continuous from frame 1 through 5290",
+  "audio": [
+    [
+      "C:\\audio\\shared\\amtw-runtime\\jobs\\monsters-loose-word-timing-20260913\\animatic\\master.wav",
+      1,
+      5290,
+      1.0
+    ]
+  ]
+}

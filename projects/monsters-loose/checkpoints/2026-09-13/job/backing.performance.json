@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "timebase": "source_seconds",
+  "role": "backing",
+  "lyric_source": "https://docs.google.com/document/d/1qY_kvt5ykP-dRfeW8F32nODp9pwMCTr7itkDVvTKoKk/edit",
+  "review_status": "machine_reconciled_not_listening_verified",
+  "phrases": [
+    {
+      "id": "backing-vocalization-1",
+      "start": 0,
+      "end": 1.8,
+      "text": "[Opening backing vocal sound]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Present in signal; no trustworthy independent word transcription."
+    },
+    {
+      "id": "backing-event-01",
+      "start": 11.3,
+      "end": 14.8,
+      "text": "[Opening hook backing]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-event-02",
+      "start": 16.0,
+      "end": 20.2,
+      "text": "[La/na backing vocalization]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-event-03",
+      "start": 37.0,
+      "end": 40.8,
+      "text": "[Undone backing repeats]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-008",
+      "start": 41.9,
+      "end": 45.5,
+      "text": "What kind of monster would you like to make now?",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 42.24,
+          "end": 45.4,
+          "text": "What kind of monster would you like to make now"
+        }
+      ]
+    },
+    {
+      "id": "backing-009",
+      "start": 45.1,
+      "end": 48.0,
+      "text": "That last one set the town on fire.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 42.24,
+          "end": 45.4,
+          "text": "What kind of monster would you like to make now"
+        },
+        {
+          "start": 45.4,
+          "end": 47.78,
+          "text": "That has once set the count of fire"
+        },
+        {
+          "start": 47.78,
+          "end": 50.38,
+          "text": "And I'll make one that is twice as mean"
+        }
+      ]
+    },
+    {
+      "id": "backing-010",
+      "start": 47.5,
+      "end": 50.7,
+      "text": "Now make one that is twice as mean.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 45.4,
+          "end": 47.78,
+          "text": "That has once set the count of fire"
+        },
+        {
+          "start": 47.78,
+          "end": 50.38,
+          "text": "And I'll make one that is twice as mean"
+        },
+        {
+          "start": 50.38,
+          "end": 53.0,
+          "text": "And fifty feet or maybe higher"
+        }
+      ]
+    },
+    {
+      "id": "backing-event-04",
+      "start": 50.8,
+      "end": 57.0,
+      "text": "[Chorus backing / sustained hook]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-hook-1",
+      "start": 57.7,
+      "end": 61.4,
+      "text": "Loose, oh my.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing ASR misrecognized hook as Who is all right; matched to lead and lyric sheet."
+    },
+    {
+      "id": "backing-event-05",
+      "start": 61.4,
+      "end": 62.8,
+      "text": "[Hook tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-020",
+      "start": 83.8,
+      "end": 87.1,
+      "text": "Choose your favorite monster beast.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 81.6,
+          "end": 84.14,
+          "text": "You can't believe they even call that place a zoo"
+        },
+        {
+          "start": 84.14,
+          "end": 86.82,
+          "text": "Choose your favorite monster beast"
+        },
+        {
+          "start": 86.82,
+          "end": 89.34,
+          "text": "Suit the way you wanna be"
+        }
+      ]
+    },
+    {
+      "id": "backing-021",
+      "start": 86.5,
+      "end": 90.0,
+      "text": "Suit the way you wanna be, be, be.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 84.14,
+          "end": 86.82,
+          "text": "Choose your favorite monster beast"
+        },
+        {
+          "start": 86.82,
+          "end": 89.34,
+          "text": "Suit the way you wanna be"
+        },
+        {
+          "start": 89.34,
+          "end": 91.94,
+          "text": "Hunting Ed, Hit Hunting Ted"
+        }
+      ]
+    },
+    {
+      "id": "backing-022",
+      "start": 89.3,
+      "end": 92.2,
+      "text": "Hunting Ed, head hunting Ted.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 89.34,
+          "end": 91.94,
+          "text": "Hunting Ed, Hit Hunting Ted"
+        },
+        {
+          "start": 91.94,
+          "end": 95.06,
+          "text": "Hide and seek's the game that monsters play"
+        }
+      ]
+    },
+    {
+      "id": "backing-023",
+      "start": 91.7,
+      "end": 95.5,
+      "text": "Hide and seek's the game that monsters play.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 89.34,
+          "end": 91.94,
+          "text": "Hunting Ed, Hit Hunting Ted"
+        },
+        {
+          "start": 91.94,
+          "end": 95.06,
+          "text": "Hide and seek's the game that monsters play"
+        }
+      ]
+    },
+    {
+      "id": "backing-event-06",
+      "start": 95.3,
+      "end": 98.4,
+      "text": "[And play backing / tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-025",
+      "start": 98.3,
+      "end": 100.5,
+      "text": "And play.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 98.7,
+          "end": 100.08,
+          "text": "And play"
+        }
+      ]
+    },
+    {
+      "id": "backing-event-07",
+      "start": 100.5,
+      "end": 103.9,
+      "text": "[Repeated backing / tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-vocalization-2",
+      "start": 130.8,
+      "end": 140,
+      "text": "[Backing hook / vocalization]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "ASR hallucinated an unrelated sentence; preserve vocal activity without inventing lyrics."
+    },
+    {
+      "id": "backing-event-08",
+      "start": 140,
+      "end": 141.7,
+      "text": "[Backing tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-event-09",
+      "start": 153,
+      "end": 154,
+      "text": "[Short backing sound]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-event-10",
+      "start": 156.8,
+      "end": 163,
+      "text": "[No way / yes way backing or vocalization]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Audio activity outside reliable backing transcription. Candidate description from lead context; wording/voice versus bleed not confirmed."
+    },
+    {
+      "id": "backing-049",
+      "start": 182.8,
+      "end": 186.6,
+      "text": "Choose your favorite monster beast.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 182.94,
+          "end": 186.54,
+          "text": "Choose your favorite monster beast"
+        }
+      ]
+    },
+    {
+      "id": "backing-050",
+      "start": 186.1,
+      "end": 189.8,
+      "text": "Suit the way you wanna be, be, be.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 182.94,
+          "end": 186.54,
+          "text": "Choose your favorite monster beast"
+        },
+        {
+          "start": 186.54,
+          "end": 189.76,
+          "text": "Shoot the way you wanna be, be, be"
+        }
+      ]
+    },
+    {
+      "id": "backing-051",
+      "start": 189.3,
+      "end": 192.1,
+      "text": "Hunting Ed, head hunting Ted.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 186.54,
+          "end": 189.76,
+          "text": "Shoot the way you wanna be, be, be"
+        },
+        {
+          "start": 189.76,
+          "end": 191.76,
+          "text": "Huntin' dead, it hurt, huntin' dead"
+        },
+        {
+          "start": 191.76,
+          "end": 194.88,
+          "text": "Hiding seeks to gain, the monsters play"
+        }
+      ]
+    },
+    {
+      "id": "backing-052",
+      "start": 191.4,
+      "end": 195.4,
+      "text": "Hide and seek's the game that monsters play.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 189.76,
+          "end": 191.76,
+          "text": "Huntin' dead, it hurt, huntin' dead"
+        },
+        {
+          "start": 191.76,
+          "end": 194.88,
+          "text": "Hiding seeks to gain, the monsters play"
+        }
+      ]
+    },
+    {
+      "id": "backing-053",
+      "start": 195.0,
+      "end": 205.5,
+      "text": "And play, and play, and play, and play.",
+      "kind": "lyric",
+      "text_status": "needs_review",
+      "note": "Backing-stem ASR supports this lyric family; exact doubling, boundaries and repeat count need listening.",
+      "raw_candidates": [
+        {
+          "start": 195.76,
+          "end": 197.4,
+          "text": "I'm play"
+        }
+      ]
+    },
+    {
+      "id": "backing-vocalization-3",
+      "start": 205.5,
+      "end": 219.48,
+      "text": "[Closing backing sound / tail]",
+      "kind": "unresolved_event",
+      "text_status": "needs_review",
+      "note": "Late ASR I am bad is not supported by lyric sheet. Voice versus residual bleed and tail remains unresolved."
+    }
+  ],
+  "master_preview": "../master.wav"
+}

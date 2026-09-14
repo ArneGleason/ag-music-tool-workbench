@@ -1,0 +1,544 @@
+[
+  {
+    "crop_start": 73,
+    "crop_end": 83,
+    "result": {
+      "text": " I'm breaking out one, one, almost, just, just now Got out your eyebrow, tells me what, what your face can't say You can't believe that you're a f***er",
+      "segments": [
+        {
+          "id": 0,
+          "seek": 0,
+          "start": 73.0,
+          "end": 77.46,
+          "text": " I'm breaking out one, one, almost, just, just now",
+          "tokens": [
+            50365,
+            286,
+            478,
+            7697,
+            484,
+            472,
+            11,
+            472,
+            11,
+            1920,
+            11,
+            445,
+            11,
+            445,
+            586,
+            50590
+          ],
+          "temperature": 0,
+          "avg_logprob": -0.5546778820930643,
+          "compression_ratio": 1.3513513513513513,
+          "no_speech_prob": 1.2980305719167973e-10,
+          "words": [
+            {
+              "word": " I'm",
+              "start": 73.0,
+              "end": 73.38,
+              "probability": 0.19940201565623283
+            },
+            {
+              "word": " breaking",
+              "start": 73.38,
+              "end": 73.38,
+              "probability": 0.5385125279426575
+            },
+            {
+              "word": " out",
+              "start": 73.38,
+              "end": 73.8,
+              "probability": 0.8616399765014648
+            },
+            {
+              "word": " one,",
+              "start": 73.8,
+              "end": 74.08,
+              "probability": 0.481694757938385
+            },
+            {
+              "word": " one,",
+              "start": 74.38,
+              "end": 74.66,
+              "probability": 0.7795491218566895
+            },
+            {
+              "word": " almost,",
+              "start": 74.82,
+              "end": 75.46,
+              "probability": 0.9392034411430359
+            },
+            {
+              "word": " just,",
+              "start": 75.9,
+              "end": 76.2,
+              "probability": 0.9325613975524902
+            },
+            {
+              "word": " just",
+              "start": 76.3,
+              "end": 76.8,
+              "probability": 0.9961228966712952
+            },
+            {
+              "word": " now",
+              "start": 76.8,
+              "end": 77.46,
+              "probability": 0.8267992734909058
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "seek": 0,
+          "start": 77.46,
+          "end": 81.6,
+          "text": " Got out your eyebrow, tells me what, what your face can't say",
+          "tokens": [
+            50590,
+            5803,
+            484,
+            428,
+            35875,
+            11,
+            5112,
+            385,
+            437,
+            11,
+            437,
+            428,
+            1851,
+            393,
+            380,
+            584,
+            50798
+          ],
+          "temperature": 0,
+          "avg_logprob": -0.5546778820930643,
+          "compression_ratio": 1.3513513513513513,
+          "no_speech_prob": 1.2980305719167973e-10,
+          "words": [
+            {
+              "word": " Got",
+              "start": 77.46,
+              "end": 77.98,
+              "probability": 0.510953962802887
+            },
+            {
+              "word": " out",
+              "start": 77.98,
+              "end": 78.32,
+              "probability": 0.9852637052536011
+            },
+            {
+              "word": " your",
+              "start": 78.32,
+              "end": 78.62,
+              "probability": 0.8953959941864014
+            },
+            {
+              "word": " eyebrow,",
+              "start": 78.62,
+              "end": 79.24,
+              "probability": 0.38399434089660645
+            },
+            {
+              "word": " tells",
+              "start": 79.42,
+              "end": 79.68,
+              "probability": 0.8992879986763
+            },
+            {
+              "word": " me",
+              "start": 79.68,
+              "end": 79.92,
+              "probability": 0.9963569045066833
+            },
+            {
+              "word": " what,",
+              "start": 79.92,
+              "end": 80.3,
+              "probability": 0.9450482130050659
+            },
+            {
+              "word": " what",
+              "start": 80.38,
+              "end": 80.5,
+              "probability": 0.9736941456794739
+            },
+            {
+              "word": " your",
+              "start": 80.5,
+              "end": 80.62,
+              "probability": 0.9658300876617432
+            },
+            {
+              "word": " face",
+              "start": 80.62,
+              "end": 80.96,
+              "probability": 0.9988260865211487
+            },
+            {
+              "word": " can't",
+              "start": 80.96,
+              "end": 81.32,
+              "probability": 0.892703503370285
+            },
+            {
+              "word": " say",
+              "start": 81.32,
+              "end": 81.6,
+              "probability": 0.998552143573761
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "seek": 0,
+          "start": 81.6,
+          "end": 82.98,
+          "text": " You can't believe that you're a f***er",
+          "tokens": [
+            50798,
+            509,
+            393,
+            380,
+            1697,
+            300,
+            291,
+            434,
+            257,
+            283,
+            13684,
+            260,
+            50915
+          ],
+          "temperature": 0,
+          "avg_logprob": -0.5546778820930643,
+          "compression_ratio": 1.3513513513513513,
+          "no_speech_prob": 1.2980305719167973e-10,
+          "words": [
+            {
+              "word": " You",
+              "start": 81.6,
+              "end": 81.92,
+              "probability": 0.6436036825180054
+            },
+            {
+              "word": " can't",
+              "start": 81.92,
+              "end": 82.3,
+              "probability": 0.9975765645503998
+            },
+            {
+              "word": " believe",
+              "start": 82.3,
+              "end": 82.62,
+              "probability": 0.9963312745094299
+            },
+            {
+              "word": " that",
+              "start": 82.62,
+              "end": 82.94,
+              "probability": 0.42573070526123047
+            },
+            {
+              "word": " you're",
+              "start": 82.94,
+              "end": 82.96000000000001,
+              "probability": 0.5487707257270813
+            },
+            {
+              "word": " a",
+              "start": 82.96000000000001,
+              "end": 82.96000000000001,
+              "probability": 0.10067186504602432
+            },
+            {
+              "word": " f***er",
+              "start": 82.96000000000001,
+              "end": 82.98,
+              "probability": 0.3559998075167338
+            }
+          ]
+        }
+      ],
+      "language": "en"
+    }
+  },
+  {
+    "crop_start": 130.5,
+    "crop_end": 140,
+    "result": {
+      "text": " Until we set the monsters loose",
+      "segments": [
+        {
+          "id": 0,
+          "seek": 0,
+          "start": 130.5,
+          "end": 137.18,
+          "text": " Until we set the monsters loose",
+          "tokens": [
+            50365,
+            9088,
+            321,
+            992,
+            264,
+            15785,
+            9612,
+            50715
+          ],
+          "temperature": 0,
+          "avg_logprob": -0.6800913280910916,
+          "compression_ratio": 0.7948717948717948,
+          "no_speech_prob": 8.507265725210544e-11,
+          "words": [
+            {
+              "word": " Until",
+              "start": 130.5,
+              "end": 131.58,
+              "probability": 0.30201587080955505
+            },
+            {
+              "word": " we",
+              "start": 131.58,
+              "end": 134.6,
+              "probability": 0.984429121017456
+            },
+            {
+              "word": " set",
+              "start": 134.6,
+              "end": 134.96,
+              "probability": 0.852622389793396
+            },
+            {
+              "word": " the",
+              "start": 134.96,
+              "end": 135.22,
+              "probability": 0.9887517094612122
+            },
+            {
+              "word": " monsters",
+              "start": 135.22,
+              "end": 135.82,
+              "probability": 0.9651978611946106
+            },
+            {
+              "word": " loose",
+              "start": 135.82,
+              "end": 137.18,
+              "probability": 0.9156500697135925
+            }
+          ]
+        }
+      ],
+      "language": "en"
+    }
+  },
+  {
+    "crop_start": 171,
+    "crop_end": 183,
+    "result": {
+      "text": " That I hang on every day You may",
+      "segments": [
+        {
+          "id": 0,
+          "seek": 0,
+          "start": 171.0,
+          "end": 174.56,
+          "text": " That I hang on every day",
+          "tokens": [
+            50365,
+            663,
+            286,
+            3967,
+            322,
+            633,
+            786,
+            50580
+          ],
+          "temperature": 0,
+          "avg_logprob": -0.5504016876220703,
+          "compression_ratio": 0.8,
+          "no_speech_prob": 1.1449158288101557e-10,
+          "words": [
+            {
+              "word": " That",
+              "start": 171.0,
+              "end": 172.62,
+              "probability": 0.33055970072746277
+            },
+            {
+              "word": " I",
+              "start": 172.62,
+              "end": 172.94,
+              "probability": 0.918498158454895
+            },
+            {
+              "word": " hang",
+              "start": 172.94,
+              "end": 173.24,
+              "probability": 0.888038158416748
+            },
+            {
+              "word": " on",
+              "start": 173.24,
+              "end": 173.54,
+              "probability": 0.5985642671585083
+            },
+            {
+              "word": " every",
+              "start": 173.54,
+              "end": 174.04,
+              "probability": 0.928514838218689
+            },
+            {
+              "word": " day",
+              "start": 174.04,
+              "end": 174.56,
+              "probability": 0.7685534358024597
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "seek": 0,
+          "start": 176.42,
+          "end": 178.28,
+          "text": " You may",
+          "tokens": [
+            50580,
+            509,
+            815,
+            50741
+          ],
+          "temperature": 0,
+          "avg_logprob": -0.5504016876220703,
+          "compression_ratio": 0.8,
+          "no_speech_prob": 1.1449158288101557e-10,
+          "words": [
+            {
+              "word": " You",
+              "start": 176.42,
+              "end": 177.44,
+              "probability": 0.5557379126548767
+            },
+            {
+              "word": " may",
+              "start": 177.44,
+              "end": 178.28,
+              "probability": 0.7852019667625427
+            }
+          ]
+        }
+      ],
+      "language": "en"
+    }
+  },
+  {
+    "crop_start": 194,
+    "crop_end": 219.48,
+    "result": {
+      "text": " Just by, I'm by And by, I'm by",
+      "segments": [
+        {
+          "id": 0,
+          "seek": 0,
+          "start": 194.0,
+          "end": 197.42,
+          "text": " Just by, I'm by",
+          "tokens": [
+            50365,
+            1449,
+            538,
+            11,
+            286,
+            478,
+            538,
+            50545
+          ],
+          "temperature": 0,
+          "avg_logprob": -0.7421005473417395,
+          "compression_ratio": 1.1111111111111112,
+          "no_speech_prob": 7.136575358446251e-11,
+          "words": [
+            {
+              "word": " Just",
+              "start": 194.0,
+              "end": 194.36,
+              "probability": 0.08125261217355728
+            },
+            {
+              "word": " by,",
+              "start": 194.36,
+              "end": 195.12,
+              "probability": 0.3083714246749878
+            },
+            {
+              "word": " I'm",
+              "start": 196.54,
+              "end": 196.88,
+              "probability": 0.7385501265525818
+            },
+            {
+              "word": " by",
+              "start": 196.88,
+              "end": 197.42,
+              "probability": 0.8373517394065857
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "seek": 0,
+          "start": 197.42,
+          "end": 203.04,
+          "text": " And by, I'm by",
+          "tokens": [
+            50545,
+            400,
+            538,
+            11,
+            286,
+            478,
+            538,
+            50831
+          ],
+          "temperature": 0,
+          "avg_logprob": -0.7421005473417395,
+          "compression_ratio": 1.1111111111111112,
+          "no_speech_prob": 7.136575358446251e-11,
+          "words": [
+            {
+              "word": " And",
+              "start": 197.42,
+              "end": 199.4,
+              "probability": 0.2742398679256439
+            },
+            {
+              "word": " by,",
+              "start": 199.4,
+              "end": 200.06,
+              "probability": 0.9893129467964172
+            },
+            {
+              "word": " I'm",
+              "start": 200.58,
+              "end": 202.26,
+              "probability": 0.9617028832435608
+            },
+            {
+              "word": " by",
+              "start": 202.26,
+              "end": 203.04,
+              "probability": 0.9919354915618896
+            }
+          ]
+        }
+      ],
+      "language": "en"
+    }
+  }
+]
